@@ -1,0 +1,9 @@
+﻿.idea
+UserSettings
+GoogleSpreadSheetLoader.sln
+GoogleSpreadSheetLoader.sln.DotSettings.user
+*.csproj
+*.DS_Store
+obj
+Logs
+Library
