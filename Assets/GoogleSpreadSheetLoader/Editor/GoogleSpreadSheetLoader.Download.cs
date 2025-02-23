@@ -1,53 +1,51 @@
 using System.Collections.Generic;
 using System.Linq;
+using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
+using static GoogleSpreadSheetLoader.Download.GSSL_Download;
 
-namespace GoogleSpreadSheetLoader
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ConvertToConstant.Local
+
+namespace GoogleSpreadSheetLoader.Download
 {
-    public partial class GoogleSpreadSheetLoaderWindow
+    public class DownloadView
     {
-        private Dictionary<int, bool> _dicDownloadSpreadSheetCheck = new Dictionary<int, bool>();
+        private Dictionary<int, bool> _dicDownloadSpreadSheetCheck = new();
 
-        private Dictionary<string, Dictionary<string, bool>> _dicDownloadSheetCheck =
-            new Dictionary<string, Dictionary<string, bool>>();
+        private Dictionary<string, Dictionary<string, bool>> _dicDownloadSheetCheck = new();
 
         // Key : SpreadSheetId , Value : SheetNames
-        private Dictionary<string, List<string>> _dicSheetNames = new Dictionary<string, List<string>>();
+        private Dictionary<string, List<string>> _dicSheetNames = new();
+
 
         private eDownloadState _spreadSheetDownloadState = eDownloadState.None;
         private eDownloadState _sheetDownloadState = eDownloadState.None;
         private string _spreadSheetDownloadMessage = "";
         private string _sheetDownloadMessage = "";
-        private Vector2 _sheetDownloadScrollPos = new Vector2(0, 0);
+        private Vector2 _sheetDownloadScrollPos = new(0, 0);
 
-        private enum eDownloadState
+        public void DrawDownloadView()
         {
-            None,
-            Downloading,
-            Complete,
-        }
-        
-        private void DrawDownloadView()
-        {
-            DownloadView_DrawSpreadSheetList();
+            DrawSpreadSheetList();
 
-            DownloadView_DrawDownloadSpreadSheetBtn();
+            DrawDownloadSpreadSheetBtn();
 
-            DownloadView_DrawSheetInfo();
+            DrawSheetInfo();
 
-            DownloadView_DrawDownloadSheetBtn();
+            DrawDownloadSheetBtn();
         }
 
-        private void DownloadView_DrawSpreadSheetList()
+        private void DrawSpreadSheetList()
         {
             EditorGUILayout.Separator();
             EditorGUILayout.LabelField("  정보를 다운로드할 스프레드 시트 선택", EditorStyles.whiteLargeLabel);
             EditorGUILayout.Separator();
 
-            for (int i = 0; i < _settingData.listSpreadSheetInfo.Count; i++)
+            for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
-                SpreadSheetInfo _info = _settingData.listSpreadSheetInfo[i];
+                SpreadSheetInfo _info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
 
                 EditorGUILayout.BeginHorizontal();
 
@@ -65,7 +63,7 @@ namespace GoogleSpreadSheetLoader
             }
         }
 
-        private async void DownloadView_DrawDownloadSpreadSheetBtn()
+        private async void DrawDownloadSpreadSheetBtn()
         {
             EditorGUILayout.Separator();
 
@@ -80,7 +78,14 @@ namespace GoogleSpreadSheetLoader
                     {
                         if (GUILayout.Button("스프레드 시트 정보 다운로드"))
                         {
-                            DownloadSpreadSheet();
+                            DownloadSpreadSheet(_dicDownloadSpreadSheetCheck,
+                                _dicSheetNames,
+                                state => { _spreadSheetDownloadState = state; },
+                                message =>
+                                {
+                                    _spreadSheetDownloadMessage = message;
+                                    EditorWindow.focusedWindow.Repaint();
+                                });
                         }
                     }
                 }
@@ -100,16 +105,16 @@ namespace GoogleSpreadSheetLoader
             }
         }
 
-        private void DownloadView_DrawSheetInfo()
+        private void DrawSheetInfo()
         {
             EditorGUILayout.Separator();
 
             EditorGUILayout.LabelField("  다운로드 받은 시트 정보들", EditorStyles.whiteLargeLabel);
             _sheetDownloadScrollPos = EditorGUILayout.BeginScrollView(_sheetDownloadScrollPos,
                 GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-            for (int index = 0; index < _settingData.listSpreadSheetInfo.Count; index++)
+            for (int index = 0; index < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; index++)
             {
-                SpreadSheetInfo info = _settingData.listSpreadSheetInfo[index];
+                SpreadSheetInfo info = GSSL_Setting.SettingData.listSpreadSheetInfo[index];
                 EditorGUILayout.Separator();
 
 
@@ -158,15 +163,15 @@ namespace GoogleSpreadSheetLoader
             EditorGUILayout.Space(50);
         }
 
-        private async void DownloadView_DrawDownloadSheetBtn()
+        private async void DrawDownloadSheetBtn()
         {
             bool isDownloadable = _dicDownloadSheetCheck.Count > 0 &&
                                   _dicDownloadSheetCheck.Any(x => x.Value.Any(x => x.Value));
 
             if (!isDownloadable) return;
-            
+
             GUILayout.FlexibleSpace();
-            
+
             EditorGUILayout.Separator();
 
             EditorGUILayout.BeginHorizontal();
@@ -178,14 +183,19 @@ namespace GoogleSpreadSheetLoader
                 {
                     if (GUILayout.Button("시트 다운로드", GUILayout.Width(150)))
                     {
-                        DownloadSheet();
+                        DownloadSheet(_dicDownloadSheetCheck,
+                            state => _sheetDownloadState = state,
+                            message =>
+                            {
+                                _sheetDownloadMessage = message;
+                                GSSL_EditorWindow.focusedWindow.Repaint();
+                            });
                     }
                 }
                     break;
                 case eDownloadState.Downloading:
                 case eDownloadState.Complete:
                 {
-
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.FlexibleSpace();
 
@@ -193,7 +203,6 @@ namespace GoogleSpreadSheetLoader
 
                     GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();
-
                 }
                     break;
             }

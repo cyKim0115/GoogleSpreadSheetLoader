@@ -1,98 +1,76 @@
+using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 
-namespace GoogleSpreadSheetLoader
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+
+namespace GoogleSpreadSheetLoader.Setting
 {
-    public partial class GoogleSpreadSheetLoaderWindow
+    public class SettingView
     {
-        private readonly string _settingDataPath = $"Assets/GoogleSpreadSheetLoader/SettingData.asset";
-        private SettingData _settingData;
         private bool _apiKeyEditToggle;
         private bool _sheetInfoEditToggle;
         private bool _sheetTargetEditToggle;
-        private string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
         
-        private void DrawSettingView()
+        public void DrawSettingView()
         {
-            SettingView_DrawApiKey();
-            
-            SettingView_DrawSpreadSheetsInfos();
+            DrawApiKey();
 
-            SettingView_DrawAddDelBtns();
+            DrawSpreadSheetsInfos();
 
-            SettingView_SheetSettings();
-            
-            SettingView_SaveSettingData();
-        }
-        
-        private bool Setting_CheckAndCreate()
-        {
-            if (_settingData == null)
-            {
-                // 없으면 파일 생성
-                if (!AssetDatabase.AssetPathExists(_settingDataPath))
-                {
-                    SettingData obj = ScriptableObject.CreateInstance<SettingData>();
-                    obj = new SettingData();
+            DrawAddRemoveButtons();
 
-                    AssetDatabase.CreateAsset(obj, _settingDataPath);
-                }
+            DrawSheetSettings();
 
-                _settingData =
-                    AssetDatabase.LoadAssetAtPath<SettingData>(_settingDataPath);
-            }
-
-            return _settingData != null;
+            SaveSettingData();
         }
 
-        private void SettingView_DrawApiKey()
+
+        private void DrawApiKey()
         {
             EditorGUILayout.Separator();
 
-            _apiKeyEditToggle = EditorGUILayout.ToggleLeft("  API 키",_apiKeyEditToggle, EditorStyles.whiteLargeLabel);
-            
+            _apiKeyEditToggle = EditorGUILayout.ToggleLeft("  API 키", _apiKeyEditToggle, EditorStyles.whiteLargeLabel);
+
             if (_apiKeyEditToggle)
-                _settingData.apiKey = EditorGUILayout.TextField(_settingData.apiKey);
+                GSSL_Setting.SettingData.apiKey = EditorGUILayout.TextField(GSSL_Setting.SettingData.apiKey);
             else
-                EditorGUILayout.LabelField(_settingData.apiKey);
+                EditorGUILayout.LabelField(GSSL_Setting.SettingData.apiKey);
         }
 
-        private void SettingView_DrawSpreadSheetsInfos()
+        private void DrawSpreadSheetsInfos()
         {
             EditorGUILayout.Separator();
 
-            _sheetInfoEditToggle = EditorGUILayout.ToggleLeft("  스프레드 시트 데이터 입력",_sheetInfoEditToggle, EditorStyles.whiteLargeLabel);
+            _sheetInfoEditToggle =
+                EditorGUILayout.ToggleLeft("  스프레드 시트 데이터 입력", _sheetInfoEditToggle, EditorStyles.whiteLargeLabel);
 
             int sheetNameWidth = 100;
-            for (int i = 0; i < _settingData.listSpreadSheetInfo.Count; i++)
+            for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
-                SpreadSheetInfo _info = _settingData.listSpreadSheetInfo[i];
-                
+                SpreadSheetInfo _info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
+
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField($"{i + 1}. ",GUILayout.Width(20));
+                EditorGUILayout.LabelField($"{i + 1}. ", GUILayout.Width(20));
 
                 if (_sheetInfoEditToggle)
                 {
-                    _info.spreadSheetName = EditorGUILayout.TextField(_info.spreadSheetName,GUILayout.Width(sheetNameWidth));
+                    _info.spreadSheetName =
+                        EditorGUILayout.TextField(_info.spreadSheetName, GUILayout.Width(sheetNameWidth));
                     _info.spreadSheetId = EditorGUILayout.TextField(_info.spreadSheetId);
                 }
                 else
                 {
-                    EditorGUILayout.LabelField(_info.spreadSheetName,GUILayout.Width(sheetNameWidth));
+                    EditorGUILayout.LabelField(_info.spreadSheetName, GUILayout.Width(sheetNameWidth));
                     EditorGUILayout.LabelField(_info.spreadSheetId);
                     GUILayout.FlexibleSpace();
-                    // if (GUILayout.Button("연결"))
-                    // {
-                    //     string url = string.Format(_spreadSheetOpenUrl, _info.spreadSheetId, _settingData.apiKey);
-                    //     Application.OpenURL(url);
-                    // }
                 }
-                
+
                 EditorGUILayout.EndHorizontal();
             }
         }
 
-        private void SettingView_DrawAddDelBtns()
+        private void DrawAddRemoveButtons()
         {
             if (!_sheetInfoEditToggle) return;
 
@@ -101,14 +79,14 @@ namespace GoogleSpreadSheetLoader
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
 
-            if (_settingData.listSpreadSheetInfo.Count > 0 && GUILayout.Button("-", GUILayout.Width(100)))
+            if (GSSL_Setting.SettingData.listSpreadSheetInfo.Count > 0 && GUILayout.Button("-", GUILayout.Width(100)))
             {
-                _settingData.listSpreadSheetInfo.RemoveAt(_settingData.listSpreadSheetInfo.Count - 1);
+                GSSL_Setting.SettingData.listSpreadSheetInfo.RemoveAt(GSSL_Setting.SettingData.listSpreadSheetInfo.Count - 1);
             }
 
             if (GUILayout.Button("+", GUILayout.Width(100)))
             {
-                _settingData.listSpreadSheetInfo.Add(new SpreadSheetInfo()
+                GSSL_Setting.SettingData.listSpreadSheetInfo.Add(new SpreadSheetInfo()
                     { spreadSheetName = "Name Here", spreadSheetId = "Id Here" });
             }
 
@@ -116,52 +94,58 @@ namespace GoogleSpreadSheetLoader
             EditorGUILayout.EndHorizontal();
         }
 
-        private void SettingView_SheetSettings()
+        private void DrawSheetSettings()
         {
             EditorGUILayout.Separator();
 
-            _sheetTargetEditToggle = EditorGUILayout.ToggleLeft("  시트 설정",_sheetTargetEditToggle, EditorStyles.whiteLargeLabel);
+            _sheetTargetEditToggle =
+                EditorGUILayout.ToggleLeft("  시트 설정", _sheetTargetEditToggle, EditorStyles.whiteLargeLabel);
             if (_sheetTargetEditToggle)
             {
                 // 무시
                 EditorGUILayout.BeginHorizontal();
-                GUILayout.Box(" 시트의 제목에서",GUILayout.Width(100));
-                EditorGUILayout.TextField(_settingData.sheetTargetStr,GUILayout.Width(50));
+                GUILayout.Box(" 시트의 제목에서", GUILayout.Width(100));
+                EditorGUILayout.TextField(GSSL_Setting.SettingData.sheetTargetStr, GUILayout.Width(50));
                 // EditorGUILayout.EndHorizontal();
                 // EditorGUILayout.BeginHorizontal();
-                GUILayout.Box("문구가 포함되어 있을 경우, 대상 시트에서 ",GUILayout.Width(250));
-                _settingData.sheetTarget = (SettingData.eSheetTargetStandard)EditorGUILayout.EnumPopup(_settingData.sheetTarget,GUILayout.Width(60));
+                GUILayout.Box("문구가 포함되어 있을 경우, 대상 시트에서 ", GUILayout.Width(250));
+                GSSL_Setting.SettingData.sheetTarget =
+                    (SettingData.eSheetTargetStandard)EditorGUILayout.EnumPopup(GSSL_Setting.SettingData.sheetTarget,
+                        GUILayout.Width(60));
                 EditorGUILayout.EndHorizontal();
-                
+
                 // 이넘 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다.");
-                EditorGUILayout.TextField(_settingData.sheet_enumTypeStr,GUILayout.Width(100));
+                EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_enumTypeStr, GUILayout.Width(100));
                 EditorGUILayout.EndHorizontal();
-                
+
                 // 로컬라이제이션 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다.");
-                EditorGUILayout.TextField(_settingData.sheet_localizationTypeStr,GUILayout.Width(100));
+                EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_localizationTypeStr, GUILayout.Width(100));
                 EditorGUILayout.EndHorizontal();
             }
             else
             {
                 // 무시
-                EditorGUILayout.LabelField($" 시트의 제목에서 \"{_settingData.sheetTargetStr}\" 문구가 포함되어 있을경우, 대상 시트에서 \"{_settingData.sheetTarget.ToString()}\"");
-                
+                EditorGUILayout.LabelField(
+                    $" 시트의 제목에서 \"{GSSL_Setting.SettingData.sheetTargetStr}\" 문구가 포함되어 있을경우, 대상 시트에서 \"{GSSL_Setting.SettingData.sheetTarget.ToString()}\"");
+
                 // 이넘 타입
-                EditorGUILayout.LabelField($" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다. \"{_settingData.sheet_enumTypeStr}\"");
-                
+                EditorGUILayout.LabelField(
+                    $" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다. \"{GSSL_Setting.SettingData.sheet_enumTypeStr}\"");
+
                 // 로컬라이제이션 타입
-                EditorGUILayout.LabelField($" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다. \"{_settingData.sheet_localizationTypeStr}\"");
+                EditorGUILayout.LabelField(
+                    $" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다. \"{GSSL_Setting.SettingData.sheet_localizationTypeStr}\"");
             }
         }
-        
-        private void SettingView_SaveSettingData()
+
+        private void SaveSettingData()
         {
             GUILayout.FlexibleSpace();
-            
+
             EditorGUILayout.Separator();
 
             EditorGUILayout.BeginHorizontal();
@@ -169,11 +153,11 @@ namespace GoogleSpreadSheetLoader
 
             if (GUILayout.Button("세팅 데이터 저장", GUILayout.Width(200)))
             {
-                EditorUtility.SetDirty(_settingData);
+                EditorUtility.SetDirty(GSSL_Setting.SettingData);
                 AssetDatabase.SaveAssets();
             }
-            
-            
+
+
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
             GUILayout.Space(30);

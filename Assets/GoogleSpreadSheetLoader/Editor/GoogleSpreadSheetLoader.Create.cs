@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
+using static GoogleSpreadSheetLoader.Script.GSSL_Script;
 
 namespace GoogleSpreadSheetLoader
 {
-    public partial class GoogleSpreadSheetLoaderWindow
+    public partial class GSSL_EditorWindow
     {
         private enum eCreateState
         {
@@ -41,10 +43,10 @@ namespace GoogleSpreadSheetLoader
             {
                 _checkTime = DateTime.Now;
 
-                if (!Directory.Exists(_sheetDataAssetPath))
+                if (!Directory.Exists(GSSL_Setting.SettingDataAssetPath))
                     return;
 
-                var guids = AssetDatabase.FindAssets("", new string[] { _sheetDataAssetPath });
+                var guids = AssetDatabase.FindAssets("", new[] { GSSL_Setting.SettingDataAssetPath });
 
                 if (guids.Length == 0)
                     return;
@@ -120,6 +122,7 @@ namespace GoogleSpreadSheetLoader
             EditorGUILayout.EndScrollView();
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void CreateView_DrawBtns()
         {
             bool isCreateable = _dicTableDataCreateCheck.Count > 0 &&

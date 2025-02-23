@@ -1,14 +1,12 @@
 using System.IO;
-using UnityEditor;
+using GoogleSpreadSheetLoader.Setting;
 using UnityEngine;
 
-namespace GoogleSpreadSheetLoader
+namespace GoogleSpreadSheetLoader.Script
 {
-    public partial class GoogleSpreadSheetLoaderWindow
+    public class GSSL_Script
     {
-        private readonly string _ScriptPath = "Assets/GoogleSpreadSheetLoader/Script";
-        
-        private async Awaitable CreateScript()
+        public static async Awaitable CreateScript()
         {
             string url = $"{Application.dataPath}/GoogleSpreadSheetLoader/Script/TableData.txt";
             if (!File.Exists(url))
@@ -17,7 +15,7 @@ namespace GoogleSpreadSheetLoader
             }
             else
             {
-                FileStream fileStream = File.Open($"{_ScriptPath}/TableData.txt", FileMode.Open);
+                FileStream fileStream = File.Open($"{GSSL_Setting.ScriptPath}/TableData.txt", FileMode.Open);
                 StreamReader reader = new StreamReader(fileStream);
                 string readString = await reader.ReadToEndAsync();
                 

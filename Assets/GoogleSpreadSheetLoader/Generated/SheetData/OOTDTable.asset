@@ -19,49 +19,40 @@ MonoBehaviour:
     \"price-int\",\n    \"Name-string\",\n    \"Scription-string\",\n    \"Unlock_follow-int\",\n   
     \"Unlock_ID-string\",\n    \"flexPoint-int\",\n    \"followPoint-int\",\n   
     \"postID-string\"\n  ],\n  [\n    \"\uC2A4\uD3EC\uCE20\uC120\uAE00\uB77C\uC2A4\",\n   
-    \"oa001\",\n    \"Accessory\",\n    \"oa001\",\n    \"icon_OA001\",\n    \"Coin\",\n   
+    \"oa001\",\n    \"Glasses\",\n    \"oa001\",\n    \"icon_OA001\",\n    \"Coin\",\n   
     \"50\",\n    \"oa001\",\n    \"oa001desc\",\n    \"50000\",\n    \"none\",\n   
     \"2\",\n    \"500\",\n    \"none\"\n  ],\n  [\n    \"\uB9C8\uC2A4\uD06C\",\n   
-    \"oa002\",\n    \"Accessory\",\n    \"oa002\",\n    \"icon_OA002\",\n    \"Coin\",\n   
+    \"oa002\",\n    \"Glasses\",\n    \"oa002\",\n    \"icon_OA002\",\n    \"Coin\",\n   
     \"80\",\n    \"oa002\",\n    \"oa002desc\",\n    \"60000\",\n    \"none\",\n   
     \"4\",\n    \"800\",\n    \"none\"\n  ],\n  [\n    \"\uBFD4\uD14C\uC548\uACBD\",\n   
-    \"oa003\",\n    \"Accessory\",\n    \"oa003\",\n    \"icon_OA003\",\n    \"Coin\",\n   
+    \"oa003\",\n    \"Glasses\",\n    \"oa003\",\n    \"icon_OA003\",\n    \"Coin\",\n   
     \"100\",\n    \"oa003\",\n    \"oa003desc\",\n    \"70000\",\n    \"none\",\n   
     \"5\",\n    \"1000\",\n    \"none\"\n  ],\n  [\n    \"\uBCF4\uC789\uC120\uAE00\uB77C\uC2A4\",\n   
-    \"oa004\",\n    \"Accessory\",\n    \"oa004\",\n    \"icon_OA004\",\n    \"Coin\",\n   
+    \"oa004\",\n    \"Glasses\",\n    \"oa004\",\n    \"icon_OA004\",\n    \"Coin\",\n   
     \"150\",\n    \"oa004\",\n    \"oa004desc\",\n    \"80000\",\n    \"none\",\n   
     \"7\",\n    \"1500\",\n    \"none\"\n  ],\n  [\n    \"\uB098\uBE44\uC548\uACBD\",\n   
-    \"oa005\",\n    \"Accessory\",\n    \"oa005\",\n    \"icon_OA005\",\n    \"Coin\",\n   
+    \"oa005\",\n    \"Glasses\",\n    \"oa005\",\n    \"icon_OA005\",\n    \"Coin\",\n   
     \"300\",\n    \"oa005\",\n    \"oa005desc\",\n    \"90000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uBE44\uC804\uD504\uB85C\",\n   
-    \"oa006\",\n    \"Accessory\",\n    \"oa006\",\n    \"icon_OA006\",\n    \"Coin\",\n   
+    \"oa006\",\n    \"Glasses\",\n    \"oa006\",\n    \"icon_OA006\",\n    \"Coin\",\n   
     \"500\",\n    \"oa006\",\n    \"oa006desc\",\n    \"100000\",\n    \"none\",\n   
-    \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uBBF8\uB7EC\uB80C\uC988\uC120\uAE00\uB77C\uC2A4\",\n   
-    \"oa007\",\n    \"Accessory\",\n    \"oa007\",\n    \"icon_OA007\",\n    \"Coin\",\n   
-    \"500\",\n    \"oa006\",\n    \"oa007desc\",\n    \"100000\",\n    \"none\",\n   
-    \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uB2E4\uC774\uC544 \uB9C8\uC2A4\uD06C\",\n   
-    \"oa008\",\n    \"Accessory\",\n    \"oa008\",\n    \"icon_OA008\",\n    \"Coin\",\n   
-    \"500\",\n    \"oa006\",\n    \"oa008desc\",\n    \"100000\",\n    \"none\",\n   
-    \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uBB34\uC801\uBE44\uC11C
-    \uC548\uACBD\",\n    \"oa009\",\n    \"Accessory\",\n    \"oa009\",\n    \"icon_OA009\",\n   
-    \"Coin\",\n    \"500\",\n    \"oa006\",\n    \"oa009desc\",\n    \"100000\",\n   
-    \"none\",\n    \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uD074\uB7EC\uCE58\",\n   
-    \"ob001\",\n    \"Bag\",\n    \"ob001\",\n    \"icon_OB001\",\n    \"Coin\",\n   
+    \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uD074\uB7EC\uCE58\",\n   
+    \"ob001\",\n    \"Accessory\",\n    \"ob001\",\n    \"icon_OB001\",\n    \"Coin\",\n   
     \"80\",\n    \"ob001\",\n    \"ob001desc\",\n    \"100000\",\n    \"none\",\n   
     \"4\",\n    \"800\",\n    \"none\"\n  ],\n  [\n    \"\uBE0C\uB9AC\uD504\uCF00\uC774\uC2A4\",\n   
-    \"ob002\",\n    \"Bag\",\n    \"ob002\",\n    \"icon_OB002\",\n    \"Coin\",\n   
+    \"ob002\",\n    \"Accessory\",\n    \"ob002\",\n    \"icon_OB002\",\n    \"Coin\",\n   
     \"100\",\n    \"ob002\",\n    \"ob002desc\",\n    \"100000\",\n    \"none\",\n   
     \"5\",\n    \"1000\",\n    \"none\"\n  ],\n  [\n    \"\uBA54\uC2E0\uC800\uBC31\",\n   
-    \"ob003\",\n    \"Bag\",\n    \"ob003\",\n    \"icon_OB003\",\n    \"Coin\",\n   
+    \"ob003\",\n    \"Accessory\",\n    \"ob003\",\n    \"icon_OB003\",\n    \"Coin\",\n   
     \"200\",\n    \"ob003\",\n    \"ob003desc\",\n    \"100000\",\n    \"none\",\n   
     \"10\",\n    \"2000\",\n    \"none\"\n  ],\n  [\n    \"\uC204\uB354\uBC31\",\n   
-    \"ob004\",\n    \"Bag\",\n    \"ob004\",\n    \"icon_OB004\",\n    \"Coin\",\n   
+    \"ob004\",\n    \"Accessory\",\n    \"ob004\",\n    \"icon_OB004\",\n    \"Coin\",\n   
     \"300\",\n    \"ob004\",\n    \"ob004desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uBA85\uD488\uC204\uB354\uBC31\",\n   
-    \"ob005\",\n    \"Bag\",\n    \"ob005\",\n    \"icon_OB005\",\n    \"Coin\",\n   
+    \"ob005\",\n    \"Accessory\",\n    \"ob005\",\n    \"icon_OB005\",\n    \"Coin\",\n   
     \"500\",\n    \"ob005\",\n    \"ob005desc\",\n    \"100000\",\n    \"none\",\n   
     \"25\",\n    \"5000\",\n    \"none\"\n  ],\n  [\n    \"\uC2DC\uC7A5\uBC14\uAD6C\uB2C8\",\n   
-    \"ob006\",\n    \"Bag\",\n    \"ob006\",\n    \"icon_OB006\",\n    \"Coin\",\n   
+    \"ob006\",\n    \"Accessory\",\n    \"ob006\",\n    \"icon_OB006\",\n    \"Coin\",\n   
     \"700\",\n    \"ob006\",\n    \"ob006desc\",\n    \"100000\",\n    \"none\",\n   
     \"35\",\n    \"7000\",\n    \"none\"\n  ],\n  [\n    \"\uAC00\uB974\uB9C8\uD38C\",\n   
     \"oh001\",\n    \"Hair\",\n    \"oh001\",\n    \"icon_OH001\",\n    \"Coin\",\n   
@@ -82,40 +73,40 @@ MonoBehaviour:
     \"oh006\",\n    \"Hair\",\n    \"oh006\",\n    \"icon_OH006\",\n    \"Coin\",\n   
     \"200\",\n    \"oh006\",\n    \"oh006desc\",\n    \"100000\",\n    \"none\",\n   
     \"10\",\n    \"2000\",\n    \"none\"\n  ],\n  [\n    \"\uD2B8\uB808\uC774\uB2DD\uD32C\uCE20\",\n   
-    \"op001\",\n    \"Pants\",\n    \"op001\",\n    \"icon_OP001\",\n    \"Coin\",\n   
+    \"op001\",\n    \"Gloves\",\n    \"op001\",\n    \"icon_OP001\",\n    \"Coin\",\n   
     \"100\",\n    \"op001\",\n    \"op001desc\",\n    \"100000\",\n    \"none\",\n   
     \"5\",\n    \"1000\",\n    \"none\"\n  ],\n  [\n    \"\uCE74\uACE0\uD32C\uCE20\",\n   
-    \"op002\",\n    \"Pants\",\n    \"op002\",\n    \"icon_OP002\",\n    \"Coin\",\n   
+    \"op002\",\n    \"Gloves\",\n    \"op002\",\n    \"icon_OP002\",\n    \"Coin\",\n   
     \"150\",\n    \"op002\",\n    \"op002desc\",\n    \"100000\",\n    \"none\",\n   
     \"7\",\n    \"1500\",\n    \"none\"\n  ],\n  [\n    \"\uC2AC\uB799\uC2A4\",\n   
-    \"op003\",\n    \"Pants\",\n    \"op003\",\n    \"icon_OP003\",\n    \"Coin\",\n   
+    \"op003\",\n    \"Gloves\",\n    \"op003\",\n    \"icon_OP003\",\n    \"Coin\",\n   
     \"200\",\n    \"op003\",\n    \"op003desc\",\n    \"100000\",\n    \"none\",\n   
     \"10\",\n    \"2000\",\n    \"none\"\n  ],\n  [\n    \"\uD14C\uB2C8\uC2A4\uCE58\uB9C8\",\n   
-    \"op004\",\n    \"Pants\",\n    \"op004\",\n    \"icon_OP004\",\n    \"Coin\",\n   
+    \"op004\",\n    \"Gloves\",\n    \"op004\",\n    \"icon_OP004\",\n    \"Coin\",\n   
     \"200\",\n    \"op004\",\n    \"op004desc\",\n    \"100000\",\n    \"none\",\n   
     \"10\",\n    \"2000\",\n    \"none\"\n  ],\n  [\n    \"\uCC22\uC5B4\uC9C4\uB370\uB2D8\",\n   
-    \"op005\",\n    \"Pants\",\n    \"op005\",\n    \"icon_OP005\",\n    \"Coin\",\n   
+    \"op005\",\n    \"Gloves\",\n    \"op005\",\n    \"icon_OP005\",\n    \"Coin\",\n   
     \"250\",\n    \"op005\",\n    \"op005desc\",\n    \"100000\",\n    \"none\",\n   
     \"12\",\n    \"2500\",\n    \"none\"\n  ],\n  [\n    \"\uCCB4\uD06C\uBC14\uC9C0\",\n   
-    \"op006\",\n    \"Pants\",\n    \"op006\",\n    \"icon_OP006\",\n    \"Coin\",\n   
+    \"op006\",\n    \"Gloves\",\n    \"op006\",\n    \"icon_OP006\",\n    \"Coin\",\n   
     \"300\",\n    \"op006\",\n    \"op006desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uB098\uC774\uC2A4\uBCF4\uC2A4\",\n   
-    \"os001\",\n    \"Shoes\",\n    \"os001\",\n    \"icon_OS001\",\n    \"Coin\",\n   
+    \"os001\",\n    \"Skin\",\n    \"os001\",\n    \"icon_OS001\",\n    \"Coin\",\n   
     \"200\",\n    \"os001\",\n    \"os001desc\",\n    \"100000\",\n    \"none\",\n   
     \"10\",\n    \"2000\",\n    \"none\"\n  ],\n  [\n    \"\uB098\uC774\uC2A4\uCABC\uB2E4\",\n   
-    \"os002\",\n    \"Shoes\",\n    \"os002\",\n    \"icon_OS002\",\n    \"Coin\",\n   
+    \"os002\",\n    \"Skin\",\n    \"os002\",\n    \"icon_OS002\",\n    \"Coin\",\n   
     \"300\",\n    \"os002\",\n    \"os002desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uD558\uB4DC\uBD80\uC2A4\uD2B8\",\n   
-    \"os003\",\n    \"Shoes\",\n    \"os003\",\n    \"icon_OS003\",\n    \"Coin\",\n   
+    \"os003\",\n    \"Skin\",\n    \"os003\",\n    \"icon_OS003\",\n    \"Coin\",\n   
     \"300\",\n    \"os003\",\n    \"os003desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uC6CC\uCEE4\uBD80\uCE20\",\n   
-    \"os004\",\n    \"Shoes\",\n    \"os004\",\n    \"icon_OS004\",\n    \"Coin\",\n   
+    \"os004\",\n    \"Skin\",\n    \"os004\",\n    \"icon_OS004\",\n    \"Coin\",\n   
     \"300\",\n    \"os004\",\n    \"os004desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3000\",\n    \"none\"\n  ],\n  [\n    \"\uBA85\uD488\uC2A4\uB2C8\uCEE4\",\n   
-    \"os005\",\n    \"Shoes\",\n    \"os005\",\n    \"icon_OS005\",\n    \"Coin\",\n   
+    \"os005\",\n    \"Skin\",\n    \"os005\",\n    \"icon_OS005\",\n    \"Coin\",\n   
     \"400\",\n    \"os005\",\n    \"os005desc\",\n    \"100000\",\n    \"none\",\n   
     \"20\",\n    \"4400\",\n    \"none\"\n  ],\n  [\n    \"\uB808\uB354\uBD80\uCE20\",\n   
-    \"os006\",\n    \"Shoes\",\n    \"os006\",\n    \"icon_OS006\",\n    \"Coin\",\n   
+    \"os006\",\n    \"Skin\",\n    \"os006\",\n    \"icon_OS006\",\n    \"Coin\",\n   
     \"300\",\n    \"os006\",\n    \"os006desc\",\n    \"100000\",\n    \"none\",\n   
     \"15\",\n    \"3300\",\n    \"none\"\n  ],\n  [\n    \"\uC2A4\uD2B8\uB9BF\uBC18\uD314\uD2F0\",\n   
     \"ot001\",\n    \"Top\",\n    \"ot001\",\n    \"icon_OT001\",\n    \"Coin\",\n   

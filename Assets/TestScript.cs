@@ -7,6 +7,6 @@ public class TestScript : MonoBehaviour
 {
     void Start()
     {
-        GoogleSpreadSheetLoaderWindow.ShowWindow();
+        GSSL_EditorWindow.ShowWindow();
     }
 }

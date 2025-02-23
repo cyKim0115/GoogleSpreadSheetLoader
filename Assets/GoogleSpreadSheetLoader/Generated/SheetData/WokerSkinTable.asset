@@ -19,763 +19,768 @@ MonoBehaviour:
     \"CostType-DataMgr.PriceType\",\n    \"Unlock_cost-int\",\n    \"Unlock_level-int\",\n   
     \"Unlock_follow-int\",\n    \"Unlock_ID-string\",\n    \"flexPoint-int\",\n   
     \"follow_growth-int\",\n    \"Buff_pace-float\",\n    \"Buff_hp-float\"\n  ],\n 
-    [\n    \"\uC720\uC218\uBBFC\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
-    \"w11001b\",\n    \"worker11001b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n   
+    [\n    \"\uC81C\uC784\uC2A4 \uC720\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
+    \"w11001b\",\n    \"worker11001b\",\n    \"icon_worker11001b\",\n    \"uniform01\",\n   
     \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
     \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n   
     \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11001c\",\n    \"worker11001c\",\n   
-    \"icon_uniform02\",\n    \"uniform02\",\n    \"uniform02_disc\",\n    \"Coin\",\n   
+    \"icon_worker11001c\",\n    \"western\",\n    \"western_disc\",\n    \"Coin\",\n   
     \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n    \"800\",\n   
     \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11001d\",\n   
-    \"worker11001d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n   
+    \"worker11001d\",\n    \"icon_caters\",\n    \"caters\",\n    \"caters_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n   
-    \"1800\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uAE40\uD604\uC2DD\",\n   
-    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11002b\",\n    \"worker11002b\",\n   
-    \"icon_uniform01\",\n    \"uniform01\",\n    \"uniform01_disc\",\n    \"Coin\",\n   
-    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n    \"240\",\n   
-    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n   
-    \"w11002c\",\n    \"worker11002c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n   
-    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
-    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11002d\",\n    \"worker11002d\",\n   
-    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC298\uB331\uC774\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
-    \"w11003b\",\n    \"worker11003b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n   
-    \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
-    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11003c\",\n   
-    \"worker11003c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n    \"uniform02_disc\",\n   
+    \"1800\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uB808\uC624\",\n    \"\uAE54\uB054
+    \uC720\uB2C8\uD3FC\",\n    \"w11002b\",\n    \"worker11002b\",\n    \"icon_worker11002b\",\n   
+    \"uniform01\",\n    \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n   
+    \"10000\",\n    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n 
+    ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11002c\",\n   
+    \"worker11002c\",\n    \"icon_worker11002c\",\n    \"western\",\n    \"western_disc\",\n   
     \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
     \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w11003d\",\n    \"worker11003d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
+    \"w11002d\",\n    \"worker11002d\",\n    \"icon_caters\",\n    \"caters\",\n   
+    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
     \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uD751\uB450\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11004b\",\n   
-    \"worker11004b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
+    \"\uB8E8\uC2DC\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11003b\",\n   
+    \"worker11003b\",\n    \"icon_worker11003b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC
-    \uC720\uB2C8\uD3FC\",\n    \"w11004c\",\n    \"worker11004c\",\n    \"icon_uniform02\",\n   
+    \uC720\uB2C8\uD3FC\",\n    \"w11003c\",\n    \"worker11003c\",\n    \"icon_worker11003c\",\n   
     \"uniform02\",\n    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n   
     \"30000\",\n    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n 
-    ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11004d\",\n    \"worker11004d\",\n   
-    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n   
+    ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11003d\",\n    \"worker11003d\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uD06C\uB9AC\uC2A4\uD2F4 \uC5D8\uB9AC\uC790\uBCA0\uC2A4\uC544\uAE38\uB808\uB77C
-    \uD3F0 \uAE4C\uB974\uBCF4\uB098\uB77C 1\uC138\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
-    \"w11005b\",\n    \"worker11005b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n   
+    \"30\"\n  ],\n  [\n    \"\uD1A0\uBBF8\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
+    \"w11004b\",\n    \"worker11004b\",\n    \"icon_worker11004b\",\n    \"uniform01\",\n   
     \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
     \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11005c\",\n   
-    \"worker11005c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n    \"uniform02_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
-    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\",\n   
-    \"w11005d\",\n    \"worker11005d\",\n    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n   
-    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n   
-    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB178\uACF5\uB9CC\",\n   
-    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11006b\",\n    \"worker11006b\",\n   
-    \"icon_uniform01\",\n    \"uniform01\",\n    \"uniform01_disc\",\n    \"Coin\",\n   
-    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n    \"240\",\n   
-    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n   
-    \"w11006c\",\n    \"worker11006c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n   
-    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
-    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11006d\",\n    \"worker11006d\",\n   
-    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC774\uC218\uD64D\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
-    \"w11007b\",\n    \"worker11007b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n   
-    \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
-    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11007c\",\n   
-    \"worker11007c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n    \"uniform02_disc\",\n   
+    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11004c\",\n   
+    \"worker11004c\",\n    \"icon_worker11004c\",\n    \"western\",\n    \"western_disc\",\n   
     \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
     \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w11007d\",\n    \"worker11007d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
+    \"w11004d\",\n    \"worker11004d\",\n    \"icon_caters\",\n    \"caters\",\n   
+    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
     \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uB808\uC774\uBAAC\uB4DC \uBBFC\uC2DD\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
-    \"w11008b\",\n    \"worker11008b\",\n    \"icon_uniform01\",\n    \"uniform01\",\n   
+    \"\uC81C\uB2C8\uD37C\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11005b\",\n   
+    \"worker11005b\",\n    \"icon_worker11005b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
+    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
+    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC
+    \uC720\uB2C8\uD3FC\",\n    \"w11005c\",\n    \"worker11005c\",\n    \"icon_worker11005c\",\n   
+    \"uniform02\",\n    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n   
+    \"30000\",\n    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\",\n    \"w11005d\",\n    \"worker11005d\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uB178\uBA3C\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
+    \"w11006b\",\n    \"worker11006b\",\n    \"icon_worker11006b\",\n    \"uniform01\",\n   
+    \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
+    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11006c\",\n   
+    \"worker11006c\",\n    \"icon_worker11006c\",\n    \"western\",\n    \"western_disc\",\n   
+    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
+    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w11006d\",\n    \"worker11006d\",\n    \"icon_caters\",\n    \"caters\",\n   
+    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
+    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD074\uB77C\uB77C\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n    \"w11007b\",\n   
+    \"worker11007b\",\n    \"icon_worker11007b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
+    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
+    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC
+    \uC720\uB2C8\uD3FC\",\n    \"w11007c\",\n    \"worker11007c\",\n    \"icon_worker11007c\",\n   
+    \"uniform02\",\n    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n   
+    \"30000\",\n    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w11007d\",\n    \"worker11007d\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC11C\uD2BC\",\n    \"\uAE54\uB054 \uC720\uB2C8\uD3FC\",\n   
+    \"w11008b\",\n    \"worker11008b\",\n    \"icon_worker11008b\",\n    \"uniform01\",\n   
     \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
     \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC720\uB2C8\uD3FC\",\n    \"w11008c\",\n   
-    \"worker11008c\",\n    \"icon_uniform02\",\n    \"uniform02\",\n    \"uniform02_disc\",\n   
+    \"worker11008c\",\n    \"icon_worker11008c\",\n    \"western\",\n    \"western_disc\",\n   
     \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
     \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w11008d\",\n    \"worker11008d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
+    \"w11008d\",\n    \"worker11008d\",\n    \"icon_caters\",\n    \"caters\",\n   
+    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n   
     \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uB545\uB545\uC774\",\n    \"\uC250\uD504\",\n    \"w12001b\",\n    \"worker12001b\",\n   
-    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n    \"20\",\n   
-    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n    \"w12001c\",\n   
-    \"worker12001c\",\n    \"icon_chef02\",\n    \"chef02\",\n    \"chef02_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n   
-    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uB7ED\uC154\uB9AC
-    \uC250\uD504\",\n    \"w12001d\",\n    \"worker12001d\",\n    \"icon_chef03\",\n   
-    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n    \"7\",\n   
-    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n    \"30\"\n 
-    ],\n  [\n    \"\uC815\uC9C0\uCC2C\",\n    \"\uC250\uD504\",\n    \"w12002b\",\n   
-    \"worker12002b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"\uB9C8\uC774\uD074\",\n    \"\uC250\uD504\",\n    \"w12001b\",\n    \"worker12001b\",\n   
+    \"icon_worker12001b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n    \"Coin\",\n   
+    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n    \"240\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
+    \"w12001c\",\n    \"worker12001c\",\n    \"icon_worker12001c\",\n    \"uniform02\",\n   
+    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12001d\",\n    \"worker12001d\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC5D8\uB808\uB098\",\n    \"\uC250\uD504\",\n    \"w12002b\",\n   
+    \"worker12002b\",\n    \"icon_worker12002b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12002c\",\n    \"worker12002c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12002c\",\n    \"worker12002c\",\n    \"icon_worker12002c\",\n    \"uniform02\",\n   
+    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12002d\",\n    \"worker12002d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uAE40\uB2E4\uC2AC\",\n    \"\uC250\uD504\",\n    \"w12003b\",\n   
-    \"worker12003b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC2E0\uB514\",\n    \"\uC250\uD504\",\n    \"w12003b\",\n   
+    \"worker12003b\",\n    \"icon_worker12003b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12003c\",\n    \"worker12003c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12003c\",\n    \"worker12003c\",\n    \"icon_worker12003c\",\n    \"uniform02\",\n   
+    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12003d\",\n    \"worker12003d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uAE40\uC218\uC601\",\n    \"\uC250\uD504\",\n    \"w12004b\",\n   
-    \"worker12004b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uCE74\uC774\",\n    \"\uC250\uD504\",\n    \"w12004b\",\n   
+    \"worker12004b\",\n    \"icon_worker12004b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12004c\",\n    \"worker12004c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12004c\",\n    \"worker12004c\",\n    \"icon_worker12004c\",\n    \"western\",\n   
+    \"western_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12004d\",\n    \"worker12004d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_caters\",\n    \"caters\",\n    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uD0B9\uAC13 \uC5E0\uD398\uB7EC \uCDA9\uBB34\uACF5 \uB9C8\uC81C\uC2A4\uD2F0
-    \uD558\uC774\uD37C\uACF1\uCC3D 2\uC138\",\n    \"\uC250\uD504\",\n    \"w12005b\",\n   
-    \"worker12005b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC8FC\uB9AC\",\n    \"\uC250\uD504\",\n    \"w12005b\",\n   
+    \"worker12005b\",\n    \"icon_worker12005b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12005c\",\n    \"worker12005c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12005c\",\n    \"worker12005c\",\n    \"icon_worker12005c\",\n    \"uniform02\",\n   
+    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12005d\",\n    \"worker12005d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uCC0C\uCC0C\",\n    \"\uC250\uD504\",\n    \"w12006b\",\n   
-    \"worker12006b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC70C\uB9AC\uC5C4\",\n    \"\uC250\uD504\",\n    \"w12006b\",\n   
+    \"worker12006b\",\n    \"icon_worker12006b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12006c\",\n    \"worker12006c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12006c\",\n    \"worker12006c\",\n    \"icon_worker12006c\",\n    \"western\",\n   
+    \"western_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12006d\",\n    \"worker12006d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_caters\",\n    \"caters\",\n    \"caters_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uD61C\uC815\",\n    \"\uC250\uD504\",\n    \"w12007b\",\n   
-    \"worker12007b\",\n    \"icon_chef01\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uCF00\uC774\uD2B8\",\n    \"\uC250\uD504\",\n    \"w12007b\",\n   
+    \"worker12007b\",\n    \"icon_worker12007b\",\n    \"uniform01\",\n    \"uniform01_disc\",\n   
     \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
     \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC0C1\uAE09\uC250\uD504\",\n   
-    \"w12007c\",\n    \"worker12007c\",\n    \"icon_chef02\",\n    \"chef02\",\n   
-    \"chef02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
+    \"w12007c\",\n    \"worker12007c\",\n    \"icon_worker12007c\",\n    \"uniform02\",\n   
+    \"uniform02_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
     \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uB7ED\uC154\uB9AC \uC250\uD504\",\n    \"w12007d\",\n    \"worker12007d\",\n   
-    \"icon_chef03\",\n    \"chef03\",\n    \"chef03_disc\",\n    \"Coin\",\n    \"60\",\n   
+    \"icon_bartender\",\n    \"red\",\n    \"red_disc\",\n    \"Coin\",\n    \"60\",\n   
     \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC0C8\uB300\uAC08\",\n    \"\uAE54\uB054\uC815\uC7A5\",\n   
-    \"w13001b\",\n    \"worker13001b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n    \"none\",\n    \"0\",\n   
-    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w13001c\",\n    \"worker13001c\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"40\",\n    \"5\",\n    \"30000\",\n   
-    \"none\",\n    \"0\",\n    \"800\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uBA54\uC774\uB4DC\",\n    \"w13001d\",\n    \"worker13001d\",\n   
-    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n    \"1800\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC774\uBCD1 \uB545\uB545\uC774\",\n    \"\uC804\uD22C\uBCF5\",\n   
-    \"w21001b\",\n    \"worker21001b\",\n    \"icon_combat\",\n    \"combat\",\n   
-    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
-    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n   
-    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w21001c\",\n   
-    \"worker21001c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n    \"uniform03_disc\",\n   
-    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
-    \"1500\",\n    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
-    \"w21001d\",\n    \"worker21001d\",\n    \"icon_commando\",\n    \"commando\",\n   
-    \"commando_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
-    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"20\"\n  ],\n  [\n   
-    \"\uC774\uBCD1 \uAE40\uD604\uC2DD\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w21002b\",\n   
-    \"worker21002b\",\n    \"icon_combat\",\n    \"combat\",\n    \"combat_disc\",\n   
+    \"30\"\n  ],\n  [\n    \"\uD5E8\uB9AC\",\n    \"\uAE54\uB054\uC815\uC7A5\",\n   
+    \"w13001b\",\n    \"worker13001b\",\n    \"icon_worker13001b\",\n    \"uniform01\",\n   
+    \"uniform01_disc\",\n    \"Coin\",\n    \"20\",\n    \"3\",\n    \"10000\",\n   
+    \"none\",\n    \"0\",\n    \"240\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w13001c\",\n    \"worker13001c\",\n   
+    \"icon_worker13001c\",\n    \"western\",\n    \"western_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"5\",\n    \"30000\",\n    \"none\",\n    \"0\",\n    \"800\",\n   
+    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\",\n    \"w13001d\",\n   
+    \"worker13001d\",\n    \"icon_caters\",\n    \"caters\",\n    \"caters_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"7\",\n    \"50000\",\n    \"none\",\n    \"0\",\n   
+    \"1800\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uD558\uB8E8\uD1A0\",\n   
+    \"\uC804\uD22C\uBCF5\",\n    \"w21001b\",\n    \"worker21001b\",\n    \"icon_worker21001b\",\n   
+    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
+    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"5\"\n 
+    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
+    \"w21001c\",\n    \"worker21001c\",\n    \"icon_worker21001c\",\n    \"food\",\n   
+    \"food_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"none\",\n    \"0\",\n    \"1500\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21001d\",\n    \"worker21001d\",\n   
+    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"20\"\n  ],\n  [\n    \"\uC720\uD0A4\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w21002b\",\n   
+    \"worker21002b\",\n    \"icon_worker21002b\",\n    \"chef01\",\n    \"chef01_disc\",\n   
     \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n   
     \"360\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
-    \uC720\uB2C8\uD3FC\",\n    \"w21002c\",\n    \"worker21002c\",\n    \"icon_uniform03\",\n   
-    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
-    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"20\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21002d\",\n   
-    \"worker21002d\",\n    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n   
+    \uC720\uB2C8\uD3FC\",\n    \"w21002c\",\n    \"worker21002c\",\n    \"icon_worker21002c\",\n   
+    \"food\",\n    \"food_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"none\",\n    \"0\",\n    \"1500\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21002d\",\n    \"worker21002d\",\n   
+    \"icon_butler\",\n    \"butler\",\n    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"20\"\n  ],\n  [\n    \"\uC5D0\uB9AC\uCE74\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w21003b\",\n    \"worker21003b\",\n    \"icon_worker21003b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w21003c\",\n   
+    \"worker21003c\",\n    \"icon_worker21003c\",\n    \"food\",\n    \"food_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
+    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
+    \"w21003d\",\n    \"worker21003d\",\n    \"icon_butler\",\n    \"butler\",\n   
+    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
+    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uCE74\uC774\uD1A0\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w21004b\",\n    \"worker21004b\",\n   
+    \"icon_worker21004b\",\n    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n   
+    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
+    \uC720\uB2C8\uD3FC\",\n    \"w21004c\",\n    \"worker21004c\",\n    \"icon_worker21004c\",\n   
+    \"chef02\",\n    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
+    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21004d\",\n   
+    \"worker21004d\",\n    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n   
     \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n   
-    \"3200\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uC774\uBCD1 \uAE40\uC218\uC601\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w21003b\",\n    \"worker21003b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
+    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBBF8\uC0AC\uD0A4\",\n   
+    \"\uC804\uD22C\uBCF5\",\n    \"w21005b\",\n    \"worker21005b\",\n    \"icon_worker21005b\",\n   
+    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
     \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w21003c\",\n    \"worker21003c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21003d\",\n    \"worker21003d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC77C\uBCD1 \uBC15\uAE30\uBC94\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w21004b\",\n    \"worker21004b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w21004c\",\n    \"worker21004c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21004d\",\n    \"worker21004d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC0C1\uBCD1 \uBC15\uBBFC\uC11D\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w21005b\",\n    \"worker21005b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w21005c\",\n    \"worker21005c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"w21005c\",\n    \"worker21005c\",\n    \"icon_worker21005c\",\n    \"chef02\",\n   
+    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
     \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21005d\",\n    \"worker21005d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBCD1\uC7A5 \uC774\uC218\uD64D\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w21006b\",\n    \"worker21006b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w21006c\",\n    \"worker21006c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21006d\",\n    \"worker21006d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB300\uC704 \uBC15\uC885\uD638\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w21007b\",\n    \"worker21007b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w21007c\",\n    \"worker21007c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21007d\",\n    \"worker21007d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uAD6D\uBC29\",\n    \"\uC804\uD22C\uBCF5\",\n   
-    \"w21008b\",\n    \"worker21008b\",\n    \"icon_combat\",\n    \"combat\",\n   
-    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"icon_butler\",\n    \"butler\",\n    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uB2E4\uC774\uCE58\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w21006b\",\n    \"worker21006b\",\n    \"icon_worker21006b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
     \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w21008c\",\n   
-    \"worker21008c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n    \"uniform03_disc\",\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w21006c\",\n   
+    \"worker21006c\",\n    \"icon_worker21006c\",\n    \"chef02\",\n    \"chef02_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
     \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
-    \"w21008d\",\n    \"worker21008d\",\n    \"icon_commando\",\n    \"commando\",\n   
-    \"commando_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
-    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uC774\uBCD1 \uC720\uC218\uBBFC\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w22001b\",\n   
-    \"worker22001b\",\n    \"icon_combat\",\n    \"combat\",\n    \"combat_disc\",\n   
-    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n   
-    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
-    \uC720\uB2C8\uD3FC\",\n    \"w22001c\",\n    \"worker22001c\",\n    \"icon_uniform03\",\n   
-    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
-    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n 
-    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22001d\",\n   
-    \"worker22001d\",\n    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n   
+    \"w21006d\",\n    \"worker21006d\",\n    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n   
     \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n   
-    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC774\uBCD1 \uC298\uB331\uC774\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w22002b\",\n    \"worker22002b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w22002c\",\n    \"worker22002c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC720\uC774\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w21007b\",\n    \"worker21007b\",\n    \"icon_worker21007b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w21007c\",\n   
+    \"worker21007c\",\n    \"icon_worker21007c\",\n    \"food\",\n    \"food_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
+    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
+    \"w21007d\",\n    \"worker21007d\",\n    \"icon_butler\",\n    \"butler\",\n   
+    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
+    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD0C0\uCFE0\uBBF8\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w21008b\",\n    \"worker21008b\",\n   
+    \"icon_worker21008b\",\n    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n   
+    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
+    \uC720\uB2C8\uD3FC\",\n    \"w21008c\",\n    \"worker21008c\",\n    \"icon_worker21008c\",\n   
+    \"chef02\",\n    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
+    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w21008d\",\n   
+    \"worker21008d\",\n    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n   
+    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n   
+    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC18C\uB77C\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w22001b\",\n    \"worker22001b\",\n    \"icon_worker22001b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w22001c\",\n   
+    \"worker22001c\",\n    \"icon_worker22001c\",\n    \"food\",\n    \"food_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
+    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
+    \"w22001d\",\n    \"worker22001d\",\n    \"icon_butler\",\n    \"butler\",\n   
+    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
+    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB8CC\uD0C0\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w22002b\",\n    \"worker22002b\",\n   
+    \"icon_worker22002b\",\n    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n   
+    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
+    \uC720\uB2C8\uD3FC\",\n    \"w22002c\",\n    \"worker22002c\",\n    \"icon_worker22002c\",\n   
+    \"food\",\n    \"food_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
     \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22002d\",\n    \"worker22002d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC77C\uBCD1 \uD5C8\uBD80\uB9CC\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w22003b\",\n    \"worker22003b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
+    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uBBF8\uD638\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w22003b\",\n   
+    \"worker22003b\",\n    \"icon_worker22003b\",\n    \"chef01\",\n    \"chef01_disc\",\n   
+    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n   
+    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
+    \uC720\uB2C8\uD3FC\",\n    \"w22003c\",\n    \"worker22003c\",\n    \"icon_worker22003c\",\n   
+    \"chef02\",\n    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
+    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22003d\",\n   
+    \"worker22003d\",\n    \"icon_butler\",\n    \"butler\",\n    \"butler_disc\",\n   
+    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n   
+    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC18C\uC2A4\uCF00\",\n   
+    \"\uC804\uD22C\uBCF5\",\n    \"w22004b\",\n    \"worker22004b\",\n    \"icon_worker22004b\",\n   
+    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
     \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w22003c\",\n    \"worker22003c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22003d\",\n    \"worker22003d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC0C1\uBCD1 \uACFD\uB450\uD314\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w22004b\",\n    \"worker22004b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w22004c\",\n    \"worker22004c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"w22004c\",\n    \"worker22004c\",\n    \"icon_worker22004c\",\n    \"food\",\n   
+    \"food_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
     \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
     \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22004d\",\n    \"worker22004d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC774\uBCD1 \uC774\uCCA0\uC218\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w22005b\",\n    \"worker22005b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
-    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w22005c\",\n    \"worker22005c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22005d\",\n    \"worker22005d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBC15\uACBD\uB355\",\n    \"\uC804\uD22C\uBCF5\",\n   
-    \"w22006b\",\n    \"worker22006b\",\n    \"icon_combat\",\n    \"combat\",\n   
-    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC774\uC988\uBBF8\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w22005b\",\n    \"worker22005b\",\n    \"icon_worker22005b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
     \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w22006c\",\n   
-    \"worker22006c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n    \"uniform03_disc\",\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w22005c\",\n   
+    \"worker22005c\",\n    \"icon_worker22005c\",\n    \"food\",\n    \"food_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
     \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
-    \"w22006d\",\n    \"worker22006d\",\n    \"icon_commando\",\n    \"commando\",\n   
-    \"commando_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
+    \"w22005d\",\n    \"worker22005d\",\n    \"icon_butler\",\n    \"butler\",\n   
+    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
     \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uD589\uBCF4\uAD00\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w22007b\",\n    \"worker22007b\",\n   
-    \"icon_combat\",\n    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n   
-    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w22007c\",\n    \"worker22007c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
-    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22007d\",\n    \"worker22007d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC774\uBCD1 \uC0C8\uB300\uAC08\",\n   
-    \"\uC804\uD22C\uBCF5\",\n    \"w23001b\",\n    \"worker23001b\",\n    \"icon_combat\",\n   
-    \"combat\",\n    \"combat_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
+    \"\uD0C0\uCE20\uC57C\",\n    \"\uC804\uD22C\uBCF5\",\n    \"w22006b\",\n    \"worker22006b\",\n   
+    \"icon_worker22006b\",\n    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n   
+    \"30\",\n    \"3\",\n    \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC
+    \uC720\uB2C8\uD3FC\",\n    \"w22006c\",\n    \"worker22006c\",\n    \"icon_worker22006c\",\n   
+    \"chef02\",\n    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
+    \"100000\",\n    \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n 
+    ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22006d\",\n   
+    \"worker22006d\",\n    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n   
+    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n   
+    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uD558\uC57C\uD1A0\",\n   
+    \"\uC804\uD22C\uBCF5\",\n    \"w22007b\",\n    \"worker22007b\",\n    \"icon_worker22007b\",\n   
+    \"chef01\",\n    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n   
     \"80000\",\n    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n   
-    \"w23001c\",\n    \"worker23001c\",\n    \"icon_uniform03\",\n    \"uniform03\",\n   
-    \"uniform03_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
+    \"w22007c\",\n    \"worker22007c\",\n    \"icon_worker22007c\",\n    \"chef02\",\n   
+    \"chef02_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n   
     \"none\",\n    \"0\",\n    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w23001d\",\n    \"worker23001d\",\n   
-    \"icon_commando\",\n    \"commando\",\n    \"commando_disc\",\n    \"Coin\",\n   
-    \"80\",\n    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC8FC\uC11C\uC5F0\",\n    \"\uC815\uC7A5\",\n   
-    \"w31001b\",\n    \"worker31001b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n   
-    \"w31001c\",\n    \"worker31001c\",\n    \"icon_bunny\",\n    \"bunny\",\n   
-    \"bunny_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n   
-    \"none\",\n    \"0\",\n    \"2400\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uBA54\uC774\uB4DC\",\n    \"w31001d\",\n    \"worker31001d\",\n   
-    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"100\",\n   
-    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n   
-    \"20\"\n  ],\n  [\n    \"\uCD5C\uC544\uB86C\",\n    \"\uC815\uC7A5\",\n    \"w31002b\",\n   
-    \"worker31002b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n   
-    \"w31002c\",\n    \"worker31002c\",\n    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n   
+    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n    \"w22007d\",\n    \"worker22007d\",\n   
+    \"icon_made\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"80\",\n   
+    \"7\",\n    \"150000\",\n    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n   
+    \"30\"\n  ],\n  [\n    \"\uC544\uC624\uC774\",\n    \"\uC804\uD22C\uBCF5\",\n   
+    \"w23001b\",\n    \"worker23001b\",\n    \"icon_worker23001b\",\n    \"chef01\",\n   
+    \"chef01_disc\",\n    \"Coin\",\n    \"30\",\n    \"3\",\n    \"80000\",\n   
+    \"none\",\n    \"0\",\n    \"360\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD328\uC2A4\uD2B8\uD478\uB4DC \uC720\uB2C8\uD3FC\",\n    \"w23001c\",\n   
+    \"worker23001c\",\n    \"icon_worker23001c\",\n    \"food\",\n    \"food_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"100000\",\n    \"none\",\n    \"0\",\n   
+    \"1500\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD2B9\uC218\uC694\uC6D0\",\n   
+    \"w23001d\",\n    \"worker23001d\",\n    \"icon_butler\",\n    \"butler\",\n   
+    \"butler_disc\",\n    \"Coin\",\n    \"80\",\n    \"7\",\n    \"150000\",\n   
+    \"none\",\n    \"0\",\n    \"3200\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD074\uB77C\uB77C\",\n    \"\uC815\uC7A5\",\n    \"w31001b\",\n    \"worker31001b\",\n   
+    \"icon_worker31001b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w31001c\",\n   
+    \"worker31001c\",\n    \"icon_worker31001c\",\n    \"cute\",\n    \"cute_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
     \"2400\",\n    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\",\n   
-    \"w31002d\",\n    \"worker31002d\",\n    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uAE40\uAE30\uAD00\",\n   
-    \"\uC815\uC7A5\",\n    \"w31003b\",\n    \"worker31003b\",\n    \"icon_suit\",\n   
-    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n   
-    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uBC14\uB2C8\",\n    \"w31003c\",\n    \"worker31003c\",\n    \"icon_bunny\",\n   
-    \"bunny\",\n    \"bunny_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
-    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n    \"20\"\n 
-    ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w31003d\",\n    \"worker31003d\",\n   
-    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n    \"Coin\",\n    \"100\",\n   
-    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uCC28\uB3C4\uB0A8\",\n    \"\uC815\uC7A5\",\n    \"w31004b\",\n   
-    \"worker31004b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n   
-    \"w31004c\",\n    \"worker31004c\",\n    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n   
+    \"w31001d\",\n    \"worker31001d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n   
+    \"\uC544\uBA5C\uB9AC\",\n    \"\uC815\uC7A5\",\n    \"w31002b\",\n    \"worker31002b\",\n   
+    \"icon_worker31002b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w31002c\",\n   
+    \"worker31002c\",\n    \"icon_worker31002c\",\n    \"dish\",\n    \"dish_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\",\n   
+    \"w31002d\",\n    \"worker31002d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n   
+    \"\uC2DC\uBABD\",\n    \"\uC815\uC7A5\",\n    \"w31003b\",\n    \"worker31003b\",\n   
+    \"icon_worker31003b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w31003c\",\n   
+    \"worker31003c\",\n    \"icon_worker31003c\",\n    \"dish\",\n    \"dish_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
     \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w31004d\",\n    \"worker31004d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"w31003d\",\n    \"worker31003d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
     \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uC548\uC2E0\uC131\",\n    \"\uC815\uC7A5\",\n    \"w31005b\",\n    \"worker31005b\",\n   
-    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n   
-    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w31005c\",\n    \"worker31005c\",\n   
-    \"icon_bunny\",\n    \"bunny\",\n    \"bunny_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w31005d\",\n   
-    \"worker31005d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC548\uC120\uB7C9\",\n   
-    \"\uC815\uC7A5\",\n    \"w31006b\",\n    \"worker31006b\",\n    \"icon_suit\",\n   
-    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n   
-    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w31006c\",\n    \"worker31006c\",\n   
-    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w31006d\",\n   
-    \"worker31006d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC720\uC120\uC6B0\",\n   
-    \"\uC815\uC7A5\",\n    \"w32001b\",\n    \"worker32001b\",\n    \"icon_suit\",\n   
-    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n   
-    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uBC14\uB2C8\",\n    \"w32001c\",\n    \"worker32001c\",\n    \"icon_bunny\",\n   
-    \"bunny\",\n    \"bunny_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n   
-    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n    \"20\"\n 
-    ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w32001d\",\n    \"worker32001d\",\n   
-    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n    \"Coin\",\n    \"100\",\n   
-    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC815\uBCD1\uC6B1\",\n    \"\uC815\uC7A5\",\n    \"w32002b\",\n   
-    \"worker32002b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n   
-    \"w32002c\",\n    \"worker32002c\",\n    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n   
+    \"\uC904\uB9AC\",\n    \"\uC815\uC7A5\",\n    \"w31004b\",\n    \"worker31004b\",\n   
+    \"icon_worker31004b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w31004c\",\n   
+    \"worker31004c\",\n    \"icon_worker31004c\",\n    \"cute\",\n    \"cute_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
     \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
-    \"w32002d\",\n    \"worker32002d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n   
-    \"tuxedo_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"w31004d\",\n    \"worker31004d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
     \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
-    \"\uC784\uCC44\uB9B0\",\n    \"\uC815\uC7A5\",\n    \"w32003b\",\n    \"worker32003b\",\n   
-    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n   
-    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32003c\",\n   
-    \"worker32003c\",\n    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n    \"Coin\",\n   
-    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n   
-    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n   
-    \"w32003d\",\n    \"worker32003d\",\n    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC874\",\n    \"\uC815\uC7A5\",\n   
-    \"w32004b\",\n    \"worker32004b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n   
-    \"w32004c\",\n    \"worker32004c\",\n    \"icon_bunny\",\n    \"bunny\",\n   
-    \"bunny_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n   
-    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n    \"w32004d\",\n    \"worker32004d\",\n   
-    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"100\",\n   
-    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC724\uBBFC\uC11C\",\n    \"\uC815\uC7A5\",\n    \"w32005b\",\n   
-    \"worker32005b\",\n    \"icon_suit\",\n    \"suit\",\n    \"suit_disc\",\n   
-    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n   
-    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n   
-    \"w32005c\",\n    \"worker32005c\",\n    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n   
+    \"\uC559\uB4DC\uB808\",\n    \"\uC815\uC7A5\",\n    \"w31005b\",\n    \"worker31005b\",\n   
+    \"icon_worker31005b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w31005c\",\n   
+    \"worker31005c\",\n    \"icon_worker31005c\",\n    \"dish\",\n    \"dish_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w31005d\",\n    \"worker31005d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC18C\uD53C\uC544\",\n    \"\uC815\uC7A5\",\n    \"w31006b\",\n    \"worker31006b\",\n   
+    \"icon_worker31006b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w31006c\",\n   
+    \"worker31006c\",\n    \"icon_worker31006c\",\n    \"cute\",\n    \"cute_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w31006d\",\n    \"worker31006d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB9C8\uB9AC\uC624\",\n    \"\uC815\uC7A5\",\n    \"w32001b\",\n    \"worker32001b\",\n   
+    \"icon_worker32001b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w32001c\",\n   
+    \"worker32001c\",\n    \"icon_worker32001c\",\n    \"cute\",\n    \"cute_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w32001d\",\n    \"worker32001d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB9C8\uD2F8\uB2E4\",\n    \"\uC815\uC7A5\",\n    \"w32002b\",\n    \"worker32002b\",\n   
+    \"icon_worker32002b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32002c\",\n   
+    \"worker32002c\",\n    \"icon_worker32002c\",\n    \"dish\",\n    \"dish_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w32002d\",\n    \"worker32002d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB9C8\uB974\uCF54\",\n    \"\uC815\uC7A5\",\n    \"w32003b\",\n    \"worker32003b\",\n   
+    \"icon_worker32003b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32003c\",\n   
+    \"worker32003c\",\n    \"icon_worker32003c\",\n    \"cute\",\n    \"cute_disc\",\n   
     \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
     \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n   
-    \"w32005d\",\n    \"worker32005d\",\n    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAC15\uD0DC\uD638\",\n   
-    \"\uC815\uC7A5\",\n    \"w32006b\",\n    \"worker32006b\",\n    \"icon_suit\",\n   
-    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n   
-    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32006c\",\n    \"worker32006c\",\n   
-    \"icon_cat\",\n    \"cat\",\n    \"cat_disc\",\n    \"Coin\",\n    \"60\",\n   
-    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n    \"w32006d\",\n   
-    \"worker32006d\",\n    \"icon_tuxedo\",\n    \"tuxedo\",\n    \"tuxedo_disc\",\n   
-    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n   
-    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC8FC\uC815\uC5F0\",\n   
-    \"\uC815\uC7A5\",\n    \"w33001b\",\n    \"worker33001b\",\n    \"icon_suit\",\n   
-    \"suit\",\n    \"suit_disc\",\n    \"Coin\",\n    \"40\",\n    \"3\",\n    \"800000\",\n   
-    \"none\",\n    \"0\",\n    \"1200\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uBC14\uB2C8\",\n    \"w33001c\",\n    \"worker33001c\",\n    \"icon_cat\",\n   
-    \"cat\",\n    \"cat_disc\",\n    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n   
-    \"none\",\n    \"0\",\n    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n    \"w33001d\",\n    \"worker33001d\",\n   
-    \"icon_maid\",\n    \"maid\",\n    \"maid_disc\",\n    \"Coin\",\n    \"100\",\n   
-    \"7\",\n    \"1000000\",\n    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n   
-    \"30\"\n  ],\n  [\n    \"\uC624\uD0C4\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n   
-    \"w41001b\",\n    \"worker41001b\",\n    \"icon_china\",\n    \"china\",\n   
-    \"china_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
-    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"5\"\n  ],\n  [\n   
-    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41001c\",\n    \"worker41001c\",\n    \"icon_scull\",\n   
-    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
-    \"5000000\",\n    \"w41001b\",\n    \"0\",\n    \"19600\",\n    \"20\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41001d\",\n   
-    \"worker41001d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41001c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uC57C\uB9C8\uBAA8\uD1A0
-    \uC9C4\uB178\uC2A4\uCF00\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41002b\",\n   
-    \"worker41002b\",\n    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n   
+    \"w32003d\",\n    \"worker32003d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uAE30\uC6A4\",\n    \"\uC815\uC7A5\",\n    \"w32004b\",\n    \"worker32004b\",\n   
+    \"icon_worker32004b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w32004c\",\n   
+    \"worker32004c\",\n    \"icon_worker32004c\",\n    \"dish\",\n    \"dish_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n   
+    \"w32004d\",\n    \"worker32004d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC624\uB4DC\uB9AC\",\n    \"\uC815\uC7A5\",\n    \"w32005b\",\n    \"worker32005b\",\n   
+    \"icon_worker32005b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32005c\",\n   
+    \"worker32005c\",\n    \"icon_worker32005c\",\n    \"dish\",\n    \"dish_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n   
+    \"w32005d\",\n    \"worker32005d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB808\uC624\",\n    \"\uC815\uC7A5\",\n    \"w32006b\",\n    \"worker32006b\",\n   
+    \"icon_worker32006b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uACE0\uC591\uC774\",\n    \"w32006c\",\n   
+    \"worker32006c\",\n    \"icon_worker32006c\",\n    \"cute\",\n    \"cute_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD131\uC2DC\uB3C4\",\n   
+    \"w32006d\",\n    \"worker32006d\",\n    \"icon_chocolat_girl\",\n    \"elf\",\n   
+    \"elf_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD50C\uB85C\uB77C\",\n    \"\uC815\uC7A5\",\n    \"w33001b\",\n    \"worker33001b\",\n   
+    \"icon_worker33001b\",\n    \"uniform03\",\n    \"uniform03_disc\",\n    \"Coin\",\n   
+    \"40\",\n    \"3\",\n    \"800000\",\n    \"none\",\n    \"0\",\n    \"1200\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uBC14\uB2C8\",\n    \"w33001c\",\n   
+    \"worker33001c\",\n    \"icon_worker33001c\",\n    \"cute\",\n    \"cute_disc\",\n   
+    \"Coin\",\n    \"60\",\n    \"5\",\n    \"900000\",\n    \"none\",\n    \"0\",\n   
+    \"2400\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uBA54\uC774\uB4DC\uBCF5\",\n   
+    \"w33001d\",\n    \"worker33001d\",\n    \"icon_chocolat_boy\",\n    \"chocolat\",\n   
+    \"chocolat_disc\",\n    \"Coin\",\n    \"100\",\n    \"7\",\n    \"1000000\",\n   
+    \"none\",\n    \"0\",\n    \"6000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB124\uC548\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41001b\",\n   
+    \"worker41001b\",\n    \"icon_worker41001b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n   
     \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
     \"8000\",\n    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n   
-    \"w41002c\",\n    \"worker41002c\",\n    \"icon_scull\",\n    \"scull\",\n   
-    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
-    \"w41002b\",\n    \"0\",\n    \"19600\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41002d\",\n    \"worker41002d\",\n   
-    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n    \"Coin\",\n    \"600\",\n   
-    \"7\",\n    \"10000000\",\n    \"w41002c\",\n    \"0\",\n    \"60000\",\n   
-    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uCD5C\uC218\uD604\",\n    \"\uCE58\uD30C\uC624\",\n   
-    \"w41003b\",\n    \"worker41003b\",\n    \"icon_qipao\",\n    \"qipao\",\n   
-    \"qipao_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
+    \"w41001c\",\n    \"worker41001c\",\n    \"icon_worker41001c\",\n    \"carnival\",\n   
+    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
+    \"w41001b\",\n    \"0\",\n    \"19600\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41001d\",\n    \"worker41001d\",\n   
+    \"icon_hunter_girl\",\n    \"hunter\",\n    \"hunter_disc\",\n    \"Coin\",\n   
+    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41001c\",\n    \"0\",\n    \"60000\",\n   
+    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uD06C\uB85C\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n   
+    \"w41002b\",\n    \"worker41002b\",\n    \"icon_worker41002b\",\n    \"uniform04\",\n   
+    \"uniform04_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
+    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"5\"\n  ],\n  [\n   
+    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41002c\",\n    \"worker41002c\",\n    \"icon_worker41002c\",\n   
+    \"carnival\",\n    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
+    \"5000000\",\n    \"w41002b\",\n    \"0\",\n    \"19600\",\n    \"20\",\n   
+    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41002d\",\n   
+    \"worker41002d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n    \"hunter_disc\",\n   
+    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41002c\",\n   
+    \"0\",\n    \"60000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uC544\uB974\uB514\",\n   
+    \"\uCE58\uD30C\uC624\",\n    \"w41003b\",\n    \"worker41003b\",\n    \"icon_worker41003b\",\n   
+    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n   
+    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n 
+    ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41003c\",\n    \"worker41003c\",\n   
+    \"icon_worker41003c\",\n    \"carnival\",\n    \"carnival_disc\",\n    \"Coin\",\n   
+    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w41003b\",\n    \"0\",\n    \"19600\",\n   
+    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n   
+    \"w41003d\",\n    \"worker41003d\",\n    \"icon_hunter_boy\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w41003c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC624\uC2A4\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41004b\",\n   
+    \"worker41004b\",\n    \"icon_worker41004b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n   
+    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
+    \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n   
+    \"w41004c\",\n    \"worker41004c\",\n    \"icon_worker41004c\",\n    \"carnival\",\n   
+    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
+    \"w41004b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41004d\",\n    \"worker41004d\",\n   
+    \"icon_hunter_boy\",\n    \"hunter\",\n    \"hunter_disc\",\n    \"Coin\",\n   
+    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41004c\",\n    \"0\",\n    \"60000\",\n   
+    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBCF4\uBCF4\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n   
+    \"w41005b\",\n    \"worker41005b\",\n    \"icon_worker41005b\",\n    \"uniform04\",\n   
+    \"uniform04_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
     \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41003c\",\n    \"worker41003c\",\n    \"icon_scull\",\n   
-    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
-    \"5000000\",\n    \"w41003b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n    \"w41003d\",\n   
-    \"worker41003d\",\n    \"icon_deviless\",\n    \"deviless\",\n    \"deviless_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41003c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uC7A5\uD6C8\",\n   
-    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41004b\",\n    \"worker41004b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41004c\",\n    \"worker41004c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w41004b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41004d\",\n   
-    \"worker41004d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41004c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB098\uD615\uC12D\",\n   
-    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41005b\",\n    \"worker41005b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41005c\",\n    \"worker41005c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w41005b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
+    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41005c\",\n    \"worker41005c\",\n    \"icon_worker41005c\",\n   
+    \"carnival\",\n    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
+    \"5000000\",\n    \"w41005b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
     \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41005d\",\n   
-    \"worker41005d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
+    \"worker41005d\",\n    \"icon_hunter_boy\",\n    \"hunter\",\n    \"hunter_disc\",\n   
     \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41005c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC57C\uB9C8\uBAA8\uD1A0
-    \uC57C\uB9C8\uD1A0\uD3EC\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41006b\",\n   
-    \"worker41006b\",\n    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n   
+    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC0AC\uBE4C\",\n   
+    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w41006b\",\n    \"worker41006b\",\n   
+    \"icon_worker41006b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n   
+    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41006c\",\n   
+    \"worker41006c\",\n    \"icon_worker41006c\",\n    \"carnival\",\n    \"carnival_disc\",\n   
+    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w41006b\",\n   
+    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n   
+    \"w41006d\",\n    \"worker41006d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w41006c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB69C\uB760\",\n    \"\uCE58\uD30C\uC624\",\n    \"w41007b\",\n    \"worker41007b\",\n   
+    \"icon_worker41007b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n   
+    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41007c\",\n   
+    \"worker41007c\",\n    \"icon_worker41007c\",\n    \"carnival\",\n    \"carnival_disc\",\n   
+    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w41007b\",\n   
+    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n   
+    \"w41007d\",\n    \"worker41007d\",\n    \"icon_hunter_boy\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w41007c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uB784\uB85C\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42001b\",\n   
+    \"worker42001b\",\n    \"icon_worker42001b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n   
     \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
     \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n   
-    \"w41006c\",\n    \"worker41006c\",\n    \"icon_scull\",\n    \"scull\",\n   
-    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
-    \"w41006b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w41006d\",\n    \"worker41006d\",\n   
-    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n    \"Coin\",\n    \"600\",\n   
-    \"7\",\n    \"10000000\",\n    \"w41006c\",\n    \"0\",\n    \"60000\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uC740\uC815\",\n    \"\uCE58\uD30C\uC624\",\n   
-    \"w41007b\",\n    \"worker41007b\",\n    \"icon_qipao\",\n    \"qipao\",\n   
-    \"qipao_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
+    \"w42001c\",\n    \"worker42001c\",\n    \"icon_worker42001c\",\n    \"carnival\",\n   
+    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
+    \"w42001b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42001d\",\n    \"worker42001d\",\n   
+    \"icon_hunter_girl\",\n    \"hunter\",\n    \"hunter_disc\",\n    \"Coin\",\n   
+    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42001c\",\n    \"0\",\n    \"60000\",\n   
+    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uD53C\uD14C\",\n    \"\uCE58\uD30C\uC624\",\n   
+    \"w42002b\",\n    \"worker42002b\",\n    \"icon_worker42002b\",\n    \"uniform04\",\n   
+    \"uniform04_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
     \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w41007c\",\n    \"worker41007c\",\n    \"icon_scull\",\n   
-    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
-    \"5000000\",\n    \"w41007b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n    \"w41007d\",\n   
-    \"worker41007d\",\n    \"icon_deviless\",\n    \"deviless\",\n    \"deviless_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w41007c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC774\uC885\uC218\",\n   
-    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42001b\",\n    \"worker42001b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42001c\",\n    \"worker42001c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w42001b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42001d\",\n   
-    \"worker42001d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42001c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC778\uC0AC\uB2F4\uB2F9\uC790\",\n   
-    \"\uCE58\uD30C\uC624\",\n    \"w42002b\",\n    \"worker42002b\",\n    \"icon_qipao\",\n   
-    \"qipao\",\n    \"qipao_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42002c\",\n    \"worker42002c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w42002b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
+    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42002c\",\n    \"worker42002c\",\n    \"icon_worker42002c\",\n   
+    \"carnival\",\n    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
+    \"5000000\",\n    \"w42002b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
     \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n    \"w42002d\",\n   
-    \"worker42002d\",\n    \"icon_deviless\",\n    \"deviless\",\n    \"deviless_disc\",\n   
+    \"worker42002d\",\n    \"icon_hunter_boy\",\n    \"hunter\",\n    \"hunter_disc\",\n   
     \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42002c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uD604\uC2DD(\uAD6D\uBF55\uBAA8\uB4DC)\",\n   
+    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uCFE0\uC2A4\",\n   
     \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42003b\",\n    \"worker42003b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42003c\",\n    \"worker42003c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w42003b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42003d\",\n   
-    \"worker42003d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42003c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uCC9C\uC0AC\",\n   
-    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42004b\",\n    \"worker42004b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42004c\",\n    \"worker42004c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w42004b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42004d\",\n   
-    \"worker42004d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42004c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC0AC\uD0C4
-    \uD560\uC544\uBC84\uC9C0\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42005b\",\n   
-    \"worker42005b\",\n    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n   
+    \"icon_worker42003b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n   
+    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42003c\",\n   
+    \"worker42003c\",\n    \"icon_worker42003c\",\n    \"carnival\",\n    \"carnival_disc\",\n   
+    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w42003b\",\n   
+    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n   
+    \"w42003d\",\n    \"worker42003d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w42003c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC0E4\uC0AC\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42004b\",\n   
+    \"worker42004b\",\n    \"icon_worker42004b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n   
     \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
     \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n   
-    \"w42005c\",\n    \"worker42005c\",\n    \"icon_scull\",\n    \"scull\",\n   
-    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
-    \"w42005b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
-    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42005d\",\n    \"worker42005d\",\n   
-    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n    \"Coin\",\n    \"600\",\n   
-    \"7\",\n    \"10000000\",\n    \"w42005c\",\n    \"0\",\n    \"60000\",\n   
-    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBC30\uB355\uB9CC\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n   
-    \"w42006b\",\n    \"worker42006b\",\n    \"icon_china\",\n    \"china\",\n   
-    \"china_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
+    \"w42004c\",\n    \"worker42004c\",\n    \"icon_worker42004c\",\n    \"carnival\",\n   
+    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
+    \"w42004b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42004d\",\n    \"worker42004d\",\n   
+    \"icon_hunter_girl\",\n    \"hunter\",\n    \"hunter_disc\",\n    \"Coin\",\n   
+    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42004c\",\n    \"0\",\n    \"60000\",\n   
+    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC7AC\uD050\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n   
+    \"w42005b\",\n    \"worker42005b\",\n    \"icon_worker42005b\",\n    \"uniform04\",\n   
+    \"uniform04_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n   
     \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n   
-    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42006c\",\n    \"worker42006c\",\n    \"icon_scull\",\n   
-    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
-    \"5000000\",\n    \"w42006b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42006d\",\n   
-    \"worker42006d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42006c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE30\uD0C0\uC18C\uB140\",\n   
-    \"\uCE58\uD30C\uC624\",\n    \"w42007b\",\n    \"worker42007b\",\n    \"icon_qipao\",\n   
-    \"qipao\",\n    \"qipao_disc\",\n    \"Coin\",\n    \"200\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42007c\",\n    \"worker42007c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w42007b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n    \"w42007d\",\n   
-    \"worker42007d\",\n    \"icon_deviless\",\n    \"deviless\",\n    \"deviless_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42007c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC0AC\uD0C4\",\n   
-    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w43001b\",\n    \"worker43001b\",\n   
-    \"icon_china\",\n    \"china\",\n    \"china_disc\",\n    \"Coin\",\n    \"200\",\n   
-    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n    \"10\",\n   
-    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w43001c\",\n    \"worker43001c\",\n   
-    \"icon_scull\",\n    \"scull\",\n    \"scull_disc\",\n    \"Coin\",\n    \"280\",\n   
-    \"5\",\n    \"5000000\",\n    \"w43001b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
-    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w43001d\",\n   
-    \"worker43001d\",\n    \"icon_devil\",\n    \"devil\",\n    \"devil_disc\",\n   
-    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w43001c\",\n   
-    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uCD5C\uD61C\uC9C0\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51001b\",\n    \"worker51001b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"5\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51001c\",\n   
-    \"worker51001c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51001b\",\n   
-    \"0\",\n    \"35000\",\n    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51001d\",\n    \"worker51001d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51001c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uCD5C\uC9C0\uD61C\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51002b\",\n    \"worker51002b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"5\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51002c\",\n   
-    \"worker51002c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51002b\",\n   
-    \"0\",\n    \"35000\",\n    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51002d\",\n    \"worker51002d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42005c\",\n    \"worker42005c\",\n    \"icon_worker42005c\",\n   
+    \"carnival\",\n    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n   
+    \"5000000\",\n    \"w42005b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n   
+    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w42005d\",\n   
+    \"worker42005d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n    \"hunter_disc\",\n   
+    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w42005c\",\n   
+    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB69C\uB69C\",\n   
+    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w42006b\",\n    \"worker42006b\",\n   
+    \"icon_worker42006b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n   
+    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42006c\",\n   
+    \"worker42006c\",\n    \"icon_worker42006c\",\n    \"carnival\",\n    \"carnival_disc\",\n   
+    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w42006b\",\n   
+    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n   
+    \"w42006d\",\n    \"worker42006d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w42006c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC544\uD568\",\n    \"\uCE58\uD30C\uC624\",\n    \"w42007b\",\n    \"worker42007b\",\n   
+    \"icon_worker42007b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n    \"Coin\",\n   
+    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"8000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n    \"w42007c\",\n   
+    \"worker42007c\",\n    \"icon_worker42007c\",\n    \"carnival\",\n    \"carnival_disc\",\n   
+    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n    \"w42007b\",\n   
+    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uC545\uB9C8\uB4DC\uB808\uC2A4\",\n   
+    \"w42007d\",\n    \"worker42007d\",\n    \"icon_hunter_girl\",\n    \"hunter\",\n   
+    \"hunter_disc\",\n    \"Coin\",\n    \"600\",\n    \"7\",\n    \"10000000\",\n   
+    \"w42007c\",\n    \"0\",\n    \"60000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC058\uB760\",\n    \"\uCC28\uC774\uB098\uC154\uCE20\",\n    \"w43001b\",\n   
+    \"worker43001b\",\n    \"icon_worker43001b\",\n    \"uniform04\",\n    \"uniform04_disc\",\n   
+    \"Coin\",\n    \"200\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
+    \"8000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCEEC\",\n   
+    \"w43001c\",\n    \"worker43001c\",\n    \"icon_worker43001c\",\n    \"carnival\",\n   
+    \"carnival_disc\",\n    \"Coin\",\n    \"280\",\n    \"5\",\n    \"5000000\",\n   
+    \"w43001b\",\n    \"0\",\n    \"19600\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uC545\uB9C8\uC815\uC7A5\",\n    \"w43001d\",\n    \"worker43001d\",\n   
+    \"icon_hunter_boy\",\n    \"hunter\",\n    \"hunter_disc\",\n    \"Coin\",\n   
+    \"600\",\n    \"7\",\n    \"10000000\",\n    \"w43001c\",\n    \"0\",\n    \"60000\",\n   
+    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC81C\uC81C\",\n    \"\uBC14\uCE89\uC2A4\",\n   
+    \"w51001b\",\n    \"worker51001b\",\n    \"icon_worker51001b\",\n    \"spacesuit\",\n   
+    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n    \"2000000\",\n   
+    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"5\"\n  ],\n  [\n   
+    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51001c\",\n    \"worker51001c\",\n   
+    \"icon_worker51001c\",\n    \"cutesuit\",\n    \"cutesuit_disc\",\n    \"Coin\",\n   
+    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51001b\",\n    \"0\",\n    \"35000\",\n   
+    \"20\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
+    \"w51001d\",\n    \"worker51001d\",\n    \"icon_w51001a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w51001c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n   
+    \"\uC5D0\uC77C\uB9AC\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w51002b\",\n    \"worker51002b\",\n   
+    \"icon_worker51002b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"5\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w51002c\",\n    \"worker51002c\",\n    \"icon_worker51002c\",\n    \"cutesuit\",\n   
+    \"cutesuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w51002b\",\n    \"0\",\n    \"35000\",\n    \"20\",\n    \"10\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w51002d\",\n    \"worker51002d\",\n   
+    \"icon_w51002a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51002c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uBC15\uB450\uC2DD\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51003b\",\n    \"worker51003b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"20\"\n  ],\n  [\n    \"\uB450\uB450\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w51003b\",\n    \"worker51003b\",\n    \"icon_worker51003b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51003c\",\n   
-    \"worker51003c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker51003c\",\n    \"icon_worker51003c\",\n    \"foodsuit\",\n    \"foodsuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51003b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51003d\",\n    \"worker51003d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51003c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC7AC\uBBFC\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51004b\",\n    \"worker51004b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51004c\",\n   
-    \"worker51004c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51004b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51004d\",\n    \"worker51004d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w51003d\",\n    \"worker51003d\",\n    \"icon_w51003a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w51003c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD1A0\uB9AC\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w51004b\",\n    \"worker51004b\",\n   
+    \"icon_worker51004b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w51004c\",\n    \"worker51004c\",\n    \"icon_worker51004c\",\n    \"cutesuit\",\n   
+    \"cutesuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w51004b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w51004d\",\n    \"worker51004d\",\n   
+    \"icon_w51004a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51004c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC7AC\uC21C\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51005b\",\n    \"worker51005b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB871\uB871\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w51005b\",\n    \"worker51005b\",\n    \"icon_worker51005b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51005c\",\n   
-    \"worker51005c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker51005c\",\n    \"icon_worker51005c\",\n    \"cutesuit\",\n    \"cutesuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51005b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51005d\",\n    \"worker51005d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51005c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uBE45\uC2A4\uBE44\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51006b\",\n    \"worker51006b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51006c\",\n   
-    \"worker51006c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51006b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51006d\",\n    \"worker51006d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w51005d\",\n    \"worker51005d\",\n    \"icon_w51005a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w51005c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC288\uBBFC\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w51006b\",\n    \"worker51006b\",\n   
+    \"icon_worker51006b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w51006c\",\n    \"worker51006c\",\n    \"icon_worker51006c\",\n    \"foodsuit\",\n   
+    \"foodsuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w51006b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w51006d\",\n    \"worker51006d\",\n   
+    \"icon_w51006a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51006c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB3C4\uBBFF\uAC78\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w51007b\",\n    \"worker51007b\",\n    \"icon_vacation01\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB2C8\uB2C8\uC96C\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w51007b\",\n    \"worker51007b\",\n    \"icon_worker51007b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w51007c\",\n   
-    \"worker51007c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker51007c\",\n    \"icon_worker51007c\",\n    \"cutesuit\",\n    \"cutesuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w51007b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w51007d\",\n    \"worker51007d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w51007c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uC9C4\uC6B0\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52001b\",\n    \"worker52001b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52001c\",\n   
-    \"worker52001c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52001b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52001d\",\n    \"worker52001d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w51007d\",\n    \"worker51007d\",\n    \"icon_w51007a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w51007c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uBC14\uB098\uBC14\uB098\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w52001b\",\n   
+    \"worker52001b\",\n    \"icon_worker52001b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n   
+    \"Coin\",\n    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n   
+    \"14000\",\n    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w52001c\",\n    \"worker52001c\",\n    \"icon_worker52001c\",\n    \"foodsuit\",\n   
+    \"foodsuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w52001b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w52001d\",\n    \"worker52001d\",\n   
+    \"icon_w52001a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52001c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC8FC\uB514\uC2A4\uC815\uC740\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52002b\",\n    \"worker52002b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB3C4\uB77C\uB3C4\uB77C\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w52002b\",\n    \"worker52002b\",\n    \"icon_worker52002b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52002c\",\n   
-    \"worker52002c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker52002c\",\n    \"icon_worker52002c\",\n    \"foodsuit\",\n    \"foodsuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52002b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52002d\",\n    \"worker52002d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52002c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB3C4\uB0A0\uB450\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52003b\",\n    \"worker52003b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52003c\",\n   
-    \"worker52003c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52003b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52003d\",\n    \"worker52003d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w52002d\",\n    \"worker52002d\",\n    \"icon_w52002a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w52002c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC090\uC090\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w52003b\",\n    \"worker52003b\",\n   
+    \"icon_worker52003b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w52003c\",\n    \"worker52003c\",\n    \"icon_worker52003c\",\n    \"cutesuit\",\n   
+    \"cutesuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w52003b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w52003d\",\n    \"worker52003d\",\n   
+    \"icon_w52003a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52003c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uC2B9\uC6B0\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52004b\",\n    \"worker52004b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB8E8\uC528\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w52004b\",\n    \"worker52004b\",\n    \"icon_worker52004b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52004c\",\n   
-    \"worker52004c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker52004c\",\n    \"icon_worker52004c\",\n    \"cutesuit\",\n    \"cutesuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52004b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52004d\",\n    \"worker52004d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52004c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uB9AC\uB098\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52005b\",\n    \"worker52005b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52005c\",\n   
-    \"worker52005c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52005b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52005d\",\n    \"worker52005d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w52004d\",\n    \"worker52004d\",\n    \"icon_w52004a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w52004c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uC194\uB77C\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w52005b\",\n    \"worker52005b\",\n   
+    \"icon_worker52005b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w52005c\",\n    \"worker52005c\",\n    \"icon_worker52005c\",\n    \"cutesuit\",\n   
+    \"cutesuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w52005b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w52005d\",\n    \"worker52005d\",\n   
+    \"icon_w52005a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52005c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uBC15\uC625\uC21C\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w52006b\",\n    \"worker52006b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
+    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uD234\uD234\uC528\",\n   
+    \"\uBC14\uCE89\uC2A4\",\n    \"w52006b\",\n    \"worker52006b\",\n    \"icon_worker52006b\",\n   
+    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
     \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
     ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w52006c\",\n   
-    \"worker52006c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
+    \"worker52006c\",\n    \"icon_worker52006c\",\n    \"foodsuit\",\n    \"foodsuit_disc\",\n   
     \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w52006b\",\n   
     \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w52006d\",\n    \"worker52006d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
-    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w52006c\",\n   
-    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n    \"\uAE40\uC21C\uC790\",\n   
-    \"\uBC14\uCE89\uC2A4\",\n    \"w53001b\",\n    \"worker53001b\",\n    \"icon_vacation02\",\n   
-    \"vacation\",\n    \"vacation_disc\",\n    \"Coin\",\n    \"350\",\n    \"3\",\n   
-    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n    \"10\",\n    \"10\"\n 
-    ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n    \"w53001c\",\n   
-    \"worker53001c\",\n    \"icon_scout\",\n    \"scout\",\n    \"scout_disc\",\n   
-    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n    \"w53001b\",\n   
-    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n   
-    \"w53001d\",\n    \"worker53001d\",\n    \"icon_hula\",\n    \"hula\",\n    \"hula_disc\",\n   
+    \"w52006d\",\n    \"worker52006d\",\n    \"icon_w52006a_skin03\",\n    \"extremesiut\",\n   
+    \"extremesiut_disc\",\n    \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n   
+    \"w52006c\",\n    \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ],\n  [\n   
+    \"\uD3FC\uD22C\uD0A4\",\n    \"\uBC14\uCE89\uC2A4\",\n    \"w53001b\",\n    \"worker53001b\",\n   
+    \"icon_worker53001b\",\n    \"spacesuit\",\n    \"spacesuit_disc\",\n    \"Coin\",\n   
+    \"350\",\n    \"3\",\n    \"2000000\",\n    \"none\",\n    \"0\",\n    \"14000\",\n   
+    \"10\",\n    \"10\"\n  ],\n  [\n    \"\",\n    \"\uC2A4\uCE74\uC6B0\uD2B8\",\n   
+    \"w53001c\",\n    \"worker53001c\",\n    \"icon_worker53001c\",\n    \"cutesuit\",\n   
+    \"cutesuit_disc\",\n    \"Coin\",\n    \"500\",\n    \"5\",\n    \"5000000\",\n   
+    \"w53001b\",\n    \"0\",\n    \"35000\",\n    \"15\",\n    \"20\"\n  ],\n  [\n   
+    \"\",\n    \"\uD6CC\uB77C\uD6CC\uB77C\",\n    \"w53001d\",\n    \"worker53001d\",\n   
+    \"icon_w53001a_skin03\",\n    \"extremesiut\",\n    \"extremesiut_disc\",\n   
     \"Coin\",\n    \"1000\",\n    \"7\",\n    \"10000000\",\n    \"w53001c\",\n   
     \"0\",\n    \"100000\",\n    \"30\",\n    \"30\"\n  ]\n]"
