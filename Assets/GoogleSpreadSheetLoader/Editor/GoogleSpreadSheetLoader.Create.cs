@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using GoogleSpreadSheetLoader.Generate;
+using GoogleSpreadSheetLoader.Script;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
@@ -141,7 +143,15 @@ namespace GoogleSpreadSheetLoader
                 case eCreateState.None:
                     if (GUILayout.Button("스크립트 생성", GUILayout.Width(150)))
                     {
-                        CreateScript();
+                        var list = new List<SheetData>();
+                        var enumTarget = _dicTableDataCreateCheck[eTableStyle.None].Where(x => x.Value);
+                        
+                        foreach (var pair in enumTarget)
+                        {
+                            list.Add(pair.Key);
+                        }
+                        
+                        GSSL_Generate.GenerateTableScripts(list);
                     }
 
                     break;
@@ -159,6 +169,14 @@ namespace GoogleSpreadSheetLoader
                 {
                     if (GUILayout.Button("테이블 데이터 생성", GUILayout.Width(150)))
                     {
+                        var enumTarget = _dicTableDataCreateCheck[eTableStyle.None].Where(x => x.Value);
+                        var listSheet = new List<SheetData>();
+                        foreach (var pair in enumTarget)
+                        {
+                            listSheet.Add(pair.Key);
+                        }
+                        
+                        GSSL_Generate.GenerateTableData(listSheet);
                     }
                 }
                     break;

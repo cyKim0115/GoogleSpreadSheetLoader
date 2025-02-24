@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace TableData
 {
-    [Serializable]
-    public abstract class TableDataBase : ScriptableObject
+    public interface ITable
     {
-        public virtual void SetData(List<string> data)
+        public void SetData(List<List<string>> data)
         {
             
         }

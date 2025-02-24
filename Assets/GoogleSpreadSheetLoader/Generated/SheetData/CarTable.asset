@@ -17,7 +17,7 @@ MonoBehaviour:
   data: "[\n  [\n    \"\",\n    \"ID-string\",\n    \"prefab-string\",\n    \"icon-string\",\n   
     \"Name-string\",\n    \"Scription-string\",\n    \"Unlock_follow-int\",\n   
     \"Unlock_ID-string\",\n    \"downPayment-long\",\n    \"LinkedEventID-string\",\n   
-    \"CostType-DataMgr.PriceType\",\n    \"takeoverTimeM-int\",\n    \"balance-long\",\n   
+    \"CostType-string\",\n    \"takeoverTimeM-int\",\n    \"balance-long\",\n   
     \"flexPoint-int\",\n    \"followPoint-int\",\n    \"postID-string\",\n    \"dirtyTimeM-int\",\n   
     \"washCost_1-int\",\n    \"washCost_2-int\",\n    \"washCost_3-int\",\n    \"washFlexPoint1-int\",\n   
     \"washFlexPoint2-int\",\n    \"washFlexPoint3-int\"\n  ],\n  [\n    \"\",\n   
