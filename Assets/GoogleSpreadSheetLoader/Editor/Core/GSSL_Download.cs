@@ -19,6 +19,12 @@ namespace GoogleSpreadSheetLoader.Download
             Downloading,
             Complete,
         }
+        
+        private static readonly string _downloadSheetUrl =
+            "https://sheets.googleapis.com/v4/spreadsheets/{0}/values/{1}?key={2}";
+        private static readonly string _downloadSpreadSheetUrl = "https://sheets.googleapis.com/v4/spreadsheets/{0}?key={1}";
+        
+        private string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
 
         public static async Awaitable DownloadSpreadSheet(
             Dictionary<int, bool> dicCheck,
@@ -46,7 +52,7 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 foreach (SpreadSheetInfo info in listDownloadTarget)
                 {
-                    string url = string.Format(GSSL_Setting.DownloadSpreadSheetUrl, info.spreadSheetId,
+                    string url = string.Format(_downloadSpreadSheetUrl, info.spreadSheetId,
                         GSSL_Setting.SettingData.apiKey);
 
                     UnityWebRequest webRequest = UnityWebRequest.Get(url);
@@ -141,7 +147,7 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 foreach ((string spreadSheetId, string sheetName) info in listDownloadTarget)
                 {
-                    string url = string.Format(GSSL_Setting.DownloadSheetUrl, info.spreadSheetId, info.sheetName,
+                    string url = string.Format(_downloadSheetUrl, info.spreadSheetId, info.sheetName,
                         GSSL_Setting.SettingData.apiKey);
 
                     UnityWebRequest webRequest = UnityWebRequest.Get(url);
@@ -152,7 +158,6 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
-                    // Debug.Log($"({listOperator.Count(x=>x.webRequest.isDone)}/{listOperator.Count})");
                     OnMessageAction?.Invoke(
                         $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})");
                     await Task.Delay(100);

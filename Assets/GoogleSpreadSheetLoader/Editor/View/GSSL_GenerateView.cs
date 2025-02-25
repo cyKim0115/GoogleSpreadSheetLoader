@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using GoogleSpreadSheetLoader.Generate;
-using GoogleSpreadSheetLoader.Script;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
-using static GoogleSpreadSheetLoader.Script.GSSL_Script;
 
 namespace GoogleSpreadSheetLoader
 {

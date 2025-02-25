@@ -15,22 +15,6 @@ namespace GoogleSpreadSheetLoader.Setting
         private static SettingData _settingData;
         #endregion
         
-        #region SpreadSheet & Sheet
-        public static string DownloadSpreadSheetUrl => _downloadSpreadSheetUrl;
-        public static readonly string DownloadSheetUrl =
-            "https://sheets.googleapis.com/v4/spreadsheets/{0}/values/{1}?key={2}";
-        
-        private string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
-        private static string _downloadSpreadSheetUrl = "https://sheets.googleapis.com/v4/spreadsheets/{0}?key={1}";
-        #endregion
-        
-        #region Script
-        public static string ScriptPath => _scriptPath;
-        
-        private static readonly string _scriptPath = "Assets/GoogleSpreadSheetLoader/Script";
-        #endregion
-        
-        
         [InitializeOnLoadMethod]
         private static void ResetStaticInstance()
         {
