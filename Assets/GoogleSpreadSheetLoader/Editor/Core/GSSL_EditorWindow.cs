@@ -1,3 +1,4 @@
+using System;
 using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
@@ -9,6 +10,7 @@ namespace GoogleSpreadSheetLoader
     {
         private readonly SettingView _settingView = new();
         private readonly DownloadView _downloadView = new();
+        private readonly GenerateView _generateView = new();
         
         private static int _selectedToolbar = 0;
 
@@ -18,12 +20,35 @@ namespace GoogleSpreadSheetLoader
             var window = GetWindow<GSSL_EditorWindow>(true, "Google Spread Sheet Loader");
             var editorWindow = (window as EditorWindow);
             editorWindow.minSize = new Vector2(530, 600);
-
-            _selectedToolbar = LoadSelectedToolbarNum();
             
+            _selectedToolbar = LoadSelectedToolbarNum();
+
             window.ShowUtility();
+            
         }
 
+        private void OnEnable()
+        {
+            EditorApplication.update -= UpdateEditor;
+            EditorApplication.update += UpdateEditor;
+        }
+
+        private void OnDisable()
+        {
+            EditorApplication.update -= UpdateEditor;
+        }
+
+        private DateTime _checkTime;
+        
+        private void UpdateEditor()
+        {
+            if((DateTime.Now - _checkTime).TotalSeconds > 1)
+            {
+                _checkTime = DateTime.Now;
+                Repaint();
+            }
+        }
+        
         private void OnGUI()
         {
             int prevSelected = _selectedToolbar;
@@ -45,7 +70,7 @@ namespace GoogleSpreadSheetLoader
                     _downloadView.DrawDownloadView();
                     break;
                 case 2:
-                    DrawCreateView();
+                    _generateView.DrawGenerateView();
                     break;
             }
         }

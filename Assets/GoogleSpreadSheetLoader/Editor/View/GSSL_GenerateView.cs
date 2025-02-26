@@ -10,36 +10,36 @@ using static GoogleSpreadSheetLoader.SheetData;
 
 namespace GoogleSpreadSheetLoader
 {
-    public partial class GSSL_EditorWindow
+    public class GenerateView
     {
-        private enum eCreateState
+        private enum eGenerateState
         {
             None,
             Progress,
             Complete,
         }
-        
+
         private DateTime _checkTime;
-        private List<SheetData> _listTableData = new List<SheetData>();
-        private Dictionary<eTableStyle, Dictionary<SheetData, bool>> _dicTableDataCreateCheck = new Dictionary<eTableStyle, Dictionary<SheetData, bool>>();
-        private Vector2 _createScrollPos = Vector2.zero;
-        private eCreateState _createScriptState = eCreateState.None;
-        private string _createScriptMessage = "";
-        private eCreateState _createDataState = eCreateState.None;
-        private string _createDataMessage = "";
+        private readonly List<SheetData> _listTableData = new();
+        private readonly Dictionary<eTableStyle, Dictionary<SheetData, bool>> _dicTableDataGenerateCheck = new();
+        private Vector2 _generateScrollPos = Vector2.zero;
+        private readonly eGenerateState _generateScriptState = eGenerateState.None;
+        private readonly string _generateScriptMessage = "";
+        private readonly eGenerateState _generateDataState = eGenerateState.None;
+        private readonly string _generateDataMessage = "";
 
-        public void DrawCreateView()
+        public void DrawGenerateView()
         {
-            CreateView_CheckAndLoad();
+            CheckAndLoad();
 
-            CreateView_DrawTableDataList();
+            DrawTableDataList();
 
-            CreateView_DrawBtns();
+            DrawGenerateButtons();
         }
-
-        private void CreateView_CheckAndLoad()
+        
+        private void CheckAndLoad()
         {
-            if ((DateTime.Now - _checkTime).TotalSeconds > 5)
+            if ((DateTime.Now - _checkTime).TotalSeconds > 1)
             {
                 _checkTime = DateTime.Now;
 
@@ -49,7 +49,10 @@ namespace GoogleSpreadSheetLoader
                 var guids = AssetDatabase.FindAssets("", new[] { GSSL_Setting.SettingDataAssetPath });
 
                 if (guids.Length == 0)
+                {
+                    CheckAndClearDictionary();
                     return;
+                }
 
                 _listTableData.Clear();
 
@@ -59,28 +62,36 @@ namespace GoogleSpreadSheetLoader
                     SheetData sheetData = AssetDatabase.LoadAssetAtPath<SheetData>(assetPath);
                     _listTableData.Add(sheetData);
                 }
+
+                CheckAndClearDictionary();
             }
         }
 
-        private void CreateView_DrawTableDataList()
+        private void DrawTableDataList()
         {
             EditorGUILayout.Separator();
-            
-            EditorGUILayout.LabelField("  변환시킬 시트들 선택", EditorStyles.whiteLargeLabel);
-            
+
+            if (_listTableData == null || _listTableData.Count == 0)
+            {
+                EditorGUILayout.LabelField("  다운로드된 시트 데이터가 하나도 없음.", EditorStyles.whiteLargeLabel);
+                return;
+            }
+
+            EditorGUILayout.LabelField($"  변환시킬 시트들 선택)", EditorStyles.whiteLargeLabel);
+
             EditorGUILayout.Separator();
 
             // 요소 체크
             foreach (SheetData tableData in _listTableData)
             {
-                _dicTableDataCreateCheck.TryAdd(tableData.tableStyle, new Dictionary<SheetData, bool>());
-                _dicTableDataCreateCheck[tableData.tableStyle].TryAdd(tableData, false);
+                _dicTableDataGenerateCheck.TryAdd(tableData.tableStyle, new Dictionary<SheetData, bool>());
+                _dicTableDataGenerateCheck[tableData.tableStyle].TryAdd(tableData, false);
             }
-            
-            _createScrollPos = EditorGUILayout.BeginScrollView(_createScrollPos,
+
+            _generateScrollPos = EditorGUILayout.BeginScrollView(_generateScrollPos,
                 GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-            
-            foreach (KeyValuePair<eTableStyle,Dictionary<SheetData,bool>> categoryPair in _dicTableDataCreateCheck)
+
+            foreach (KeyValuePair<eTableStyle, Dictionary<SheetData, bool>> categoryPair in _dicTableDataGenerateCheck)
             {
                 eTableStyle currCategory = categoryPair.Key;
                 Dictionary<SheetData, bool> currDic = categoryPair.Value;
@@ -92,7 +103,7 @@ namespace GoogleSpreadSheetLoader
                     case eTableStyle.EnumType: categoryName = "Enum"; break;
                     case eTableStyle.Localization: categoryName = "Localization"; break;
                 }
-                
+
                 // 전체 체크 부분
                 bool isAllCehck = currDic.Count > 0 && currDic.All(x => x.Value);
                 bool selected = EditorGUILayout.ToggleLeft($" {categoryName}", isAllCehck);
@@ -116,19 +127,18 @@ namespace GoogleSpreadSheetLoader
                         EditorGUILayout.ToggleLeft(tableData.title, currDic[tableData]);
                     EditorGUILayout.EndHorizontal();
                 }
-
             }
-            
+
             EditorGUILayout.EndScrollView();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        private void CreateView_DrawBtns()
+        private void DrawGenerateButtons()
         {
-            bool isCreateable = _dicTableDataCreateCheck.Count > 0 &&
-                                _dicTableDataCreateCheck.Values.Any(x => x.Values.Any(y => y));
+            bool isGenerateable = _dicTableDataGenerateCheck.Count > 0 &&
+                                  _dicTableDataGenerateCheck.Values.Any(x => x.Values.Any(y => y));
 
-            if (!isCreateable)
+            if (!isGenerateable)
                 return;
 
             GUILayout.FlexibleSpace();
@@ -136,60 +146,69 @@ namespace GoogleSpreadSheetLoader
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
 
-            switch (_createScriptState)
+            switch (_generateScriptState)
             {
-                case eCreateState.None:
+                case eGenerateState.None:
                     if (GUILayout.Button("스크립트 생성", GUILayout.Width(150)))
                     {
                         var list = new List<SheetData>();
-                        var enumTarget = _dicTableDataCreateCheck[eTableStyle.None].Where(x => x.Value);
-                        
+                        var enumTarget = _dicTableDataGenerateCheck[eTableStyle.None].Where(x => x.Value);
+
                         foreach (var pair in enumTarget)
                         {
                             list.Add(pair.Key);
                         }
-                        
+
                         GSSL_Generate.GenerateTableScripts(list);
                     }
 
                     break;
-                case eCreateState.Progress:
-                case eCreateState.Complete:
+                case eGenerateState.Progress:
+                case eGenerateState.Complete:
                 {
-                    EditorGUILayout.LabelField(_createScriptMessage,GUILayout.Width(150));
+                    EditorGUILayout.LabelField(_generateScriptMessage, GUILayout.Width(150));
                 }
                     break;
             }
-            
-            switch (_createDataState)
+
+            switch (_generateDataState)
             {
-                case eCreateState.None:
+                case eGenerateState.None:
                 {
                     if (GUILayout.Button("테이블 데이터 생성", GUILayout.Width(150)))
                     {
-                        var enumTarget = _dicTableDataCreateCheck[eTableStyle.None].Where(x => x.Value);
+                        var enumTarget = _dicTableDataGenerateCheck[eTableStyle.None].Where(x => x.Value);
                         var listSheet = new List<SheetData>();
                         foreach (var pair in enumTarget)
                         {
                             listSheet.Add(pair.Key);
                         }
-                        
+
                         GSSL_Generate.GenerateTableData(listSheet);
                     }
                 }
                     break;
-                case eCreateState.Progress:
-                case eCreateState.Complete:
+                case eGenerateState.Progress:
+                case eGenerateState.Complete:
                 {
-                    EditorGUILayout.LabelField(_createDataMessage,GUILayout.Width(150));
+                    EditorGUILayout.LabelField(_generateDataMessage, GUILayout.Width(150));
                 }
                     break;
             }
 
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
-            
+
             EditorGUILayout.Space(20);
+        }
+
+        private void CheckAndClearDictionary()
+        {
+            if (_listTableData.Any(x => x == null))
+            {
+                _listTableData.Clear();
+                _dicTableDataGenerateCheck.Clear();
+            }
         }
     }
 }
