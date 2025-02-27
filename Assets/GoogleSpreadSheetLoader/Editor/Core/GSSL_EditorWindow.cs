@@ -14,6 +14,13 @@ namespace GoogleSpreadSheetLoader
         
         private static int _selectedToolbar = 0;
 
+        // 컴파일 후 이전 선택한 것 다시 선택
+        [InitializeOnLoadMethod]
+        private static void RefocusSelectedToolbarNum()
+        {
+            _selectedToolbar = LoadSelectedToolbarNum();
+        }
+        
         [MenuItem("Tools/Google Spread Sheet Loader")]
         public static void ShowWindow()
         {
@@ -24,7 +31,6 @@ namespace GoogleSpreadSheetLoader
             _selectedToolbar = LoadSelectedToolbarNum();
 
             window.ShowUtility();
-            
         }
 
         private void OnEnable()

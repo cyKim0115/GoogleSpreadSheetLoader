@@ -18,7 +18,9 @@ MonoBehaviour:
     spreadSheetId: 1DrYHCVPTRzCHRq96KlGXN56RAhvwvwj3ltQ2lBwQcsY
   - spreadSheetName: CategoryTable
     spreadSheetId: 1WZUjlPEN96i_3QV4x4v6X3IpiU1l-mU6HzEbyx7ZWFE
+  - spreadSheetName: StringTable
+    spreadSheetId: 1pwYruzeS-RkHXgUQ7muRCmlsMq-NtzU1auROIDl3008
   sheetTarget: 1
   sheetTargetStr: '#'
-  sheet_enumTypeStr: EnumDef
-  sheet_localizationTypeStr: Localization
+  sheet_enumTypeStr: Type
+  sheet_localizationTypeStr: String

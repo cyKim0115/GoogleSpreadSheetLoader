@@ -11,7 +11,7 @@ namespace GoogleSpreadSheetLoader.Setting
         private bool _apiKeyEditToggle;
         private bool _sheetInfoEditToggle;
         private bool _sheetTargetEditToggle;
-        
+
         public void DrawSettingView()
         {
             DrawApiKey();
@@ -81,7 +81,8 @@ namespace GoogleSpreadSheetLoader.Setting
 
             if (GSSL_Setting.SettingData.listSpreadSheetInfo.Count > 0 && GUILayout.Button("-", GUILayout.Width(100)))
             {
-                GSSL_Setting.SettingData.listSpreadSheetInfo.RemoveAt(GSSL_Setting.SettingData.listSpreadSheetInfo.Count - 1);
+                GSSL_Setting.SettingData.listSpreadSheetInfo.RemoveAt(
+                    GSSL_Setting.SettingData.listSpreadSheetInfo.Count - 1);
             }
 
             if (GUILayout.Button("+", GUILayout.Width(100)))
@@ -117,13 +118,15 @@ namespace GoogleSpreadSheetLoader.Setting
                 // 이넘 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다.");
-                EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_enumTypeStr, GUILayout.Width(100));
+                GSSL_Setting.SettingData.sheet_enumTypeStr =
+                    EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_enumTypeStr, GUILayout.Width(100));
                 EditorGUILayout.EndHorizontal();
 
                 // 로컬라이제이션 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다.");
-                EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_localizationTypeStr, GUILayout.Width(100));
+                GSSL_Setting.SettingData.sheet_localizationTypeStr =
+                    EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_localizationTypeStr, GUILayout.Width(100));
                 EditorGUILayout.EndHorizontal();
             }
             else

@@ -20,7 +20,7 @@ namespace GoogleSpreadSheetLoader
         }
 
         private DateTime _checkTime;
-        private readonly List<SheetData> _listTableData = new();
+        private readonly List<SheetData> _listSheetData = new();
         private readonly Dictionary<eTableStyle, Dictionary<SheetData, bool>> _dicTableDataGenerateCheck = new();
         private Vector2 _generateScrollPos = Vector2.zero;
         private readonly eGenerateState _generateScriptState = eGenerateState.None;
@@ -36,7 +36,7 @@ namespace GoogleSpreadSheetLoader
 
             DrawGenerateButtons();
         }
-        
+
         private void CheckAndLoad()
         {
             if ((DateTime.Now - _checkTime).TotalSeconds > 1)
@@ -54,13 +54,13 @@ namespace GoogleSpreadSheetLoader
                     return;
                 }
 
-                _listTableData.Clear();
+                _listSheetData.Clear();
 
                 foreach (string guid in guids)
                 {
                     string assetPath = AssetDatabase.GUIDToAssetPath(guid);
                     SheetData sheetData = AssetDatabase.LoadAssetAtPath<SheetData>(assetPath);
-                    _listTableData.Add(sheetData);
+                    _listSheetData.Add(sheetData);
                 }
 
                 CheckAndClearDictionary();
@@ -71,27 +71,29 @@ namespace GoogleSpreadSheetLoader
         {
             EditorGUILayout.Separator();
 
-            if (_listTableData == null || _listTableData.Count == 0)
+            if (_listSheetData == null || _listSheetData.Count == 0)
             {
                 EditorGUILayout.LabelField("  다운로드된 시트 데이터가 하나도 없음.", EditorStyles.whiteLargeLabel);
                 return;
             }
 
-            EditorGUILayout.LabelField($"  변환시킬 시트들 선택)", EditorStyles.whiteLargeLabel);
+            EditorGUILayout.LabelField($"  변환시킬 시트들 선택", EditorStyles.whiteLargeLabel);
 
             EditorGUILayout.Separator();
 
             // 요소 체크
-            foreach (SheetData tableData in _listTableData)
+            foreach (var sheetData in _listSheetData)
             {
-                _dicTableDataGenerateCheck.TryAdd(tableData.tableStyle, new Dictionary<SheetData, bool>());
-                _dicTableDataGenerateCheck[tableData.tableStyle].TryAdd(tableData, false);
+                _dicTableDataGenerateCheck.TryAdd(sheetData.tableStyle, new Dictionary<SheetData, bool>());
+                _dicTableDataGenerateCheck[sheetData.tableStyle].TryAdd(sheetData, false);
             }
 
+            GUIStyle boxStyle = new GUIStyle(GUI.skin.box);
             _generateScrollPos = EditorGUILayout.BeginScrollView(_generateScrollPos,
                 GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            EditorGUILayout.BeginVertical(boxStyle);
 
-            foreach (KeyValuePair<eTableStyle, Dictionary<SheetData, bool>> categoryPair in _dicTableDataGenerateCheck)
+            foreach (var categoryPair in _dicTableDataGenerateCheck)
             {
                 eTableStyle currCategory = categoryPair.Key;
                 Dictionary<SheetData, bool> currDic = categoryPair.Value;
@@ -112,23 +114,29 @@ namespace GoogleSpreadSheetLoader
                 {
                     SheetData[] keys = currDic.Keys.ToArray();
 
-                    foreach (SheetData tableData in keys)
+                    foreach (var sheetData in keys)
                     {
-                        currDic[tableData] = selected;
+                        currDic[sheetData] = selected;
                     }
                 }
 
                 // 요소들
-                foreach (SheetData tableData in _listTableData)
+                foreach (var sheetData in _listSheetData)
                 {
+                    if (!currDic.ContainsKey(sheetData))
+                        continue;
+
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("", GUILayout.Width(10));
-                    currDic[tableData] =
-                        EditorGUILayout.ToggleLeft(tableData.title, currDic[tableData]);
+                    currDic[sheetData] =
+                        EditorGUILayout.ToggleLeft(sheetData.title, currDic[sheetData]);
                     EditorGUILayout.EndHorizontal();
                 }
+
+                EditorGUILayout.Space(10);
             }
 
+            EditorGUILayout.EndVertical();
             EditorGUILayout.EndScrollView();
         }
 
@@ -152,14 +160,26 @@ namespace GoogleSpreadSheetLoader
                     if (GUILayout.Button("스크립트 생성", GUILayout.Width(150)))
                     {
                         var list = new List<SheetData>();
-                        var enumTarget = _dicTableDataGenerateCheck[eTableStyle.None].Where(x => x.Value);
-
-                        foreach (var pair in enumTarget)
+                        foreach (var pair in _dicTableDataGenerateCheck)
                         {
-                            list.Add(pair.Key);
-                        }
+                            list.Clear();
+                            list = pair.Value.Where(x => x.Value)
+                                .Select(x => x.Key).ToList();
 
-                        GSSL_Generate.GenerateTableScripts(list);
+                            switch (pair.Key)
+                            {
+                                case eTableStyle.None:
+                                    GSSL_Generate.GenerateTableScripts(list);
+                                    break;
+                                case eTableStyle.EnumType:
+                                    GSSL_Generate.GenerateEnumDef(list);
+                                    break;
+                                case eTableStyle.Localization:
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
+                            }
+                        }
                     }
 
                     break;
@@ -204,9 +224,9 @@ namespace GoogleSpreadSheetLoader
 
         private void CheckAndClearDictionary()
         {
-            if (_listTableData.Any(x => x == null))
+            if (_listSheetData.Any(x => x == null))
             {
-                _listTableData.Clear();
+                _listSheetData.Clear();
                 _dicTableDataGenerateCheck.Clear();
             }
         }
