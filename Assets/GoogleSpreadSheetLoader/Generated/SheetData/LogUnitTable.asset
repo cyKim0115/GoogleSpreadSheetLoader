@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787706f7d49430494789b04d2df233f, type: 3}
+  m_Name: LogUnitTable
+  m_EditorClassIdentifier: 
+  title: LogUnitTable
+  tableStyle: 0
+  data: "[\n  [\n    \"\",\n    \"ID-string\",\n    \"posIdx-int\"\n  ],\n  [\n   
+    \"\",\n    \"h3107\",\n    \"8\",\n    \"\uC5EC\uB7EC\uAD70\uB370 \uBC30\uCE58\uB418\uB294
+    \uC720\uB2DB\uC774 \uC544\uB2C8\uBA74 0\"\n  ],\n  [\n    \"\",\n    \"k3106\",\n   
+    \"4\"\n  ],\n  [\n    \"\",\n    \"h4106\",\n    \"7\"\n  ],\n  [\n    \"\",\n   
+    \"h4106\",\n    \"8\"\n  ],\n  [\n    \"\",\n    \"s5101\",\n    \"0\"\n  ],\n 
+    [\n    \"\",\n    \"h5106\",\n    \"7\"\n  ],\n  [\n    \"\",\n    \"h5107\",\n   
+    \"8\"\n  ],\n  [\n    \"\",\n    \"k4106\",\n    \"4\"\n  ],\n  [\n    \"\",\n   
+    \"k5106\",\n    \"3\"\n  ],\n  [\n    \"\",\n    \"k5106\",\n    \"4\"\n  ],\n 
+    [\n    \"\",\n    \"k5605\",\n    \"3\"\n  ],\n  [\n    \"\",\n    \"k5705\",\n   
+    \"3\"\n  ],\n  [\n    \"\",\n    \"h4107\",\n    \"7\"\n  ],\n  [\n    \"\",\n   
+    \"h4107\",\n    \"8\"\n  ],\n  [\n    \"\",\n    \"h5106\",\n    \"7\"\n  ],\n 
+    [\n    \"\",\n    \"h5107\",\n    \"8\"\n  ],\n  [\n    \"\",\n    \"h5305\",\n   
+    \"0\"\n  ],\n  [\n    \"\",\n    \"h5606\",\n    \"0\"\n  ],\n  [\n    \"\",\n   
+    \"h1703\",\n    \"0\"\n  ],\n  [\n    \"\",\n    \"k1904\",\n    \"0\"\n  ],\n 
+    [\n    \"\",\n    \"h3305\",\n    \"0\"\n  ],\n  [\n    \"\",\n    \"k2406\",\n   
+    \"0\"\n  ],\n  [\n    \"\",\n    \"k4505\",\n    \"0\"\n  ],\n  [\n    \"\",\n   
+    \"k4904\",\n    \"0\"\n  ],\n  [\n    \"\",\n    \"k5305\",\n    \"0\"\n  ],\n 
+    [\n    \"\",\n    \"h4206\",\n    \"0\"\n  ],\n  [\n    \"\",\n    \"h4305\",\n   
+    \"0\"\n  ],\n  [\n    \"\",\n    \"h5404\",\n    \"0\"\n  ]\n]"

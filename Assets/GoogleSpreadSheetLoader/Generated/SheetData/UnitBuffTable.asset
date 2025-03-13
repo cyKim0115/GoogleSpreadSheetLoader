@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787706f7d49430494789b04d2df233f, type: 3}
+  m_Name: UnitBuffTable
+  m_EditorClassIdentifier: 
+  title: UnitBuffTable
+  tableStyle: 0
+  data: "[\n  [\n    \"\",\n    \"\",\n    \"Type-UnitSubCategoryType\",\n    \"buffType-BuffType\",\n   
+    \"common-bool\",\n    \"descID-int\",\n    \"valueTextID-int\"\n  ],\n  [\n   
+    \"\uD14C\uC774\uBE14\",\n    \"41\",\n    \"Hall_Table\",\n    \"EatTime\",\n   
+    \"false\",\n    \"1600\",\n    \"29\"\n  ],\n  [\n    \"\uCE74\uC6B4\uD130\",\n   
+    \"42\",\n    \"Hall_Counter\",\n    \"PayingTime\",\n    \"true\",\n    \"1601\",\n   
+    \"29\"\n  ],\n  [\n    \"\uBA54\uB274\uD310\",\n    \"43\",\n    \"Hall_MenuPanel\",\n   
+    \"OrderDelay\",\n    \"true\",\n    \"1604\",\n    \"29\"\n  ],\n  [\n    \"\uAD73\uC988\",\n   
+    \"44\",\n    \"Hall_Goods\",\n    \"Bonus\",\n    \"true\",\n    \"1605\",\n   
+    \"29\"\n  ],\n  [\n    \"\uD654\uBD84\",\n    \"45\",\n    \"Hall_Pot\",\n   
+    \"HallWorkerHP\",\n    \"true\",\n    \"1606\",\n    \"1609\"\n  ],\n  [\n   
+    \"\uC778\uD14C\uB9AC\uC5B4(\uBCBD)\",\n    \"46\",\n    \"Hall_Interior\",\n   
+    \"HallWorkerHP\",\n    \"true\",\n    \"1606\",\n    \"1609\"\n  ],\n  [\n   
+    \"\uD640 \uBC14\uB2E5\",\n    \"47\",\n    \"Hall_Floor\",\n    \"HallWorkerHP\",\n   
+    \"true\",\n    \"1606\",\n    \"1609\"\n  ],\n  [\n    \"\uC870\uB9AC\uAE30\uAD6CA\",\n   
+    \"51\",\n    \"Kitchen_Burner\",\n    \"CookingTime\",\n    \"false\",\n    \"1602\",\n   
+    \"29\"\n  ],\n  [\n    \"\uC2F1\uD06C\uB300\",\n    \"52\",\n    \"Kitchen_Sink\",\n   
+    \"BowlWashingTime\",\n    \"false\",\n    \"1607\",\n    \"29\"\n  ],\n  [\n   
+    \"\uB0C9\uC7A5\uACE0\",\n    \"53\",\n    \"Kitchen_Refrigerator\",\n    \"KitchenWorkerHP\",\n   
+    \"true\",\n    \"1608\",\n    \"1609\"\n  ],\n  [\n    \"\uC8FC\uBC29\uD14C\uC774\uBE14\",\n   
+    \"54\",\n    \"Kitchen_KitchenTable\",\n    \"CookingTime\",\n    \"false\",\n   
+    \"1602\",\n    \"29\"\n  ],\n  [\n    \"\uBCBD\uC7A5\uC2DD\",\n    \"55\",\n   
+    \"Kitchen_WallDeco\",\n    \"KitchenWorkerHP\",\n    \"true\",\n    \"1608\",\n   
+    \"1609\"\n  ],\n  [\n    \"\uC870\uB9AC\uAE30\uAD6CB\",\n    \"56\",\n    \"Kitchen_BurnerB\",\n   
+    \"CookingTime\",\n    \"false\",\n    \"1602\",\n    \"29\"\n  ],\n  [\n    \"\uC870\uB9AC\uAE30\uAD6CC\",\n   
+    \"57\",\n    \"Kitchen_BurnerC\",\n    \"CookingTime\",\n    \"false\",\n   
+    \"1602\",\n    \"29\"\n  ],\n  [\n    \"\uC870\uB9AC\uAE30\uAD6CD\",\n    \"58\",\n   
+    \"Kitchen_BurnerD\",\n    \"CookingTime\",\n    \"false\",\n    \"1602\",\n   
+    \"29\"\n  ],\n  [\n    \"\uC8FC\uBC29 \uBC14\uB2E5\",\n    \"59\",\n    \"Kitchen_Floor\",\n   
+    \"KitchenWorkerHP\",\n    \"true\",\n    \"1608\",\n    \"1609\"\n  ],\n  [\n   
+    \"\uAC00\uAC8C\",\n    \"61\",\n    \"Street_Building\",\n    \"CustomerGenTime\",\n   
+    \"true\",\n    \"1610\",\n    \"29\"\n  ],\n  [\n    \"\uB370\uCF5401\",\n   
+    \"62\",\n    \"Street_Signboard\",\n    \"CustomerGenTime\",\n    \"true\",\n   
+    \"1610\",\n    \"29\"\n  ],\n  [\n    \"\uB370\uCF5402\",\n    \"63\",\n    \"Street_Deco\",\n   
+    \"CustomerGenTime\",\n    \"true\",\n    \"1610\",\n    \"29\"\n  ]\n]"
