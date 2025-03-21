@@ -18,7 +18,6 @@ namespace GoogleSpreadSheetLoader.Generate
             
             foreach (var sheet in sheets)
             {
-                List<string> variableDeclarations = new List<string>();
                 List<int> validColumns = new List<int>();
 
                 List<List<string>> sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
@@ -56,29 +55,60 @@ namespace GoogleSpreadSheetLoader.Generate
                 {
                     foreach (var column in validColumns)
                     {
-                        if(string.IsNullOrEmpty(row[column - 1]))
-                            continue;
-                        
-                        if (!dicEnumStr.ContainsKey(column))
+                        if (row.Count <= column)
                         {
-                            Debug.LogError("2");
+                            break;
                         }
                         
-                        dicEnumStr[column].Add(row[column - 1]);
+                        if(string.IsNullOrEmpty(row[column]))
+                            continue;
+                        
+                        dicEnumStr[column].Add(row[column]);
+                    }
+                }
+
+                List<string> listEnumTitle = new();
+                Dictionary<string, List<string>> dicEnumName = new();
+                Dictionary<string, List<string>> dicEnumIdx = new();
+                foreach (var list in dicEnumStr.Values)
+                {
+                    var isIdx = list[0].Contains('-');
+                    var dictKey = isIdx ? list[0].Split('-')[0]: list[0];
+                    
+                    if(!listEnumTitle.Contains(dictKey))
+                        listEnumTitle.Add(dictKey);
+
+                    List<string> currentList = null;
+                    
+                    if (!isIdx)
+                    {
+                        dicEnumName.TryAdd(dictKey, new());
+                        currentList =dicEnumName[dictKey];
+                    }
+                    else
+                    {
+                        dicEnumIdx.TryAdd(dictKey, new());
+                        currentList =dicEnumIdx[dictKey];
+                    }
+                    
+                    list.RemoveAt(0);
+                    foreach (var value in list)
+                    {
+                        currentList.Add(value);
                     }
                 }
 
                 string data = "\n";
                 // 만든 string List를 토대로 enum 작성
-                foreach (var list in dicEnumStr.Values)
+                foreach (var title in listEnumTitle)
                 {
-                    var name = list[0];
-                    list.RemoveAt(0);
+                    var listName = dicEnumName[title];
+                    var listIdx = dicEnumIdx[title];
                     
-                    data += $"\npublic enum {name}\n{{\n";
-                    foreach (var str in list)
+                    data += $"\npublic enum {title}\n{{\n";
+                    for (var i = 0; i < listName.Count; i++)
                     {
-                        data += $"\t{str},\n";
+                        data += $"\t{listName[i]} = {listIdx[i]},\n";
                     }
                     data += $"}}\n";
                 }
