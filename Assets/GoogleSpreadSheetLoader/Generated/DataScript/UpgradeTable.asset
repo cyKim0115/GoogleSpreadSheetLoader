@@ -1,0 +1,759 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73518439a2a7439788572da766778dd, type: 3}
+  m_Name: UpgradeTable
+  m_EditorClassIdentifier: 
+  dataList:
+  - _ID: 1010100000
+    _stage: 10101
+    _idx: 0
+    _type: 1
+    _value: 3
+    _option: Char002
+    _cost: 0
+    _icon: .
+  - _ID: 1010100101
+    _stage: 10101
+    _idx: 1
+    _type: 2
+    _value: 2
+    _option: Char007
+    _cost: 0
+    _icon: .
+  - _ID: 1010100202
+    _stage: 10101
+    _idx: 2
+    _type: 3
+    _value: 2
+    _option: Char008
+    _cost: 0
+    _icon: .
+  - _ID: 10101001
+    _stage: 10101
+    _idx: 1
+    _type: 2
+    _value: 1
+    _option: Char003
+    _cost: 10
+    _icon: Astrologer_icon
+  - _ID: 10101002
+    _stage: 10101
+    _idx: 2
+    _type: 3
+    _value: 1
+    _option: Char004
+    _cost: 20
+    _icon: Blue Ninja_icon
+  - _ID: 10101003
+    _stage: 10101
+    _idx: 3
+    _type: 4
+    _value: 1
+    _option: Bag
+    _cost: 21
+    _icon: iconp_bag
+  - _ID: 10101004
+    _stage: 10101
+    _idx: 4
+    _type: 5
+    _value: 2
+    _option: Book
+    _cost: 22
+    _icon: iconp_book
+  - _ID: 10101005
+    _stage: 10101
+    _idx: 5
+    _type: 6
+    _value: 5
+    _option: '-'
+    _cost: 23
+    _icon: icon_increased_total_selling_price
+  - _ID: 10101006
+    _stage: 10101
+    _idx: 6
+    _type: 7
+    _value: 2
+    _option: '-'
+    _cost: 24
+    _icon: icon_move_speed_up
+  - _ID: 10101007
+    _stage: 10101
+    _idx: 7
+    _type: 1
+    _value: 1
+    _option: Char005
+    _cost: 30
+    _icon: Catgirl_icon
+  - _ID: 10101008
+    _stage: 10101
+    _idx: 8
+    _type: 2
+    _value: 1
+    _option: Char006
+    _cost: 40
+    _icon: chef_icon
+  - _ID: 10101009
+    _stage: 10101
+    _idx: 9
+    _type: 3
+    _value: 1
+    _option: Char007
+    _cost: 50
+    _icon: Chinese fighter_icon
+  - _ID: 10101010
+    _stage: 10101
+    _idx: 10
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 60
+    _icon: Clover Wizard_icon
+  - _ID: 10101011
+    _stage: 10101
+    _idx: 11
+    _type: 2
+    _value: 1
+    _option: Char002
+    _cost: 70
+    _icon: Dark Elf_icon
+  - _ID: 10101012
+    _stage: 10101
+    _idx: 12
+    _type: 3
+    _value: 1
+    _option: Char003
+    _cost: 80
+    _icon: Dark Knight_icon
+  - _ID: 10101013
+    _stage: 10101
+    _idx: 13
+    _type: 1
+    _value: 1
+    _option: Char004
+    _cost: 90
+    _icon: Elf_icon
+  - _ID: 10101014
+    _stage: 10101
+    _idx: 14
+    _type: 2
+    _value: 1
+    _option: Char005
+    _cost: 100
+    _icon: Female Fighter_icon
+  - _ID: 10101015
+    _stage: 10101
+    _idx: 15
+    _type: 3
+    _value: 1
+    _option: Char006
+    _cost: 110
+    _icon: Female Knight_icon
+  - _ID: 10101016
+    _stage: 10101
+    _idx: 16
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 120
+    _icon: Fire Wizard_icon
+  - _ID: 10101017
+    _stage: 10101
+    _idx: 17
+    _type: 2
+    _value: 1
+    _option: Char008
+    _cost: 130
+    _icon: TestUpgradeIcon2
+  - _ID: 10101018
+    _stage: 10101
+    _idx: 18
+    _type: 3
+    _value: 1
+    _option: Char002
+    _cost: 140
+    _icon: TestUpgradeIcon3
+  - _ID: 10101019
+    _stage: 10101
+    _idx: 19
+    _type: 1
+    _value: 1
+    _option: Char003
+    _cost: 150
+    _icon: TestUpgradeIcon1
+  - _ID: 10101020
+    _stage: 10101
+    _idx: 20
+    _type: 2
+    _value: 1
+    _option: Char004
+    _cost: 160
+    _icon: TestUpgradeIcon2
+  - _ID: 10101021
+    _stage: 10101
+    _idx: 21
+    _type: 3
+    _value: 1
+    _option: Char005
+    _cost: 170
+    _icon: TestUpgradeIcon3
+  - _ID: 10101022
+    _stage: 10101
+    _idx: 22
+    _type: 1
+    _value: 1
+    _option: Char006
+    _cost: 180
+    _icon: TestUpgradeIcon1
+  - _ID: 10101023
+    _stage: 10101
+    _idx: 23
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 190
+    _icon: TestUpgradeIcon1
+  - _ID: 10101024
+    _stage: 10101
+    _idx: 24
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 200
+    _icon: TestUpgradeIcon1
+  - _ID: 2010100000
+    _stage: 20101
+    _idx: 0
+    _type: 1
+    _value: 3
+    _option: Char002
+    _cost: 0
+    _icon: .
+  - _ID: 2010100101
+    _stage: 20101
+    _idx: 1
+    _type: 2
+    _value: 1
+    _option: Char001
+    _cost: 0
+    _icon: .
+  - _ID: 2010100202
+    _stage: 20101
+    _idx: 2
+    _type: 2
+    _value: 1
+    _option: Char003
+    _cost: 0
+    _icon: .
+  - _ID: 20101001
+    _stage: 20101
+    _idx: 1
+    _type: 2
+    _value: 1
+    _option: Char003
+    _cost: 10
+    _icon: Elf_icon
+  - _ID: 20101002
+    _stage: 20101
+    _idx: 2
+    _type: 1
+    _value: 1
+    _option: Char004
+    _cost: 20
+    _icon: Female Fighter_icon
+  - _ID: 20101003
+    _stage: 20101
+    _idx: 3
+    _type: 4
+    _value: 1
+    _option: Book
+    _cost: 30
+    _icon: iconp_book
+  - _ID: 20101004
+    _stage: 20101
+    _idx: 4
+    _type: 4
+    _value: 1
+    _option: Shield
+    _cost: 40
+    _icon: iconp_shield
+  - _ID: 20101005
+    _stage: 20101
+    _idx: 5
+    _type: 6
+    _value: 5
+    _option: '-'
+    _cost: 50
+    _icon: icon_increased_total_selling_price
+  - _ID: 20101006
+    _stage: 20101
+    _idx: 6
+    _type: 4
+    _value: 1
+    _option: Red_potion
+    _cost: 60
+    _icon: iconp_red_potion
+  - _ID: 20101007
+    _stage: 20101
+    _idx: 7
+    _type: 1
+    _value: 2
+    _option: Char005
+    _cost: 70
+    _icon: Catgirl_icon
+  - _ID: 20101008
+    _stage: 20101
+    _idx: 8
+    _type: 1
+    _value: 2
+    _option: Char006
+    _cost: 80
+    _icon: chef_icon
+  - _ID: 20101009
+    _stage: 20101
+    _idx: 9
+    _type: 7
+    _value: 2
+    _option: '-'
+    _cost: 90
+    _icon: icon_move_speed_up
+  - _ID: 1010200000
+    _stage: 10102
+    _idx: 0
+    _type: 1
+    _value: 3
+    _option: Char002
+    _cost: 0
+    _icon: .
+  - _ID: 1010200101
+    _stage: 10102
+    _idx: 1
+    _type: 2
+    _value: 2
+    _option: Char007
+    _cost: 0
+    _icon: .
+  - _ID: 1010200202
+    _stage: 10102
+    _idx: 2
+    _type: 3
+    _value: 2
+    _option: Char008
+    _cost: 0
+    _icon: .
+  - _ID: 10102001
+    _stage: 10102
+    _idx: 1
+    _type: 2
+    _value: 1
+    _option: Char003
+    _cost: 10
+    _icon: Astrologer_icon
+  - _ID: 10102002
+    _stage: 10102
+    _idx: 2
+    _type: 3
+    _value: 1
+    _option: Char004
+    _cost: 20
+    _icon: Blue Ninja_icon
+  - _ID: 10102003
+    _stage: 10102
+    _idx: 3
+    _type: 4
+    _value: 1
+    _option: Bag
+    _cost: 21
+    _icon: iconp_bag
+  - _ID: 10102004
+    _stage: 10102
+    _idx: 4
+    _type: 5
+    _value: 2
+    _option: Book
+    _cost: 22
+    _icon: iconp_book
+  - _ID: 10102005
+    _stage: 10102
+    _idx: 5
+    _type: 6
+    _value: 5
+    _option: '-'
+    _cost: 23
+    _icon: icon_increased_total_selling_price
+  - _ID: 10102006
+    _stage: 10102
+    _idx: 6
+    _type: 7
+    _value: 2
+    _option: '-'
+    _cost: 24
+    _icon: icon_move_speed_up
+  - _ID: 10102007
+    _stage: 10102
+    _idx: 7
+    _type: 1
+    _value: 1
+    _option: Char005
+    _cost: 30
+    _icon: Catgirl_icon
+  - _ID: 10102008
+    _stage: 10102
+    _idx: 8
+    _type: 2
+    _value: 1
+    _option: Char006
+    _cost: 40
+    _icon: chef_icon
+  - _ID: 10102009
+    _stage: 10102
+    _idx: 9
+    _type: 3
+    _value: 1
+    _option: Char007
+    _cost: 50
+    _icon: Chinese fighter_icon
+  - _ID: 10102010
+    _stage: 10102
+    _idx: 10
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 60
+    _icon: Clover Wizard_icon
+  - _ID: 10102011
+    _stage: 10102
+    _idx: 11
+    _type: 2
+    _value: 1
+    _option: Char002
+    _cost: 70
+    _icon: Dark Elf_icon
+  - _ID: 10102012
+    _stage: 10102
+    _idx: 12
+    _type: 3
+    _value: 1
+    _option: Char003
+    _cost: 80
+    _icon: Dark Knight_icon
+  - _ID: 10102013
+    _stage: 10102
+    _idx: 13
+    _type: 1
+    _value: 1
+    _option: Char004
+    _cost: 90
+    _icon: Elf_icon
+  - _ID: 10102014
+    _stage: 10102
+    _idx: 14
+    _type: 2
+    _value: 1
+    _option: Char005
+    _cost: 100
+    _icon: Female Fighter_icon
+  - _ID: 10102015
+    _stage: 10102
+    _idx: 15
+    _type: 3
+    _value: 1
+    _option: Char006
+    _cost: 110
+    _icon: Female Knight_icon
+  - _ID: 10102016
+    _stage: 10102
+    _idx: 16
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 120
+    _icon: Fire Wizard_icon
+  - _ID: 10102017
+    _stage: 10102
+    _idx: 17
+    _type: 2
+    _value: 1
+    _option: Char008
+    _cost: 130
+    _icon: TestUpgradeIcon2
+  - _ID: 10102018
+    _stage: 10102
+    _idx: 18
+    _type: 3
+    _value: 1
+    _option: Char002
+    _cost: 140
+    _icon: TestUpgradeIcon3
+  - _ID: 10102019
+    _stage: 10102
+    _idx: 19
+    _type: 1
+    _value: 1
+    _option: Char003
+    _cost: 150
+    _icon: TestUpgradeIcon1
+  - _ID: 10102020
+    _stage: 10102
+    _idx: 20
+    _type: 2
+    _value: 1
+    _option: Char004
+    _cost: 160
+    _icon: TestUpgradeIcon2
+  - _ID: 10102021
+    _stage: 10102
+    _idx: 21
+    _type: 3
+    _value: 1
+    _option: Char005
+    _cost: 170
+    _icon: TestUpgradeIcon3
+  - _ID: 10102022
+    _stage: 10102
+    _idx: 22
+    _type: 1
+    _value: 1
+    _option: Char006
+    _cost: 180
+    _icon: TestUpgradeIcon1
+  - _ID: 10102023
+    _stage: 10102
+    _idx: 23
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 190
+    _icon: TestUpgradeIcon1
+  - _ID: 10102024
+    _stage: 10102
+    _idx: 24
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 200
+    _icon: TestUpgradeIcon1
+  - _ID: 1010300000
+    _stage: 10103
+    _idx: 0
+    _type: 1
+    _value: 3
+    _option: Char002
+    _cost: 0
+    _icon: .
+  - _ID: 1010300101
+    _stage: 10103
+    _idx: 1
+    _type: 2
+    _value: 2
+    _option: Char007
+    _cost: 0
+    _icon: .
+  - _ID: 1010300202
+    _stage: 10103
+    _idx: 2
+    _type: 3
+    _value: 2
+    _option: Char008
+    _cost: 0
+    _icon: .
+  - _ID: 10103001
+    _stage: 10103
+    _idx: 1
+    _type: 2
+    _value: 1
+    _option: Char003
+    _cost: 10
+    _icon: Astrologer_icon
+  - _ID: 10103002
+    _stage: 10103
+    _idx: 2
+    _type: 3
+    _value: 1
+    _option: Char004
+    _cost: 20
+    _icon: Blue Ninja_icon
+  - _ID: 10103003
+    _stage: 10103
+    _idx: 3
+    _type: 4
+    _value: 1
+    _option: Bag
+    _cost: 21
+    _icon: iconp_bag
+  - _ID: 10103004
+    _stage: 10103
+    _idx: 4
+    _type: 5
+    _value: 2
+    _option: Book
+    _cost: 22
+    _icon: iconp_book
+  - _ID: 10103005
+    _stage: 10103
+    _idx: 5
+    _type: 6
+    _value: 5
+    _option: '-'
+    _cost: 23
+    _icon: icon_increased_total_selling_price
+  - _ID: 10103006
+    _stage: 10103
+    _idx: 6
+    _type: 7
+    _value: 2
+    _option: '-'
+    _cost: 24
+    _icon: icon_move_speed_up
+  - _ID: 10103007
+    _stage: 10103
+    _idx: 7
+    _type: 1
+    _value: 1
+    _option: Char005
+    _cost: 30
+    _icon: Catgirl_icon
+  - _ID: 10103008
+    _stage: 10103
+    _idx: 8
+    _type: 2
+    _value: 1
+    _option: Char006
+    _cost: 40
+    _icon: chef_icon
+  - _ID: 10103009
+    _stage: 10103
+    _idx: 9
+    _type: 3
+    _value: 1
+    _option: Char007
+    _cost: 50
+    _icon: Chinese fighter_icon
+  - _ID: 10103010
+    _stage: 10103
+    _idx: 10
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 60
+    _icon: Clover Wizard_icon
+  - _ID: 10103011
+    _stage: 10103
+    _idx: 11
+    _type: 2
+    _value: 1
+    _option: Char002
+    _cost: 70
+    _icon: Dark Elf_icon
+  - _ID: 10103012
+    _stage: 10103
+    _idx: 12
+    _type: 3
+    _value: 1
+    _option: Char003
+    _cost: 80
+    _icon: Dark Knight_icon
+  - _ID: 10103013
+    _stage: 10103
+    _idx: 13
+    _type: 1
+    _value: 1
+    _option: Char004
+    _cost: 90
+    _icon: Elf_icon
+  - _ID: 10103014
+    _stage: 10103
+    _idx: 14
+    _type: 2
+    _value: 1
+    _option: Char005
+    _cost: 100
+    _icon: Female Fighter_icon
+  - _ID: 10103015
+    _stage: 10103
+    _idx: 15
+    _type: 3
+    _value: 1
+    _option: Char006
+    _cost: 110
+    _icon: Female Knight_icon
+  - _ID: 10103016
+    _stage: 10103
+    _idx: 16
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 120
+    _icon: Fire Wizard_icon
+  - _ID: 10103017
+    _stage: 10103
+    _idx: 17
+    _type: 2
+    _value: 1
+    _option: Char008
+    _cost: 130
+    _icon: TestUpgradeIcon2
+  - _ID: 10103018
+    _stage: 10103
+    _idx: 18
+    _type: 3
+    _value: 1
+    _option: Char002
+    _cost: 140
+    _icon: TestUpgradeIcon3
+  - _ID: 10103019
+    _stage: 10103
+    _idx: 19
+    _type: 1
+    _value: 1
+    _option: Char003
+    _cost: 150
+    _icon: TestUpgradeIcon1
+  - _ID: 10103020
+    _stage: 10103
+    _idx: 20
+    _type: 2
+    _value: 1
+    _option: Char004
+    _cost: 160
+    _icon: TestUpgradeIcon2
+  - _ID: 10103021
+    _stage: 10103
+    _idx: 21
+    _type: 3
+    _value: 1
+    _option: Char005
+    _cost: 170
+    _icon: TestUpgradeIcon3
+  - _ID: 10103022
+    _stage: 10103
+    _idx: 22
+    _type: 1
+    _value: 1
+    _option: Char006
+    _cost: 180
+    _icon: TestUpgradeIcon1
+  - _ID: 10103023
+    _stage: 10103
+    _idx: 23
+    _type: 1
+    _value: 1
+    _option: Char007
+    _cost: 190
+    _icon: TestUpgradeIcon1
+  - _ID: 10103024
+    _stage: 10103
+    _idx: 24
+    _type: 1
+    _value: 1
+    _option: Char008
+    _cost: 200
+    _icon: TestUpgradeIcon1

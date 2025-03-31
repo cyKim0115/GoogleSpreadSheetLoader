@@ -14,11 +14,17 @@ namespace GoogleSpreadSheetLoader.Generate
         {
             CheckAndCreateDirectory();
 
-            string keyName = "";
-            Dictionary<string, Dictionary<string, string>> dicLocalization = new();
-            
             foreach (var sheet in sheets)
             {
+                string tableTitle = sheet.title;//sheet.title.Replace(GSSL_Setting.SettingData.sheetTargetStr,"");
+                string dataClassName = tableTitle + "Data";
+                string tableClassName = tableTitle + "Table";
+                string dataFilePath = dataScriptSavePath + dataClassName + ".cs";
+                string tableFilePath = tableScriptSavePath + tableClassName + ".cs";
+
+                List<string> variableDeclarations = new List<string>();
+                List<int> validColumns = new List<int>();
+
                 List<List<string>> sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
                 if (sheetRows == null || sheetRows.Count < 2) continue;
@@ -36,12 +42,22 @@ namespace GoogleSpreadSheetLoader.Generate
                     string varName = splitHeader[0].Trim();
                     string varType = ConvertToCSharpType(splitHeader[1].Trim());
 
-                    if (string.IsNullOrEmpty(keyName))
+                    variableDeclarations.Add($"    public {varType} {varName} => _{varName};\n");
+                    variableDeclarations.Add($"    [SerializeField] private {varType} _{varName};\n\n");
+                    validColumns.Add(i);
+
+                    if (varType == "string")
                     {
-                        keyName = varName;
+                        setData += $"\t\t_{varName} = data[{i}].ToString();\n";
                     }
-                    
-                    dicLocalization.
+                    else if (varType.Contains("Type"))
+                    {
+                        setData += $"\t\t_{varName} = {varType}.Parse<{varType}>(data[{i}]);\n";
+                    }
+                    else
+                    {
+                        setData += $"\t\t_{varName} = {varType}.Parse(data[{i}]);\n";
+                    }
                 }
 
                 setData = "\tpublic void SetData(List<string> data)\n\t{\n" + $"{setData}" + "\t}\n";
@@ -52,7 +68,7 @@ namespace GoogleSpreadSheetLoader.Generate
                                            + "using UnityEngine;\n"
                                            + "\n"
                                            + "[Serializable]\n"
-                                           + $"public class {dataClassName} : {nameof(IData)}\n{{\n"
+                                           + $"public partial class {dataClassName} : {nameof(IData)}\n{{\n"
                                            + string.Join("", variableDeclarations)
                                            + string.Join("", setData)
                                            + "}\n";
@@ -135,9 +151,11 @@ namespace GoogleSpreadSheetLoader.Generate
                 "float" => "float",
                 "bool" => "bool",
                 "long" => "long",
+                "double" => "double",
                 "string" => "string",
-                _ when type.Contains(".") => type, // 네임스페이스가 포함된 사용자 정의 타입 처리
-                _ => "string"
+                // _ when type.Contains(".") => type, // 네임스페이스가 포함된 사용자 정의 타입 처리
+                // _ => "string"
+                _ => type,
             };
         }
     }

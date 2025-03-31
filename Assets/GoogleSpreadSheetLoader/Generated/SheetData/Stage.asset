@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787706f7d49430494789b04d2df233f, type: 3}
+  m_Name: Stage
+  m_EditorClassIdentifier: 
+  title: Stage
+  tableStyle: 0
+  data: "[\n  [\n    \"ID-int\",\n    \"type-StageType\",\n    \"group-int\",\n   
+    \"level-int\",\n    \"prefab_name-string\",\n    \"color-string\"\n  ],\n  [\n   
+    \"10101\",\n    \"Stage\",\n    \"1\",\n    \"1\",\n    \"Stage1-1\",\n    \"A8C499\"\n 
+    ],\n  [\n    \"10102\",\n    \"Stage\",\n    \"1\",\n    \"2\",\n    \"Stage1-2\",\n   
+    \"E6CA9D\"\n  ],\n  [\n    \"10103\",\n    \"Stage\",\n    \"1\",\n    \"3\",\n   
+    \"Stage1-3\",\n    \"B5BAE7\"\n  ],\n  [\n    \"20101\",\n    \"Dragon\",\n   
+    \"1\",\n    \"1\",\n    \"Event1-1\",\n    \"A8C499\"\n  ]\n]"

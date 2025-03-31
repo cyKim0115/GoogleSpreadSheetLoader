@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787706f7d49430494789b04d2df233f, type: 3}
+  m_Name: Upgrade
+  m_EditorClassIdentifier: 
+  title: Upgrade
+  tableStyle: 0
+  data: "[\n  [\n    \"ID-int\",\n    \"stage-int\",\n    \"idx-int\",\n    \"type-UpgradeType\",\n   
+    \"value-int\",\n    \"option-string\",\n    \"cost-double\",\n    \"icon-string\"\n 
+    ],\n  [\n    \"1010100000\",\n    \"10101\",\n    \"0\",\n    \"CustomerCount\",\n   
+    \"3\",\n    \"Char002\",\n    \"0\",\n    \".\"\n  ],\n  [\n    \"1010100101\",\n   
+    \"10101\",\n    \"1\",\n    \"CraftingCount\",\n    \"2\",\n    \"Char007\",\n   
+    \"0\",\n    \".\"\n  ],\n  [\n    \"1010100202\",\n    \"10101\",\n    \"2\",\n   
+    \"ServingCount\",\n    \"2\",\n    \"Char008\",\n    \"0\",\n    \".\"\n  ],\n 
+    [\n    \"10101001\",\n    \"10101\",\n    \"1\",\n    \"CraftingCount\",\n   
+    \"1\",\n    \"Char003\",\n    \"10\",\n    \"Astrologer_icon\"\n  ],\n  [\n   
+    \"10101002\",\n    \"10101\",\n    \"2\",\n    \"ServingCount\",\n    \"1\",\n   
+    \"Char004\",\n    \"20\",\n    \"Blue Ninja_icon\"\n  ],\n  [\n    \"10101003\",\n   
+    \"10101\",\n    \"3\",\n    \"ReduceCraftTime\",\n    \"1\",\n    \"Bag\",\n   
+    \"21\",\n    \"iconp_bag\"\n  ],\n  [\n    \"10101004\",\n    \"10101\",\n   
+    \"4\",\n    \"ProductPrice\",\n    \"2\",\n    \"Book\",\n    \"22\",\n    \"iconp_book\"\n 
+    ],\n  [\n    \"10101005\",\n    \"10101\",\n    \"5\",\n    \"AllProductPrice\",\n   
+    \"5\",\n    \"-\",\n    \"23\",\n    \"icon_increased_total_selling_price\"\n 
+    ],\n  [\n    \"10101006\",\n    \"10101\",\n    \"6\",\n    \"Movement\",\n   
+    \"2\",\n    \"-\",\n    \"24\",\n    \"icon_move_speed_up\"\n  ],\n  [\n    \"10101007\",\n   
+    \"10101\",\n    \"7\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char005\",\n   
+    \"30\",\n    \"Catgirl_icon\"\n  ],\n  [\n    \"10101008\",\n    \"10101\",\n   
+    \"8\",\n    \"CraftingCount\",\n    \"1\",\n    \"Char006\",\n    \"40\",\n   
+    \"chef_icon\"\n  ],\n  [\n    \"10101009\",\n    \"10101\",\n    \"9\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char007\",\n    \"50\",\n    \"Chinese fighter_icon\"\n 
+    ],\n  [\n    \"10101010\",\n    \"10101\",\n    \"10\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char008\",\n    \"60\",\n    \"Clover Wizard_icon\"\n  ],\n  [\n   
+    \"10101011\",\n    \"10101\",\n    \"11\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char002\",\n    \"70\",\n    \"Dark Elf_icon\"\n  ],\n  [\n    \"10101012\",\n   
+    \"10101\",\n    \"12\",\n    \"ServingCount\",\n    \"1\",\n    \"Char003\",\n   
+    \"80\",\n    \"Dark Knight_icon\"\n  ],\n  [\n    \"10101013\",\n    \"10101\",\n   
+    \"13\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char004\",\n    \"90\",\n   
+    \"Elf_icon\"\n  ],\n  [\n    \"10101014\",\n    \"10101\",\n    \"14\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char005\",\n    \"100\",\n    \"Female
+    Fighter_icon\"\n  ],\n  [\n    \"10101015\",\n    \"10101\",\n    \"15\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char006\",\n    \"110\",\n    \"Female Knight_icon\"\n 
+    ],\n  [\n    \"10101016\",\n    \"10101\",\n    \"16\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char007\",\n    \"120\",\n    \"Fire Wizard_icon\"\n  ],\n  [\n   
+    \"10101017\",\n    \"10101\",\n    \"17\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char008\",\n    \"130\",\n    \"TestUpgradeIcon2\"\n  ],\n  [\n    \"10101018\",\n   
+    \"10101\",\n    \"18\",\n    \"ServingCount\",\n    \"1\",\n    \"Char002\",\n   
+    \"140\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n    \"10101019\",\n    \"10101\",\n   
+    \"19\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char003\",\n    \"150\",\n   
+    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10101020\",\n    \"10101\",\n    \"20\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char004\",\n    \"160\",\n    \"TestUpgradeIcon2\"\n 
+    ],\n  [\n    \"10101021\",\n    \"10101\",\n    \"21\",\n    \"ServingCount\",\n   
+    \"1\",\n    \"Char005\",\n    \"170\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n   
+    \"10101022\",\n    \"10101\",\n    \"22\",\n    \"CustomerCount\",\n    \"1\",\n   
+    \"Char006\",\n    \"180\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10101023\",\n   
+    \"10101\",\n    \"23\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char007\",\n   
+    \"190\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10101024\",\n    \"10101\",\n   
+    \"24\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char008\",\n    \"200\",\n   
+    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"2010100000\",\n    \"20101\",\n    \"0\",\n   
+    \"CustomerCount\",\n    \"3\",\n    \"Char002\",\n    \"0\",\n    \".\"\n  ],\n 
+    [\n    \"2010100101\",\n    \"20101\",\n    \"1\",\n    \"CraftingCount\",\n   
+    \"1\",\n    \"Char001\",\n    \"0\",\n    \".\"\n  ],\n  [\n    \"2010100202\",\n   
+    \"20101\",\n    \"2\",\n    \"CraftingCount\",\n    \"1\",\n    \"Char003\",\n   
+    \"0\",\n    \".\"\n  ],\n  [\n    \"20101001\",\n    \"20101\",\n    \"1\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char003\",\n    \"10\",\n    \"Elf_icon\"\n 
+    ],\n  [\n    \"20101002\",\n    \"20101\",\n    \"2\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char004\",\n    \"20\",\n    \"Female Fighter_icon\"\n  ],\n  [\n   
+    \"20101003\",\n    \"20101\",\n    \"3\",\n    \"ReduceCraftTime\",\n    \"1\",\n   
+    \"Book\",\n    \"30\",\n    \"iconp_book\"\n  ],\n  [\n    \"20101004\",\n   
+    \"20101\",\n    \"4\",\n    \"ReduceCraftTime\",\n    \"1\",\n    \"Shield\",\n   
+    \"40\",\n    \"iconp_shield\"\n  ],\n  [\n    \"20101005\",\n    \"20101\",\n   
+    \"5\",\n    \"AllProductPrice\",\n    \"5\",\n    \"-\",\n    \"50\",\n    \"icon_increased_total_selling_price\"\n 
+    ],\n  [\n    \"20101006\",\n    \"20101\",\n    \"6\",\n    \"ReduceCraftTime\",\n   
+    \"1\",\n    \"Red_potion\",\n    \"60\",\n    \"iconp_red_potion\"\n  ],\n  [\n   
+    \"20101007\",\n    \"20101\",\n    \"7\",\n    \"CustomerCount\",\n    \"2\",\n   
+    \"Char005\",\n    \"70\",\n    \"Catgirl_icon\"\n  ],\n  [\n    \"20101008\",\n   
+    \"20101\",\n    \"8\",\n    \"CustomerCount\",\n    \"2\",\n    \"Char006\",\n   
+    \"80\",\n    \"chef_icon\"\n  ],\n  [\n    \"20101009\",\n    \"20101\",\n   
+    \"9\",\n    \"Movement\",\n    \"2\",\n    \"-\",\n    \"90\",\n    \"icon_move_speed_up\"\n 
+    ],\n  [\n    \"1010200000\",\n    \"10102\",\n    \"0\",\n    \"CustomerCount\",\n   
+    \"3\",\n    \"Char002\",\n    \"0\",\n    \".\"\n  ],\n  [\n    \"1010200101\",\n   
+    \"10102\",\n    \"1\",\n    \"CraftingCount\",\n    \"2\",\n    \"Char007\",\n   
+    \"0\",\n    \".\"\n  ],\n  [\n    \"1010200202\",\n    \"10102\",\n    \"2\",\n   
+    \"ServingCount\",\n    \"2\",\n    \"Char008\",\n    \"0\",\n    \".\"\n  ],\n 
+    [\n    \"10102001\",\n    \"10102\",\n    \"1\",\n    \"CraftingCount\",\n   
+    \"1\",\n    \"Char003\",\n    \"10\",\n    \"Astrologer_icon\"\n  ],\n  [\n   
+    \"10102002\",\n    \"10102\",\n    \"2\",\n    \"ServingCount\",\n    \"1\",\n   
+    \"Char004\",\n    \"20\",\n    \"Blue Ninja_icon\"\n  ],\n  [\n    \"10102003\",\n   
+    \"10102\",\n    \"3\",\n    \"ReduceCraftTime\",\n    \"1\",\n    \"Bag\",\n   
+    \"21\",\n    \"iconp_bag\"\n  ],\n  [\n    \"10102004\",\n    \"10102\",\n   
+    \"4\",\n    \"ProductPrice\",\n    \"2\",\n    \"Book\",\n    \"22\",\n    \"iconp_book\"\n 
+    ],\n  [\n    \"10102005\",\n    \"10102\",\n    \"5\",\n    \"AllProductPrice\",\n   
+    \"5\",\n    \"-\",\n    \"23\",\n    \"icon_increased_total_selling_price\"\n 
+    ],\n  [\n    \"10102006\",\n    \"10102\",\n    \"6\",\n    \"Movement\",\n   
+    \"2\",\n    \"-\",\n    \"24\",\n    \"icon_move_speed_up\"\n  ],\n  [\n    \"10102007\",\n   
+    \"10102\",\n    \"7\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char005\",\n   
+    \"30\",\n    \"Catgirl_icon\"\n  ],\n  [\n    \"10102008\",\n    \"10102\",\n   
+    \"8\",\n    \"CraftingCount\",\n    \"1\",\n    \"Char006\",\n    \"40\",\n   
+    \"chef_icon\"\n  ],\n  [\n    \"10102009\",\n    \"10102\",\n    \"9\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char007\",\n    \"50\",\n    \"Chinese fighter_icon\"\n 
+    ],\n  [\n    \"10102010\",\n    \"10102\",\n    \"10\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char008\",\n    \"60\",\n    \"Clover Wizard_icon\"\n  ],\n  [\n   
+    \"10102011\",\n    \"10102\",\n    \"11\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char002\",\n    \"70\",\n    \"Dark Elf_icon\"\n  ],\n  [\n    \"10102012\",\n   
+    \"10102\",\n    \"12\",\n    \"ServingCount\",\n    \"1\",\n    \"Char003\",\n   
+    \"80\",\n    \"Dark Knight_icon\"\n  ],\n  [\n    \"10102013\",\n    \"10102\",\n   
+    \"13\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char004\",\n    \"90\",\n   
+    \"Elf_icon\"\n  ],\n  [\n    \"10102014\",\n    \"10102\",\n    \"14\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char005\",\n    \"100\",\n    \"Female
+    Fighter_icon\"\n  ],\n  [\n    \"10102015\",\n    \"10102\",\n    \"15\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char006\",\n    \"110\",\n    \"Female Knight_icon\"\n 
+    ],\n  [\n    \"10102016\",\n    \"10102\",\n    \"16\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char007\",\n    \"120\",\n    \"Fire Wizard_icon\"\n  ],\n  [\n   
+    \"10102017\",\n    \"10102\",\n    \"17\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char008\",\n    \"130\",\n    \"TestUpgradeIcon2\"\n  ],\n  [\n    \"10102018\",\n   
+    \"10102\",\n    \"18\",\n    \"ServingCount\",\n    \"1\",\n    \"Char002\",\n   
+    \"140\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n    \"10102019\",\n    \"10102\",\n   
+    \"19\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char003\",\n    \"150\",\n   
+    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10102020\",\n    \"10102\",\n    \"20\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char004\",\n    \"160\",\n    \"TestUpgradeIcon2\"\n 
+    ],\n  [\n    \"10102021\",\n    \"10102\",\n    \"21\",\n    \"ServingCount\",\n   
+    \"1\",\n    \"Char005\",\n    \"170\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n   
+    \"10102022\",\n    \"10102\",\n    \"22\",\n    \"CustomerCount\",\n    \"1\",\n   
+    \"Char006\",\n    \"180\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10102023\",\n   
+    \"10102\",\n    \"23\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char007\",\n   
+    \"190\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10102024\",\n    \"10102\",\n   
+    \"24\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char008\",\n    \"200\",\n   
+    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"1010300000\",\n    \"10103\",\n    \"0\",\n   
+    \"CustomerCount\",\n    \"3\",\n    \"Char002\",\n    \"0\",\n    \".\"\n  ],\n 
+    [\n    \"1010300101\",\n    \"10103\",\n    \"1\",\n    \"CraftingCount\",\n   
+    \"2\",\n    \"Char007\",\n    \"0\",\n    \".\"\n  ],\n  [\n    \"1010300202\",\n   
+    \"10103\",\n    \"2\",\n    \"ServingCount\",\n    \"2\",\n    \"Char008\",\n   
+    \"0\",\n    \".\"\n  ],\n  [\n    \"10103001\",\n    \"10103\",\n    \"1\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char003\",\n    \"10\",\n    \"Astrologer_icon\"\n 
+    ],\n  [\n    \"10103002\",\n    \"10103\",\n    \"2\",\n    \"ServingCount\",\n   
+    \"1\",\n    \"Char004\",\n    \"20\",\n    \"Blue Ninja_icon\"\n  ],\n  [\n   
+    \"10103003\",\n    \"10103\",\n    \"3\",\n    \"ReduceCraftTime\",\n    \"1\",\n   
+    \"Bag\",\n    \"21\",\n    \"iconp_bag\"\n  ],\n  [\n    \"10103004\",\n    \"10103\",\n   
+    \"4\",\n    \"ProductPrice\",\n    \"2\",\n    \"Book\",\n    \"22\",\n    \"iconp_book\"\n 
+    ],\n  [\n    \"10103005\",\n    \"10103\",\n    \"5\",\n    \"AllProductPrice\",\n   
+    \"5\",\n    \"-\",\n    \"23\",\n    \"icon_increased_total_selling_price\"\n 
+    ],\n  [\n    \"10103006\",\n    \"10103\",\n    \"6\",\n    \"Movement\",\n   
+    \"2\",\n    \"-\",\n    \"24\",\n    \"icon_move_speed_up\"\n  ],\n  [\n    \"10103007\",\n   
+    \"10103\",\n    \"7\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char005\",\n   
+    \"30\",\n    \"Catgirl_icon\"\n  ],\n  [\n    \"10103008\",\n    \"10103\",\n   
+    \"8\",\n    \"CraftingCount\",\n    \"1\",\n    \"Char006\",\n    \"40\",\n   
+    \"chef_icon\"\n  ],\n  [\n    \"10103009\",\n    \"10103\",\n    \"9\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char007\",\n    \"50\",\n    \"Chinese fighter_icon\"\n 
+    ],\n  [\n    \"10103010\",\n    \"10103\",\n    \"10\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char008\",\n    \"60\",\n    \"Clover Wizard_icon\"\n  ],\n  [\n   
+    \"10103011\",\n    \"10103\",\n    \"11\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char002\",\n    \"70\",\n    \"Dark Elf_icon\"\n  ],\n  [\n    \"10103012\",\n   
+    \"10103\",\n    \"12\",\n    \"ServingCount\",\n    \"1\",\n    \"Char003\",\n   
+    \"80\",\n    \"Dark Knight_icon\"\n  ],\n  [\n    \"10103013\",\n    \"10103\",\n   
+    \"13\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char004\",\n    \"90\",\n   
+    \"Elf_icon\"\n  ],\n  [\n    \"10103014\",\n    \"10103\",\n    \"14\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char005\",\n    \"100\",\n    \"Female
+    Fighter_icon\"\n  ],\n  [\n    \"10103015\",\n    \"10103\",\n    \"15\",\n   
+    \"ServingCount\",\n    \"1\",\n    \"Char006\",\n    \"110\",\n    \"Female Knight_icon\"\n 
+    ],\n  [\n    \"10103016\",\n    \"10103\",\n    \"16\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Char007\",\n    \"120\",\n    \"Fire Wizard_icon\"\n  ],\n  [\n   
+    \"10103017\",\n    \"10103\",\n    \"17\",\n    \"CraftingCount\",\n    \"1\",\n   
+    \"Char008\",\n    \"130\",\n    \"TestUpgradeIcon2\"\n  ],\n  [\n    \"10103018\",\n   
+    \"10103\",\n    \"18\",\n    \"ServingCount\",\n    \"1\",\n    \"Char002\",\n   
+    \"140\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n    \"10103019\",\n    \"10103\",\n   
+    \"19\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char003\",\n    \"150\",\n   
+    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10103020\",\n    \"10103\",\n    \"20\",\n   
+    \"CraftingCount\",\n    \"1\",\n    \"Char004\",\n    \"160\",\n    \"TestUpgradeIcon2\"\n 
+    ],\n  [\n    \"10103021\",\n    \"10103\",\n    \"21\",\n    \"ServingCount\",\n   
+    \"1\",\n    \"Char005\",\n    \"170\",\n    \"TestUpgradeIcon3\"\n  ],\n  [\n   
+    \"10103022\",\n    \"10103\",\n    \"22\",\n    \"CustomerCount\",\n    \"1\",\n   
+    \"Char006\",\n    \"180\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10103023\",\n   
+    \"10103\",\n    \"23\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char007\",\n   
+    \"190\",\n    \"TestUpgradeIcon1\"\n  ],\n  [\n    \"10103024\",\n    \"10103\",\n   
+    \"24\",\n    \"CustomerCount\",\n    \"1\",\n    \"Char008\",\n    \"200\",\n   
+    \"TestUpgradeIcon1\"\n  ]\n]"

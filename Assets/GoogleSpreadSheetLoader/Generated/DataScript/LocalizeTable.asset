@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c240d98094b294f64ba5b103efde4c73, type: 3}
+  m_Name: LocalizeTable
+  m_EditorClassIdentifier: 
+  dataList:
+  - _ID: Bag
+    _kr: "\uAC00\uBC29"
+  - _ID: Bread
+    _kr: "\uBE75"
+  - _ID: First_aid_kit
+    _kr: "\uAD6C\uAE09\uC0C1\uC790"
+  - _ID: Shield
+    _kr: "\uBC29\uD328"
+  - _ID: Book
+    _kr: "\uCC45"
+  - _ID: Red_potion
+    _kr: "\uCCB4\uB825 \uD3EC\uC158"
+  - _ID: Blue_potion
+    _kr: "\uB9C8\uB098 \uD3EC\uC158"
+  - _ID: Meat
+    _kr: "\uACE0\uAE30"
+  - _ID: Daikon
+    _kr: "\uC21C\uBB34"
+  - _ID: Holy_water
+    _kr: "\uC131\uC218"
+  - _ID: Soup
+    _kr: "\uC2A4\uD504"
+  - _ID: Poison_potion
+    _kr: "\uB3C5 \uD3EC\uC158"
+  - _ID: Map
+    _kr: "\uC9C0\uB3C4"
+  - _ID: Chainmail
+    _kr: "\uCCB4\uC778\uBA54\uC77C"
+  - _ID: CustomerCountTitle
+    _kr: "\uC190\uB2D8 \uD638\uAC1D"
+  - _ID: CustomerCountDesc
+    _kr: "\uC190\uB2D8 \uC218 {1} \uC99D\uAC00"
+  - _ID: CraftingCountTitle
+    _kr: "\uC81C\uC791 \uC9C1\uC6D0 \uACE0\uC6A9"
+  - _ID: CraftingCountDesc
+    _kr: "\uC81C\uC791 \uC9C1\uC6D0 \uC218 {1} \uC99D\uAC00"
+  - _ID: ServingCountTitle
+    _kr: "\uC11C\uBE59 \uC9C1\uC6D0 \uACE0\uC6A9"
+  - _ID: ServingCountDesc
+    _kr: "\uC11C\uBE59 \uC9C1\uC6D0 \uC218 {1} \uC99D\uAC00"
+  - _ID: ReduceCraftTimeTitle
+    _kr: "\uC81C\uC791 \uD6A8\uC728 \uC99D\uAC00"
+  - _ID: ReduceCraftTimeDesc
+    _kr: "\uC81C\uC791 \uC2DC\uAC04 2\uBC30 \uAC10\uC18C"
+  - _ID: ProductPriceTitle
+    _kr: "\uD558\uB098 \uB354 \uD310\uB9E4"
+  - _ID: ProductPriceDesc
+    _kr: "{0} \uD310\uB9E4 \uC218\uC775 {1}\uBC30 \uC99D\uAC00"
+  - _ID: AllProductPriceTitle
+    _kr: "\uB354 \uB9CE\uC740 \uC218\uC775"
+  - _ID: AllProductPriceDesc
+    _kr: "\uC81C\uC791 \uBB3C\uD488 \uC804\uCCB4 \uD310\uB9E4 \uC218\uC775 {1}\uBC30
+      \uC99D\uAC00"
+  - _ID: MovementTitle
+    _kr: "\uCCB4\uB825 \uB2E8\uB828"
+  - _ID: MovementDesc
+    _kr: "\uC9C1\uC6D0 \uC774\uB3D9 \uC18D\uB3C4 2\uBC30 \uC99D\uAC00"

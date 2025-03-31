@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f787706f7d49430494789b04d2df233f, type: 3}
+  m_Name: EnumType
+  m_EditorClassIdentifier: 
+  title: EnumType
+  tableStyle: 1
+  data: "[\n  [\n    \"CraftingType\",\n    \"CraftingType-idx\",\n    \"CurrencyType\",\n   
+    \"CurrencyType-idx\",\n    \"CharacterType\",\n    \"CharacterType-idx\",\n   
+    \"UpgradeType\",\n    \"UpgradeType-idx\",\n    \"StageType\",\n    \"StageType-idx\",\n   
+    \"BattleAttackId\",\n    \"BattleAttackId-idx\"\n  ],\n  [\n    \"None\",\n   
+    \"0\",\n    \"None\",\n    \"0\",\n    \"None\",\n    \"0\",\n    \"None\",\n   
+    \"0\",\n    \"None\",\n    \"0\",\n    \"None\",\n    \"0\"\n  ],\n  [\n    \"Bag\",\n   
+    \"1\",\n    \"gold\",\n    \"1\",\n    \"Crafting\",\n    \"1\",\n    \"CustomerCount\",\n   
+    \"1\",\n    \"Stage\",\n    \"1\",\n    \"Sword\",\n    \"1\"\n  ],\n  [\n   
+    \"Bread\",\n    \"2\",\n    \"dia\",\n    \"2\",\n    \"Serving\",\n    \"2\",\n   
+    \"CraftingCount\",\n    \"2\",\n    \"Dragon\",\n    \"2\",\n    \"Bow\",\n   
+    \"2\"\n  ],\n  [\n    \"First_aid_kit\",\n    \"3\",\n    \"hunt_sword\",\n   
+    \"3\",\n    \"Customer\",\n    \"3\",\n    \"ServingCount\",\n    \"3\",\n   
+    \"\",\n    \"\",\n    \"Staff\",\n    \"3\"\n  ],\n  [\n    \"Shield\",\n   
+    \"4\",\n    \"ads_free\",\n    \"4\",\n    \"Player\",\n    \"4\",\n    \"ReduceCraftTime\",\n   
+    \"4\"\n  ],\n  [\n    \"Book\",\n    \"5\",\n    \"\",\n    \"\",\n    \"\",\n   
+    \"\",\n    \"ProductPrice\",\n    \"5\"\n  ],\n  [\n    \"Red_potion\",\n   
+    \"6\",\n    \"\",\n    \"\",\n    \"\",\n    \"\",\n    \"AllProductPrice\",\n   
+    \"6\"\n  ],\n  [\n    \"Blue_potion\",\n    \"7\",\n    \"\",\n    \"\",\n   
+    \"\",\n    \"\",\n    \"Movement\",\n    \"7\"\n  ],\n  [\n    \"Meat\",\n   
+    \"8\"\n  ],\n  [\n    \"Daikon\",\n    \"9\"\n  ],\n  [\n    \"Holy_water\",\n   
+    \"10\"\n  ],\n  [\n    \"Soup\",\n    \"11\"\n  ],\n  [\n    \"Poison_potion\",\n   
+    \"12\"\n  ],\n  [\n    \"Map\",\n    \"13\"\n  ],\n  [\n    \"Chainmail\",\n   
+    \"14\"\n  ]\n]"

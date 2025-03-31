@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bbbf590a43147c5bc0c0f4e7243700, type: 3}
   m_Name: SettingData
   m_EditorClassIdentifier: 
-  apiKey: AIzaSyDPGb8i2HqCD2q_484iHYsplNfB2PYdLI0
+  apiKey: AIzaSyCG6N3WZGzg-wbkxyFQZYXWcZsVhG1B0rM
   listSpreadSheetInfo:
-  - spreadSheetName: UnitTable
-    spreadSheetId: 1DrYHCVPTRzCHRq96KlGXN56RAhvwvwj3ltQ2lBwQcsY
-  - spreadSheetName: CategoryTable
-    spreadSheetId: 1WZUjlPEN96i_3QV4x4v6X3IpiU1l-mU6HzEbyx7ZWFE
-  - spreadSheetName: StringTable
-    spreadSheetId: 1pwYruzeS-RkHXgUQ7muRCmlsMq-NtzU1auROIDl3008
+  - spreadSheetName: Data Table
+    spreadSheetId: 1vQ8vCOqgiinlkGr7AkDCTYyUFP2yf2aEii8WxwqegYg
+  - spreadSheetName: Localize Table
+    spreadSheetId: 1JY7xxyuom4vWfIW2hZFi96lzj8EVN9gvZRoMKx0eHNc
   sheetTarget: 1
   sheetTargetStr: '#'
   sheet_enumTypeStr: Type
