@@ -16,7 +16,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
             foreach (var sheet in sheets)
             {
-                string tableTitle = sheet.title;//sheet.title.Replace(GSSL_Setting.SettingData.sheetTargetStr,"");
+                string tableTitle = sheet.title;
                 string dataClassName = tableTitle + "Data";
                 string tableClassName = tableTitle + "Table";
                 string dataFilePath = dataScriptSavePath + dataClassName + ".cs";

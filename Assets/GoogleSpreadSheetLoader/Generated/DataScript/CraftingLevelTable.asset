@@ -23,7 +23,7 @@ MonoBehaviour:
     _end_cost: 32
     _start_price: 2
     _end_price: 20
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010101
     _stage: 10101
     _step: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 22
     _end_price: 40
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010102
     _stage: 10101
     _step: 2
@@ -45,7 +45,7 @@ MonoBehaviour:
     _end_cost: 136
     _start_price: 42
     _end_price: 60
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010103
     _stage: 10101
     _step: 3
@@ -56,7 +56,7 @@ MonoBehaviour:
     _end_cost: 216
     _start_price: 62
     _end_price: 80
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010104
     _stage: 10101
     _step: 4
@@ -67,7 +67,7 @@ MonoBehaviour:
     _end_cost: 336
     _start_price: 82
     _end_price: 100
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010105
     _stage: 10101
     _step: 5
@@ -78,7 +78,7 @@ MonoBehaviour:
     _end_cost: 352
     _start_price: 102
     _end_price: 102
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101010200
     _stage: 10101
     _step: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 18
     _end_price: 35
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010201
     _stage: 10101
     _step: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010202
     _stage: 10101
     _step: 2
@@ -111,7 +111,7 @@ MonoBehaviour:
     _end_cost: 310
     _start_price: 83
     _end_price: 155
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010203
     _stage: 10101
     _step: 3
@@ -122,7 +122,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 167
     _end_price: 275
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010204
     _stage: 10101
     _step: 4
@@ -133,7 +133,7 @@ MonoBehaviour:
     _end_cost: 870
     _start_price: 291
     _end_price: 435
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010205
     _stage: 10101
     _step: 5
@@ -144,7 +144,7 @@ MonoBehaviour:
     _end_cost: 910
     _start_price: 455
     _end_price: 455
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101010300
     _stage: 10101
     _step: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010301
     _stage: 10101
     _step: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010302
     _stage: 10101
     _step: 2
@@ -177,7 +177,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 135
     _end_price: 225
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010303
     _stage: 10101
     _step: 3
@@ -188,7 +188,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 240
     _end_price: 375
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010304
     _stage: 10101
     _step: 4
@@ -199,7 +199,7 @@ MonoBehaviour:
     _end_cost: 1150
     _start_price: 395
     _end_price: 575
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010305
     _stage: 10101
     _step: 5
@@ -210,7 +210,7 @@ MonoBehaviour:
     _end_cost: 1200
     _start_price: 600
     _end_price: 600
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101010400
     _stage: 10101
     _step: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010401
     _stage: 10101
     _step: 1
@@ -232,7 +232,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010402
     _stage: 10101
     _step: 2
@@ -243,7 +243,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 185
     _end_price: 275
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010403
     _stage: 10101
     _step: 3
@@ -254,7 +254,7 @@ MonoBehaviour:
     _end_cost: 850
     _start_price: 290
     _end_price: 425
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010404
     _stage: 10101
     _step: 4
@@ -265,7 +265,7 @@ MonoBehaviour:
     _end_cost: 1250
     _start_price: 445
     _end_price: 625
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010405
     _stage: 10101
     _step: 5
@@ -276,7 +276,7 @@ MonoBehaviour:
     _end_cost: 1300
     _start_price: 650
     _end_price: 650
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101010500
     _stage: 10101
     _step: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010501
     _stage: 10101
     _step: 1
@@ -298,7 +298,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010502
     _stage: 10101
     _step: 2
@@ -309,7 +309,7 @@ MonoBehaviour:
     _end_cost: 650
     _start_price: 235
     _end_price: 325
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010503
     _stage: 10101
     _step: 3
@@ -320,7 +320,7 @@ MonoBehaviour:
     _end_cost: 950
     _start_price: 340
     _end_price: 475
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010504
     _stage: 10101
     _step: 4
@@ -331,7 +331,7 @@ MonoBehaviour:
     _end_cost: 1350
     _start_price: 495
     _end_price: 675
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010505
     _stage: 10101
     _step: 5
@@ -342,7 +342,7 @@ MonoBehaviour:
     _end_cost: 1400
     _start_price: 700
     _end_price: 700
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101010600
     _stage: 10101
     _step: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101010601
     _stage: 10101
     _step: 1
@@ -364,7 +364,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 230
     _end_price: 275
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101010602
     _stage: 10101
     _step: 2
@@ -375,7 +375,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 285
     _end_price: 375
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101010603
     _stage: 10101
     _step: 3
@@ -386,7 +386,7 @@ MonoBehaviour:
     _end_cost: 1050
     _start_price: 390
     _end_price: 525
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101010604
     _stage: 10101
     _step: 4
@@ -397,7 +397,7 @@ MonoBehaviour:
     _end_cost: 1450
     _start_price: 545
     _end_price: 725
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101010605
     _stage: 10101
     _step: 5
@@ -408,7 +408,7 @@ MonoBehaviour:
     _end_cost: 1500
     _start_price: 750
     _end_price: 750
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 101020700
     _stage: 10102
     _step: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
     _end_cost: 32
     _start_price: 2
     _end_price: 20
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020701
     _stage: 10102
     _step: 1
@@ -430,7 +430,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 22
     _end_price: 40
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020702
     _stage: 10102
     _step: 2
@@ -441,7 +441,7 @@ MonoBehaviour:
     _end_cost: 136
     _start_price: 42
     _end_price: 60
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020703
     _stage: 10102
     _step: 3
@@ -452,7 +452,7 @@ MonoBehaviour:
     _end_cost: 216
     _start_price: 62
     _end_price: 80
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020704
     _stage: 10102
     _step: 4
@@ -463,7 +463,7 @@ MonoBehaviour:
     _end_cost: 336
     _start_price: 82
     _end_price: 100
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020705
     _stage: 10102
     _step: 5
@@ -474,7 +474,7 @@ MonoBehaviour:
     _end_cost: 352
     _start_price: 102
     _end_price: 102
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101020400
     _stage: 10102
     _step: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 18
     _end_price: 35
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020401
     _stage: 10102
     _step: 1
@@ -496,7 +496,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020402
     _stage: 10102
     _step: 2
@@ -507,7 +507,7 @@ MonoBehaviour:
     _end_cost: 310
     _start_price: 83
     _end_price: 155
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020403
     _stage: 10102
     _step: 3
@@ -518,7 +518,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 167
     _end_price: 275
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020404
     _stage: 10102
     _step: 4
@@ -529,7 +529,7 @@ MonoBehaviour:
     _end_cost: 870
     _start_price: 291
     _end_price: 435
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020405
     _stage: 10102
     _step: 5
@@ -540,7 +540,7 @@ MonoBehaviour:
     _end_cost: 910
     _start_price: 455
     _end_price: 455
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101020800
     _stage: 10102
     _step: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020801
     _stage: 10102
     _step: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020802
     _stage: 10102
     _step: 2
@@ -573,7 +573,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 135
     _end_price: 225
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020803
     _stage: 10102
     _step: 3
@@ -584,7 +584,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 240
     _end_price: 375
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020804
     _stage: 10102
     _step: 4
@@ -595,7 +595,7 @@ MonoBehaviour:
     _end_cost: 1150
     _start_price: 395
     _end_price: 575
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020805
     _stage: 10102
     _step: 5
@@ -606,7 +606,7 @@ MonoBehaviour:
     _end_cost: 1200
     _start_price: 600
     _end_price: 600
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101020500
     _stage: 10102
     _step: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020501
     _stage: 10102
     _step: 1
@@ -628,7 +628,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020502
     _stage: 10102
     _step: 2
@@ -639,7 +639,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 185
     _end_price: 275
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020503
     _stage: 10102
     _step: 3
@@ -650,7 +650,7 @@ MonoBehaviour:
     _end_cost: 850
     _start_price: 290
     _end_price: 425
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020504
     _stage: 10102
     _step: 4
@@ -661,7 +661,7 @@ MonoBehaviour:
     _end_cost: 1250
     _start_price: 445
     _end_price: 625
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020505
     _stage: 10102
     _step: 5
@@ -672,7 +672,7 @@ MonoBehaviour:
     _end_cost: 1300
     _start_price: 650
     _end_price: 650
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101020600
     _stage: 10102
     _step: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101020601
     _stage: 10102
     _step: 1
@@ -694,7 +694,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101020602
     _stage: 10102
     _step: 2
@@ -705,7 +705,7 @@ MonoBehaviour:
     _end_cost: 650
     _start_price: 235
     _end_price: 325
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101020603
     _stage: 10102
     _step: 3
@@ -716,7 +716,7 @@ MonoBehaviour:
     _end_cost: 950
     _start_price: 340
     _end_price: 475
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101020604
     _stage: 10102
     _step: 4
@@ -727,7 +727,7 @@ MonoBehaviour:
     _end_cost: 1350
     _start_price: 495
     _end_price: 675
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101020605
     _stage: 10102
     _step: 5
@@ -738,7 +738,7 @@ MonoBehaviour:
     _end_cost: 1400
     _start_price: 700
     _end_price: 700
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031100
     _stage: 10103
     _step: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
     _end_cost: 32
     _start_price: 2
     _end_price: 20
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031101
     _stage: 10103
     _step: 1
@@ -760,7 +760,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 22
     _end_price: 40
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031102
     _stage: 10103
     _step: 2
@@ -771,7 +771,7 @@ MonoBehaviour:
     _end_cost: 136
     _start_price: 42
     _end_price: 60
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031103
     _stage: 10103
     _step: 3
@@ -782,7 +782,7 @@ MonoBehaviour:
     _end_cost: 216
     _start_price: 62
     _end_price: 80
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031104
     _stage: 10103
     _step: 4
@@ -793,7 +793,7 @@ MonoBehaviour:
     _end_cost: 336
     _start_price: 82
     _end_price: 100
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031105
     _stage: 10103
     _step: 5
@@ -804,7 +804,7 @@ MonoBehaviour:
     _end_cost: 352
     _start_price: 102
     _end_price: 102
-    _craft_time: 5
+    _craft_time: 4
   - _ID: 101031200
     _stage: 10103
     _step: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
     _end_cost: 70
     _start_price: 18
     _end_price: 35
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101031201
     _stage: 10103
     _step: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101031202
     _stage: 10103
     _step: 2
@@ -837,7 +837,7 @@ MonoBehaviour:
     _end_cost: 310
     _start_price: 83
     _end_price: 155
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101031203
     _stage: 10103
     _step: 3
@@ -848,7 +848,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 167
     _end_price: 275
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101031204
     _stage: 10103
     _step: 4
@@ -859,7 +859,7 @@ MonoBehaviour:
     _end_cost: 870
     _start_price: 291
     _end_price: 435
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101031205
     _stage: 10103
     _step: 5
@@ -870,7 +870,7 @@ MonoBehaviour:
     _end_cost: 910
     _start_price: 455
     _end_price: 455
-    _craft_time: 8
+    _craft_time: 4
   - _ID: 101030900
     _stage: 10103
     _step: 0
@@ -881,7 +881,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030901
     _stage: 10103
     _step: 1
@@ -892,7 +892,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030902
     _stage: 10103
     _step: 2
@@ -903,7 +903,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 135
     _end_price: 225
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030903
     _stage: 10103
     _step: 3
@@ -914,7 +914,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 240
     _end_price: 375
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030904
     _stage: 10103
     _step: 4
@@ -925,7 +925,7 @@ MonoBehaviour:
     _end_cost: 1150
     _start_price: 395
     _end_price: 575
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030905
     _stage: 10103
     _step: 5
@@ -936,7 +936,7 @@ MonoBehaviour:
     _end_cost: 1200
     _start_price: 600
     _end_price: 600
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031300
     _stage: 10103
     _step: 0
@@ -947,7 +947,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031301
     _stage: 10103
     _step: 1
@@ -958,7 +958,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031302
     _stage: 10103
     _step: 2
@@ -969,7 +969,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 185
     _end_price: 275
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031303
     _stage: 10103
     _step: 3
@@ -980,7 +980,7 @@ MonoBehaviour:
     _end_cost: 850
     _start_price: 290
     _end_price: 425
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031304
     _stage: 10103
     _step: 4
@@ -991,7 +991,7 @@ MonoBehaviour:
     _end_cost: 1250
     _start_price: 445
     _end_price: 625
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031305
     _stage: 10103
     _step: 5
@@ -1002,7 +1002,7 @@ MonoBehaviour:
     _end_cost: 1300
     _start_price: 650
     _end_price: 650
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101031000
     _stage: 10103
     _step: 0
@@ -1013,7 +1013,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031001
     _stage: 10103
     _step: 1
@@ -1024,7 +1024,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031002
     _stage: 10103
     _step: 2
@@ -1035,7 +1035,7 @@ MonoBehaviour:
     _end_cost: 650
     _start_price: 235
     _end_price: 325
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031003
     _stage: 10103
     _step: 3
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     _end_cost: 950
     _start_price: 340
     _end_price: 475
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031004
     _stage: 10103
     _step: 4
@@ -1057,7 +1057,7 @@ MonoBehaviour:
     _end_cost: 1350
     _start_price: 495
     _end_price: 675
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031005
     _stage: 10103
     _step: 5
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     _end_cost: 1400
     _start_price: 700
     _end_price: 700
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101031400
     _stage: 10103
     _step: 0
@@ -1079,7 +1079,7 @@ MonoBehaviour:
     _end_cost: 150
     _start_price: 39
     _end_price: 75
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031401
     _stage: 10103
     _step: 1
@@ -1090,7 +1090,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031402
     _stage: 10103
     _step: 2
@@ -1101,7 +1101,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 135
     _end_price: 225
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031403
     _stage: 10103
     _step: 3
@@ -1112,7 +1112,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 240
     _end_price: 375
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031404
     _stage: 10103
     _step: 4
@@ -1123,7 +1123,7 @@ MonoBehaviour:
     _end_cost: 1150
     _start_price: 395
     _end_price: 575
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101031405
     _stage: 10103
     _step: 5
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     _end_cost: 1200
     _start_price: 600
     _end_price: 600
-    _craft_time: 10
+    _craft_time: 4
   - _ID: 101030800
     _stage: 10103
     _step: 0
@@ -1145,7 +1145,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030801
     _stage: 10103
     _step: 1
@@ -1156,7 +1156,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030802
     _stage: 10103
     _step: 2
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 185
     _end_price: 275
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030803
     _stage: 10103
     _step: 3
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     _end_cost: 850
     _start_price: 290
     _end_price: 425
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030804
     _stage: 10103
     _step: 4
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     _end_cost: 1250
     _start_price: 445
     _end_price: 625
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030805
     _stage: 10103
     _step: 5
@@ -1200,7 +1200,7 @@ MonoBehaviour:
     _end_cost: 1300
     _start_price: 650
     _end_price: 650
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 101030700
     _stage: 10103
     _step: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101030701
     _stage: 10103
     _step: 1
@@ -1222,7 +1222,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101030702
     _stage: 10103
     _step: 2
@@ -1233,7 +1233,7 @@ MonoBehaviour:
     _end_cost: 650
     _start_price: 235
     _end_price: 325
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101030703
     _stage: 10103
     _step: 3
@@ -1244,7 +1244,7 @@ MonoBehaviour:
     _end_cost: 950
     _start_price: 340
     _end_price: 475
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101030704
     _stage: 10103
     _step: 4
@@ -1255,7 +1255,7 @@ MonoBehaviour:
     _end_cost: 1350
     _start_price: 495
     _end_price: 675
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 101030705
     _stage: 10103
     _step: 5
@@ -1266,7 +1266,7 @@ MonoBehaviour:
     _end_cost: 1400
     _start_price: 700
     _end_price: 700
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010400
     _stage: 20101
     _step: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
     _end_cost: 250
     _start_price: 80
     _end_price: 125
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010401
     _stage: 20101
     _step: 1
@@ -1288,7 +1288,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010402
     _stage: 20101
     _step: 2
@@ -1299,7 +1299,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 185
     _end_price: 275
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010403
     _stage: 20101
     _step: 3
@@ -1310,7 +1310,7 @@ MonoBehaviour:
     _end_cost: 850
     _start_price: 290
     _end_price: 425
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010404
     _stage: 20101
     _step: 4
@@ -1321,7 +1321,7 @@ MonoBehaviour:
     _end_cost: 1250
     _start_price: 445
     _end_price: 625
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010405
     _stage: 20101
     _step: 5
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     _end_cost: 1300
     _start_price: 650
     _end_price: 650
-    _craft_time: 12
+    _craft_time: 4
   - _ID: 201010500
     _stage: 20101
     _step: 0
@@ -1343,7 +1343,7 @@ MonoBehaviour:
     _end_cost: 350
     _start_price: 130
     _end_price: 175
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010501
     _stage: 20101
     _step: 1
@@ -1354,7 +1354,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010502
     _stage: 20101
     _step: 2
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     _end_cost: 650
     _start_price: 235
     _end_price: 325
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010503
     _stage: 20101
     _step: 3
@@ -1376,7 +1376,7 @@ MonoBehaviour:
     _end_cost: 950
     _start_price: 340
     _end_price: 475
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010504
     _stage: 20101
     _step: 4
@@ -1387,7 +1387,7 @@ MonoBehaviour:
     _end_cost: 1350
     _start_price: 495
     _end_price: 675
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010505
     _stage: 20101
     _step: 5
@@ -1398,7 +1398,7 @@ MonoBehaviour:
     _end_cost: 1400
     _start_price: 700
     _end_price: 700
-    _craft_time: 14
+    _craft_time: 4
   - _ID: 201010600
     _stage: 20101
     _step: 0
@@ -1409,7 +1409,7 @@ MonoBehaviour:
     _end_cost: 450
     _start_price: 180
     _end_price: 225
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 201010601
     _stage: 20101
     _step: 1
@@ -1420,7 +1420,7 @@ MonoBehaviour:
     _end_cost: 550
     _start_price: 230
     _end_price: 275
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 201010602
     _stage: 20101
     _step: 2
@@ -1431,7 +1431,7 @@ MonoBehaviour:
     _end_cost: 750
     _start_price: 285
     _end_price: 375
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 201010603
     _stage: 20101
     _step: 3
@@ -1442,7 +1442,7 @@ MonoBehaviour:
     _end_cost: 1050
     _start_price: 390
     _end_price: 525
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 201010604
     _stage: 20101
     _step: 4
@@ -1453,7 +1453,7 @@ MonoBehaviour:
     _end_cost: 1450
     _start_price: 545
     _end_price: 725
-    _craft_time: 16
+    _craft_time: 4
   - _ID: 201010605
     _stage: 20101
     _step: 5
@@ -1464,4 +1464,4 @@ MonoBehaviour:
     _end_cost: 1500
     _start_price: 750
     _end_price: 750
-    _craft_time: 16
+    _craft_time: 4

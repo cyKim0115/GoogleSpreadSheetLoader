@@ -18,9 +18,9 @@ namespace GoogleSpreadSheetLoader.Generate
             
             foreach (var sheet in sheets)
             {
-                List<int> validColumns = new List<int>();
+                var validColumns = new List<int>();
 
-                List<List<string>> sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
+                var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
                 if (sheetRows == null || sheetRows.Count < 2) continue;
 

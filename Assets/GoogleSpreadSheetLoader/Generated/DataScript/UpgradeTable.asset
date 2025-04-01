@@ -18,23 +18,23 @@ MonoBehaviour:
     _idx: 0
     _type: 1
     _value: 3
-    _option: Char002
+    _option: Customer001
     _cost: 0
     _icon: .
   - _ID: 1010100101
     _stage: 10101
     _idx: 1
     _type: 2
-    _value: 2
-    _option: Char007
+    _value: 1
+    _option: Astrologer
     _cost: 0
     _icon: .
   - _ID: 1010100202
     _stage: 10101
     _idx: 2
     _type: 3
-    _value: 2
-    _option: Char008
+    _value: 1
+    _option: Blue Ninja
     _cost: 0
     _icon: .
   - _ID: 10101001
@@ -42,17 +42,17 @@ MonoBehaviour:
     _idx: 1
     _type: 2
     _value: 1
-    _option: Char003
+    _option: Chef
     _cost: 10
-    _icon: Astrologer_icon
+    _icon: Chef_icon
   - _ID: 10101002
     _stage: 10101
     _idx: 2
     _type: 3
     _value: 1
-    _option: Char004
+    _option: Catgirl
     _cost: 20
-    _icon: Blue Ninja_icon
+    _icon: Catgirl_icon
   - _ID: 10101003
     _stage: 10101
     _idx: 3
@@ -90,151 +90,191 @@ MonoBehaviour:
     _idx: 7
     _type: 1
     _value: 1
-    _option: Char005
+    _option: Chinese Fighter
     _cost: 30
-    _icon: Catgirl_icon
+    _icon: Chinese Fighter_icon
   - _ID: 10101008
     _stage: 10101
     _idx: 8
     _type: 2
     _value: 1
-    _option: Char006
+    _option: Dark Elf
     _cost: 40
-    _icon: chef_icon
+    _icon: Dark Elf_icon
   - _ID: 10101009
     _stage: 10101
     _idx: 9
     _type: 3
     _value: 1
-    _option: Char007
+    _option: Clover Wizard
     _cost: 50
-    _icon: Chinese fighter_icon
+    _icon: Clover Wizard_icon
   - _ID: 10101010
     _stage: 10101
     _idx: 10
     _type: 1
     _value: 1
-    _option: Char008
+    _option: Elf
     _cost: 60
-    _icon: Clover Wizard_icon
+    _icon: Elf_icon
   - _ID: 10101011
     _stage: 10101
     _idx: 11
     _type: 2
     _value: 1
-    _option: Char002
+    _option: Dark Knight
     _cost: 70
-    _icon: Dark Elf_icon
+    _icon: Dark Knight_icon
   - _ID: 10101012
     _stage: 10101
     _idx: 12
     _type: 3
     _value: 1
-    _option: Char003
+    _option: Female Fighter
     _cost: 80
-    _icon: Dark Knight_icon
+    _icon: Female Fighter_icon
   - _ID: 10101013
     _stage: 10101
     _idx: 13
     _type: 1
     _value: 1
-    _option: Char004
+    _option: Fire Wizard
     _cost: 90
-    _icon: Elf_icon
+    _icon: Fire Wizard_icon
   - _ID: 10101014
     _stage: 10101
     _idx: 14
     _type: 2
     _value: 1
-    _option: Char005
+    _option: Female Knight
     _cost: 100
-    _icon: Female Fighter_icon
+    _icon: Female Knight_icon
   - _ID: 10101015
     _stage: 10101
     _idx: 15
     _type: 3
     _value: 1
-    _option: Char006
+    _option: Fox Human
     _cost: 110
-    _icon: Female Knight_icon
+    _icon: Fox Human_icon
   - _ID: 10101016
     _stage: 10101
     _idx: 16
     _type: 1
     _value: 1
-    _option: Char007
+    _option: Customer002
     _cost: 120
-    _icon: Fire Wizard_icon
+    _icon: Fox Human_icon
   - _ID: 10101017
     _stage: 10101
     _idx: 17
     _type: 2
     _value: 1
-    _option: Char008
+    _option: Hammer Knight
     _cost: 130
-    _icon: TestUpgradeIcon2
+    _icon: Hammer Knight_icon
   - _ID: 10101018
     _stage: 10101
     _idx: 18
     _type: 3
     _value: 1
-    _option: Char002
+    _option: Gunner
     _cost: 140
-    _icon: TestUpgradeIcon3
+    _icon: Gunner_icon
   - _ID: 10101019
     _stage: 10101
     _idx: 19
     _type: 1
     _value: 1
-    _option: Char003
+    _option: Customer003
     _cost: 150
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10101020
     _stage: 10101
     _idx: 20
     _type: 2
     _value: 1
-    _option: Char004
+    _option: Horn Warrior
     _cost: 160
-    _icon: TestUpgradeIcon2
+    _icon: Horn Warrior_icon
   - _ID: 10101021
     _stage: 10101
     _idx: 21
     _type: 3
     _value: 1
-    _option: Char005
+    _option: Hunter
     _cost: 170
-    _icon: TestUpgradeIcon3
+    _icon: Hunter_icon
   - _ID: 10101022
     _stage: 10101
     _idx: 22
     _type: 1
-    _value: 1
-    _option: Char006
+    _value: 5
+    _option: Customer001
     _cost: 180
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10101023
     _stage: 10101
     _idx: 23
     _type: 1
-    _value: 1
-    _option: Char007
+    _value: 5
+    _option: Customer002
     _cost: 190
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10101024
     _stage: 10101
     _idx: 24
-    _type: 1
+    _type: 2
     _value: 1
-    _option: Char008
+    _option: Spearman
     _cost: 200
-    _icon: TestUpgradeIcon1
+    _icon: Spearman_icon
+  - _ID: 10101025
+    _stage: 10101
+    _idx: 25
+    _type: 2
+    _value: 1
+    _option: Succubus
+    _cost: 210
+    _icon: Succubus_icon
+  - _ID: 10101026
+    _stage: 10101
+    _idx: 26
+    _type: 2
+    _value: 1
+    _option: Vampire
+    _cost: 220
+    _icon: Vampire_icon
+  - _ID: 10101027
+    _stage: 10101
+    _idx: 27
+    _type: 3
+    _value: 1
+    _option: Viking
+    _cost: 230
+    _icon: Viking_icon
+  - _ID: 10101028
+    _stage: 10101
+    _idx: 28
+    _type: 3
+    _value: 1
+    _option: Water Wizard
+    _cost: 240
+    _icon: Water Wizard_icon
+  - _ID: 10101029
+    _stage: 10101
+    _idx: 29
+    _type: 1
+    _value: 5
+    _option: Customer003
+    _cost: 250
+    _icon: Fox Human_icon
   - _ID: 2010100000
     _stage: 20101
     _idx: 0
     _type: 1
     _value: 3
-    _option: Char002
+    _option: Customer004
     _cost: 0
     _icon: .
   - _ID: 2010100101
@@ -242,15 +282,7 @@ MonoBehaviour:
     _idx: 1
     _type: 2
     _value: 1
-    _option: Char001
-    _cost: 0
-    _icon: .
-  - _ID: 2010100202
-    _stage: 20101
-    _idx: 2
-    _type: 2
-    _value: 1
-    _option: Char003
+    _option: Astrologer
     _cost: 0
     _icon: .
   - _ID: 20101001
@@ -258,17 +290,17 @@ MonoBehaviour:
     _idx: 1
     _type: 2
     _value: 1
-    _option: Char003
+    _option: Musician
     _cost: 10
-    _icon: Elf_icon
+    _icon: Musician_icon
   - _ID: 20101002
     _stage: 20101
     _idx: 2
     _type: 1
     _value: 1
-    _option: Char004
+    _option: Lancer
     _cost: 20
-    _icon: Female Fighter_icon
+    _icon: Lancer_icon
   - _ID: 20101003
     _stage: 20101
     _idx: 3
@@ -306,17 +338,17 @@ MonoBehaviour:
     _idx: 7
     _type: 1
     _value: 2
-    _option: Char005
+    _option: Customer005
     _cost: 70
-    _icon: Catgirl_icon
+    _icon: Fox Human_icon
   - _ID: 20101008
     _stage: 20101
     _idx: 8
     _type: 1
     _value: 2
-    _option: Char006
+    _option: Customer006
     _cost: 80
-    _icon: chef_icon
+    _icon: Fox Human_icon
   - _ID: 20101009
     _stage: 20101
     _idx: 9
@@ -325,28 +357,116 @@ MonoBehaviour:
     _option: '-'
     _cost: 90
     _icon: icon_move_speed_up
+  - _ID: 20101010
+    _stage: 20101
+    _idx: 10
+    _type: 2
+    _value: 1
+    _option: Rabbit Astronaut
+    _cost: 100
+    _icon: Rabbit Astronaut_icon
+  - _ID: 20101011
+    _stage: 20101
+    _idx: 11
+    _type: 2
+    _value: 1
+    _option: Red Ninja
+    _cost: 120
+    _icon: Red Ninja_icon
+  - _ID: 20101012
+    _stage: 20101
+    _idx: 12
+    _type: 2
+    _value: 1
+    _option: Nurse
+    _cost: 130
+    _icon: Nurse_icon
+  - _ID: 20101013
+    _stage: 20101
+    _idx: 13
+    _type: 1
+    _value: 2
+    _option: Sheep Summoner
+    _cost: 140
+    _icon: Sheep Summoner_icon
+  - _ID: 20101014
+    _stage: 20101
+    _idx: 14
+    _type: 1
+    _value: 2
+    _option: Male Fighter
+    _cost: 150
+    _icon: Male Fighter_icon
+  - _ID: 20101015
+    _stage: 20101
+    _idx: 15
+    _type: 1
+    _value: 2
+    _option: Mermaid
+    _cost: 160
+    _icon: Mermaid_icon
+  - _ID: 20101016
+    _stage: 20101
+    _idx: 16
+    _type: 1
+    _value: 2
+    _option: Paladin
+    _cost: 170
+    _icon: Paladin_icon
+  - _ID: 20101017
+    _stage: 20101
+    _idx: 17
+    _type: 1
+    _value: 2
+    _option: Samurai
+    _cost: 180
+    _icon: Samurai_icon
+  - _ID: 20101018
+    _stage: 20101
+    _idx: 18
+    _type: 2
+    _value: 1
+    _option: Pirate Soldier
+    _cost: 190
+    _icon: Pirate Soldier_icon
+  - _ID: 20101019
+    _stage: 20101
+    _idx: 19
+    _type: 2
+    _value: 1
+    _option: Pirate
+    _cost: 200
+    _icon: Pirate_icon
+  - _ID: 20101020
+    _stage: 20101
+    _idx: 20
+    _type: 2
+    _value: 1
+    _option: Purple Alchemist
+    _cost: 210
+    _icon: Purple Alchemist_icon
   - _ID: 1010200000
     _stage: 10102
     _idx: 0
     _type: 1
     _value: 3
-    _option: Char002
+    _option: Customer001
     _cost: 0
     _icon: .
   - _ID: 1010200101
     _stage: 10102
     _idx: 1
     _type: 2
-    _value: 2
-    _option: Char007
+    _value: 1
+    _option: Astrologer
     _cost: 0
     _icon: .
   - _ID: 1010200202
     _stage: 10102
     _idx: 2
     _type: 3
-    _value: 2
-    _option: Char008
+    _value: 1
+    _option: Blue Ninja
     _cost: 0
     _icon: .
   - _ID: 10102001
@@ -354,17 +474,17 @@ MonoBehaviour:
     _idx: 1
     _type: 2
     _value: 1
-    _option: Char003
+    _option: Chef
     _cost: 10
-    _icon: Astrologer_icon
+    _icon: Chef_icon
   - _ID: 10102002
     _stage: 10102
     _idx: 2
     _type: 3
     _value: 1
-    _option: Char004
+    _option: Catgirl
     _cost: 20
-    _icon: Blue Ninja_icon
+    _icon: Catgirl_icon
   - _ID: 10102003
     _stage: 10102
     _idx: 3
@@ -402,167 +522,207 @@ MonoBehaviour:
     _idx: 7
     _type: 1
     _value: 1
-    _option: Char005
+    _option: Chinese Fighter
     _cost: 30
-    _icon: Catgirl_icon
+    _icon: Chinese Fighter_icon
   - _ID: 10102008
     _stage: 10102
     _idx: 8
     _type: 2
     _value: 1
-    _option: Char006
+    _option: Dark Elf
     _cost: 40
-    _icon: chef_icon
+    _icon: Dark Elf_icon
   - _ID: 10102009
     _stage: 10102
     _idx: 9
     _type: 3
     _value: 1
-    _option: Char007
+    _option: Clover Wizard
     _cost: 50
-    _icon: Chinese fighter_icon
+    _icon: Clover Wizard_icon
   - _ID: 10102010
     _stage: 10102
     _idx: 10
     _type: 1
     _value: 1
-    _option: Char008
+    _option: Elf
     _cost: 60
-    _icon: Clover Wizard_icon
+    _icon: Elf_icon
   - _ID: 10102011
     _stage: 10102
     _idx: 11
     _type: 2
     _value: 1
-    _option: Char002
+    _option: Dark Knight
     _cost: 70
-    _icon: Dark Elf_icon
+    _icon: Dark Knight_icon
   - _ID: 10102012
     _stage: 10102
     _idx: 12
     _type: 3
     _value: 1
-    _option: Char003
+    _option: Female Fighter
     _cost: 80
-    _icon: Dark Knight_icon
+    _icon: Female Fighter_icon
   - _ID: 10102013
     _stage: 10102
     _idx: 13
     _type: 1
     _value: 1
-    _option: Char004
+    _option: Fire Wizard
     _cost: 90
-    _icon: Elf_icon
+    _icon: Fire Wizard_icon
   - _ID: 10102014
     _stage: 10102
     _idx: 14
     _type: 2
     _value: 1
-    _option: Char005
+    _option: Female Knight
     _cost: 100
-    _icon: Female Fighter_icon
+    _icon: Female Knight_icon
   - _ID: 10102015
     _stage: 10102
     _idx: 15
     _type: 3
     _value: 1
-    _option: Char006
+    _option: Fox Human
     _cost: 110
-    _icon: Female Knight_icon
+    _icon: Fox Human_icon
   - _ID: 10102016
     _stage: 10102
     _idx: 16
     _type: 1
     _value: 1
-    _option: Char007
+    _option: Customer002
     _cost: 120
-    _icon: Fire Wizard_icon
+    _icon: Fox Human_icon
   - _ID: 10102017
     _stage: 10102
     _idx: 17
     _type: 2
     _value: 1
-    _option: Char008
+    _option: Hammer Knight
     _cost: 130
-    _icon: TestUpgradeIcon2
+    _icon: Hammer Knight_icon
   - _ID: 10102018
     _stage: 10102
     _idx: 18
     _type: 3
     _value: 1
-    _option: Char002
+    _option: Gunner
     _cost: 140
-    _icon: TestUpgradeIcon3
+    _icon: Gunner_icon
   - _ID: 10102019
     _stage: 10102
     _idx: 19
     _type: 1
     _value: 1
-    _option: Char003
+    _option: Customer003
     _cost: 150
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10102020
     _stage: 10102
     _idx: 20
     _type: 2
     _value: 1
-    _option: Char004
+    _option: Horn Warrior
     _cost: 160
-    _icon: TestUpgradeIcon2
+    _icon: Horn Warrior_icon
   - _ID: 10102021
     _stage: 10102
     _idx: 21
     _type: 3
     _value: 1
-    _option: Char005
+    _option: Hunter
     _cost: 170
-    _icon: TestUpgradeIcon3
+    _icon: Hunter_icon
   - _ID: 10102022
     _stage: 10102
     _idx: 22
     _type: 1
-    _value: 1
-    _option: Char006
+    _value: 5
+    _option: Customer001
     _cost: 180
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10102023
     _stage: 10102
     _idx: 23
     _type: 1
-    _value: 1
-    _option: Char007
+    _value: 5
+    _option: Customer002
     _cost: 190
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10102024
     _stage: 10102
     _idx: 24
-    _type: 1
+    _type: 2
     _value: 1
-    _option: Char008
+    _option: Spearman
     _cost: 200
-    _icon: TestUpgradeIcon1
+    _icon: Spearman_icon
+  - _ID: 10102025
+    _stage: 10102
+    _idx: 25
+    _type: 2
+    _value: 1
+    _option: Succubus
+    _cost: 210
+    _icon: Succubus_icon
+  - _ID: 10102026
+    _stage: 10102
+    _idx: 26
+    _type: 2
+    _value: 1
+    _option: Vampire
+    _cost: 220
+    _icon: Vampire_icon
+  - _ID: 10102027
+    _stage: 10102
+    _idx: 27
+    _type: 3
+    _value: 1
+    _option: Viking
+    _cost: 230
+    _icon: Viking_icon
+  - _ID: 10102028
+    _stage: 10102
+    _idx: 28
+    _type: 3
+    _value: 1
+    _option: Water Wizard
+    _cost: 240
+    _icon: Water Wizard_icon
+  - _ID: 10102029
+    _stage: 10102
+    _idx: 29
+    _type: 1
+    _value: 5
+    _option: Customer003
+    _cost: 250
+    _icon: Fox Human_icon
   - _ID: 1010300000
     _stage: 10103
     _idx: 0
     _type: 1
     _value: 3
-    _option: Char002
+    _option: Customer001
     _cost: 0
     _icon: .
   - _ID: 1010300101
     _stage: 10103
     _idx: 1
     _type: 2
-    _value: 2
-    _option: Char007
+    _value: 1
+    _option: Astrologer
     _cost: 0
     _icon: .
   - _ID: 1010300202
     _stage: 10103
     _idx: 2
     _type: 3
-    _value: 2
-    _option: Char008
+    _value: 1
+    _option: Blue Ninja
     _cost: 0
     _icon: .
   - _ID: 10103001
@@ -570,17 +730,17 @@ MonoBehaviour:
     _idx: 1
     _type: 2
     _value: 1
-    _option: Char003
+    _option: Chef
     _cost: 10
-    _icon: Astrologer_icon
+    _icon: Chef_icon
   - _ID: 10103002
     _stage: 10103
     _idx: 2
     _type: 3
     _value: 1
-    _option: Char004
+    _option: Catgirl
     _cost: 20
-    _icon: Blue Ninja_icon
+    _icon: Catgirl_icon
   - _ID: 10103003
     _stage: 10103
     _idx: 3
@@ -618,142 +778,182 @@ MonoBehaviour:
     _idx: 7
     _type: 1
     _value: 1
-    _option: Char005
+    _option: Chinese Fighter
     _cost: 30
-    _icon: Catgirl_icon
+    _icon: Chinese Fighter_icon
   - _ID: 10103008
     _stage: 10103
     _idx: 8
     _type: 2
     _value: 1
-    _option: Char006
+    _option: Dark Elf
     _cost: 40
-    _icon: chef_icon
+    _icon: Dark Elf_icon
   - _ID: 10103009
     _stage: 10103
     _idx: 9
     _type: 3
     _value: 1
-    _option: Char007
+    _option: Clover Wizard
     _cost: 50
-    _icon: Chinese fighter_icon
+    _icon: Clover Wizard_icon
   - _ID: 10103010
     _stage: 10103
     _idx: 10
     _type: 1
     _value: 1
-    _option: Char008
+    _option: Elf
     _cost: 60
-    _icon: Clover Wizard_icon
+    _icon: Elf_icon
   - _ID: 10103011
     _stage: 10103
     _idx: 11
     _type: 2
     _value: 1
-    _option: Char002
+    _option: Dark Knight
     _cost: 70
-    _icon: Dark Elf_icon
+    _icon: Dark Knight_icon
   - _ID: 10103012
     _stage: 10103
     _idx: 12
     _type: 3
     _value: 1
-    _option: Char003
+    _option: Female Fighter
     _cost: 80
-    _icon: Dark Knight_icon
+    _icon: Female Fighter_icon
   - _ID: 10103013
     _stage: 10103
     _idx: 13
     _type: 1
     _value: 1
-    _option: Char004
+    _option: Fire Wizard
     _cost: 90
-    _icon: Elf_icon
+    _icon: Fire Wizard_icon
   - _ID: 10103014
     _stage: 10103
     _idx: 14
     _type: 2
     _value: 1
-    _option: Char005
+    _option: Female Knight
     _cost: 100
-    _icon: Female Fighter_icon
+    _icon: Female Knight_icon
   - _ID: 10103015
     _stage: 10103
     _idx: 15
     _type: 3
     _value: 1
-    _option: Char006
+    _option: Fox Human
     _cost: 110
-    _icon: Female Knight_icon
+    _icon: Fox Human_icon
   - _ID: 10103016
     _stage: 10103
     _idx: 16
     _type: 1
     _value: 1
-    _option: Char007
+    _option: Customer002
     _cost: 120
-    _icon: Fire Wizard_icon
+    _icon: Fox Human_icon
   - _ID: 10103017
     _stage: 10103
     _idx: 17
     _type: 2
     _value: 1
-    _option: Char008
+    _option: Hammer Knight
     _cost: 130
-    _icon: TestUpgradeIcon2
+    _icon: Hammer Knight_icon
   - _ID: 10103018
     _stage: 10103
     _idx: 18
     _type: 3
     _value: 1
-    _option: Char002
+    _option: Gunner
     _cost: 140
-    _icon: TestUpgradeIcon3
+    _icon: Gunner_icon
   - _ID: 10103019
     _stage: 10103
     _idx: 19
     _type: 1
     _value: 1
-    _option: Char003
+    _option: Customer003
     _cost: 150
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10103020
     _stage: 10103
     _idx: 20
     _type: 2
     _value: 1
-    _option: Char004
+    _option: Horn Warrior
     _cost: 160
-    _icon: TestUpgradeIcon2
+    _icon: Horn Warrior_icon
   - _ID: 10103021
     _stage: 10103
     _idx: 21
     _type: 3
     _value: 1
-    _option: Char005
+    _option: Hunter
     _cost: 170
-    _icon: TestUpgradeIcon3
+    _icon: Hunter_icon
   - _ID: 10103022
     _stage: 10103
     _idx: 22
     _type: 1
-    _value: 1
-    _option: Char006
+    _value: 5
+    _option: Customer001
     _cost: 180
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10103023
     _stage: 10103
     _idx: 23
     _type: 1
-    _value: 1
-    _option: Char007
+    _value: 5
+    _option: Customer002
     _cost: 190
-    _icon: TestUpgradeIcon1
+    _icon: Fox Human_icon
   - _ID: 10103024
     _stage: 10103
     _idx: 24
-    _type: 1
+    _type: 2
     _value: 1
-    _option: Char008
+    _option: Spearman
     _cost: 200
-    _icon: TestUpgradeIcon1
+    _icon: Spearman_icon
+  - _ID: 10103025
+    _stage: 10103
+    _idx: 25
+    _type: 2
+    _value: 1
+    _option: Succubus
+    _cost: 210
+    _icon: Succubus_icon
+  - _ID: 10103026
+    _stage: 10103
+    _idx: 26
+    _type: 2
+    _value: 1
+    _option: Vampire
+    _cost: 220
+    _icon: Vampire_icon
+  - _ID: 10103027
+    _stage: 10103
+    _idx: 27
+    _type: 3
+    _value: 1
+    _option: Viking
+    _cost: 230
+    _icon: Viking_icon
+  - _ID: 10103028
+    _stage: 10103
+    _idx: 28
+    _type: 3
+    _value: 1
+    _option: Water Wizard
+    _cost: 240
+    _icon: Water Wizard_icon
+  - _ID: 10103029
+    _stage: 10103
+    _idx: 29
+    _type: 1
+    _value: 5
+    _option: Customer003
+    _cost: 250
+    _icon: Fox Human_icon
