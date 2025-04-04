@@ -5,6 +5,10 @@ using TableData;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
+// ReSharper disable CheckNamespace
+// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable InconsistentNaming
+// ReSharper disable CollectionNeverQueried.Local
 
 namespace GoogleSpreadSheetLoader.Generate
 {
@@ -16,21 +20,21 @@ namespace GoogleSpreadSheetLoader.Generate
 
             foreach (var sheet in sheets)
             {
-                string tableTitle = sheet.title;
-                string dataClassName = tableTitle + "Data";
-                string tableClassName = tableTitle + "Table";
-                string dataFilePath = dataScriptSavePath + dataClassName + ".cs";
-                string tableFilePath = tableScriptSavePath + tableClassName + ".cs";
+                var tableTitle = sheet.title;
+                var dataClassName = tableTitle + "Data";
+                var tableClassName = tableTitle + "Table";
+                var dataFilePath = dataScriptSavePath + dataClassName + ".cs";
+                var tableFilePath = tableScriptSavePath + tableClassName + ".cs";
 
-                List<string> variableDeclarations = new List<string>();
-                List<int> validColumns = new List<int>();
+                var variableDeclarations = new List<string>();
+                var validColumns = new List<int>();
 
-                List<List<string>> sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
+                var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
                 if (sheetRows == null || sheetRows.Count < 2) continue;
 
                 var setData = "";
-                List<string> headers = sheetRows[0];
+                var headers = sheetRows[0];
                 for (int i = 0; i < headers.Count; i++)
                 {
                     if (string.IsNullOrWhiteSpace(headers[i]) || !headers[i].Contains("-"))
@@ -105,16 +109,15 @@ namespace GoogleSpreadSheetLoader.Generate
 
             foreach (var sheet in listSheet)
             {
-                string tableAssetPath = dataSavePath + sheet.title + "Table.asset";
-                string className = sheet.title + "Data";
-                string tableClassName = sheet.title + "Table";
+                var tableAssetPath = dataSavePath + sheet.title + "Table.asset";
+                var tableClassName = sheet.title + "Table";
 
-                List<List<string>> sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
+                var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
                 if (sheetRows == null || sheetRows.Count < 2) return;
 
-                List<string> headers = sheetRows[0];
-                List<int> validColumns = new List<int>();
+                var headers = sheetRows[0];
+                var validColumns = new List<int>();
 
                 for (int i = 0; i < headers.Count; i++)
                 {
@@ -134,7 +137,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 sheetRows.RemoveAt(0);
 
-                (tableAsset as ITable).SetData(sheetRows);
+                ((ITable)tableAsset).SetData(sheetRows);
 
                 AssetDatabase.CreateAsset(tableAsset, tableAssetPath);
             }

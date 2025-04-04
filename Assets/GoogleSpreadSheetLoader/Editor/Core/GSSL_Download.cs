@@ -8,10 +8,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+// ReSharper disable CheckNamespace
+// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable InconsistentNaming
+// ReSharper disable PossibleNullReferenceException
+#pragma warning disable CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
 
 namespace GoogleSpreadSheetLoader.Download
 {
-    public class GSSL_Download
+    internal class GSSL_Download
     {
         public enum eDownloadState
         {
@@ -89,21 +94,22 @@ namespace GoogleSpreadSheetLoader.Download
                     IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
                     foreach (JToken title in enumTitle)
                     {
-                        string titleString = title.ToString();
+                        var titleString = title.ToString();
 
-                        bool isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
+                        var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
 
-                        // 포함 되어있는데 '제외'설정 되어있으면 추가되지 않음.
-                        if (isContains && GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외)
-                            continue;
-
-                        // 포함되어 있지 않은데 '포함'설정 되어있으면 추가되지 않음.
-                        if (!isContains && GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함)
-                            continue;
+                        switch (isContains)
+                        {
+                            // 포함 되어있는데 '제외'설정 되어있으면 추가되지 않음.
+                            case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
+                            // 포함되어 있지 않은데 '포함'설정 되어있으면 추가되지 않음.
+                            case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
+                                continue;
+                        }
 
                         if (dicSheetName[pair.info.spreadSheetId].Contains(titleString))
                         {
-                            UnityEngine.Debug.LogError(
+                            Debug.LogError(
                                 $"중복 시트 이름 : {pair.info.spreadSheetName}에서 {titleString}의 중복 이름이 존재!");
 
                             continue;
@@ -117,8 +123,8 @@ namespace GoogleSpreadSheetLoader.Download
         
         public static async Awaitable DownloadSheet(
             Dictionary<string, Dictionary<string, bool>> dicCheck,
-            UnityAction<eDownloadState> OnStateChangeAction,
-            UnityAction<string> OnMessageAction)
+            UnityAction<eDownloadState> onStateChangeAction,
+            UnityAction<string> onMessageAction)
         {
             // 다운로드 대상 정리
             List<(string spreadsheetId, string sheetName)> listDownloadTarget =
@@ -139,7 +145,7 @@ namespace GoogleSpreadSheetLoader.Download
                 }
             }
 
-            OnStateChangeAction?.Invoke(eDownloadState.Downloading);
+            onStateChangeAction?.Invoke(eDownloadState.Downloading);
 
             // 다운로드
             List<((string spreadSheetId, string sheetName), UnityWebRequestAsyncOperation oper)> listInfoOperPair = new();
@@ -158,18 +164,18 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
-                    OnMessageAction?.Invoke(
+                    onMessageAction?.Invoke(
                         $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})");
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
             finally
             {
-                OnMessageAction?.Invoke("다운로드 완료");
-                OnStateChangeAction?.Invoke(eDownloadState.Complete);
+                onMessageAction?.Invoke("다운로드 완료");
+                onStateChangeAction?.Invoke(eDownloadState.Complete);
                 await Task.Delay(1000);
                 dicCheck.Clear();
-                OnStateChangeAction?.Invoke(eDownloadState.None);
+                onStateChangeAction?.Invoke(eDownloadState.None);
             }
 
             if (!Directory.Exists(GSSL_Setting.SettingDataAssetPath))

@@ -3,6 +3,7 @@ using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
+// ReSharper disable CheckNamespace
 
 namespace GoogleSpreadSheetLoader.Generate
 {
@@ -13,8 +14,8 @@ namespace GoogleSpreadSheetLoader.Generate
             CheckAndCreateDirectory();
 
             var dataFilePath = enumDefSavePath + "EnumDef.cs";
-            Dictionary<int, List<string>> dicEnumStr = new();
-            Dictionary<string, string> dicDuplicateCheck = new();
+            var dicEnumStr = new Dictionary<int, List<string>>();
+            var dicDuplicateCheck = new Dictionary<string, string>();
             
             foreach (var sheet in sheets)
             {
@@ -26,7 +27,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 // 종류 별로 일단 담은
                 var headers = sheetRows[0];
-                for (int i = 0; i < headers.Count; i++)
+                for (var i = 0; i < headers.Count; i++)
                 {
                     var enumName = headers[i];
                     
@@ -67,9 +68,9 @@ namespace GoogleSpreadSheetLoader.Generate
                     }
                 }
 
-                List<string> listEnumTitle = new();
-                Dictionary<string, List<string>> dicEnumName = new();
-                Dictionary<string, List<string>> dicEnumIdx = new();
+                var listEnumTitle = new List<string>();
+                var dicEnumName = new Dictionary<string, List<string>>();
+                var dicEnumIdx = new Dictionary<string, List<string>>();
                 foreach (var list in dicEnumStr.Values)
                 {
                     var isIdx = list[0].Contains('-');
@@ -78,7 +79,7 @@ namespace GoogleSpreadSheetLoader.Generate
                     if(!listEnumTitle.Contains(dictKey))
                         listEnumTitle.Add(dictKey);
 
-                    List<string> currentList = null;
+                    List<string> currentList;
                     
                     if (!isIdx)
                     {
@@ -98,7 +99,7 @@ namespace GoogleSpreadSheetLoader.Generate
                     }
                 }
 
-                string data = "\n";
+                var data = "\n";
                 // 만든 string List를 토대로 enum 작성
                 foreach (var title in listEnumTitle)
                 {

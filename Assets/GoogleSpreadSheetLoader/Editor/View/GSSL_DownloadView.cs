@@ -4,6 +4,7 @@ using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.Download.GSSL_Download;
+// ReSharper disable CheckNamespace
 
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ConvertToConstant.Local
@@ -45,25 +46,23 @@ namespace GoogleSpreadSheetLoader.Download
 
             for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
-                SpreadSheetInfo _info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
+                var info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
 
                 EditorGUILayout.BeginHorizontal();
 
-                if (!_dicDownloadSpreadSheetCheck.ContainsKey(i))
-                {
-                    _dicDownloadSpreadSheetCheck.Add(i, false);
-                }
+                _dicDownloadSpreadSheetCheck.TryAdd(i, false);
 
                 _dicDownloadSpreadSheetCheck[i] =
                     EditorGUILayout.ToggleLeft("", _dicDownloadSpreadSheetCheck[i], GUILayout.Width(20));
-                EditorGUILayout.LabelField($"{i + 1}. {_info.spreadSheetName}", GUILayout.Width(150));
-                EditorGUILayout.LabelField(_info.spreadSheetId);
+                EditorGUILayout.LabelField($"{i + 1}. {info.spreadSheetName}", GUILayout.Width(150));
+                EditorGUILayout.LabelField(info.spreadSheetId);
 
                 EditorGUILayout.EndHorizontal();
             }
         }
 
-        private async void DrawDownloadSpreadSheetBtn()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void DrawDownloadSpreadSheetBtn()
         {
             EditorGUILayout.Separator();
 
@@ -78,7 +77,7 @@ namespace GoogleSpreadSheetLoader.Download
                     {
                         if (GUILayout.Button("스프레드 시트 정보 다운로드"))
                         {
-                            DownloadSpreadSheet(_dicDownloadSpreadSheetCheck,
+                            _ = DownloadSpreadSheet(_dicDownloadSpreadSheetCheck,
                                 _dicSheetNames,
                                 state => { _spreadSheetDownloadState = state; },
                                 message =>
@@ -163,10 +162,10 @@ namespace GoogleSpreadSheetLoader.Download
             EditorGUILayout.Space(50);
         }
 
-        private async void DrawDownloadSheetBtn()
+        private void DrawDownloadSheetBtn()
         {
-            bool isDownloadable = _dicDownloadSheetCheck.Count > 0 &&
-                                  _dicDownloadSheetCheck.Any(x => x.Value.Any(x => x.Value));
+            var isDownloadable = _dicDownloadSheetCheck.Count > 0 &&
+                                 _dicDownloadSheetCheck.Any(x => x.Value.Any(y => y.Value));
 
             if (!isDownloadable) return;
 
@@ -183,12 +182,12 @@ namespace GoogleSpreadSheetLoader.Download
                 {
                     if (GUILayout.Button("시트 다운로드", GUILayout.Width(150)))
                     {
-                        DownloadSheet(_dicDownloadSheetCheck,
+                        _ = DownloadSheet(_dicDownloadSheetCheck,
                             state => _sheetDownloadState = state,
                             message =>
                             {
                                 _sheetDownloadMessage = message;
-                                GSSL_EditorWindow.focusedWindow.Repaint();
+                                EditorWindow.focusedWindow.Repaint();
                             });
                     }
                 }

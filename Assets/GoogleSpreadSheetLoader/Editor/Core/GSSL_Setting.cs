@@ -1,5 +1,7 @@
 using UnityEditor;
 using UnityEngine;
+// ReSharper disable InconsistentNaming
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace GoogleSpreadSheetLoader.Setting
 {
@@ -28,8 +30,7 @@ namespace GoogleSpreadSheetLoader.Setting
                 // 없으면 파일 생성
                 if (!AssetDatabase.AssetPathExists(_settingDataPath))
                 {
-                    SettingData obj = ScriptableObject.CreateInstance<SettingData>();
-                    obj = new SettingData();
+                    var obj = new SettingData();
 
                     AssetDatabase.CreateAsset(obj, _settingDataPath);
                 }

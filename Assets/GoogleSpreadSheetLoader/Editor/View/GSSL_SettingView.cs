@@ -1,6 +1,6 @@
-using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
+// ReSharper disable CheckNamespace
 
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 
@@ -48,21 +48,21 @@ namespace GoogleSpreadSheetLoader.Setting
             int sheetNameWidth = 100;
             for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
-                SpreadSheetInfo _info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
+                var info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
 
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField($"{i + 1}. ", GUILayout.Width(20));
 
                 if (_sheetInfoEditToggle)
                 {
-                    _info.spreadSheetName =
-                        EditorGUILayout.TextField(_info.spreadSheetName, GUILayout.Width(sheetNameWidth));
-                    _info.spreadSheetId = EditorGUILayout.TextField(_info.spreadSheetId);
+                    info.spreadSheetName =
+                        EditorGUILayout.TextField(info.spreadSheetName, GUILayout.Width(sheetNameWidth));
+                    info.spreadSheetId = EditorGUILayout.TextField(info.spreadSheetId);
                 }
                 else
                 {
-                    EditorGUILayout.LabelField(_info.spreadSheetName, GUILayout.Width(sheetNameWidth));
-                    EditorGUILayout.LabelField(_info.spreadSheetId);
+                    EditorGUILayout.LabelField(info.spreadSheetName, GUILayout.Width(sheetNameWidth));
+                    EditorGUILayout.LabelField(info.spreadSheetId);
                     GUILayout.FlexibleSpace();
                 }
 

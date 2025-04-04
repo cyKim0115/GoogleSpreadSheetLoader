@@ -7,8 +7,9 @@ using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
+// ReSharper disable InconsistentNaming
 
-namespace GoogleSpreadSheetLoader
+namespace GoogleSpreadSheetLoader.Editor.View
 {
     public class GenerateView
     {
@@ -58,7 +59,7 @@ namespace GoogleSpreadSheetLoader
 
                 foreach (string guid in guids)
                 {
-                    string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                    var assetPath = AssetDatabase.GUIDToAssetPath(guid);
                     SheetData sheetData = AssetDatabase.LoadAssetAtPath<SheetData>(assetPath);
                     _listSheetData.Add(sheetData);
                 }
@@ -88,15 +89,15 @@ namespace GoogleSpreadSheetLoader
                 _dicTableDataGenerateCheck[sheetData.tableStyle].TryAdd(sheetData, false);
             }
 
-            GUIStyle boxStyle = new GUIStyle(GUI.skin.box);
+            var boxStyle = new GUIStyle(GUI.skin.box);
             _generateScrollPos = EditorGUILayout.BeginScrollView(_generateScrollPos,
                 GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
             EditorGUILayout.BeginVertical(boxStyle);
 
             foreach (var categoryPair in _dicTableDataGenerateCheck)
             {
-                eTableStyle currCategory = categoryPair.Key;
-                Dictionary<SheetData, bool> currDic = categoryPair.Value;
+                var currCategory = categoryPair.Key;
+                var currDic = categoryPair.Value;
 
                 string categoryName = "";
                 switch (currCategory)
@@ -107,12 +108,12 @@ namespace GoogleSpreadSheetLoader
                 }
 
                 // 전체 체크 부분
-                bool isAllCehck = currDic.Count > 0 && currDic.All(x => x.Value);
-                bool selected = EditorGUILayout.ToggleLeft($" {categoryName}", isAllCehck);
+                var isAllCheck = currDic.Count > 0 && currDic.All(x => x.Value);
+                var selected = EditorGUILayout.ToggleLeft($" {categoryName}", isAllCheck);
 
-                if (selected != isAllCehck)
+                if (selected != isAllCheck)
                 {
-                    SheetData[] keys = currDic.Keys.ToArray();
+                    var keys = currDic.Keys.ToArray();
 
                     foreach (var sheetData in keys)
                     {
@@ -143,10 +144,10 @@ namespace GoogleSpreadSheetLoader
         // ReSharper disable Unity.PerformanceAnalysis
         private void DrawGenerateButtons()
         {
-            bool isGenerateable = _dicTableDataGenerateCheck.Count > 0 &&
+            var isGenerateAble = _dicTableDataGenerateCheck.Count > 0 &&
                                   _dicTableDataGenerateCheck.Values.Any(x => x.Values.Any(y => y));
 
-            if (!isGenerateable)
+            if (!isGenerateAble)
                 return;
 
             GUILayout.FlexibleSpace();
@@ -224,11 +225,10 @@ namespace GoogleSpreadSheetLoader
 
         private void CheckAndClearDictionary()
         {
-            if (_listSheetData.Any(x => x == null))
-            {
-                _listSheetData.Clear();
-                _dicTableDataGenerateCheck.Clear();
-            }
+            if (_listSheetData.All(x => x != null)) return;
+            
+            _listSheetData.Clear();
+            _dicTableDataGenerateCheck.Clear();
         }
     }
 }

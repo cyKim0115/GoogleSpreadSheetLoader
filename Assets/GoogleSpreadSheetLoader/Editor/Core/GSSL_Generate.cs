@@ -1,4 +1,8 @@
 using System.IO;
+// ReSharper disable CheckNamespace
+// ReSharper disable ConvertToConstant.Local
+// ReSharper disable InconsistentNaming
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace GoogleSpreadSheetLoader.Generate
 {
