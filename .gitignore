@@ -8,3 +8,7 @@ obj
 Logs
 Library
 Temp
+Assets/GoogleSpreadSheetLoader/Generated
+Assets/Resources/TableLinker.asset
+Assets/Resources/TableLinker.asset.meta
+Assets/GoogleSpreadSheetLoader/Generated.meta
