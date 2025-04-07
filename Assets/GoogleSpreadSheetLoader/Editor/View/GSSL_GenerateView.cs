@@ -86,7 +86,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
             foreach (var sheetData in _listSheetData)
             {
                 _dicTableDataGenerateCheck.TryAdd(sheetData.tableStyle, new Dictionary<SheetData, bool>());
-                _dicTableDataGenerateCheck[sheetData.tableStyle].TryAdd(sheetData, false);
+                _dicTableDataGenerateCheck[sheetData.tableStyle].TryAdd(sheetData, true);
             }
 
             var boxStyle = new GUIStyle(GUI.skin.box);

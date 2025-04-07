@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GoogleSpreadSheetLoader.Setting;
@@ -13,18 +14,18 @@ namespace GoogleSpreadSheetLoader.Download
 {
     public class DownloadView
     {
+        internal static string spreadSheetDownloadMessage = "";
+        internal static string sheetDownloadMessage = "";
+        internal static eDownloadState spreadSheetDownloadState = eDownloadState.None;
+        internal static eDownloadState sheetDownloadState = eDownloadState.None;
+        
         private Dictionary<int, bool> _dicDownloadSpreadSheetCheck = new();
 
         private Dictionary<string, Dictionary<string, bool>> _dicDownloadSheetCheck = new();
 
         // Key : SpreadSheetId , Value : SheetNames
         private Dictionary<string, List<string>> _dicSheetNames = new();
-
-
-        private eDownloadState _spreadSheetDownloadState = eDownloadState.None;
-        private eDownloadState _sheetDownloadState = eDownloadState.None;
-        private string _spreadSheetDownloadMessage = "";
-        private string _sheetDownloadMessage = "";
+        
         private Vector2 _sheetDownloadScrollPos = new(0, 0);
 
         public void DrawDownloadView()
@@ -44,20 +45,16 @@ namespace GoogleSpreadSheetLoader.Download
             EditorGUILayout.LabelField("  정보를 다운로드할 스프레드 시트 선택", EditorStyles.whiteLargeLabel);
             EditorGUILayout.Separator();
 
-            for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
+            for (var i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
                 var info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];
-
-                EditorGUILayout.BeginHorizontal();
-
+                
                 _dicDownloadSpreadSheetCheck.TryAdd(i, false);
 
                 _dicDownloadSpreadSheetCheck[i] =
                     EditorGUILayout.ToggleLeft("", _dicDownloadSpreadSheetCheck[i], GUILayout.Width(20));
                 EditorGUILayout.LabelField($"{i + 1}. {info.spreadSheetName}", GUILayout.Width(150));
                 EditorGUILayout.LabelField(info.spreadSheetId);
-
-                EditorGUILayout.EndHorizontal();
             }
         }
 
@@ -69,7 +66,7 @@ namespace GoogleSpreadSheetLoader.Download
             if (_dicDownloadSpreadSheetCheck.Count == 0)
                 return;
 
-            switch (_spreadSheetDownloadState)
+            switch (spreadSheetDownloadState)
             {
                 case eDownloadState.None:
                 {
@@ -77,14 +74,7 @@ namespace GoogleSpreadSheetLoader.Download
                     {
                         if (GUILayout.Button("스프레드 시트 정보 다운로드"))
                         {
-                            _ = DownloadSpreadSheet(_dicDownloadSpreadSheetCheck,
-                                _dicSheetNames,
-                                state => { _spreadSheetDownloadState = state; },
-                                message =>
-                                {
-                                    _spreadSheetDownloadMessage = message;
-                                    EditorWindow.focusedWindow.Repaint();
-                                });
+                            _ = DownloadSpreadSheet(_dicDownloadSpreadSheetCheck, _dicSheetNames);
                         }
                     }
                 }
@@ -95,7 +85,7 @@ namespace GoogleSpreadSheetLoader.Download
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.FlexibleSpace();
 
-                    EditorGUILayout.LabelField(_spreadSheetDownloadMessage);
+                    EditorGUILayout.LabelField(spreadSheetDownloadMessage);
 
                     GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();
@@ -111,7 +101,7 @@ namespace GoogleSpreadSheetLoader.Download
             EditorGUILayout.LabelField("  다운로드 받은 시트 정보들", EditorStyles.whiteLargeLabel);
             _sheetDownloadScrollPos = EditorGUILayout.BeginScrollView(_sheetDownloadScrollPos,
                 GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-            for (int index = 0; index < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; index++)
+            for (var index = 0; index < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; index++)
             {
                 SpreadSheetInfo info = GSSL_Setting.SettingData.listSpreadSheetInfo[index];
                 EditorGUILayout.Separator();
@@ -124,28 +114,35 @@ namespace GoogleSpreadSheetLoader.Download
 
                     continue;
                 }
-                else
+
+                _dicDownloadSheetCheck.TryAdd(info.spreadSheetId, new Dictionary<string, bool>());
+
+                if (_dicDownloadSheetCheck[info.spreadSheetId].Count != _dicSheetNames[info.spreadSheetId].Count)
                 {
-                    _dicDownloadSheetCheck.TryAdd(info.spreadSheetId, new Dictionary<string, bool>());
-
-                    bool isAllCheck = _dicDownloadSheetCheck[info.spreadSheetId].Count > 0 &&
-                                      _dicDownloadSheetCheck[info.spreadSheetId].All(x => x.Value);
-                    bool select = EditorGUILayout.ToggleLeft($"{index + 1}. {info.spreadSheetName}", isAllCheck);
-
-                    if (isAllCheck != select)
+                    _dicDownloadSheetCheck[info.spreadSheetId].Clear();
+                    foreach (var sheetName in _dicSheetNames[info.spreadSheetId])
                     {
-                        var keys = _dicDownloadSheetCheck[info.spreadSheetId].Keys.ToArray();
-                        foreach (string key in keys)
-                        {
-                            _dicDownloadSheetCheck[info.spreadSheetId][key] = select;
-                        }
+                        _dicDownloadSheetCheck[info.spreadSheetId].Add(sheetName, true);
+                    }
+                }
+
+                var isAllCheck = _dicDownloadSheetCheck[info.spreadSheetId].Count > 0 &&
+                                 _dicDownloadSheetCheck[info.spreadSheetId].All(x => x.Value);
+                var select = EditorGUILayout.ToggleLeft($"{index + 1}. {info.spreadSheetName}", isAllCheck);
+
+                if (isAllCheck != select)
+                {
+                    var keys = _dicDownloadSheetCheck[info.spreadSheetId].Keys.ToArray();
+                    foreach (var key in keys)
+                    {
+                        _dicDownloadSheetCheck[info.spreadSheetId][key] = select;
                     }
                 }
 
                 _dicSheetNames.TryAdd(info.spreadSheetId, new List<string>());
-                List<string> listTitleNames = _dicSheetNames[info.spreadSheetId];
+                var listTitleNames = _dicSheetNames[info.spreadSheetId];
 
-                foreach (string sheetName in listTitleNames)
+                foreach (var sheetName in listTitleNames)
                 {
                     _dicDownloadSheetCheck[info.spreadSheetId].TryAdd(sheetName, false);
 
@@ -176,20 +173,27 @@ namespace GoogleSpreadSheetLoader.Download
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
 
-            switch (_sheetDownloadState)
+            switch (sheetDownloadState)
             {
                 case eDownloadState.None:
                 {
-                    if (GUILayout.Button("시트 다운로드", GUILayout.Width(150)))
+                    EditorGUILayout.BeginHorizontal();
+                    
+                    if (GUILayout.Button("시트 데이터만 다운로드 (변환x)", GUILayout.Width(150)))
                     {
-                        _ = DownloadSheet(_dicDownloadSheetCheck,
-                            state => _sheetDownloadState = state,
-                            message =>
-                            {
-                                _sheetDownloadMessage = message;
-                                EditorWindow.focusedWindow.Repaint();
-                            });
+                        _ = DownloadSheet(GetDownloadInfoList(_dicDownloadSheetCheck));
+                        
+                        _dicDownloadSheetCheck.Clear();
                     }
+                    
+                    if (GUILayout.Button("원터치 변환", GUILayout.Width(150)))
+                    {
+                        _ = OneTouchProcess(GetDownloadInfoList(_dicDownloadSheetCheck));
+                        
+                        _dicDownloadSheetCheck.Clear();
+                    }
+                    
+                    EditorGUILayout.EndHorizontal();
                 }
                     break;
                 case eDownloadState.Downloading:
@@ -198,7 +202,7 @@ namespace GoogleSpreadSheetLoader.Download
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.FlexibleSpace();
 
-                    EditorGUILayout.LabelField(_sheetDownloadMessage);
+                    EditorGUILayout.LabelField(sheetDownloadMessage);
 
                     GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();

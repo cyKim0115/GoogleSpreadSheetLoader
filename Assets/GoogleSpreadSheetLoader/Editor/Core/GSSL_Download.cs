@@ -3,11 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
+using Newtonsoft.Json;
 using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+
 // ReSharper disable CheckNamespace
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable InconsistentNaming
@@ -24,40 +26,47 @@ namespace GoogleSpreadSheetLoader.Download
             Downloading,
             Complete,
         }
-        
-        private static readonly string _downloadSheetUrl =
+
+        internal static readonly string downloadSheetUrl =
             "https://sheets.googleapis.com/v4/spreadsheets/{0}/values/{1}?key={2}";
-        private static readonly string _downloadSpreadSheetUrl = "https://sheets.googleapis.com/v4/spreadsheets/{0}?key={1}";
+
+        private static readonly string downloadSpreadSheetUrl =
+            "https://sheets.googleapis.com/v4/spreadsheets/{0}?key={1}";
+
+        private static string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
         
-        private string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
+        public static List<GSSL_DownloadInfo> GetDownloadInfoList(Dictionary<string, Dictionary<string, bool>> sheetCheck)
+        {
+            var listDownloadInfo = new List<GSSL_DownloadInfo>();
+
+            foreach (var (spreadSheetId, dicSheet) in sheetCheck)
+            {
+                listDownloadInfo.AddRange(from pair in dicSheet where pair.Value select new GSSL_DownloadInfo(spreadSheetId, pair.Key));
+            }
+
+            return listDownloadInfo;
+        }
+        
+        #region 개별
 
         public static async Awaitable DownloadSpreadSheet(
             Dictionary<int, bool> dicCheck,
-            Dictionary<string, List<string>> dicSheetName,
-            UnityAction<eDownloadState> OnStateChangeAction,
-            UnityAction<string> OnMessageAction)
+            Dictionary<string, List<string>> dicSheetName)
         {
             // 다운로드 대상 정리
-            List<SpreadSheetInfo> listDownloadTarget = new List<SpreadSheetInfo>();
+            var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo.Where((t, i) => dicCheck[i]).ToList();
 
-            for (int i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
-            {
-                if (!dicCheck[i])
-                    continue;
-
-                listDownloadTarget.Add(GSSL_Setting.SettingData.listSpreadSheetInfo[i]);
-            }
-
-            OnStateChangeAction?.Invoke(eDownloadState.Downloading);
+            DownloadView.spreadSheetDownloadState = eDownloadState.Downloading;
+            EditorWindow.focusedWindow.Repaint();
 
             // 다운로드
-            List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)> listInfoOperPair =
-                new List<(SpreadSheetInfo, UnityWebRequestAsyncOperation)>();
+            var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
             try
             {
-                foreach (SpreadSheetInfo info in listDownloadTarget)
+                for (var index = 0; index < listDownloadTarget.Count; index++)
                 {
-                    string url = string.Format(_downloadSpreadSheetUrl, info.spreadSheetId,
+                    SpreadSheetInfo info = listDownloadTarget[index];
+                    var url = string.Format(downloadSpreadSheetUrl, info.spreadSheetId,
                         GSSL_Setting.SettingData.apiKey);
 
                     UnityWebRequest webRequest = UnityWebRequest.Get(url);
@@ -68,18 +77,22 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
-                    OnMessageAction?.Invoke(
-                        $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})");
+                    DownloadView.spreadSheetDownloadMessage =
+                        $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    EditorWindow.focusedWindow.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
             finally
             {
-                OnMessageAction?.Invoke("다운로드 완료");
-                OnStateChangeAction?.Invoke(eDownloadState.Complete);
+                DownloadView.spreadSheetDownloadMessage ="다운로드 완료";
+                DownloadView.spreadSheetDownloadState = eDownloadState.Complete;
+                EditorWindow.focusedWindow.Repaint();
                 await Task.Delay(1000);
                 dicCheck.Clear();
-                OnStateChangeAction?.Invoke(eDownloadState.None);
+                DownloadView.spreadSheetDownloadMessage ="";
+                DownloadView.spreadSheetDownloadState = (eDownloadState.None);
+                EditorWindow.focusedWindow.Repaint();
             }
 
             // 다운로드 받은 데이터 정리
@@ -120,62 +133,37 @@ namespace GoogleSpreadSheetLoader.Download
                 }
             }
         }
-        
-        public static async Awaitable DownloadSheet(
-            Dictionary<string, Dictionary<string, bool>> dicCheck,
-            UnityAction<eDownloadState> onStateChangeAction,
-            UnityAction<string> onMessageAction)
+
+        public static async Awaitable DownloadSheet(List<GSSL_DownloadInfo> listDownloadInfo)
         {
             // 다운로드 대상 정리
-            List<(string spreadsheetId, string sheetName)> listDownloadTarget =
-                new List<(string spreadsheetId, string sheetName)>();
-
-            foreach (KeyValuePair<string, Dictionary<string, bool>> spreadSheetPair in dicCheck)
-            {
-                string spreadsheetId = spreadSheetPair.Key;
-
-                foreach (KeyValuePair<string, bool> sheetPair in spreadSheetPair.Value)
-                {
-                    if (!sheetPair.Value)
-                        continue;
-
-                    string sheetName = sheetPair.Key;
-
-                    listDownloadTarget.Add((spreadsheetId, sheetName));
-                }
-            }
-
-            onStateChangeAction?.Invoke(eDownloadState.Downloading);
+            DownloadView.sheetDownloadState = eDownloadState.Downloading;
 
             // 다운로드
-            List<((string spreadSheetId, string sheetName), UnityWebRequestAsyncOperation oper)> listInfoOperPair = new();
             try
             {
-                foreach ((string spreadSheetId, string sheetName) info in listDownloadTarget)
+                foreach (var info in listDownloadInfo)
                 {
-                    string url = string.Format(_downloadSheetUrl, info.spreadSheetId, info.sheetName,
-                        GSSL_Setting.SettingData.apiKey);
-
-                    UnityWebRequest webRequest = UnityWebRequest.Get(url);
-
-                    UnityWebRequestAsyncOperation asyncOperator = webRequest.SendWebRequest();
-                    listInfoOperPair.Add((info, asyncOperator));
+                    info.SendAndGetAsyncOperation();
                 }
 
+                var totalCount = listDownloadInfo.Count;
                 do
                 {
-                    onMessageAction?.Invoke(
-                        $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})");
                     await Task.Delay(100);
-                } while (listInfoOperPair.Any(x => !x.oper.isDone));
+                    DownloadView.sheetDownloadMessage = $"다운로드 중 ({listDownloadInfo.Count(x=>x.IsDone())}/{totalCount})";
+                    EditorWindow.focusedWindow.Repaint();
+                } while (listDownloadInfo.Any(x => !x.IsDone()));
             }
             finally
             {
-                onMessageAction?.Invoke("다운로드 완료");
-                onStateChangeAction?.Invoke(eDownloadState.Complete);
+                DownloadView.sheetDownloadMessage = "다운로드 완료";
+                DownloadView.sheetDownloadState = eDownloadState.Complete;
+                EditorWindow.focusedWindow.Repaint();
                 await Task.Delay(1000);
-                dicCheck.Clear();
-                onStateChangeAction?.Invoke(eDownloadState.None);
+                DownloadView.sheetDownloadMessage = "";
+                DownloadView.sheetDownloadState = eDownloadState.None;
+                EditorWindow.focusedWindow.Repaint();
             }
 
             if (!Directory.Exists(GSSL_Setting.SettingDataAssetPath))
@@ -184,12 +172,11 @@ namespace GoogleSpreadSheetLoader.Download
             }
 
             // 다운로드 받은 데이터 정리
-            foreach (((string spreadSheetId, string sheetName) info, UnityWebRequestAsyncOperation oper) pair in
-                     listInfoOperPair)
+            foreach (var info in listDownloadInfo)
             {
                 SheetData sheetData = ScriptableObject.CreateInstance<SheetData>();
 
-                sheetData.title = pair.info.sheetName;
+                sheetData.title = info.GetSheetName();
 
                 if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_enumTypeStr))
                     sheetData.tableStyle = SheetData.eTableStyle.EnumType;
@@ -213,5 +200,29 @@ namespace GoogleSpreadSheetLoader.Download
             }
         }
 
+        #endregion
+
+        #region 원터치
+
+        public static async Awaitable OneTouchProcess(List<GSSL_DownloadInfo> listDownloadInfo)
+        {
+            foreach (var info in listDownloadInfo)
+            {
+                _ = info.SendAndGetAsyncOperation();
+            }
+
+            var totalCount = listDownloadInfo.Count;
+            while (listDownloadInfo.Any(x => !x.IsDone()))
+            {
+                progressMessage = $"다운로드 중 ({listDownloadInfo.Count(x=>x.IsDone())}/{totalCount})";
+                await Task.Delay(100);
+            }
+            
+            progressMessage = $"다운로드 완료";
+            await Task.Delay(500);
+            
+            progressMessage = $"변환 시작";
+        }
+        #endregion
     }
 }
