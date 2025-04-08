@@ -35,6 +35,8 @@ namespace GoogleSpreadSheetLoader.Download
 
         private static string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
         
+        public static readonly string sheetDataAssetPath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Data/Sheet";
+        
         public static List<GSSL_DownloadInfo> GetDownloadInfoList(Dictionary<string, Dictionary<string, bool>> sheetCheck)
         {
             var listDownloadInfo = new List<GSSL_DownloadInfo>();
@@ -166,9 +168,9 @@ namespace GoogleSpreadSheetLoader.Download
                 EditorWindow.focusedWindow.Repaint();
             }
 
-            if (!Directory.Exists(GSSL_Setting.SettingDataAssetPath))
+            if (!Directory.Exists(sheetDataAssetPath))
             {
-                Directory.CreateDirectory(GSSL_Setting.SettingDataAssetPath);
+                Directory.CreateDirectory(sheetDataAssetPath);
             }
 
             // 다운로드 받은 데이터 정리
@@ -185,44 +187,21 @@ namespace GoogleSpreadSheetLoader.Download
                 else
                     sheetData.tableStyle = SheetData.eTableStyle.None;
 
-                JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
+                JObject jObj = JObject.Parse(info.GetDownloadText());
 
                 if (!jObj.TryGetValue("values", out var values))
                 {
-                    Debug.LogError($"변환 실패 - {pair.info.sheetName} \n{pair.oper.webRequest.downloadHandler.text}");
+                    Debug.LogError($"변환 실패 - {info.GetSheetName()} \n{info.GetDownloadText()}");
 
                     continue;
                 }
 
                 sheetData.data = values.ToString();
 
-                AssetDatabase.CreateAsset(sheetData, $"{GSSL_Setting.SettingDataAssetPath}/{sheetData.title}.asset");
+                AssetDatabase.CreateAsset(sheetData, $"{sheetDataAssetPath}/{sheetData.title}.asset");
             }
         }
 
-        #endregion
-
-        #region 원터치
-
-        public static async Awaitable OneTouchProcess(List<GSSL_DownloadInfo> listDownloadInfo)
-        {
-            foreach (var info in listDownloadInfo)
-            {
-                _ = info.SendAndGetAsyncOperation();
-            }
-
-            var totalCount = listDownloadInfo.Count;
-            while (listDownloadInfo.Any(x => !x.IsDone()))
-            {
-                progressMessage = $"다운로드 중 ({listDownloadInfo.Count(x=>x.IsDone())}/{totalCount})";
-                await Task.Delay(100);
-            }
-            
-            progressMessage = $"다운로드 완료";
-            await Task.Delay(500);
-            
-            progressMessage = $"변환 시작";
-        }
         #endregion
     }
 }

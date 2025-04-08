@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
+
 // ReSharper disable InconsistentNaming
 
 namespace GoogleSpreadSheetLoader.Editor.View
@@ -44,26 +46,21 @@ namespace GoogleSpreadSheetLoader.Editor.View
             {
                 _checkTime = DateTime.Now;
 
-                if (!Directory.Exists(GSSL_Setting.SettingDataAssetPath))
+                if (!Directory.Exists(GSSL_Download.sheetDataAssetPath))
                     return;
+                
+                _listSheetData.Clear();
 
-                var guids = AssetDatabase.FindAssets("", new[] { GSSL_Setting.SettingDataAssetPath });
+                var listData = GSSL_Generate.GetSheetDataList();
 
-                if (guids.Length == 0)
+                if (listData == null)
                 {
                     CheckAndClearDictionary();
                     return;
                 }
-
-                _listSheetData.Clear();
-
-                foreach (string guid in guids)
-                {
-                    var assetPath = AssetDatabase.GUIDToAssetPath(guid);
-                    SheetData sheetData = AssetDatabase.LoadAssetAtPath<SheetData>(assetPath);
-                    _listSheetData.Add(sheetData);
-                }
-
+                
+                _listSheetData.AddRange(listData);
+                
                 CheckAndClearDictionary();
             }
         }
@@ -145,7 +142,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
         private void DrawGenerateButtons()
         {
             var isGenerateAble = _dicTableDataGenerateCheck.Count > 0 &&
-                                  _dicTableDataGenerateCheck.Values.Any(x => x.Values.Any(y => y));
+                                 _dicTableDataGenerateCheck.Values.Any(x => x.Values.Any(y => y));
 
             if (!isGenerateAble)
                 return;
@@ -171,9 +168,11 @@ namespace GoogleSpreadSheetLoader.Editor.View
                             {
                                 case eTableStyle.None:
                                     GSSL_Generate.GenerateTableScripts(list);
+                                    AssetDatabase.Refresh();
                                     break;
                                 case eTableStyle.EnumType:
                                     GSSL_Generate.GenerateEnumDef(list);
+                                    AssetDatabase.Refresh();
                                     break;
                                 case eTableStyle.Localization:
                                     break;
@@ -226,7 +225,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
         private void CheckAndClearDictionary()
         {
             if (_listSheetData.All(x => x != null)) return;
-            
+
             _listSheetData.Clear();
             _dicTableDataGenerateCheck.Clear();
         }

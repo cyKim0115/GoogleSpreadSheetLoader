@@ -10,8 +10,6 @@ namespace GoogleSpreadSheetLoader.Setting
         #region Setting
         public static string SettingDataPath => _settingDataPath;
         public static SettingData SettingData => _settingData; 
-        public static readonly string SettingDataAssetPath = "Assets/GoogleSpreadSheetLoader/Generated/SheetData";
-        
         
         private static string _settingDataPath = $"Assets/GoogleSpreadSheetLoader/SettingData.asset";
         private static SettingData _settingData;

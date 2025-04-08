@@ -1,4 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using GoogleSpreadSheetLoader.Download;
+using GoogleSpreadSheetLoader.Setting;
+using UnityEditor;
+
 // ReSharper disable CheckNamespace
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable InconsistentNaming
@@ -8,11 +14,12 @@ namespace GoogleSpreadSheetLoader.Generate
 {
     public partial class GSSL_Generate
     {
-        private static readonly string tableScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/TableScript/";
-        private static readonly string dataScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/DataScript/";
-        private static readonly string dataSavePath = "Assets/GoogleSpreadSheetLoader/Generated/DataScript/";
-        private static readonly string enumDefSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Enum/";
-        private static readonly string localizationSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Localization/";
+        private static readonly string tableScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/";
+        private static readonly string dataScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/";
+        private static readonly string enumDefSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/";
+        private static readonly string dataSavePath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Data/TableData";
+        private static readonly string localizationSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Data/Localization/";
+
 
         private static void CheckAndCreateDirectory()
         {
@@ -40,6 +47,27 @@ namespace GoogleSpreadSheetLoader.Generate
             {
                 Directory.CreateDirectory(localizationSavePath);
             }
+        }
+
+        public static List<SheetData> GetSheetDataList()
+        {
+            var guids = AssetDatabase.FindAssets("", new[] { GSSL_Download.sheetDataAssetPath });
+
+            if (guids.Length == 0)
+            {
+                return null;
+            }
+
+            var listSheetData = new List<SheetData>();
+
+            foreach (var guid in guids)
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                SheetData sheetData = AssetDatabase.LoadAssetAtPath<SheetData>(assetPath);
+                listSheetData.Add(sheetData);
+            }
+
+            return listSheetData;
         }
     }
 }

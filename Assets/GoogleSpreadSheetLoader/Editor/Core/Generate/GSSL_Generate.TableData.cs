@@ -35,16 +35,16 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 var setData = "";
                 var headers = sheetRows[0];
-                for (int i = 0; i < headers.Count; i++)
+                for (var i = 0; i < headers.Count; i++)
                 {
                     if (string.IsNullOrWhiteSpace(headers[i]) || !headers[i].Contains("-"))
                         continue;
 
-                    string[] splitHeader = headers[i].Split('-');
+                    var splitHeader = headers[i].Split('-');
                     if (splitHeader.Length < 2) continue;
 
-                    string varName = splitHeader[0].Trim();
-                    string varType = ConvertToCSharpType(splitHeader[1].Trim());
+                    var varName = splitHeader[0].Trim();
+                    var varType = ConvertToCSharpType(splitHeader[1].Trim());
 
                     variableDeclarations.Add($"    public {varType} {varName} => _{varName};\n");
                     variableDeclarations.Add($"    [SerializeField] private {varType} _{varName};\n\n");
@@ -66,7 +66,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 setData = "\tpublic void SetData(List<string> data)\n\t{\n" + $"{setData}" + "\t}\n";
 
-                string dataClassTemplate = $"using System;\n"
+                var dataClassTemplate = $"using System;\n"
                                            + $"using System.Collections.Generic;\n"
                                            + "using TableData;\n"
                                            + "using UnityEngine;\n"
@@ -99,8 +99,6 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 File.WriteAllText(tableFilePath, tableTemplate);
             }
-
-            AssetDatabase.Refresh();
         }
 
         public static void GenerateTableData(List<SheetData> listSheet)

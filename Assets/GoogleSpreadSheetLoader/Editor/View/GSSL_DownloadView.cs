@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoogleSpreadSheetLoader.OneButton;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.Download.GSSL_Download;
 // ReSharper disable CheckNamespace
-
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ConvertToConstant.Local
 
@@ -51,10 +51,12 @@ namespace GoogleSpreadSheetLoader.Download
                 
                 _dicDownloadSpreadSheetCheck.TryAdd(i, false);
 
+                EditorGUILayout.BeginHorizontal();
                 _dicDownloadSpreadSheetCheck[i] =
                     EditorGUILayout.ToggleLeft("", _dicDownloadSpreadSheetCheck[i], GUILayout.Width(20));
                 EditorGUILayout.LabelField($"{i + 1}. {info.spreadSheetName}", GUILayout.Width(150));
                 EditorGUILayout.LabelField(info.spreadSheetId);
+                EditorGUILayout.EndHorizontal();
             }
         }
 
@@ -186,9 +188,9 @@ namespace GoogleSpreadSheetLoader.Download
                         _dicDownloadSheetCheck.Clear();
                     }
                     
-                    if (GUILayout.Button("원터치 변환", GUILayout.Width(150)))
+                    if (GUILayout.Button("원버튼 변환", GUILayout.Width(150)))
                     {
-                        _ = OneTouchProcess(GetDownloadInfoList(_dicDownloadSheetCheck));
+                        _ = GSSL_OneButton.OneButtonProcess(GetDownloadInfoList(_dicDownloadSheetCheck));
                         
                         _dicDownloadSheetCheck.Clear();
                     }

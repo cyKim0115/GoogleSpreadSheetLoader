@@ -116,8 +116,6 @@ namespace GoogleSpreadSheetLoader.Generate
                 
                 File.WriteAllText(dataFilePath, data);
             }
-
-            AssetDatabase.Refresh();
         }
     }
 }
