@@ -35,7 +35,7 @@ namespace GoogleSpreadSheetLoader.Download
 
         private static string _spreadSheetOpenUrl = "https://docs.google.com/spreadsheets/d/{0}/edit?key={1}";
         
-        public static readonly string sheetDataAssetPath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Data/Sheet";
+        public static readonly string sheetDataAssetPath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Sheet";
         
         public static List<GSSL_DownloadInfo> GetDownloadInfoList(Dictionary<string, Dictionary<string, bool>> sheetCheck)
         {

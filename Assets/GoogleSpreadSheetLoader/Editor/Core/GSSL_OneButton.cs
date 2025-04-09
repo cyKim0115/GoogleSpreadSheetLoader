@@ -12,6 +12,7 @@ namespace GoogleSpreadSheetLoader.OneButton
 {
     public class GSSL_OneButton
     {
+        // ReSharper disable Unity.PerformanceAnalysis
         public static async Awaitable OneButtonProcess(List<GSSL_DownloadInfo> listDownloadInfo)
         {
             await GSSL_Download.DownloadSheet(listDownloadInfo);
@@ -20,11 +21,11 @@ namespace GoogleSpreadSheetLoader.OneButton
                 .Where(x => listDownloadInfo.Any(y => y.GetSheetName() == x.title));
 
             var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
-            
-            dicSheetData.TryAdd(eTableStyle.EnumType, new ());
-            dicSheetData.TryAdd(eTableStyle.None, new ());
-            dicSheetData.TryAdd(eTableStyle.Localization, new ());
-            
+
+            dicSheetData.TryAdd(eTableStyle.EnumType, new());
+            dicSheetData.TryAdd(eTableStyle.None, new());
+            dicSheetData.TryAdd(eTableStyle.Localization, new());
+
             foreach (var sheetData in listSheetData)
             {
                 dicSheetData[sheetData.tableStyle].Add(sheetData);
@@ -46,25 +47,39 @@ namespace GoogleSpreadSheetLoader.OneButton
                         throw new ArgumentOutOfRangeException();
                 }
             }
-
             dicSheetData.Remove(eTableStyle.EnumType);
             var str = JsonConvert.SerializeObject(dicSheetData);
             EditorPrefs.SetString("GenerateData", str);
             
+            GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.None]);
+
+            AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            CheckPrefsAndGenerateTableData();
         }
-        
+
         [InitializeOnLoadMethod]
         private static void CheckPrefsAndGenerateTableData()
         {
-            if (!EditorPrefs.HasKey("GenerateData"))
+            if (EditorPrefs.HasKey("GenerateData"))
             {
-                return;
+                Debug.LogError($"Generate Data");
+                
+                var str = EditorPrefs.GetString("GenerateData");
+                EditorPrefs.DeleteKey("GenerateData");
+
+                GenerateData(str);
+
+                GSSL_Generate.GenerateTableLinkerData();
+
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
+        }
 
-            var str = EditorPrefs.GetString("GenerateData");
-            EditorPrefs.DeleteKey("GenerateData");
-
+        private static void GenerateData(string str)
+        {
             var dic = JsonConvert.DeserializeObject<Dictionary<eTableStyle, List<SheetData>>>(str);
 
             foreach ((eTableStyle tableStyle, var list) in dic)

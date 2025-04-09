@@ -139,9 +139,6 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 AssetDatabase.CreateAsset(tableAsset, tableAssetPath);
             }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
 
         private static string ConvertToCSharpType(string type)
