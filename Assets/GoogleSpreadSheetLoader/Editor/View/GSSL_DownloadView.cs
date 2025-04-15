@@ -45,6 +45,11 @@ namespace GoogleSpreadSheetLoader.Download
             EditorGUILayout.LabelField("  정보를 다운로드할 스프레드 시트 선택", EditorStyles.whiteLargeLabel);
             EditorGUILayout.Separator();
 
+            if (GUILayout.Button("테이블 링커"))
+            {
+                GSSL_OneButton.GenerateTableLinker();
+            }
+
             for (var i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
                 var info = GSSL_Setting.SettingData.listSpreadSheetInfo[i];

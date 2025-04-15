@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using GoogleSpreadSheetLoader.OneButton;
+using TableData;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,9 +12,8 @@ namespace GoogleSpreadSheetLoader.Generate
     public partial class GSSL_Generate
     {
         private static string tableLinkerScriptPath = "Assets/GoogleSpreadSheetLoader/Generated/Script/";
-        private static string tableLinkerDataPath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/";
-
-
+        private static string tableLinkerDataPath = "Assets/Resources/";
+        
         public static void GenerateTableLinkerScript(List<SheetData> sheetDataList)
         {
             var declation = "";
@@ -42,23 +43,48 @@ namespace GoogleSpreadSheetLoader.Generate
         
         public static void GenerateTableLinkerData()
         {
+            if (!Directory.Exists(tableLinkerDataPath))
+            {
+                Directory.CreateDirectory(tableLinkerDataPath);
+            }
+            
             var tableLinkerAssetPath = tableLinkerDataPath + "TableLinker.asset";
             
-            var tableLinkerAsset = ScriptableObject.CreateInstance(Type.GetType("TableLinker"));
+            var tableLinkerAsset = ScriptableObject.CreateInstance("TableLinker");
             tableLinkerAsset.hideFlags = HideFlags.None;
-
-            AssignFirstMatchingAssets(tableLinkerAsset);
             
             AssetDatabase.CreateAsset(tableLinkerAsset, tableLinkerAssetPath);
+    
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
 
+            if (AssignFirstMatchingAssets(tableLinkerAsset))
+            {
+                GSSL_OneButton.TableLinkerFlag = false;
+                
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+        }
+
+        public static void SearchAndAssign()
+        {
+            var guids = AssetDatabase.FindAssets($"t:TableLinker");
+            
+            if (guids.Length <= 0) return;
+            
+            var path = AssetDatabase.GUIDToAssetPath(guids[0]);
+            var tableLinker = AssetDatabase.LoadAssetAtPath(path, typeof(UnityEngine.Object));
+            
+            AssignFirstMatchingAssets(tableLinker);
         }
         
-        private static void AssignFirstMatchingAssets(UnityEngine.Object target)
+        private static bool AssignFirstMatchingAssets(UnityEngine.Object target)
         {
             if (target == null)
             {
                 Debug.LogWarning("타겟 오브젝트가 null입니다.");
-                return;
+                return false;
             }
 
             Type targetType = target.GetType();
@@ -67,29 +93,31 @@ namespace GoogleSpreadSheetLoader.Generate
             SerializedObject serializedObject = new SerializedObject(target);
             SerializedProperty property = serializedObject.GetIterator();
 
-            property.Next(true); // 첫번째는 항상 "m_Script"라서 무시
+            property.Next(true);
+            property.Next(true);
 
+            var anySet = false;
             while (property.NextVisible(false))
             {
-                if (property.propertyType == SerializedPropertyType.ObjectReference)
-                {
-                    Type propertyType = GetFieldType(targetType, property.name);
+                if (property.propertyType != SerializedPropertyType.ObjectReference) continue;
+                
+                Type propertyType = GetFieldType(targetType, property.name);
 
-                    if (propertyType != null && typeof(UnityEngine.Object).IsAssignableFrom(propertyType))
-                    {
-                        string[] guids = AssetDatabase.FindAssets($"t:{propertyType.Name}");
+                if (propertyType == null || !typeof(UnityEngine.Object).IsAssignableFrom(propertyType)) continue;
+                
+                string[] guids = AssetDatabase.FindAssets($"t:{propertyType.Name}");
 
-                        if (guids.Length > 0)
-                        {
-                            string path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                            UnityEngine.Object asset = AssetDatabase.LoadAssetAtPath(path, propertyType);
-                            property.objectReferenceValue = asset;
-                        }
-                    }
-                }
+                if (guids.Length <= 0) continue;
+                
+                string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                UnityEngine.Object asset = AssetDatabase.LoadAssetAtPath(path, propertyType);
+                property.objectReferenceValue = asset;
+                anySet = true;
             }
 
             serializedObject.ApplyModifiedProperties();
+
+            return anySet;
         }
 
         private static Type GetFieldType(Type targetType, string propertyName)

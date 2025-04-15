@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
 using Newtonsoft.Json;
@@ -12,6 +13,36 @@ namespace GoogleSpreadSheetLoader.OneButton
 {
     public class GSSL_OneButton
     {
+
+        public static bool GenerateDataFlag => EditorPrefs.HasKey("GenerateData");
+        public static string GenerateDataString
+        {
+            get => EditorPrefs.HasKey("GenerateData") ? EditorPrefs.GetString("GenerateData") : string.Empty;
+            set
+            {
+                if(string.IsNullOrEmpty(value))
+                    EditorPrefs.DeleteKey("GenerateData");
+                else
+                    EditorPrefs.SetString("GenerateData", value);
+            }
+        }
+
+        public static bool TableLinkerFlag
+        {
+            get => EditorPrefs.HasKey("TableLinkerLink");
+            set
+            {
+                if (value)
+                {
+                    EditorPrefs.SetString("TableLinkerLink", true.ToString());
+                }
+                else
+                {
+                    EditorPrefs.DeleteKey("TableLinkerLink");
+                }
+            }
+        }
+
         // ReSharper disable Unity.PerformanceAnalysis
         public static async Awaitable OneButtonProcess(List<GSSL_DownloadInfo> listDownloadInfo)
         {
@@ -49,7 +80,8 @@ namespace GoogleSpreadSheetLoader.OneButton
             }
             dicSheetData.Remove(eTableStyle.EnumType);
             var str = JsonConvert.SerializeObject(dicSheetData);
-            EditorPrefs.SetString("GenerateData", str);
+            GenerateDataString = str;
+            TableLinkerFlag = true;
             
             GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.None]);
 
@@ -59,23 +91,38 @@ namespace GoogleSpreadSheetLoader.OneButton
             CheckPrefsAndGenerateTableData();
         }
 
+        public static void GenerateTableLinker()
+        {
+            GSSL_Generate.GenerateTableLinkerData();
+        }
+
+        public static async Awaitable GenerateTableLinkerAsync()
+        {
+            await Task.Delay(100);
+
+            GSSL_Generate.GenerateTableLinkerData();
+        }
+        
         [InitializeOnLoadMethod]
         private static void CheckPrefsAndGenerateTableData()
         {
-            if (EditorPrefs.HasKey("GenerateData"))
+            if (!GenerateDataFlag) return;
+            
+            var str = GenerateDataString;
+
+            GenerateData(str);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            
+            if (TableLinkerFlag)
             {
-                Debug.LogError($"Generate Data");
-                
-                var str = EditorPrefs.GetString("GenerateData");
-                EditorPrefs.DeleteKey("GenerateData");
+                GenerateTableLinkerAsync();
 
-                GenerateData(str);
-
-                GSSL_Generate.GenerateTableLinkerData();
-
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                TableLinkerFlag = false;
             }
+            
+            GenerateDataString = string.Empty;
         }
 
         private static void GenerateData(string str)
