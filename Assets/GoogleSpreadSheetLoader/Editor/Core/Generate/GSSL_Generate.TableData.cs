@@ -27,7 +27,6 @@ namespace GoogleSpreadSheetLoader.Generate
                 var tableFilePath = tableScriptSavePath + tableClassName + ".cs";
 
                 var variableDeclarations = new List<string>();
-                var validColumns = new List<int>();
 
                 var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
@@ -48,7 +47,6 @@ namespace GoogleSpreadSheetLoader.Generate
 
                     variableDeclarations.Add($"    public {varType} {varName} => _{varName};\n");
                     variableDeclarations.Add($"    [SerializeField] private {varType} _{varName};\n\n");
-                    validColumns.Add(i);
 
                     if (varType == "string")
                     {
@@ -87,12 +85,12 @@ namespace GoogleSpreadSheetLoader.Generate
                           + $"\t\t\tdataList.Add(newData);\n\t\t}}"
                           + "\n\t}\n";
 
-                string tableTemplate = $"using System.Collections.Generic;\n"
+                var tableTemplate = $"using System.Collections.Generic;\n"
                                        + "using TableData;\n"
                                        + "using UnityEngine;\n"
                                        + "\n"
                                        + $"[CreateAssetMenu(fileName = \"{tableClassName}\", menuName = \"Tables/{tableClassName}\")]\n"
-                                       + $"public partial class {tableClassName} : ScriptableObject, {nameof(ITable)}\n{{\n"
+                                       + $"public class {tableClassName} : ScriptableObject, {nameof(ITable)}\n{{\n"
                                        + $"    public List<{dataClassName}> dataList = new List<{dataClassName}>();\n\n"
                                        + string.Join("", setData)
                                        + "}\n";
@@ -113,17 +111,6 @@ namespace GoogleSpreadSheetLoader.Generate
                 var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
                 if (sheetRows == null || sheetRows.Count < 2) return;
-
-                var headers = sheetRows[0];
-                var validColumns = new List<int>();
-
-                for (int i = 0; i < headers.Count; i++)
-                {
-                    if (!string.IsNullOrWhiteSpace(headers[i]) && headers[i].Contains("-"))
-                    {
-                        validColumns.Add(i);
-                    }
-                }
 
                 var tableAsset = ScriptableObject.CreateInstance(Type.GetType(tableClassName));
                 tableAsset.hideFlags = HideFlags.None;

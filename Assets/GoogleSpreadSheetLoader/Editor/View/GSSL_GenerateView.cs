@@ -175,6 +175,8 @@ namespace GoogleSpreadSheetLoader.Editor.View
                                     AssetDatabase.Refresh();
                                     break;
                                 case eTableStyle.Localization:
+                                    GSSL_Generate.GenerateLocalize(list);
+                                    AssetDatabase.Refresh();
                                     break;
                                 default:
                                     throw new ArgumentOutOfRangeException();

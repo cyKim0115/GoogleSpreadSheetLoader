@@ -73,12 +73,14 @@ namespace GoogleSpreadSheetLoader.OneButton
                         GSSL_Generate.GenerateEnumDef(list);
                         break;
                     case eTableStyle.Localization:
+                        GSSL_Generate.GenerateLocalize(list);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
             dicSheetData.Remove(eTableStyle.EnumType);
+            dicSheetData.Remove(eTableStyle.Localization);
             var str = JsonConvert.SerializeObject(dicSheetData);
             GenerateDataString = str;
             TableLinkerFlag = true;
@@ -89,11 +91,6 @@ namespace GoogleSpreadSheetLoader.OneButton
             AssetDatabase.Refresh();
 
             CheckPrefsAndGenerateTableData();
-        }
-
-        public static void GenerateTableLinker()
-        {
-            GSSL_Generate.GenerateTableLinkerData();
         }
 
         public static async Awaitable GenerateTableLinkerAsync()
@@ -135,8 +132,6 @@ namespace GoogleSpreadSheetLoader.OneButton
                 {
                     case eTableStyle.None:
                         GSSL_Generate.GenerateTableData(list);
-                        break;
-                    case eTableStyle.Localization:
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
