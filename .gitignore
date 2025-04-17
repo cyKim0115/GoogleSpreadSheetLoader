@@ -12,3 +12,5 @@ Assets/GoogleSpreadSheetLoader/Generated
 Assets/Resources/TableLinker.asset
 Assets/Resources/TableLinker.asset.meta
 Assets/GoogleSpreadSheetLoader/Generated.meta
+Assets/Resources
+Assets/Resources.meta
