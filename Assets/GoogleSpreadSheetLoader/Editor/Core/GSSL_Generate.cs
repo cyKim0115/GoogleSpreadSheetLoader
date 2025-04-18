@@ -20,7 +20,6 @@ namespace GoogleSpreadSheetLoader.Generate
         private static readonly string dataScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/";
         private static readonly string enumDefSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/";
         private static readonly string dataSavePath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/TableData/";
-        private static readonly string localizationSavePath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Localization/";
 
 
         private static void CheckAndCreateDirectory()
@@ -43,11 +42,6 @@ namespace GoogleSpreadSheetLoader.Generate
             if (!Directory.Exists(enumDefSavePath))
             {
                 Directory.CreateDirectory(enumDefSavePath);
-            }
-
-            if (!Directory.Exists(localizationSavePath))
-            {
-                Directory.CreateDirectory(localizationSavePath);
             }
         }
 
