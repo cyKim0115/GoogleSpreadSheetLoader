@@ -11,40 +11,53 @@ using static GoogleSpreadSheetLoader.SheetData;
 
 namespace GoogleSpreadSheetLoader.OneButton
 {
-    public class GSSL_OneButton
+    public abstract class GSSL_OneButton
     {
-
-        public static bool GenerateDataFlag => EditorPrefs.HasKey("GenerateData");
-        public static string GenerateDataString
+        private static readonly string TableLinkerPrefsKey = "TableLinkerLink";
+        private static readonly string GenerateDataPrefsKey = "GenerateData";
+        private static bool GenerateDataFlag => EditorPrefs.HasKey(GenerateDataPrefsKey);
+        private static string GenerateDataString
         {
-            get => EditorPrefs.HasKey("GenerateData") ? EditorPrefs.GetString("GenerateData") : string.Empty;
-            set
-            {
-                if(string.IsNullOrEmpty(value))
-                    EditorPrefs.DeleteKey("GenerateData");
+            get => EditorPrefs.HasKey(GenerateDataPrefsKey) ? EditorPrefs.GetString(GenerateDataPrefsKey) : string.Empty;
+            set {
+                if (string.IsNullOrEmpty(value))
+                    EditorPrefs.DeleteKey(GenerateDataPrefsKey);
                 else
-                    EditorPrefs.SetString("GenerateData", value);
+                    EditorPrefs.SetString(GenerateDataPrefsKey, value);
             }
         }
 
         public static bool TableLinkerFlag
         {
-            get => EditorPrefs.HasKey("TableLinkerLink");
-            set
-            {
+            get => EditorPrefs.HasKey(TableLinkerPrefsKey);
+            set {
                 if (value)
                 {
-                    EditorPrefs.SetString("TableLinkerLink", true.ToString());
+                    EditorPrefs.SetString(TableLinkerPrefsKey, true.ToString());
                 }
                 else
                 {
-                    EditorPrefs.DeleteKey("TableLinkerLink");
+                    EditorPrefs.DeleteKey(TableLinkerPrefsKey);
                 }
             }
         }
 
+        public static async Awaitable OneButtonProcessSpreadSheet()
+        {
+            try
+            {
+                var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
+                await OneButtonProcessSheet(listDownloadInfo);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"{e}");
+                throw;
+            }
+        }
+
         // ReSharper disable Unity.PerformanceAnalysis
-        public static async Awaitable OneButtonProcess(List<GSSL_DownloadInfo> listDownloadInfo)
+        public static async Awaitable OneButtonProcessSheet(List<GSSL_DownloadInfo> listDownloadInfo)
         {
             await GSSL_Download.DownloadSheet(listDownloadInfo);
 
@@ -64,27 +77,42 @@ namespace GoogleSpreadSheetLoader.OneButton
 
             foreach ((eTableStyle tableStyle, var list) in dicSheetData)
             {
-                switch (tableStyle)
+                try
                 {
-                    case eTableStyle.None:
-                        GSSL_Generate.GenerateTableScripts(list);
-                        break;
-                    case eTableStyle.EnumType:
-                        GSSL_Generate.GenerateEnumDef(list);
-                        break;
-                    case eTableStyle.Localization:
-                        GSSL_Generate.GenerateLocalize(list);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    switch (tableStyle)
+                    {
+                        case eTableStyle.None:
+                            GSSL_Generate.GenerateTableScripts(list);
+                            break;
+                        case eTableStyle.EnumType:
+                            GSSL_Generate.GenerateEnumDef(list);
+                            break;
+                        case eTableStyle.Localization:
+                            GSSL_Generate.GenerateLocalize(list);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"{e}");
+                    string strListLog = "\t생성하려고 했던 시트들\n";
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        strListLog += $"  {i + 1}. {list[i].title}\n";
+                    }
+                    
+                    Debug.LogError($"다음을 생성 중 에러 - {tableStyle}\n{strListLog}");
+                    throw;
                 }
             }
+            
             dicSheetData.Remove(eTableStyle.EnumType);
             dicSheetData.Remove(eTableStyle.Localization);
             var str = JsonConvert.SerializeObject(dicSheetData);
             GenerateDataString = str;
-            TableLinkerFlag = true;
-            
+
             GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.None]);
 
             AssetDatabase.SaveAssets();
@@ -93,32 +121,32 @@ namespace GoogleSpreadSheetLoader.OneButton
             CheckPrefsAndGenerateTableData();
         }
 
-        public static async Awaitable GenerateTableLinkerAsync()
+        private static async Awaitable GenerateTableLinkerAsync()
         {
             await Task.Delay(100);
 
             GSSL_Generate.GenerateTableLinkerData();
         }
-        
+
         [InitializeOnLoadMethod]
         private static void CheckPrefsAndGenerateTableData()
         {
             if (!GenerateDataFlag) return;
-            
+
             var str = GenerateDataString;
 
             GenerateData(str);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            
+
             if (TableLinkerFlag)
             {
-                GenerateTableLinkerAsync();
+                _ = GenerateTableLinkerAsync();
 
                 TableLinkerFlag = false;
             }
-            
+
             GenerateDataString = string.Empty;
         }
 
@@ -137,6 +165,8 @@ namespace GoogleSpreadSheetLoader.OneButton
                         throw new ArgumentOutOfRangeException();
                 }
             }
+
+            TableLinkerFlag = true;
         }
     }
 }

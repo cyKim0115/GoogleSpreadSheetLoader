@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apiKey: AIzaSyCG6N3WZGzg-wbkxyFQZYXWcZsVhG1B0rM
   listSpreadSheetInfo:
-  - spreadSheetName: Data Table
+  - spreadSheetName: Operate Table
     spreadSheetId: 1vQ8vCOqgiinlkGr7AkDCTYyUFP2yf2aEii8WxwqegYg
+  - spreadSheetName: Battle Table
+    spreadSheetId: 1EUUWq1A3ulfbf27vYRp-qig2Ybdpb81mv3ZuTbKFZx8
+  - spreadSheetName: Equipment Table
+    spreadSheetId: 1MA6EbBN1D_R43E0cwczyyuzK3uRWh5jdkSGZV1JAW7Q
   - spreadSheetName: Localize Table
     spreadSheetId: 1JY7xxyuom4vWfIW2hZFi96lzj8EVN9gvZRoMKx0eHNc
   sheetTarget: 1

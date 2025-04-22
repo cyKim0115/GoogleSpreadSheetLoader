@@ -7,17 +7,18 @@ public static class LocalizeTable
 {
     private static Dictionary<string, string> dicLocalize = new();
 
-    public static void Initialize(string countryCode)
+    public static void Initialize(SystemLanguage language)
     {
         var assetName = $"Localize_";
-        switch (countryCode)
+        switch (language)
         {
-            case "kr":
-            case "en":
-                assetName += $"{countryCode}";
+            case SystemLanguage.Korean:
+            case SystemLanguage.English:
+                assetName += $"{language}";
                 break;
             default:
-                Debug.LogError($"해당 국가코드 ({countryCode}) 는 정의 되지 않아 en으로 대체합니다.");
+                Debug.LogError($"해당 국가코드 ({language}) 는 정의 되지 않아 en으로 대체합니다.");
+                assetName += $"{SystemLanguage.English}";
                 break;
         }
 
@@ -26,13 +27,13 @@ public static class LocalizeTable
         dicLocalize = JsonConvert.DeserializeObject<Dictionary<string, string>>(obj.text);
     }
 
-    public static string GetLocalize(this string str)
+    public static string GetLocalizeText(this string key, params object[] param)
     {
-        if (dicLocalize.TryGetValue(str, out var result))
+        if (dicLocalize.TryGetValue(key, out var result))
         {
-            return result;
+            return string.Format(result, param);
         }
-
-        return "!" + str;
+            
+        return "!" + key;
     }
 }
