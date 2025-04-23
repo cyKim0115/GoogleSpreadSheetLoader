@@ -52,7 +52,7 @@ namespace GoogleSpreadSheetLoader.Generate
                     {
                         setData += $"\t\t_{varName} = data[{i}].ToString();\n";
                     }
-                    else if (varType.Contains("Type"))
+                    else if (CheckEnumType(varType))
                     {
                         setData += $"\t\t_{varName} = {varType}.Parse<{varType}>(data[{i}]);\n";
                     }
@@ -138,9 +138,23 @@ namespace GoogleSpreadSheetLoader.Generate
                 "long" => "long",
                 "double" => "double",
                 "string" => "string",
-                // _ when type.Contains(".") => type, // 네임스페이스가 포함된 사용자 정의 타입 처리
-                // _ => "string"
+                
                 _ => type,
+            };
+        }
+        
+        private static bool CheckEnumType(string type)
+        {
+            return type switch
+            {
+                "int" => false,
+                "float" => false,
+                "bool" => false,
+                "long" => false,
+                "double" => false,
+                "string" => false,
+                
+                _ => true,
             };
         }
     }

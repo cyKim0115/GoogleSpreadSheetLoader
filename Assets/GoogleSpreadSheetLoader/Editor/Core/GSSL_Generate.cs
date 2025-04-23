@@ -47,7 +47,8 @@ namespace GoogleSpreadSheetLoader.Generate
 
         public static List<SheetData> GetSheetDataList()
         {
-            var guids = AssetDatabase.FindAssets("", new[] { GSSL_Download.sheetDataAssetPath });
+            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData_Asset);
+            var guids = AssetDatabase.FindAssets("", new[] { sheetDataAssetPath });
 
             if (guids.Length == 0)
             {

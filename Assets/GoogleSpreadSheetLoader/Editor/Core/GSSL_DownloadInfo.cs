@@ -10,7 +10,7 @@ namespace GoogleSpreadSheetLoader.Download
             _spreadSheetId = spreadSheetId;
             _sheetName = sheetName;
 
-            var url = string.Format(GSSL_Download.downloadSheetUrl, _spreadSheetId, _sheetName,
+            var url = string.Format(GSSL_URL.DownloadSheetUrl, _spreadSheetId, _sheetName,
                 GSSL_Setting.SettingData.apiKey);
             _webRequest = UnityWebRequest.Get(url);
         }

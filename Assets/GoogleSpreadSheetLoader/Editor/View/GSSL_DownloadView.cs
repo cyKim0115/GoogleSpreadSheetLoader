@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using GoogleSpreadSheetLoader.OneButton;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
@@ -30,12 +28,6 @@ namespace GoogleSpreadSheetLoader.Download
         public void DrawDownloadView()
         {
             DrawSpreadSheetList();
-
-            if (GUILayout.Button("전체 스프레드 시트 원버튼"))
-            {
-                _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
-            }
-            
         }
 
         private void DrawSpreadSheetList()
@@ -49,7 +41,7 @@ namespace GoogleSpreadSheetLoader.Download
                 _dicDownloadSpreadSheetCheck.TryAdd(i, false);
 
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField($"   {i + 1}. {info.spreadSheetName}", GUILayout.Width(150));
+                EditorGUILayout.LabelField($"{i + 1}. {info.spreadSheetName}", GUILayout.Width(150));
                 EditorGUILayout.LabelField(info.spreadSheetId);
                 EditorGUILayout.EndHorizontal();
             }

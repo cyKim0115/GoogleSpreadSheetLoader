@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
-using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
@@ -45,9 +42,6 @@ namespace GoogleSpreadSheetLoader.Editor.View
             if ((DateTime.Now - _checkTime).TotalSeconds > 1)
             {
                 _checkTime = DateTime.Now;
-
-                if (!Directory.Exists(GSSL_Download.sheetDataAssetPath))
-                    return;
                 
                 _listSheetData.Clear();
 

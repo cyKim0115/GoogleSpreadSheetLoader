@@ -63,6 +63,13 @@ namespace GoogleSpreadSheetLoader.Setting
                 {
                     EditorGUILayout.LabelField(info.spreadSheetName, GUILayout.Width(sheetNameWidth));
                     EditorGUILayout.LabelField(info.spreadSheetId);
+                    
+                    EditorGUILayout.LabelField("",GUILayout.Width(100));
+                    if (GUILayout.Button("열기", GUILayout.MaxWidth(60)))
+                    {
+                        Application.OpenURL(string.Format(GSSL_URL.SpreadSheetOpenUrl, info.spreadSheetId,"0"));
+                    }
+                    
                     GUILayout.FlexibleSpace();
                 }
 
