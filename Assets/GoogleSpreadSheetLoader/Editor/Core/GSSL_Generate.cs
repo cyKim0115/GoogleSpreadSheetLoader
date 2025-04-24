@@ -1,9 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using GoogleSpreadSheetLoader.Download;
-using GoogleSpreadSheetLoader.Setting;
-using TableData;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,38 +11,9 @@ namespace GoogleSpreadSheetLoader.Generate
 {
     public partial class GSSL_Generate
     {
-        private static readonly string tableScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/";
-        private static readonly string dataScriptSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/";
-        private static readonly string enumDefSavePath = "Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/";
-        private static readonly string dataSavePath = "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/TableData/";
-
-
-        private static void CheckAndCreateDirectory()
-        {
-            if (!Directory.Exists(tableScriptSavePath))
-            {
-                Directory.CreateDirectory(tableScriptSavePath);
-            }
-
-            if (!Directory.Exists(dataScriptSavePath))
-            {
-                Directory.CreateDirectory(dataScriptSavePath);
-            }
-
-            if (!Directory.Exists(dataSavePath))
-            {
-                Directory.CreateDirectory(dataSavePath);
-            }
-
-            if (!Directory.Exists(enumDefSavePath))
-            {
-                Directory.CreateDirectory(enumDefSavePath);
-            }
-        }
-
         public static List<SheetData> GetSheetDataList()
         {
-            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData_Asset);
+            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
             var guids = AssetDatabase.FindAssets("", new[] { sheetDataAssetPath });
 
             if (guids.Length == 0)
@@ -69,6 +35,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
         public static List<string> GetTableNameList()
         {
+            var dataSavePath = GSSL_Path.GetPath(ePath.TableData);
             var guids = AssetDatabase.FindAssets("", new[] { dataSavePath });
 
             if (guids.Length == 0)

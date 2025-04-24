@@ -8,7 +8,11 @@ namespace GoogleSpreadSheetLoader
     {
         None,
         SettingData,
-        SheetData_Asset,
+        SheetData,
+        TableScript,
+        DataScript,
+        Enum,
+        TableData,
     }
         
     public static class GSSL_Path
@@ -16,7 +20,11 @@ namespace GoogleSpreadSheetLoader
         private static readonly Dictionary<ePath, string> _dicPath = new()
         {
             { ePath.SettingData, "Assets/GoogleSpreadSheetLoader/"},
-            { ePath.SheetData_Asset, "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Sheet"},
+            { ePath.SheetData, "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Sheet"},
+            {ePath.TableScript, " Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/"},
+            {ePath.DataScript, " Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/"},
+            {ePath.Enum, " Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/"},
+            {ePath.TableData, " Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/TableData/"},
         };
 
         public static string GetPath(ePath path)

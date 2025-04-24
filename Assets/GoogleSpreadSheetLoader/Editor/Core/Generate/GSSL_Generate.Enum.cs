@@ -9,9 +9,8 @@ namespace GoogleSpreadSheetLoader.Generate
     {
         public static void GenerateEnumDef(List<SheetData> sheets)
         {
-            CheckAndCreateDirectory();
-
             var listEnumInfo = new List<EnumInfo>();
+            var enumDefSavePath = GSSL_Path.GetPath(ePath.Enum);
             
             foreach (var sheet in sheets)
             {

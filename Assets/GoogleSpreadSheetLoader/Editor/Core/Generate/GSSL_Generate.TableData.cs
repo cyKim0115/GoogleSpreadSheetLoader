@@ -16,8 +16,9 @@ namespace GoogleSpreadSheetLoader.Generate
     {
         public static void GenerateTableScripts(List<SheetData> sheets)
         {
-            CheckAndCreateDirectory();
-
+            var tableScriptSavePath = GSSL_Path.GetPath(ePath.TableScript);
+            var dataScriptSavePath = GSSL_Path.GetPath(ePath.DataScript);
+            
             foreach (var sheet in sheets)
             {
                 var tableTitle = sheet.title;
@@ -101,8 +102,7 @@ namespace GoogleSpreadSheetLoader.Generate
 
         public static void GenerateTableData(List<SheetData> listSheet)
         {
-            CheckAndCreateDirectory();
-
+            var dataSavePath = GSSL_Path.GetPath(ePath.TableData);
             foreach (var sheet in listSheet)
             {
                 var tableAssetPath = dataSavePath + sheet.title + "Table.asset";

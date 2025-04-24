@@ -227,7 +227,7 @@ namespace GoogleSpreadSheetLoader.Download
                 EditorWindow.focusedWindow.Repaint();
             }
 
-            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData_Asset);
+            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
 
             // 다운로드 받은 데이터 정리
             foreach (var info in listDownloadInfo)
