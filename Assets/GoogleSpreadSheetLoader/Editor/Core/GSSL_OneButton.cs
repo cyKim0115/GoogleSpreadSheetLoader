@@ -62,12 +62,12 @@ namespace GoogleSpreadSheetLoader.OneButton
             await GSSL_Download.DownloadSheet(listDownloadInfo);
 
             var listSheetData = GSSL_Generate.GetSheetDataList()
-                .Where(x => listDownloadInfo.Any(y => y.GetSheetName() == x.title));
+                .Where(x => listDownloadInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
 
             var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
 
             dicSheetData.TryAdd(eTableStyle.EnumType, new());
-            dicSheetData.TryAdd(eTableStyle.None, new());
+            dicSheetData.TryAdd(eTableStyle.Common, new());
             dicSheetData.TryAdd(eTableStyle.Localization, new());
 
             foreach (var sheetData in listSheetData)
@@ -79,32 +79,17 @@ namespace GoogleSpreadSheetLoader.OneButton
             {
                 try
                 {
-                    switch (tableStyle)
-                    {
-                        case eTableStyle.None:
-                            GSSL_Generate.GenerateTableScripts(list);
-                            break;
-                        case eTableStyle.EnumType:
-                            GSSL_Generate.GenerateEnumDef(list);
-                            break;
-                        case eTableStyle.Localization:
-                            GSSL_Generate.GenerateLocalize(list);
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"{e}");
-                    string strListLog = "\t생성하려고 했던 시트들\n";
-                    for (int i = 0; i < list.Count; i++)
-                    {
-                        strListLog += $"  {i + 1}. {list[i].title}\n";
-                    }
-                    
-                    Debug.LogError($"다음을 생성 중 에러 - {tableStyle}\n{strListLog}");
-                    throw;
+                    case eTableStyle.Common:
+                        GSSL_Generate.GenerateTableScripts(list);
+                        break;
+                    case eTableStyle.EnumType:
+                        GSSL_Generate.GenerateEnumDef(list);
+                        break;
+                    case eTableStyle.Localization:
+                        GSSL_Generate.GenerateLocalize(list);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
             
@@ -112,8 +97,9 @@ namespace GoogleSpreadSheetLoader.OneButton
             dicSheetData.Remove(eTableStyle.Localization);
             var str = JsonConvert.SerializeObject(dicSheetData);
             GenerateDataString = str;
-
-            GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.None]);
+            TableLinkerFlag = true;
+            
+            GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.Common]);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -158,7 +144,7 @@ namespace GoogleSpreadSheetLoader.OneButton
             {
                 switch (tableStyle)
                 {
-                    case eTableStyle.None:
+                    case eTableStyle.Common:
                         GSSL_Generate.GenerateTableData(list);
                         break;
                     default:

@@ -1,5 +1,5 @@
 using System;
-using GoogleSpreadSheetLoader.Download;
+using GoogleSpreadSheetLoader.Simple;
 using GoogleSpreadSheetLoader.Editor.View;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace GoogleSpreadSheetLoader
 {
-    public partial class GSSL_EditorWindow : EditorWindow
+    public class GSSL_EditorWindow : EditorWindow
     {
         private readonly SettingView _settingView = new();
-        private readonly DownloadView _downloadView = new();
+        private readonly SimpleView _simpleView = new();
         private readonly GenerateView _generateView = new();
         
         private static int _selectedToolbar = 0;
@@ -59,7 +59,7 @@ namespace GoogleSpreadSheetLoader
         private void OnGUI()
         {
             int prevSelected = _selectedToolbar;
-            _selectedToolbar = GUILayout.Toolbar(_selectedToolbar, new[] { "Settings", "Download", "Create" });
+            _selectedToolbar = GUILayout.Toolbar(_selectedToolbar, new[] { "Settings", "Simple", "Individual" });
             
             // 기존 번호랑 다르면 세이브
             if (prevSelected != _selectedToolbar)
@@ -74,7 +74,7 @@ namespace GoogleSpreadSheetLoader
                     _settingView.DrawSettingView();
                     break;
                 case 1:
-                    _downloadView.DrawDownloadView();
+                    _simpleView.DrawSimpleView();
                     break;
                 case 2:
                     _generateView.DrawGenerateView();

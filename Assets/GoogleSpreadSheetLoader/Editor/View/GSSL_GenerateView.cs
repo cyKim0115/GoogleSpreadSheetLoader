@@ -93,7 +93,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
                 string categoryName = "";
                 switch (currCategory)
                 {
-                    case eTableStyle.None: categoryName = "일반"; break;
+                    case eTableStyle.Common: categoryName = "일반"; break;
                     case eTableStyle.EnumType: categoryName = "Enum"; break;
                     case eTableStyle.Localization: categoryName = "Localization"; break;
                 }
@@ -160,7 +160,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
 
                             switch (pair.Key)
                             {
-                                case eTableStyle.None:
+                                case eTableStyle.Common:
                                     GSSL_Generate.GenerateTableScripts(list);
                                     AssetDatabase.Refresh();
                                     break;
@@ -193,7 +193,7 @@ namespace GoogleSpreadSheetLoader.Editor.View
                 {
                     if (GUILayout.Button("테이블 데이터 생성", GUILayout.Width(150)))
                     {
-                        var enumTarget = _dicTableDataGenerateCheck[eTableStyle.None].Where(x => x.Value);
+                        var enumTarget = _dicTableDataGenerateCheck[eTableStyle.Common].Where(x => x.Value);
                         var listSheet = new List<SheetData>();
                         foreach (var pair in enumTarget)
                         {

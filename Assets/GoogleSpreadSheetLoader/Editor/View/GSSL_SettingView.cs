@@ -23,6 +23,8 @@ namespace GoogleSpreadSheetLoader.Setting
             DrawSheetSettings();
 
             SaveSettingData();
+
+            DrawAdvanceMode();
         }
 
 
@@ -150,6 +152,22 @@ namespace GoogleSpreadSheetLoader.Setting
                 EditorGUILayout.LabelField(
                     $" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다. \"{GSSL_Setting.SettingData.sheet_localizationTypeStr}\"");
             }
+        }
+
+
+        private void DrawAdvanceMode()
+        {
+            if(GSSL_Setting.SettingData == null)
+                return;
+            
+            EditorGUILayout.Separator();
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GSSL_Setting.SettingData.advanceMode =
+                EditorGUILayout.ToggleLeft("  Advance Mode", GSSL_Setting.SettingData.advanceMode, GUILayout.Width(120));
+            EditorGUILayout.Space(30);
+            EditorGUILayout.EndHorizontal();
         }
 
         private void SaveSettingData()

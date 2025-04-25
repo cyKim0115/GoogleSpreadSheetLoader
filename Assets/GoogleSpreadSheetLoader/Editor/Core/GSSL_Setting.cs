@@ -8,8 +8,10 @@ namespace GoogleSpreadSheetLoader.Setting
     public class GSSL_Setting
     {
         private static readonly string _settingDataAssetName = "SettingData.asset";
+        public static bool AdvanceMode => SettingData?.advanceMode ?? false;
         public static SettingData SettingData => _settingData;
         private static SettingData _settingData;
+        
 
         [InitializeOnLoadMethod]
         private static void ResetStaticInstance()
