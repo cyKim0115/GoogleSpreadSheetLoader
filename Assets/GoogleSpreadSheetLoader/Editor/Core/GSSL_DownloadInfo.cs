@@ -10,33 +10,26 @@ namespace GoogleSpreadSheetLoader.Download
             _spreadSheetId = spreadSheetId;
             _sheetName = sheetName;
 
-            var url = string.Format(GSSL_URL.DownloadSheetUrl, _spreadSheetId, _sheetName,
+            _url = string.Format(GSSL_URL.DownloadSheetUrl, _spreadSheetId, _sheetName,
                 GSSL_Setting.SettingData.apiKey);
-            _webRequest = UnityWebRequest.Get(url);
+            _webRequest = UnityWebRequest.Get(_url);
         }
 
-        private string _spreadSheetId;
-        private string _sheetName;
-        private readonly UnityWebRequest _webRequest;
+        public string SpreadSheetId => _spreadSheetId;
+        private readonly string _spreadSheetId;
+        public string SheetName => _sheetName;
+        private readonly string _sheetName;
+        public string URL => _url;
+        private readonly string _url;
 
-        public bool IsDone()
-        {
-            return _webRequest.isDone;
-        }
+        public bool IsDone => _webRequest?.isDone ?? false;
+        public string DownloadText => _webRequest?.downloadHandler?.text ?? "";
         
-        public UnityWebRequestAsyncOperation SendAndGetAsyncOperation()
+        private readonly UnityWebRequest _webRequest;
+        
+        public void SendAndGetAsyncOperation()
         {
-            return _webRequest.SendWebRequest();
-        }
-
-        public string GetSheetName()
-        {
-            return _sheetName;
-        }
-
-        public string GetDownloadText()
-        {
-            return _webRequest.downloadHandler.text;
+            _webRequest.SendWebRequest();
         }
     }
 }

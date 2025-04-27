@@ -8,11 +8,12 @@ namespace GoogleSpreadSheetLoader
     {
         public enum eTableStyle
         {
-            None,
+            Common,
             EnumType,
             Localization,
         }
         
+        [SerializeField] public string spreadSheetId;
         [SerializeField] public string title;
         [SerializeField] public eTableStyle tableStyle;
         [SerializeField] public string data;
