@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace GoogleSpreadSheetLoader.Simple
+namespace GoogleSpreadSheetLoader
 {
     public static class GSSL_DownloadedSheet
     {

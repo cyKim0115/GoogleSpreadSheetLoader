@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace GoogleSpreadSheetLoader.Generate
 {
-    public partial class GSSL_Generate
+    public static partial class GSSL_Generate
     {
         public static void GenerateTableScripts(List<SheetData> sheets)
         {

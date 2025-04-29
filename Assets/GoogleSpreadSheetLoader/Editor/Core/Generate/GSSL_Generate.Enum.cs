@@ -5,7 +5,7 @@ using Unity.Plastic.Newtonsoft.Json;
 
 namespace GoogleSpreadSheetLoader.Generate
 {
-    public partial class GSSL_Generate
+    public static partial class GSSL_Generate
     {
         public static void GenerateEnumDef(List<SheetData> sheets)
         {

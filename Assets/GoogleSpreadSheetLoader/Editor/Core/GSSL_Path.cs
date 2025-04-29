@@ -13,6 +13,8 @@ namespace GoogleSpreadSheetLoader
         DataScript,
         Enum,
         TableData,
+        TableLinkerScript,
+        TableLinkerData,
     }
         
     public static class GSSL_Path
@@ -21,10 +23,12 @@ namespace GoogleSpreadSheetLoader
         {
             { ePath.SettingData, "Assets/GoogleSpreadSheetLoader/"},
             { ePath.SheetData, "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Sheet"},
-            {ePath.TableScript, " Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/"},
-            {ePath.DataScript, " Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/"},
-            {ePath.Enum, " Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/"},
-            {ePath.TableData, " Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/TableData/"},
+            {ePath.TableScript, "Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/"},
+            {ePath.DataScript, "Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/"},
+            {ePath.Enum, "Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/"},
+            {ePath.TableData, "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/TableData/"},
+            {ePath.TableLinkerScript, "Assets/GoogleSpreadSheetLoader/Generated/Script/"},
+            {ePath.TableLinkerData, "Assets/Resources/"},
         };
 
         public static string GetPath(ePath path)

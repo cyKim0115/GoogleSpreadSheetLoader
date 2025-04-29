@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using GoogleSpreadSheetLoader.OneButton;
-using TableData;
 using UnityEditor;
 using UnityEngine;
 
 namespace GoogleSpreadSheetLoader.Generate
 {
-    public partial class GSSL_Generate
+    public static partial class GSSL_Generate
     {
-        private static string tableLinkerScriptPath = "Assets/GoogleSpreadSheetLoader/Generated/Script/";
-        private static string tableLinkerDataPath = "Assets/Resources/";
-        
         public static void GenerateTableLinkerScript(List<SheetData> sheetDataList)
         {
-            var declation = "";
+            var tableLinkerScriptPath = GSSL_Path.GetPath(ePath.TableLinkerScript);
+            var declaration = "";
 
             foreach (var sheetData in sheetDataList)
             {
                 var className = sheetData.title + "Table";
 
-                declation += $"\t\t public {className} {className};\n";
+                declaration += $"\t\t public {className} {className};\n";
             }
 
             var contents =
@@ -32,9 +29,9 @@ namespace GoogleSpreadSheetLoader.Generate
                 "namespace TableData\n" +
                 "{\n" +
                 "    [CreateAssetMenu(fileName = \"TableLinker\", menuName = \"Tables/TableLinker\")]\n" +
-                "    public partial class TableLinker : ScriptableObject\n" +
+                "    public class TableLinker : ScriptableObject\n" +
                 "    {\n"
-                + declation
+                + declaration
                 + "\n    }\n}";
             var path = tableLinkerScriptPath + "TableLinker.cs";
 
@@ -43,10 +40,7 @@ namespace GoogleSpreadSheetLoader.Generate
         
         public static void GenerateTableLinkerData()
         {
-            if (!Directory.Exists(tableLinkerDataPath))
-            {
-                Directory.CreateDirectory(tableLinkerDataPath);
-            }
+            var tableLinkerDataPath = GSSL_Path.GetPath(ePath.TableLinkerData);
             
             var tableLinkerAssetPath = tableLinkerDataPath + "TableLinker.asset";
             

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
 using GoogleSpreadSheetLoader.Simple;
-using NUnit.Framework;
 using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -70,7 +69,7 @@ namespace GoogleSpreadSheetLoader.Download
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
 
             SimpleView.spreadSheetDownloadState = eDownloadState.Downloading;
-            EditorWindow.focusedWindow.Repaint();
+            EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
             var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
@@ -86,7 +85,7 @@ namespace GoogleSpreadSheetLoader.Download
                 {
                     SimpleView.spreadSheetDownloadMessage =
                         $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    EditorWindow.focusedWindow.Repaint();
+                    EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
@@ -94,11 +93,11 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 SimpleView.spreadSheetDownloadMessage = "다운로드 완료";
                 SimpleView.spreadSheetDownloadState = eDownloadState.Complete;
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(1000);
                 SimpleView.spreadSheetDownloadMessage = "";
                 SimpleView.spreadSheetDownloadState = (eDownloadState.None);
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
             }
 
             // 다운로드 받은 데이터 정리
@@ -149,7 +148,7 @@ namespace GoogleSpreadSheetLoader.Download
             List<GSSL_DownloadInfo> listResult = new();
 
             SimpleView.spreadSheetDownloadState = eDownloadState.Downloading;
-            EditorWindow.focusedWindow.Repaint();
+            EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
             var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
@@ -165,7 +164,7 @@ namespace GoogleSpreadSheetLoader.Download
                 {
                     SimpleView.spreadSheetDownloadMessage =
                         $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    EditorWindow.focusedWindow.Repaint();
+                    EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
@@ -173,11 +172,11 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 SimpleView.spreadSheetDownloadMessage = "다운로드 완료";
                 SimpleView.spreadSheetDownloadState = eDownloadState.Complete;
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(1000);
                 SimpleView.spreadSheetDownloadMessage = "";
                 SimpleView.spreadSheetDownloadState = (eDownloadState.None);
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
             }
 
             // 다운로드 받은 데이터 정리
@@ -236,18 +235,18 @@ namespace GoogleSpreadSheetLoader.Download
                 {
                     await Task.Delay(100);
                     SimpleView.sheetDownloadMessage = $"다운로드 중 ({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                    EditorWindow.focusedWindow.Repaint();
+                    EditorWindow.focusedWindow?.Repaint();
                 } while (listDownloadInfo.Any(x => !x.IsDone));
             }
             finally
             {
                 SimpleView.sheetDownloadMessage = "다운로드 완료";
                 SimpleView.sheetDownloadState = eDownloadState.Complete;
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(1000);
                 SimpleView.sheetDownloadMessage = "";
                 SimpleView.sheetDownloadState = eDownloadState.None;
-                EditorWindow.focusedWindow.Repaint();
+                EditorWindow.focusedWindow?.Repaint();
             }
 
             var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
@@ -281,11 +280,6 @@ namespace GoogleSpreadSheetLoader.Download
 
                 AssetDatabase.CreateAsset(sheetData, $"{sheetDataAssetPath}/{sheetData.title}.asset");
             }
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-            
-            GSSL_DownloadedSheet.Reset();
         }
 
         #endregion

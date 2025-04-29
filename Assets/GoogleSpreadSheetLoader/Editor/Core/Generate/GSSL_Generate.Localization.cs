@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GoogleSpreadSheetLoader.Generate
 {
-    public partial class GSSL_Generate
+    public static partial class GSSL_Generate
     {
         private static readonly string localizePath = "Assets/Resources/";
         
