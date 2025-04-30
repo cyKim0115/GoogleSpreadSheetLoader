@@ -61,14 +61,14 @@ namespace GoogleSpreadSheetLoader.Download
 
         #region 개별
 
-        public static async Awaitable DownloadSpreadSheet()
+        internal static async Awaitable DownloadSpreadSheetOnly()
         {
             var dicSheetName = new Dictionary<string, List<string>>();
 
             // 다운로드 대상 정리
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
 
-            SimpleView.spreadSheetDownloadState = eDownloadState.Downloading;
+            SimpleView.SetProgressState(eSimpleViewState.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
@@ -83,20 +83,18 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
-                    SimpleView.spreadSheetDownloadMessage =
-                        $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
             finally
             {
-                SimpleView.spreadSheetDownloadMessage = "다운로드 완료";
-                SimpleView.spreadSheetDownloadState = eDownloadState.Complete;
+                SimpleView.SetProgressState(eSimpleViewState.Done);
                 EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(1000);
-                SimpleView.spreadSheetDownloadMessage = "";
-                SimpleView.spreadSheetDownloadState = (eDownloadState.None);
+                SimpleView.SetProgressState(eSimpleViewState.None);
                 EditorWindow.focusedWindow?.Repaint();
             }
 
@@ -147,7 +145,7 @@ namespace GoogleSpreadSheetLoader.Download
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
             List<GSSL_DownloadInfo> listResult = new();
 
-            SimpleView.spreadSheetDownloadState = eDownloadState.Downloading;
+            SimpleView.SetProgressState(eSimpleViewState.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
@@ -162,21 +160,18 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
-                    SimpleView.spreadSheetDownloadMessage =
-                        $"다운로드 중 ({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
             finally
             {
-                SimpleView.spreadSheetDownloadMessage = "다운로드 완료";
-                SimpleView.spreadSheetDownloadState = eDownloadState.Complete;
+                string progressString = $"(Done)";
+                SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(1000);
-                SimpleView.spreadSheetDownloadMessage = "";
-                SimpleView.spreadSheetDownloadState = (eDownloadState.None);
-                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(500);
             }
 
             // 다운로드 받은 데이터 정리
@@ -219,9 +214,6 @@ namespace GoogleSpreadSheetLoader.Download
 
         public static async Awaitable DownloadSheet(List<GSSL_DownloadInfo> listDownloadInfo)
         {
-            // 다운로드 대상 정리
-            SimpleView.sheetDownloadState = eDownloadState.Downloading;
-
             // 다운로드
             try
             {
@@ -233,20 +225,18 @@ namespace GoogleSpreadSheetLoader.Download
                 var totalCount = listDownloadInfo.Count;
                 do
                 {
-                    await Task.Delay(100);
-                    SimpleView.sheetDownloadMessage = $"다운로드 중 ({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
+                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
+                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(100);
                 } while (listDownloadInfo.Any(x => !x.IsDone));
             }
             finally
             {
-                SimpleView.sheetDownloadMessage = "다운로드 완료";
-                SimpleView.sheetDownloadState = eDownloadState.Complete;
+                string progressString = $"(Done)";
+                SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(1000);
-                SimpleView.sheetDownloadMessage = "";
-                SimpleView.sheetDownloadState = eDownloadState.None;
-                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(500);
             }
 
             var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);

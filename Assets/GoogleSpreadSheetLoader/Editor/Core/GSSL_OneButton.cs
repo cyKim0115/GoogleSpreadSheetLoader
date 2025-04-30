@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
+using GoogleSpreadSheetLoader.Simple;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
@@ -47,12 +48,15 @@ namespace GoogleSpreadSheetLoader.OneButton
             try
             {
                 var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
+                GSSL_Log.Log("Download SpreadSheet Done");
+
+                GSSL_Log.Log("Download Sheet Start");
                 await OneButtonProcessSheet(listDownloadInfo);
+                GSSL_Log.Log("Download Sheet Done");
             }
             catch (Exception e)
             {
-                Debug.LogError($"{e}");
-                throw;
+                throw e;
             }
         }
 
@@ -72,7 +76,76 @@ namespace GoogleSpreadSheetLoader.OneButton
 
             foreach (var sheetData in listSheetData)
             {
-                dicSheetData[sheetData.tableStyle].Add(sheetData);
+                var listExistingSheetTitle = new List<string>();
+                var listExistingSheetData = GSSL_Generate.GetSheetDataList();
+                if(listExistingSheetData?.Count > 0)
+                {
+                    listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
+                }
+                bool isRefresh = false;
+                await GSSL_Download.DownloadSheet(listDownloadInfo);
+
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                GSSL_DownloadedSheet.Reset();
+
+                SimpleView.SetProgressState(eSimpleViewState.GenerateSheetData);
+                
+                var listSheetData = GSSL_Generate.GetSheetDataList()
+                    .Where(x => listDownloadInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
+
+                var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
+
+                dicSheetData.TryAdd(eTableStyle.EnumType, new());
+                dicSheetData.TryAdd(eTableStyle.Common, new());
+                dicSheetData.TryAdd(eTableStyle.Localization, new());
+
+                foreach (var sheetData in listSheetData)
+                {
+                    dicSheetData[sheetData.tableStyle].Add(sheetData);
+                }
+                
+                foreach(var title in listSheetData.Select(x=>x.title))
+                {
+                    if (!listExistingSheetTitle.Contains(title))
+                    {
+                        isRefresh = true;
+                        break;
+                    }
+                }
+
+                SimpleView.SetProgressState(eSimpleViewState.GenerateTableScript);
+                foreach ((eTableStyle tableStyle, var list) in dicSheetData)
+                {
+                    switch (tableStyle)
+                    {
+                        case eTableStyle.Common:
+                            GSSL_Generate.GenerateTableScripts(list);
+                            break;
+                        case eTableStyle.EnumType:
+                            GSSL_Generate.GenerateEnumDef(list);
+                            break;
+                        case eTableStyle.Localization:
+                            GSSL_Generate.GenerateLocalize(list);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+                dicSheetData.Remove(eTableStyle.EnumType);
+                dicSheetData.Remove(eTableStyle.Localization);
+                var str = JsonConvert.SerializeObject(dicSheetData);
+                GenerateDataString = str;
+                TableLinkerFlag = true;
+
+                GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.Common]);
+
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                if(!isRefresh)
+                    CheckPrefsAndGenerateTableData();
             }
 
             foreach ((eTableStyle tableStyle, var list) in dicSheetData)
@@ -117,23 +190,38 @@ namespace GoogleSpreadSheetLoader.OneButton
         [InitializeOnLoadMethod]
         private static void CheckPrefsAndGenerateTableData()
         {
-            if (!GenerateDataFlag) return;
+            GSSL_Log.Log($"Generate Data Check ({GenerateDataFlag})");
 
-            var str = GenerateDataString;
+            if (GenerateDataFlag)
+            {
+                SimpleView.SetProgressState(eSimpleViewState.GenerateTableData);
+                
+                var str = GenerateDataString;
 
-            GenerateData(str);
+                GSSL_Log.Log("Generate Data Start");
+                GenerateData(str);
+                GSSL_Log.Log("Generate Data Done");
 
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
 
             if (TableLinkerFlag)
             {
-                _ = GenerateTableLinkerAsync();
+                SimpleView.SetProgressState(eSimpleViewState.GenerateTableLinker);
+                
+                GenerateTableLinkerAsync();
 
                 TableLinkerFlag = false;
             }
 
             GenerateDataString = string.Empty;
+
+            Task.Run(async () => {
+                SimpleView.SetProgressState(eSimpleViewState.Done);
+                await Task.Delay(500);
+                SimpleView.SetProgressState(eSimpleViewState.None);
+            });
         }
 
         private static void GenerateData(string str)

@@ -113,12 +113,12 @@ namespace GoogleSpreadSheetLoader.Generate
                 if (sheetRows == null || sheetRows.Count < 2) return;
 
                 var tableAsset = ScriptableObject.CreateInstance(Type.GetType(tableClassName));
-                tableAsset.hideFlags = HideFlags.None;
                 if (tableAsset == null)
                 {
                     Debug.LogError($"Failed to create instance of {tableClassName}");
-                    return;
+                    continue;
                 }
+                tableAsset.hideFlags = HideFlags.None;
 
                 sheetRows.RemoveAt(0);
 

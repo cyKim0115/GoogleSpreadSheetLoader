@@ -11,7 +11,7 @@ namespace GoogleSpreadSheetLoader
     {
         private readonly SettingView _settingView = new();
         private readonly SimpleView _simpleView = new();
-        private readonly GenerateView _generateView = new();
+        private readonly IndividualView _individualView = new();
         
         private static int _selectedToolbar = 0;
 
@@ -77,7 +77,7 @@ namespace GoogleSpreadSheetLoader
                     _simpleView.DrawSimpleView();
                     break;
                 case 2:
-                    _generateView.DrawGenerateView();
+                    _individualView.DrawGenerateView();
                     break;
             }
         }

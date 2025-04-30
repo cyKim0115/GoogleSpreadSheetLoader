@@ -10,7 +10,7 @@ using static GoogleSpreadSheetLoader.SheetData;
 
 namespace GoogleSpreadSheetLoader.Editor.View
 {
-    public class GenerateView
+    public class IndividualView
     {
         private enum eGenerateState
         {
