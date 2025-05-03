@@ -1,11 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEngine.Networking;
 
 namespace GoogleSpreadSheetLoader.Download
 {
-    public class GSSL_DownloadInfo
+    internal static partial class GSSL_Download
     {
-        public GSSL_DownloadInfo(string spreadSheetId, string sheetName)
+        private static List<RequestInfo> GetRequestInfoList(Dictionary<string, List<string>> dicSpreadSheet)
+        {
+            var listDownloadInfo = new List<RequestInfo>();
+
+            foreach (var (spreadSheetId, listTitle) in dicSpreadSheet)
+            {
+                listDownloadInfo.AddRange(listTitle.Select(title => new RequestInfo(spreadSheetId, title)));
+            }
+
+            return listDownloadInfo;
+        }
+    }
+    
+    public class RequestInfo
+    {
+        public RequestInfo(string spreadSheetId, string sheetName)
         {
             _spreadSheetId = spreadSheetId;
             _sheetName = sheetName;

@@ -60,18 +60,6 @@ namespace GoogleSpreadSheetLoader.Generate
                 AssetDatabase.Refresh();
             }
         }
-
-        public static void SearchAndAssign()
-        {
-            var guids = AssetDatabase.FindAssets($"t:TableLinker");
-            
-            if (guids.Length <= 0) return;
-            
-            var path = AssetDatabase.GUIDToAssetPath(guids[0]);
-            var tableLinker = AssetDatabase.LoadAssetAtPath(path, typeof(UnityEngine.Object));
-            
-            AssignFirstMatchingAssets(tableLinker);
-        }
         
         private static bool AssignFirstMatchingAssets(UnityEngine.Object target)
         {

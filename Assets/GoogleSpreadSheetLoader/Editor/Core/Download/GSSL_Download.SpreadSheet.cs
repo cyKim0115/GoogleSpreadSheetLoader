@@ -3,64 +3,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
 using GoogleSpreadSheetLoader.Simple;
-using Unity.Plastic.Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// ReSharper disable CheckNamespace
-// ReSharper disable ClassNeverInstantiated.Global
-// ReSharper disable InconsistentNaming
 // ReSharper disable PossibleNullReferenceException
-#pragma warning disable CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
 
 namespace GoogleSpreadSheetLoader.Download
 {
-    internal class GSSL_Download
+    internal partial class GSSL_Download
     {
-        public enum eDownloadState
-        {
-            None,
-            Downloading,
-            Complete,
-        }
-
-        public static List<GSSL_DownloadInfo> GetDownloadInfoList(Dictionary<string, Dictionary<string, bool>> sheetCheck)
-        {
-            var listDownloadInfo = new List<GSSL_DownloadInfo>();
-
-            foreach (var (spreadSheetId, dicSheet) in sheetCheck)
-            {
-                listDownloadInfo.AddRange(from pair in dicSheet where pair.Value select new GSSL_DownloadInfo(spreadSheetId, pair.Key));
-            }
-
-            return listDownloadInfo;
-        }
-
-        public static List<GSSL_DownloadInfo> GetDownloadInfoList(Dictionary<string, List<string>> dicSpreadSheet)
-        {
-            var listDownloadInfo = new List<GSSL_DownloadInfo>();
-
-            foreach (var (spreadSheetId, listTitle) in dicSpreadSheet)
-            {
-                listDownloadInfo.AddRange(listTitle.Select(title => new GSSL_DownloadInfo(spreadSheetId, title)));
-            }
-
-            return listDownloadInfo;
-        }
-
-        public static List<GSSL_DownloadInfo> GetAllSpreadSheet()
-        {
-            var listDownloadInfo = new List<GSSL_DownloadInfo>();
-
-            listDownloadInfo.AddRange(from info in GSSL_Setting.SettingData.listSpreadSheetInfo
-                                      select new GSSL_DownloadInfo(info.spreadSheetId, info.spreadSheetName));
-
-            return listDownloadInfo;
-        }
-
-        #region 개별
-
         internal static async Awaitable DownloadSpreadSheetOnly()
         {
             var dicSheetName = new Dictionary<string, List<string>>();
@@ -136,14 +89,14 @@ namespace GoogleSpreadSheetLoader.Download
                 }
             }
 
-            DownloadSheet(GetDownloadInfoList(dicSheetName));
+            await DownloadSheet(GetRequestInfoList(dicSheetName));
         }
 
-        public static async Awaitable<List<GSSL_DownloadInfo>> DownloadSpreadSheetAll()
+        public static async Awaitable<List<RequestInfo>> DownloadSpreadSheetAll()
         {
             // 다운로드 대상 정리
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
-            List<GSSL_DownloadInfo> listResult = new();
+            List<RequestInfo> listResult = new();
 
             SimpleView.SetProgressState(eSimpleViewState.Prepare);
             EditorWindow.focusedWindow?.Repaint();
@@ -204,74 +157,12 @@ namespace GoogleSpreadSheetLoader.Download
                             continue;
                         }
 
-                        listResult.Add(new GSSL_DownloadInfo(pair.info.spreadSheetId, titleString));
+                        listResult.Add(new RequestInfo(pair.info.spreadSheetId, titleString));
                     }
                 }
             }
 
             return listResult;
         }
-
-        public static async Awaitable DownloadSheet(List<GSSL_DownloadInfo> listDownloadInfo)
-        {
-            // 다운로드
-            try
-            {
-                foreach (var info in listDownloadInfo)
-                {
-                    info.SendAndGetAsyncOperation();
-                }
-
-                var totalCount = listDownloadInfo.Count;
-                do
-                {
-                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
-                } while (listDownloadInfo.Any(x => !x.IsDone));
-            }
-            finally
-            {
-                string progressString = $"(Done)";
-                SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(500);
-            }
-
-            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
-
-            // 다운로드 받은 데이터 정리
-            foreach (var info in listDownloadInfo)
-            {
-                SheetData sheetData = ScriptableObject.CreateInstance<SheetData>();
-                sheetData.spreadSheetId = info.SpreadSheetId;
-                sheetData.title = info.SheetName;
-
-                if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_enumTypeStr))
-                    sheetData.tableStyle = SheetData.eTableStyle.EnumType;
-                else if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_localizationTypeStr))
-                    sheetData.tableStyle = SheetData.eTableStyle.Localization;
-                else
-                    sheetData.tableStyle = SheetData.eTableStyle.Common;
-
-                JObject jObj = JObject.Parse(info.DownloadText);
-
-                if (!jObj.TryGetValue("values", out var values))
-                {
-                    Debug.LogError($"변환 실패 - {info.SheetName}\n"
-                                   + $"{info.URL}\n"
-                                   + $"{info.DownloadText}");
-
-                    continue;
-                }
-
-                sheetData.data = values.ToString();
-
-                AssetDatabase.CreateAsset(sheetData, $"{sheetDataAssetPath}/{sheetData.title}.asset");
-            }
-        }
-
-        #endregion
     }
 }

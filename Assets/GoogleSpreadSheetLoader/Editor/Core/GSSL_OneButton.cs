@@ -12,9 +12,9 @@ using static GoogleSpreadSheetLoader.SheetData;
 
 namespace GoogleSpreadSheetLoader.OneButton
 {
-    public abstract class GSSL_OneButton
+    public static class GSSL_OneButton
     {
-        private static readonly string TableLinkerPrefsKey = "TableLinkerLink";
+
         private static readonly string GenerateDataPrefsKey = "GenerateData";
         private static bool GenerateDataFlag => EditorPrefs.HasKey(GenerateDataPrefsKey);
         private static string GenerateDataString
@@ -30,15 +30,15 @@ namespace GoogleSpreadSheetLoader.OneButton
 
         public static bool TableLinkerFlag
         {
-            get => EditorPrefs.HasKey(TableLinkerPrefsKey);
+            get => EditorPrefs.HasKey("TableLinkerLink");
             set {
                 if (value)
                 {
-                    EditorPrefs.SetString(TableLinkerPrefsKey, true.ToString());
+                    EditorPrefs.SetString("TableLinkerLink", true.ToString());
                 }
                 else
                 {
-                    EditorPrefs.DeleteKey(TableLinkerPrefsKey);
+                    EditorPrefs.DeleteKey("TableLinkerLink");
                 }
             }
         }
@@ -47,6 +47,7 @@ namespace GoogleSpreadSheetLoader.OneButton
         {
             try
             {
+                GSSL_Log.Log("Download SpreadSheet Start");
                 var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
                 GSSL_Log.Log("Download SpreadSheet Done");
 
@@ -61,20 +62,9 @@ namespace GoogleSpreadSheetLoader.OneButton
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        public static async Awaitable OneButtonProcessSheet(List<GSSL_DownloadInfo> listDownloadInfo)
+        private static async Awaitable OneButtonProcessSheet(List<RequestInfo> listDownloadInfo)
         {
-            await GSSL_Download.DownloadSheet(listDownloadInfo);
-
-            var listSheetData = GSSL_Generate.GetSheetDataList()
-                .Where(x => listDownloadInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
-
-            var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
-
-            dicSheetData.TryAdd(eTableStyle.EnumType, new());
-            dicSheetData.TryAdd(eTableStyle.Common, new());
-            dicSheetData.TryAdd(eTableStyle.Localization, new());
-
-            foreach (var sheetData in listSheetData)
+            try
             {
                 var listExistingSheetTitle = new List<string>();
                 var listExistingSheetData = GSSL_Generate.GetSheetDataList();
@@ -147,44 +137,19 @@ namespace GoogleSpreadSheetLoader.OneButton
                 if(!isRefresh)
                     CheckPrefsAndGenerateTableData();
             }
-
-            foreach ((eTableStyle tableStyle, var list) in dicSheetData)
+            catch (Exception e)
             {
-                try
-                {
-                    case eTableStyle.Common:
-                        GSSL_Generate.GenerateTableScripts(list);
-                        break;
-                    case eTableStyle.EnumType:
-                        GSSL_Generate.GenerateEnumDef(list);
-                        break;
-                    case eTableStyle.Localization:
-                        GSSL_Generate.GenerateLocalize(list);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                throw e;
             }
-            
-            dicSheetData.Remove(eTableStyle.EnumType);
-            dicSheetData.Remove(eTableStyle.Localization);
-            var str = JsonConvert.SerializeObject(dicSheetData);
-            GenerateDataString = str;
-            TableLinkerFlag = true;
-            
-            GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.Common]);
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            CheckPrefsAndGenerateTableData();
         }
 
         private static async Awaitable GenerateTableLinkerAsync()
         {
             await Task.Delay(100);
 
+            GSSL_Log.Log("Generate Table Start");
             GSSL_Generate.GenerateTableLinkerData();
+            GSSL_Log.Log("Generate Table Done");
         }
 
         [InitializeOnLoadMethod]
@@ -206,6 +171,7 @@ namespace GoogleSpreadSheetLoader.OneButton
                 AssetDatabase.Refresh();
             }
 
+            GSSL_Log.Log($"Generate TableLinker Check ({TableLinkerFlag})");
             if (TableLinkerFlag)
             {
                 SimpleView.SetProgressState(eSimpleViewState.GenerateTableLinker);
@@ -239,8 +205,6 @@ namespace GoogleSpreadSheetLoader.OneButton
                         throw new ArgumentOutOfRangeException();
                 }
             }
-
-            TableLinkerFlag = true;
         }
     }
 }
