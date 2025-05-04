@@ -3,6 +3,7 @@ using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.Download.GSSL_Download;
+
 // ReSharper disable CheckNamespace
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ConvertToConstant.Local
@@ -63,7 +64,9 @@ namespace GoogleSpreadSheetLoader.Simple
         {
             EditorGUILayout.Separator();
 
+            var boxStyle = new GUIStyle(GUI.skin.box);
             _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos, GUILayout.Height(500));
+            EditorGUILayout.BeginVertical(boxStyle);
             for (var i = 0; i < GSSL_Setting.SettingData.listSpreadSheetInfo.Count; i++)
             {
                 EditorGUILayout.Separator();
@@ -73,6 +76,7 @@ namespace GoogleSpreadSheetLoader.Simple
 
                 DrawSheetDataList(info.spreadSheetId);
             }
+            EditorGUILayout.EndVertical();
             EditorGUILayout.EndScrollView();
         }
 

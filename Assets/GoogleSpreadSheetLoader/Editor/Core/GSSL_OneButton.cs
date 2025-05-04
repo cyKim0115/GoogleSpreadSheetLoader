@@ -62,18 +62,18 @@ namespace GoogleSpreadSheetLoader.OneButton
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        private static async Awaitable OneButtonProcessSheet(List<RequestInfo> listDownloadInfo)
+        private static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
         {
             try
             {
                 var listExistingSheetTitle = new List<string>();
-                var listExistingSheetData = GSSL_Generate.GetSheetDataList();
+                var listExistingSheetData = GSSL_DownloadedSheet.GetAllSheetData();
                 if(listExistingSheetData?.Count > 0)
                 {
                     listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
                 }
                 bool isRefresh = false;
-                await GSSL_Download.DownloadSheet(listDownloadInfo);
+                await GSSL_Download.DownloadSheet(listRequestInfo);
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -82,8 +82,8 @@ namespace GoogleSpreadSheetLoader.OneButton
 
                 SimpleView.SetProgressState(eSimpleViewState.GenerateSheetData);
                 
-                var listSheetData = GSSL_Generate.GetSheetDataList()
-                    .Where(x => listDownloadInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
+                var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
+                    .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
 
                 var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
 
