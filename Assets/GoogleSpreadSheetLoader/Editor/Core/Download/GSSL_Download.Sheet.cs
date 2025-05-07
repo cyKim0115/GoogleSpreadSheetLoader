@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
-using GoogleSpreadSheetLoader.Simple;
 using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
+using static GoogleSpreadSheetLoader.GSSL_State;
 
 namespace GoogleSpreadSheetLoader.Download
 {
@@ -25,7 +25,7 @@ namespace GoogleSpreadSheetLoader.Download
                 do
                 {
                     string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
+                    SetProgressState(eGSSL_State.DownloadingSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listDownloadInfo.Any(x => !x.IsDone));
@@ -33,7 +33,7 @@ namespace GoogleSpreadSheetLoader.Download
             finally
             {
                 string progressString = $"(Done)";
-                SimpleView.SetProgressState(eSimpleViewState.DownloadingSheet, progressString);
+                SetProgressState(eGSSL_State.DownloadingSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(500);
             }

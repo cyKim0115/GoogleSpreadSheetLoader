@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
-using GoogleSpreadSheetLoader.Simple;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 using static GoogleSpreadSheetLoader.SheetData;
+using static GoogleSpreadSheetLoader.GSSL_State;
 
 namespace GoogleSpreadSheetLoader.OneButton
 {
@@ -62,7 +62,7 @@ namespace GoogleSpreadSheetLoader.OneButton
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        private static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
+        internal static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace GoogleSpreadSheetLoader.OneButton
 
                 GSSL_DownloadedSheet.Reset();
 
-                SimpleView.SetProgressState(eSimpleViewState.GenerateSheetData);
+                SetProgressState(eGSSL_State.GenerateSheetData);
                 
                 var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
                     .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
@@ -105,7 +105,7 @@ namespace GoogleSpreadSheetLoader.OneButton
                     }
                 }
 
-                SimpleView.SetProgressState(eSimpleViewState.GenerateTableScript);
+                SetProgressState(eGSSL_State.GenerateTableScript);
                 foreach ((eTableStyle tableStyle, var list) in dicSheetData)
                 {
                     switch (tableStyle)
@@ -159,7 +159,7 @@ namespace GoogleSpreadSheetLoader.OneButton
 
             if (GenerateDataFlag)
             {
-                SimpleView.SetProgressState(eSimpleViewState.GenerateTableData);
+                SetProgressState(eGSSL_State.GenerateTableData);
                 
                 var str = GenerateDataString;
 
@@ -174,7 +174,7 @@ namespace GoogleSpreadSheetLoader.OneButton
             GSSL_Log.Log($"Generate TableLinker Check ({TableLinkerFlag})");
             if (TableLinkerFlag)
             {
-                SimpleView.SetProgressState(eSimpleViewState.GenerateTableLinker);
+                SetProgressState(eGSSL_State.GenerateTableLinker);
                 
                 GenerateTableLinkerAsync();
 
@@ -184,9 +184,9 @@ namespace GoogleSpreadSheetLoader.OneButton
             GenerateDataString = string.Empty;
 
             Task.Run(async () => {
-                SimpleView.SetProgressState(eSimpleViewState.Done);
+                SetProgressState(eGSSL_State.Done);
                 await Task.Delay(500);
-                SimpleView.SetProgressState(eSimpleViewState.None);
+                SetProgressState(eGSSL_State.None);
             });
         }
 

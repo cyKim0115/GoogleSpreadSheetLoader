@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
+using GoogleSpreadSheetLoader.OneButton;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
@@ -121,7 +123,12 @@ namespace GoogleSpreadSheetLoader.Editor.View
 
             if (GUILayout.Button("변환 시키기"))
             {
-                // var list
+                var list = dicSheetCheck
+                    .Where(x => x.Value)
+                    .Select(x => new RequestInfo(x.Key.spreadSheetId, x.Key.title))
+                    .ToList();
+
+                GSSL_OneButton.OneButtonProcessSheet(list).GetAwaiter().GetResult();
             }
             
             GUILayout.FlexibleSpace();

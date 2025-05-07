@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
+using static GoogleSpreadSheetLoader.GSSL_State;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -21,7 +22,7 @@ namespace GoogleSpreadSheetLoader.Download
             // 다운로드 대상 정리
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
 
-            SimpleView.SetProgressState(eSimpleViewState.Prepare);
+            SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
@@ -37,17 +38,17 @@ namespace GoogleSpreadSheetLoader.Download
                 do
                 {
                     string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
+                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
             }
             finally
             {
-                SimpleView.SetProgressState(eSimpleViewState.Done);
+                SetProgressState(eGSSL_State.Done);
                 EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(1000);
-                SimpleView.SetProgressState(eSimpleViewState.None);
+                SetProgressState(eGSSL_State.None);
                 EditorWindow.focusedWindow?.Repaint();
             }
 
@@ -98,7 +99,7 @@ namespace GoogleSpreadSheetLoader.Download
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
             List<RequestInfo> listResult = new();
 
-            SimpleView.SetProgressState(eSimpleViewState.Prepare);
+            SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
             // 다운로드
@@ -114,7 +115,7 @@ namespace GoogleSpreadSheetLoader.Download
                 do
                 {
                     string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
+                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
                     await Task.Delay(100);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
@@ -122,7 +123,7 @@ namespace GoogleSpreadSheetLoader.Download
             finally
             {
                 string progressString = $"(Done)";
-                SimpleView.SetProgressState(eSimpleViewState.DownloadingSpreadSheet, progressString);
+                SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
                 await Task.Delay(500);
             }
