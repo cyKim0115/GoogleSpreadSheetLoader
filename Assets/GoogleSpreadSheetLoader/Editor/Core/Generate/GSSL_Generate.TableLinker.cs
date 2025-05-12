@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using GoogleSpreadSheetLoader.OneButton;
 using UnityEditor;
@@ -10,8 +11,10 @@ namespace GoogleSpreadSheetLoader.Generate
 {
     public static partial class GSSL_Generate
     {
-        public static void GenerateTableLinkerScript(List<SheetData> sheetDataList)
+        public static void GenerateTableLinkerScript()
         {
+            var sheetDataList = GSSL_DownloadedSheet.GetAllSheetData()
+                .Where(x=>x.tableStyle == SheetData.eTableStyle.Common);
             var tableLinkerScriptPath = GSSL_Path.GetPath(ePath.TableLinkerScript);
             var declaration = "";
 

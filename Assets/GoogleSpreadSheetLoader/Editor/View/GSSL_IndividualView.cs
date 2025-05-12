@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GoogleSpreadSheetLoader.Download;
-using GoogleSpreadSheetLoader.Generate;
 using GoogleSpreadSheetLoader.OneButton;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
-using static GoogleSpreadSheetLoader.SheetData;
-// ReSharper disable SuggestVarOrType_DeconstructionDeclarations
+using static GoogleSpreadSheetLoader.GSSL_State;
 
+// ReSharper disable SuggestVarOrType_DeconstructionDeclarations
 // ReSharper disable InconsistentNaming
 
 namespace GoogleSpreadSheetLoader.Editor.View
@@ -62,11 +61,11 @@ namespace GoogleSpreadSheetLoader.Editor.View
 
             if (dicSheetCheck.Count == 0)
             {
-                EditorGUILayout.LabelField("  다운로드된 시트 데이터가 하나도 없음.", EditorStyles.whiteLargeLabel);
+                EditorGUILayout.LabelField("  다운로드된 시트 데이터가 하나도 없음.", EditorStyles.whiteLargeLabel, GUILayout.Height(20));
                 return;
             }
 
-            EditorGUILayout.LabelField($"  최신화시킬 시트들 선택", EditorStyles.whiteLargeLabel);
+            EditorGUILayout.LabelField($"  최신화시킬 시트들 선택", EditorStyles.whiteLargeLabel, GUILayout.Height(20));
 
             EditorGUILayout.Separator();
 
@@ -116,23 +115,48 @@ namespace GoogleSpreadSheetLoader.Editor.View
             if (!isGenerateAble)
                 return;
             
-            GUILayout.FlexibleSpace();
-            
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-
-            if (GUILayout.Button("변환 시키기"))
+            if(CurrState == eGSSL_State.None)
             {
-                var list = dicSheetCheck
-                    .Where(x => x.Value)
-                    .Select(x => new RequestInfo(x.Key.spreadSheetId, x.Key.title))
-                    .ToList();
-
-                GSSL_OneButton.OneButtonProcessSheet(list).GetAwaiter().GetResult();
-            }
+                GUILayout.FlexibleSpace();
             
-            GUILayout.FlexibleSpace();
-            EditorGUILayout.EndHorizontal();
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                
+                if (GUILayout.Button("다운로드 & 변환", GUILayout.Width(200)))
+                {
+                    var list = dicSheetCheck
+                        .Where(x => x.Value)
+                        .Select(x => new RequestInfo(x.Key.spreadSheetId, x.Key.title))
+                        .ToList();
+
+                    GSSL_OneButton.OneButtonProcessSheet(list).GetAwaiter().GetResult();
+                }
+                
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.EndHorizontal();
+            }
+            else
+            {
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.LabelField(ProgressText, GUILayout.Width(ProgressText.Length * 12));
+                EditorGUILayout.Space(30);
+                EditorGUILayout.EndHorizontal();
+
+                if (GSSL_Setting.AdvanceMode)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.FlexibleSpace();
+                    if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
+                    {
+                        SetProgressState(eGSSL_State.None);
+                    }
+                    EditorGUILayout.Space(30);
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                return;
+            }
             
             EditorGUILayout.Space(20);
         }

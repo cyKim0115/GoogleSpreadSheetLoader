@@ -129,7 +129,7 @@ namespace GoogleSpreadSheetLoader.OneButton
                 GenerateDataString = str;
                 TableLinkerFlag = true;
 
-                GSSL_Generate.GenerateTableLinkerScript(dicSheetData[eTableStyle.Common]);
+                GSSL_Generate.GenerateTableLinkerScript();
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

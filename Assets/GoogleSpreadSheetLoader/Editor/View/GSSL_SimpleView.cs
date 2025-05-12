@@ -69,8 +69,10 @@ namespace GoogleSpreadSheetLoader.Simple
             {
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                EditorGUILayout.LabelField(ProgressText, GUILayout.Width(ProgressText.Length * 14));
+                EditorGUILayout.LabelField(ProgressText, GUILayout.Width(ProgressText.Length * 12));
+                EditorGUILayout.Space(30);
                 EditorGUILayout.EndHorizontal();
+                EditorGUILayout.Space(30);
              
                 if(GSSL_Setting.AdvanceMode)
                 {
