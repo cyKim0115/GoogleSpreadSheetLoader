@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-// ReSharper disable MemberCanBePrivate.Global
 
 public static class LocalizeTable
 {
