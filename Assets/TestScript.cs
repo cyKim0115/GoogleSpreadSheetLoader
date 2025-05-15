@@ -1,4 +1,4 @@
-using TableData;
+// using TableData;
 using UnityEngine;
 using TMPro;
 
@@ -14,11 +14,11 @@ public class TestScript : MonoBehaviour
     [SerializeField] private TMP_InputField inputFieldLocalizeParam2;
     [SerializeField] private TMP_Text txtLocalizeValue;
 
-    private TableLinker _tableLinker;
+    // private TableLinker _tableLinker;
     
     private void Start()
     {
-        _tableLinker = Resources.Load<TableLinker>("TableLinker");
+        // _tableLinker = Resources.Load<TableLinker>("TableLinker");
     }
 
     public void OnClickData()
@@ -29,7 +29,7 @@ public class TestScript : MonoBehaviour
     
     public void OnClickLocalizeInitialize()
     {
-        LocalizeTable.Initialize(language);
+        // LocalizeTable.Initialize(language);
     }
 
     public void OnClickLocalize()
@@ -38,6 +38,6 @@ public class TestScript : MonoBehaviour
         var param1 = inputFieldLocalizeParam1.text;
         var param2 = inputFieldLocalizeParam2.text;
         
-        txtLocalizeValue.text = localizeKey.GetLocalizeText(param1, param2);
+        // txtLocalizeValue.text = localizeKey.GetLocalizeText(param1, param2);
     }
 }
