@@ -74,7 +74,7 @@ namespace GoogleSpreadSheetLoader.Simple
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Space(30);
              
-                if(GSSL_Setting.AdvanceMode)
+                // if(GSSL_Setting.AdvanceMode)
                 {
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.FlexibleSpace();

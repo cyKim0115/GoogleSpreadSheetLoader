@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
-using GoogleSpreadSheetLoader.Simple;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;

@@ -20,7 +20,8 @@ namespace GoogleSpreadSheetLoader.OneButton
         private static string GenerateDataString
         {
             get => EditorPrefs.HasKey(GenerateDataPrefsKey) ? EditorPrefs.GetString(GenerateDataPrefsKey) : string.Empty;
-            set {
+            set
+            {
                 if (string.IsNullOrEmpty(value))
                     EditorPrefs.DeleteKey(GenerateDataPrefsKey);
                 else
@@ -31,7 +32,8 @@ namespace GoogleSpreadSheetLoader.OneButton
         public static bool TableLinkerFlag
         {
             get => EditorPrefs.HasKey("TableLinkerLink");
-            set {
+            set
+            {
                 if (value)
                 {
                     EditorPrefs.SetString("TableLinkerLink", true.ToString());
@@ -68,7 +70,7 @@ namespace GoogleSpreadSheetLoader.OneButton
             {
                 var listExistingSheetTitle = new List<string>();
                 var listExistingSheetData = GSSL_DownloadedSheet.GetAllSheetData();
-                if(listExistingSheetData?.Count > 0)
+                if (listExistingSheetData?.Count > 0)
                 {
                     listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
                 }
@@ -81,7 +83,7 @@ namespace GoogleSpreadSheetLoader.OneButton
                 GSSL_DownloadedSheet.Reset();
 
                 SetProgressState(eGSSL_State.GenerateSheetData);
-                
+
                 var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
                     .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
 
@@ -95,8 +97,8 @@ namespace GoogleSpreadSheetLoader.OneButton
                 {
                     dicSheetData[sheetData.tableStyle].Add(sheetData);
                 }
-                
-                foreach(var title in listSheetData.Select(x=>x.title))
+
+                foreach (var title in listSheetData.Select(x => x.title))
                 {
                     if (!listExistingSheetTitle.Contains(title))
                     {
@@ -134,7 +136,7 @@ namespace GoogleSpreadSheetLoader.OneButton
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
 
-                if(!isRefresh)
+                if (!isRefresh)
                     CheckPrefsAndGenerateTableData();
             }
             catch (Exception e)
@@ -160,7 +162,7 @@ namespace GoogleSpreadSheetLoader.OneButton
             if (GenerateDataFlag)
             {
                 SetProgressState(eGSSL_State.GenerateTableData);
-                
+
                 var str = GenerateDataString;
 
                 GSSL_Log.Log("Generate Data Start");
@@ -175,15 +177,16 @@ namespace GoogleSpreadSheetLoader.OneButton
             if (TableLinkerFlag)
             {
                 SetProgressState(eGSSL_State.GenerateTableLinker);
-                
-                GenerateTableLinkerAsync();
+
+                GenerateTableLinkerAsync().GetAwaiter().GetResult();
 
                 TableLinkerFlag = false;
             }
 
             GenerateDataString = string.Empty;
 
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 SetProgressState(eGSSL_State.Done);
                 await Task.Delay(500);
                 SetProgressState(eGSSL_State.None);

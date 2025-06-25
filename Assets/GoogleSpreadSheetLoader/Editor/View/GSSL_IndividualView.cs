@@ -15,20 +15,9 @@ namespace GoogleSpreadSheetLoader.Editor.View
 {
     public class IndividualView
     {
-        private enum eGenerateState
-        {
-            None,
-            Progress,
-            Complete,
-        }
-
         private readonly Dictionary<string, string> dicSpreadSheetName = new(); // SpreadSheetId => Name
         private readonly Dictionary<string, Dictionary<string, SheetData>> dicSheetDataGroup = new(); // SpreadSheetId =>  SheetTitle => SheetData
         private readonly Dictionary<SheetData, bool> dicSheetCheck = new();
-        private readonly eGenerateState _generateScriptState = eGenerateState.None;
-        private readonly string _generateScriptMessage = "";
-        private readonly eGenerateState _generateDataState = eGenerateState.None;
-        private readonly string _generateDataMessage = "";
         
         private DateTime _checkTime;
         private Vector2 _generateScrollPos = Vector2.zero;
