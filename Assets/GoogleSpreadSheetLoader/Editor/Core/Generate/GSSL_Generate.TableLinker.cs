@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -73,7 +72,6 @@ namespace GoogleSpreadSheetLoader.Generate
             }
 
             Type targetType = target.GetType();
-            BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
             SerializedObject serializedObject = new SerializedObject(target);
             SerializedProperty property = serializedObject.GetIterator();

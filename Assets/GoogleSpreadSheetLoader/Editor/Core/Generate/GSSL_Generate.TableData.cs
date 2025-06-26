@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using Newtonsoft.Json;
 using TableData;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 // ReSharper disable CheckNamespace
@@ -110,9 +111,16 @@ namespace GoogleSpreadSheetLoader.Generate
 
                 var sheetRows = JsonConvert.DeserializeObject<List<List<string>>>(sheet.data);
 
-                if (sheetRows == null || sheetRows.Count < 2) return;
+                if (sheetRows == null || sheetRows.Count < 2) continue;
 
-                var tableAsset = ScriptableObject.CreateInstance(Type.GetType(tableClassName));
+                var tableType = FindTypeByName(tableClassName);
+                if (tableType == null)
+                {
+                    Debug.LogError($"Failed to find type: {tableClassName}");
+                    continue;
+                }
+                
+                var tableAsset = ScriptableObject.CreateInstance(tableType);
                 if (tableAsset == null)
                 {
                     Debug.LogError($"Failed to create instance of {tableClassName}");
@@ -156,6 +164,42 @@ namespace GoogleSpreadSheetLoader.Generate
                 
                 _ => true,
             };
+        }
+
+        private static Type FindTypeByName(string typeName)
+        {
+            // 모든 로드된 어셈블리에서 검색
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    var type = assembly.GetType(typeName);
+                    if (type != null)
+                    {
+                        Debug.Log($"Found type {typeName} in assembly {assembly.FullName}");
+                        return type;
+                    }
+                    
+                    // 어셈블리 내의 모든 타입을 검색
+                    var types = assembly.GetTypes();
+                    foreach (var t in types)
+                    {
+                        if (t.Name == typeName)
+                        {
+                            Debug.Log($"Found type {typeName} in assembly {assembly.FullName} by name search");
+                            return t;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // 일부 어셈블리에서 GetTypes()가 실패할 수 있으므로 무시
+                    Debug.LogWarning($"Failed to get types from assembly {assembly.FullName}: {ex.Message}");
+                }
+            }
+            
+            Debug.LogError($"Type not found: {typeName}");
+            return null;
         }
     }
 }
