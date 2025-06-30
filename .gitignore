@@ -16,3 +16,5 @@ Assets/Resources
 Assets/Resources.meta
  Assets/GoogleSpreadSheetLoader/Generated
 Assets/GoogleSpreadSheetLoader/SettingData.asset
+.vscode
+.cursor
