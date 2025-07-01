@@ -1,6 +1,5 @@
 using System;
 using GoogleSpreadSheetLoader.Simple;
-using GoogleSpreadSheetLoader.Editor.View;
 using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +10,6 @@ namespace GoogleSpreadSheetLoader
     {
         private readonly SettingView _settingView = new();
         private readonly SimpleView _simpleView = new();
-        private readonly IndividualView _individualView = new();
         
         private static int _selectedToolbar = 0;
 
@@ -26,11 +24,9 @@ namespace GoogleSpreadSheetLoader
         public static void ShowWindow()
         {
             var window = GetWindow<GSSL_EditorWindow>(true, "Google Spread Sheet Loader");
-            var editorWindow = (window as EditorWindow);
-            editorWindow.minSize = new Vector2(530, 600);
+            window.minSize = new Vector2(530, 600);
             
             _selectedToolbar = LoadSelectedToolbarNum();
-
             window.ShowUtility();
         }
 
@@ -59,7 +55,7 @@ namespace GoogleSpreadSheetLoader
         private void OnGUI()
         {
             int prevSelected = _selectedToolbar;
-            _selectedToolbar = GUILayout.Toolbar(_selectedToolbar, new[] { "Settings", "Simple", "Individual" });
+            _selectedToolbar = GUILayout.Toolbar(_selectedToolbar, new[] { "Settings", "Simple" });
             
             // 기존 번호랑 다르면 세이브
             if (prevSelected != _selectedToolbar)
@@ -75,9 +71,6 @@ namespace GoogleSpreadSheetLoader
                     break;
                 case 1:
                     _simpleView.DrawSimpleView();
-                    break;
-                case 2:
-                    _individualView.DrawGenerateView();
                     break;
             }
         }

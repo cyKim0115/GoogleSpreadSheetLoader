@@ -13,34 +13,27 @@ namespace GoogleSpreadSheetLoader.Download
     {
         public static async Awaitable DownloadSheet(List<RequestInfo> listDownloadInfo)
         {
-            // 다운로드
-            try
+            foreach (var info in listDownloadInfo)
             {
-                foreach (var info in listDownloadInfo)
-                {
-                    info.SendAndGetAsyncOperation();
-                }
-
-                var totalCount = listDownloadInfo.Count;
-                do
-                {
-                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                    SetProgressState(eGSSL_State.DownloadingSheet, progressString);
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
-                } while (listDownloadInfo.Any(x => !x.IsDone));
+                info.SendAndGetAsyncOperation();
             }
-            finally
+
+            var totalCount = listDownloadInfo.Count;
+            do
             {
-                string progressString = $"(Done)";
+                string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
                 SetProgressState(eGSSL_State.DownloadingSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(500);
-            }
+                await Task.Delay(100);
+            } while (listDownloadInfo.Any(x => !x.IsDone));
+
+            string progressString = $"(Done)";
+            SetProgressState(eGSSL_State.DownloadingSheet, progressString);
+            EditorWindow.focusedWindow?.Repaint();
+            await Task.Delay(500);
 
             var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
 
-            // 다운로드 받은 데이터 정리
             foreach (var info in listDownloadInfo)
             {
                 SheetData sheetData = ScriptableObject.CreateInstance<SheetData>();

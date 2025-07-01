@@ -18,40 +18,33 @@ namespace GoogleSpreadSheetLoader.Download
         {
             var dicSheetName = new Dictionary<string, List<string>>();
 
-            // 다운로드 대상 정리
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
 
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
-            // 다운로드
             var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
-            try
-            {
-                listInfoOperPair.AddRange(from info in listDownloadTarget
-                                          let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
-                                          let webRequest = UnityWebRequest.Get(url)
-                                          let asyncOperator = webRequest.SendWebRequest()
-                                          select (info, asyncOperator));
 
-                do
-                {
-                    string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
-                } while (listInfoOperPair.Any(x => !x.oper.isDone));
-            }
-            finally
-            {
-                SetProgressState(eGSSL_State.Done);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(1000);
-                SetProgressState(eGSSL_State.None);
-                EditorWindow.focusedWindow?.Repaint();
-            }
+            listInfoOperPair.AddRange(from info in listDownloadTarget
+                                      let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
+                                      let webRequest = UnityWebRequest.Get(url)
+                                      let asyncOperator = webRequest.SendWebRequest()
+                                      select (info, asyncOperator));
 
-            // 다운로드 받은 데이터 정리
+            do
+            {
+                string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
+                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(100);
+            } while (listInfoOperPair.Any(x => !x.oper.isDone));
+
+            SetProgressState(eGSSL_State.Done);
+            EditorWindow.focusedWindow?.Repaint();
+            await Task.Delay(1000);
+            SetProgressState(eGSSL_State.None);
+            EditorWindow.focusedWindow?.Repaint();
+
             foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
             {
                 JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
@@ -69,9 +62,7 @@ namespace GoogleSpreadSheetLoader.Download
 
                         switch (isContains)
                         {
-                            // 포함 되어있는데 '제외'설정 되어있으면 추가되지 않음.
                             case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
-                            // 포함되어 있지 않은데 '포함'설정 되어있으면 추가되지 않음.
                             case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
                                 continue;
                         }
@@ -94,32 +85,28 @@ namespace GoogleSpreadSheetLoader.Download
 
         public static async Awaitable<List<RequestInfo>> DownloadSpreadSheetAll()
         {
-            // 다운로드 대상 정리
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
             List<RequestInfo> listResult = new();
 
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
-            // 다운로드
             var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
-            try
-            {
-                listInfoOperPair.AddRange(from info in listDownloadTarget
-                                          let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
-                                          let webRequest = UnityWebRequest.Get(url)
-                                          let asyncOperator = webRequest.SendWebRequest()
-                                          select (info, asyncOperator));
 
-                do
-                {
-                    string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
-                } while (listInfoOperPair.Any(x => !x.oper.isDone));
-            }
-            finally
+            listInfoOperPair.AddRange(from info in listDownloadTarget
+                                      let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
+                                      let webRequest = UnityWebRequest.Get(url)
+                                      let asyncOperator = webRequest.SendWebRequest()
+                                      select (info, asyncOperator));
+
+            do
+            {
+                string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
+                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(100);
+            } while (listInfoOperPair.Any(x => !x.oper.isDone));
+            
             {
                 string progressString = $"(Done)";
                 SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
@@ -127,7 +114,6 @@ namespace GoogleSpreadSheetLoader.Download
                 await Task.Delay(500);
             }
 
-            // 다운로드 받은 데이터 정리
             foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
             {
                 JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
@@ -142,9 +128,7 @@ namespace GoogleSpreadSheetLoader.Download
 
                         switch (isContains)
                         {
-                            // 포함 되어있는데 '제외'설정 되어있으면 추가되지 않음.
                             case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
-                            // 포함되어 있지 않은데 '포함'설정 되어있으면 추가되지 않음.
                             case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
                                 continue;
                         }

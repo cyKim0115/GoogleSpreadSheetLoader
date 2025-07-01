@@ -5,10 +5,6 @@ using UnityEngine;
 using static GoogleSpreadSheetLoader.Download.GSSL_Download;
 using static GoogleSpreadSheetLoader.GSSL_State;
 
-// ReSharper disable CheckNamespace
-// ReSharper disable FieldCanBeMadeReadOnly.Local
-// ReSharper disable ConvertToConstant.Local
-
 namespace GoogleSpreadSheetLoader.Simple
 {
     internal class SimpleView
@@ -18,7 +14,6 @@ namespace GoogleSpreadSheetLoader.Simple
         internal void DrawSimpleView()
         {
             DrawSpreadSheetList();
-
             DrawButton();
         }
 
@@ -74,17 +69,14 @@ namespace GoogleSpreadSheetLoader.Simple
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Space(30);
              
-                // if(GSSL_Setting.AdvanceMode)
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
                 {
-                    EditorGUILayout.BeginHorizontal();
-                    GUILayout.FlexibleSpace();
-                    if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
-                    {
-                        SetProgressState(eGSSL_State.None);
-                    }
-                    EditorGUILayout.Space(30);
-                    EditorGUILayout.EndHorizontal();
+                    SetProgressState(eGSSL_State.None);
                 }
+                EditorGUILayout.Space(30);
+                EditorGUILayout.EndHorizontal();
                 
                 return;
             }

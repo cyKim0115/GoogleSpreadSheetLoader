@@ -112,26 +112,21 @@ namespace GoogleSpreadSheetLoader.Setting
                 EditorGUILayout.ToggleLeft("  시트 설정", _sheetTargetEditToggle, EditorStyles.whiteLargeLabel);
             if (_sheetTargetEditToggle)
             {
-                // 무시
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 시트의 제목에서", GUILayout.Width(100));
                 EditorGUILayout.TextField(GSSL_Setting.SettingData.sheetTargetStr, GUILayout.Width(50));
-                // EditorGUILayout.EndHorizontal();
-                // EditorGUILayout.BeginHorizontal();
                 GUILayout.Box("문구가 포함되어 있을 경우, 대상 시트에서 ", GUILayout.Width(250));
                 GSSL_Setting.SettingData.sheetTarget =
                     (SettingData.eSheetTargetStandard)EditorGUILayout.EnumPopup(GSSL_Setting.SettingData.sheetTarget,
                         GUILayout.Width(60));
                 EditorGUILayout.EndHorizontal();
 
-                // 이넘 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다.");
                 GSSL_Setting.SettingData.sheet_enumTypeStr =
                     EditorGUILayout.TextField(GSSL_Setting.SettingData.sheet_enumTypeStr, GUILayout.Width(100));
                 EditorGUILayout.EndHorizontal();
 
-                // 로컬라이제이션 타입
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Box(" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다.");
                 GSSL_Setting.SettingData.sheet_localizationTypeStr =
@@ -140,15 +135,12 @@ namespace GoogleSpreadSheetLoader.Setting
             }
             else
             {
-                // 무시
                 EditorGUILayout.LabelField(
                     $" 시트의 제목에서 \"{GSSL_Setting.SettingData.sheetTargetStr}\" 문구가 포함되어 있을경우, 대상 시트에서 \"{GSSL_Setting.SettingData.sheetTarget.ToString()}\"");
 
-                // 이넘 타입
                 EditorGUILayout.LabelField(
                     $" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다. \"{GSSL_Setting.SettingData.sheet_enumTypeStr}\"");
 
-                // 로컬라이제이션 타입
                 EditorGUILayout.LabelField(
                     $" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다. \"{GSSL_Setting.SettingData.sheet_localizationTypeStr}\"");
             }

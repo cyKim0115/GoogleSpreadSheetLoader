@@ -14,7 +14,6 @@ namespace GoogleSpreadSheetLoader.OneButton
 {
     public static class GSSL_OneButton
     {
-
         private static readonly string GenerateDataPrefsKey = "GenerateData";
         private static bool GenerateDataFlag => EditorPrefs.HasKey(GenerateDataPrefsKey);
         private static string GenerateDataString
@@ -47,102 +46,87 @@ namespace GoogleSpreadSheetLoader.OneButton
 
         public static async Awaitable OneButtonProcessSpreadSheet()
         {
-            try
-            {
-                GSSL_Log.Log("Download SpreadSheet Start");
-                var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
-                GSSL_Log.Log("Download SpreadSheet Done");
+            GSSL_Log.Log("Download SpreadSheet Start");
+            var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
+            GSSL_Log.Log("Download SpreadSheet Done");
 
-                GSSL_Log.Log("Download Sheet Start");
-                await OneButtonProcessSheet(listDownloadInfo);
-                GSSL_Log.Log("Download Sheet Done");
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            GSSL_Log.Log("Download Sheet Start");
+            await OneButtonProcessSheet(listDownloadInfo);
+            GSSL_Log.Log("Download Sheet Done");
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
         internal static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
         {
-            try
+            var listExistingSheetTitle = new List<string>();
+            var listExistingSheetData = GSSL_DownloadedSheet.GetAllSheetData();
+            if (listExistingSheetData?.Count > 0)
             {
-                var listExistingSheetTitle = new List<string>();
-                var listExistingSheetData = GSSL_DownloadedSheet.GetAllSheetData();
-                if (listExistingSheetData?.Count > 0)
+                listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
+            }
+            bool isRefresh = false;
+            await GSSL_Download.DownloadSheet(listRequestInfo);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            GSSL_DownloadedSheet.Reset();
+
+            SetProgressState(eGSSL_State.GenerateSheetData);
+
+            var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
+                .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
+
+            var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
+
+            dicSheetData.TryAdd(eTableStyle.EnumType, new());
+            dicSheetData.TryAdd(eTableStyle.Common, new());
+            dicSheetData.TryAdd(eTableStyle.Localization, new());
+
+            foreach (var sheetData in listSheetData)
+            {
+                dicSheetData[sheetData.tableStyle].Add(sheetData);
+            }
+
+            foreach (var title in listSheetData.Select(x => x.title))
+            {
+                if (!listExistingSheetTitle.Contains(title))
                 {
-                    listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
+                    isRefresh = true;
+                    break;
                 }
-                bool isRefresh = false;
-                await GSSL_Download.DownloadSheet(listRequestInfo);
+            }
 
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                GSSL_DownloadedSheet.Reset();
-
-                SetProgressState(eGSSL_State.GenerateSheetData);
-
-                var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
-                    .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
-
-                var dicSheetData = new Dictionary<eTableStyle, List<SheetData>>();
-
-                dicSheetData.TryAdd(eTableStyle.EnumType, new());
-                dicSheetData.TryAdd(eTableStyle.Common, new());
-                dicSheetData.TryAdd(eTableStyle.Localization, new());
-
-                foreach (var sheetData in listSheetData)
+            SetProgressState(eGSSL_State.GenerateTableScript);
+            foreach ((eTableStyle tableStyle, var list) in dicSheetData)
+            {
+                switch (tableStyle)
                 {
-                    dicSheetData[sheetData.tableStyle].Add(sheetData);
-                }
-
-                foreach (var title in listSheetData.Select(x => x.title))
-                {
-                    if (!listExistingSheetTitle.Contains(title))
-                    {
-                        isRefresh = true;
+                    case eTableStyle.Common:
+                        GSSL_Generate.GenerateTableScripts(list);
                         break;
-                    }
+                    case eTableStyle.EnumType:
+                        GSSL_Generate.GenerateEnumDef(list);
+                        break;
+                    case eTableStyle.Localization:
+                        GSSL_Generate.GenerateLocalize(list);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
-
-                SetProgressState(eGSSL_State.GenerateTableScript);
-                foreach ((eTableStyle tableStyle, var list) in dicSheetData)
-                {
-                    switch (tableStyle)
-                    {
-                        case eTableStyle.Common:
-                            GSSL_Generate.GenerateTableScripts(list);
-                            break;
-                        case eTableStyle.EnumType:
-                            GSSL_Generate.GenerateEnumDef(list);
-                            break;
-                        case eTableStyle.Localization:
-                            GSSL_Generate.GenerateLocalize(list);
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-                dicSheetData.Remove(eTableStyle.EnumType);
-                dicSheetData.Remove(eTableStyle.Localization);
-                var str = JsonConvert.SerializeObject(dicSheetData);
-                GenerateDataString = str;
-                TableLinkerFlag = true;
-
-                GSSL_Generate.GenerateTableLinkerScript();
-
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                if (!isRefresh)
-                    CheckPrefsAndGenerateTableData();
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            dicSheetData.Remove(eTableStyle.EnumType);
+            dicSheetData.Remove(eTableStyle.Localization);
+            var str = JsonConvert.SerializeObject(dicSheetData);
+            GenerateDataString = str;
+            TableLinkerFlag = true;
+
+            GSSL_Generate.GenerateTableLinkerScript();
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            if (!isRefresh)
+                CheckPrefsAndGenerateTableData();
         }
 
         private static async Awaitable GenerateTableLinkerAsync()
