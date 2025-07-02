@@ -27,10 +27,12 @@ namespace GoogleSpreadSheetLoader.Download
                 await Task.Delay(100);
             } while (listDownloadInfo.Any(x => !x.IsDone));
 
-            string progressString = $"(Done)";
-            SetProgressState(eGSSL_State.DownloadingSheet, progressString);
-            EditorWindow.focusedWindow?.Repaint();
-            await Task.Delay(500);
+            {
+                string progressString = $"(Done)";
+                SetProgressState(eGSSL_State.DownloadingSheet, progressString);
+                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(500);
+            }
 
             var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
 
