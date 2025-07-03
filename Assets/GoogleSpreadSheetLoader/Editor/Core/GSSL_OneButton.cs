@@ -66,13 +66,6 @@ namespace GoogleSpreadSheetLoader.OneButton
             bool isRefresh = false;
             await GSSL_Download.DownloadSheet(listRequestInfo);
 
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            GSSL_DownloadedSheet.Reset();
-
-            SetProgressState(eGSSL_State.GenerateSheetData);
-
             var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
                 .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
 

@@ -83,8 +83,6 @@ namespace GoogleSpreadSheetLoader.Simple
             
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("리스트 새로고침", GUILayout.Width(120)))
-                GSSL_DownloadedSheet.Reset();
             if (GUILayout.Button("다운로드 & 변환", GUILayout.Width(200)))
                 _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
             EditorGUILayout.Space(30);

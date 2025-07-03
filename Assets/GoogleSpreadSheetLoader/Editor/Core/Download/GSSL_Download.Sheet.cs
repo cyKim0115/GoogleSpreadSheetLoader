@@ -34,11 +34,11 @@ namespace GoogleSpreadSheetLoader.Download
                 await Task.Delay(500);
             }
 
-            var sheetDataAssetPath = GSSL_Path.GetPath(ePath.SheetData);
+            GSSL_DownloadedSheet.ClearAllSheetData();
 
             foreach (var info in listDownloadInfo)
             {
-                SheetData sheetData = ScriptableObject.CreateInstance<SheetData>();
+                SheetData sheetData = new SheetData();
                 sheetData.spreadSheetId = info.SpreadSheetId;
                 sheetData.title = info.SheetName;
 
@@ -62,7 +62,7 @@ namespace GoogleSpreadSheetLoader.Download
 
                 sheetData.data = values.ToString();
 
-                AssetDatabase.CreateAsset(sheetData, $"{sheetDataAssetPath}/{sheetData.title}.asset");
+                GSSL_DownloadedSheet.AddSheetData(sheetData);
             }
         }
     }

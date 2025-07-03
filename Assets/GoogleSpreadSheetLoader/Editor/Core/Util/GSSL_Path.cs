@@ -8,7 +8,6 @@ namespace GoogleSpreadSheetLoader
     {
         None,
         SettingData,
-        SheetData,
         TableScript,
         DataScript,
         Enum,
@@ -22,7 +21,6 @@ namespace GoogleSpreadSheetLoader
         private static readonly Dictionary<ePath, string> _dicPath = new()
         {
             { ePath.SettingData, "Assets/GoogleSpreadSheetLoader/"},
-            { ePath.SheetData, "Assets/GoogleSpreadSheetLoader/Generated/SerializeObject/Sheet"},
             {ePath.TableScript, "Assets/GoogleSpreadSheetLoader/Generated/Script/TableScript/"},
             {ePath.DataScript, "Assets/GoogleSpreadSheetLoader/Generated/Script/DataScript/"},
             {ePath.Enum, "Assets/GoogleSpreadSheetLoader/Generated/Script/Enum/"},
