@@ -120,13 +120,18 @@ namespace GoogleSpreadSheetLoader.Generate
                     continue;
                 }
                 
+                // 기존 파일이 있으면 삭제
+                if (AssetDatabase.AssetPathExists(tableAssetPath))
+                {
+                    AssetDatabase.DeleteAsset(tableAssetPath);
+                }
+                
                 var tableAsset = ScriptableObject.CreateInstance(tableType);
                 if (tableAsset == null)
                 {
                     Debug.LogError($"Failed to create instance of {tableClassName}");
                     continue;
                 }
-                tableAsset.hideFlags = HideFlags.None;
 
                 sheetRows.RemoveAt(0);
 

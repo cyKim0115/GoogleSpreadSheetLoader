@@ -46,6 +46,8 @@ namespace GoogleSpreadSheetLoader.OneButton
 
         public static async Awaitable OneButtonProcessSpreadSheet()
         {
+            GSSL_Path.ClearGeneratedFolder();
+            
             GSSL_Log.Log("Download SpreadSheet Start");
             var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
             GSSL_Log.Log("Download SpreadSheet Done");

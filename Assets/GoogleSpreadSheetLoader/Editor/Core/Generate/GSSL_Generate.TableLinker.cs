@@ -43,24 +43,25 @@ namespace GoogleSpreadSheetLoader.Generate
         public static void GenerateTableLinkerData()
         {
             var tableLinkerDataPath = GSSL_Path.GetPath(ePath.TableLinkerData);
-            
             var tableLinkerAssetPath = tableLinkerDataPath + "TableLinker.asset";
             
+            // 기존 파일이 있으면 삭제
+            if (AssetDatabase.AssetPathExists(tableLinkerAssetPath))
+            {
+                AssetDatabase.DeleteAsset(tableLinkerAssetPath);
+            }
+            
             var tableLinkerAsset = ScriptableObject.CreateInstance("TableLinker");
-            tableLinkerAsset.hideFlags = HideFlags.None;
             
             AssetDatabase.CreateAsset(tableLinkerAsset, tableLinkerAssetPath);
-    
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
 
             if (AssignFirstMatchingAssets(tableLinkerAsset))
             {
                 GSSL_OneButton.TableLinkerFlag = false;
-                
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
             }
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
         
         private static bool AssignFirstMatchingAssets(UnityEngine.Object target)
