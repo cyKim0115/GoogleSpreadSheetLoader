@@ -59,13 +59,6 @@ namespace GoogleSpreadSheetLoader.OneButton
 
         internal static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
         {
-            var listExistingSheetTitle = new List<string>();
-            var listExistingSheetData = GSSL_DownloadedSheet.GetAllSheetData();
-            if (listExistingSheetData?.Count > 0)
-            {
-                listExistingSheetTitle.AddRange(from item in listExistingSheetData select item.title);
-            }
-            bool isRefresh = false;
             await GSSL_Download.DownloadSheet(listRequestInfo);
 
             var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
@@ -80,15 +73,6 @@ namespace GoogleSpreadSheetLoader.OneButton
             foreach (var sheetData in listSheetData)
             {
                 dicSheetData[sheetData.tableStyle].Add(sheetData);
-            }
-
-            foreach (var title in listSheetData.Select(x => x.title))
-            {
-                if (!listExistingSheetTitle.Contains(title))
-                {
-                    isRefresh = true;
-                    break;
-                }
             }
 
             SetProgressState(eGSSL_State.GenerateTableScript);
@@ -120,8 +104,7 @@ namespace GoogleSpreadSheetLoader.OneButton
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            if (!isRefresh)
-                CheckPrefsAndGenerateTableData();
+            CheckPrefsAndGenerateTableData();
         }
 
         private static async Awaitable GenerateTableLinkerAsync()

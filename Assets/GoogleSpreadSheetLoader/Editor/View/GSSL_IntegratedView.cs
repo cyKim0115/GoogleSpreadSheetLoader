@@ -1,32 +1,28 @@
+using GoogleSpreadSheetLoader.OneButton;
+using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
-// ReSharper disable CheckNamespace
-
-// ReSharper disable FieldCanBeMadeReadOnly.Local
+using static GoogleSpreadSheetLoader.Download.GSSL_Download;
+using static GoogleSpreadSheetLoader.GSSL_State;
 
 namespace GoogleSpreadSheetLoader.Setting
 {
-    public class SettingView
+    public class IntegratedView
     {
         private bool _apiKeyEditToggle;
         private bool _sheetInfoEditToggle;
         private bool _sheetTargetEditToggle;
 
-        public void DrawSettingView()
+        public void DrawIntegratedView()
         {
             DrawApiKey();
-
             DrawSpreadSheetsInfos();
-
             DrawAddRemoveButtons();
-
             DrawSheetSettings();
-
-            SaveSettingData();
-
             DrawAdvanceMode();
+            DrawActionButtons();
+            SaveSettingData();
         }
-
 
         private void DrawApiKey()
         {
@@ -146,7 +142,6 @@ namespace GoogleSpreadSheetLoader.Setting
             }
         }
 
-
         private void DrawAdvanceMode()
         {
             if(GSSL_Setting.SettingData == null)
@@ -160,6 +155,50 @@ namespace GoogleSpreadSheetLoader.Setting
                 EditorGUILayout.ToggleLeft("  Advance Mode", GSSL_Setting.SettingData.advanceMode, GUILayout.Width(120));
             EditorGUILayout.Space(30);
             EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawActionButtons()
+        {
+            EditorGUILayout.Separator();
+
+            if (CurrState != eGSSL_State.None)
+            {
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                EditorGUILayout.LabelField(ProgressText, GUILayout.Width(ProgressText.Length * 12));
+                EditorGUILayout.Space(30);
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.Space(30);
+             
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
+                {
+                    SetProgressState(eGSSL_State.None);
+                }
+                EditorGUILayout.Space(30);
+                EditorGUILayout.EndHorizontal();
+                
+                return;
+            }
+            
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("다운로드 & 변환", GUILayout.Width(200)))
+                _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
+            EditorGUILayout.Space(30);
+            EditorGUILayout.EndHorizontal();
+
+            if (GSSL_Setting.AdvanceMode)
+            {
+                EditorGUILayout.Space(10);
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("(고급) 시트 다운", GUILayout.Width(160)))
+                    _ = DownloadSpreadSheetOnly();
+                EditorGUILayout.Space(30);
+                EditorGUILayout.EndHorizontal();
+            }
         }
 
         private void SaveSettingData()
@@ -177,10 +216,9 @@ namespace GoogleSpreadSheetLoader.Setting
                 AssetDatabase.SaveAssets();
             }
 
-
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
             GUILayout.Space(30);
         }
     }
-}
+} 
