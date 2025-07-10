@@ -41,10 +41,21 @@ namespace GoogleSpreadSheetLoader
         
         private void OnGUI()
         {
-            if (!GSSL_Setting.CheckAndCreate())
-                return;
-            
-            _integratedView.DrawIntegratedView();
+            try
+            {
+                if (!GSSL_Setting.CheckAndCreate())
+                {
+                    EditorGUILayout.LabelField("설정 데이터를 초기화할 수 없습니다.", EditorStyles.centeredGreyMiniLabel);
+                    return;
+                }
+                
+                _integratedView.DrawIntegratedView();
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"GSSL Editor Window Error: {e.Message}");
+                EditorGUILayout.LabelField("에러가 발생했습니다. 콘솔을 확인해주세요.", EditorStyles.centeredGreyMiniLabel);
+            }
         }
     }
 }
