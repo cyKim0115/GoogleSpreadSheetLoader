@@ -24,9 +24,6 @@ namespace GoogleSpreadSheetLoader
         [Space(5)]
         [SerializeField] public string sheet_enumTypeStr = "EnumDef";
         [SerializeField] public string sheet_localizationTypeStr = "Localization";
-        
-        [Space(5)]
-        [SerializeField] public bool advanceMode = false;
     }
 
     [Serializable]

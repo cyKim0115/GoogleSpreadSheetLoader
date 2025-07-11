@@ -48,7 +48,6 @@ namespace GoogleSpreadSheetLoader.Setting
             DrawApiKey();
             DrawSpreadSheetsInfos();
             DrawSheetSettings();
-            DrawAdvanceMode();
             
             EditorGUILayout.Space(5);
             DrawEditControls();
@@ -169,26 +168,8 @@ namespace GoogleSpreadSheetLoader.Setting
             EditorGUILayout.Space(5);
         }
 
-        private void DrawAdvanceMode()
-        {
-            EditorGUILayout.LabelField("고급 설정");
-
-            if (_isEditMode)
-            {
-                _tempSettingData.advanceMode = EditorGUILayout.ToggleLeft("Advance Mode", _tempSettingData.advanceMode);
-            }
-            else
-            {
-                EditorGUILayout.LabelField($"Advance Mode: {(_tempSettingData.advanceMode ? "활성화" : "비활성화")}");
-            }
-            
-            EditorGUILayout.Space(5);
-        }
-
         private void DrawActionButtons()
         {
-            EditorGUILayout.LabelField("액션", EditorStyles.boldLabel);
-
             if (CurrState != eGSSL_State.None)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -297,7 +278,6 @@ namespace GoogleSpreadSheetLoader.Setting
             target.sheetTargetStr = source.sheetTargetStr;
             target.sheet_enumTypeStr = source.sheet_enumTypeStr;
             target.sheet_localizationTypeStr = source.sheet_localizationTypeStr;
-            target.advanceMode = source.advanceMode;
             
             // 스프레드시트 정보도 깊은 복사
             target.listSpreadSheetInfo.Clear();
