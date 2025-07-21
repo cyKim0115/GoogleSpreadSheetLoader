@@ -42,11 +42,21 @@ namespace GoogleSpreadSheetLoader.Download
         public bool IsDone => _webRequest?.isDone ?? false;
         public string DownloadText => _webRequest?.downloadHandler?.text ?? "";
         
+        // 에러 체크 기능 추가
+        public bool HasError => _webRequest?.result != UnityWebRequest.Result.Success;
+        public string ErrorMessage => _webRequest?.error ?? "";
+        public UnityWebRequest.Result Result => _webRequest?.result ?? UnityWebRequest.Result.DataProcessingError;
+        
         private readonly UnityWebRequest _webRequest;
         
         public void SendAndGetAsyncOperation()
         {
             _webRequest.SendWebRequest();
+        }
+        
+        public void Dispose()
+        {
+            _webRequest?.Dispose();
         }
     }
 }

@@ -13,56 +13,89 @@ namespace GoogleSpreadSheetLoader.Download
     {
         public static async Awaitable DownloadSheet(List<RequestInfo> listDownloadInfo)
         {
-            foreach (var info in listDownloadInfo)
+            try
             {
-                info.SendAndGetAsyncOperation();
-            }
-
-            var totalCount = listDownloadInfo.Count;
-            do
-            {
-                string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                SetProgressState(eGSSL_State.DownloadingSheet, progressString);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(100);
-            } while (listDownloadInfo.Any(x => !x.IsDone));
-
-            {
-                string progressString = $"(Done)";
-                SetProgressState(eGSSL_State.DownloadingSheet, progressString);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(500);
-            }
-
-            GSSL_DownloadedSheet.ClearAllSheetData();
-
-            foreach (var info in listDownloadInfo)
-            {
-                SheetData sheetData = new SheetData();
-                sheetData.spreadSheetId = info.SpreadSheetId;
-                sheetData.title = info.SheetName;
-
-                if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_enumTypeStr))
-                    sheetData.tableStyle = SheetData.eTableStyle.EnumType;
-                else if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_localizationTypeStr))
-                    sheetData.tableStyle = SheetData.eTableStyle.Localization;
-                else
-                    sheetData.tableStyle = SheetData.eTableStyle.Common;
-
-                JObject jObj = JObject.Parse(info.DownloadText);
-
-                if (!jObj.TryGetValue("values", out var values))
+                foreach (var info in listDownloadInfo)
                 {
-                    Debug.LogError($"변환 실패 - {info.SheetName}\n"
-                                   + $"{info.URL}\n"
-                                   + $"{info.DownloadText}");
-
-                    continue;
+                    info.SendAndGetAsyncOperation();
                 }
 
-                sheetData.data = values.ToString();
+                var totalCount = listDownloadInfo.Count;
+                do
+                {
+                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
+                    SetProgressState(eGSSL_State.DownloadingSheet, progressString);
+                    EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(100);
+                } while (listDownloadInfo.Any(x => !x.IsDone));
 
-                GSSL_DownloadedSheet.AddSheetData(sheetData);
+                {
+                    string progressString = $"(Done)";
+                    SetProgressState(eGSSL_State.DownloadingSheet, progressString);
+                    EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(500);
+                }
+
+                // 다운로드 완료 후 에러 체크
+                var errorInfos = listDownloadInfo.Where(x => x.HasError).ToList();
+                if (errorInfos.Any())
+                {
+                    var errorMessage = "시트 다운로드 중 에러가 발생했습니다:\n";
+                    foreach (var errorInfo in errorInfos)
+                    {
+                        errorMessage += $"• {errorInfo.SheetName}: {errorInfo.ErrorMessage} (URL: {errorInfo.URL})\n";
+                    }
+                    
+                    Debug.LogError(errorMessage);
+                    throw new System.Exception($"시트 다운로드 실패: {errorInfos.Count}개 시트에서 에러 발생");
+                }
+
+                GSSL_DownloadedSheet.ClearAllSheetData();
+
+                foreach (var info in listDownloadInfo)
+                {
+                    try
+                    {
+                        SheetData sheetData = new SheetData();
+                        sheetData.spreadSheetId = info.SpreadSheetId;
+                        sheetData.title = info.SheetName;
+
+                        if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_enumTypeStr))
+                            sheetData.tableStyle = SheetData.eTableStyle.EnumType;
+                        else if (sheetData.title.Contains(GSSL_Setting.SettingData.sheet_localizationTypeStr))
+                            sheetData.tableStyle = SheetData.eTableStyle.Localization;
+                        else
+                            sheetData.tableStyle = SheetData.eTableStyle.Common;
+
+                        JObject jObj = JObject.Parse(info.DownloadText);
+
+                        if (!jObj.TryGetValue("values", out var values))
+                        {
+                            Debug.LogError($"변환 실패 - {info.SheetName}\n"
+                                           + $"{info.URL}\n"
+                                           + $"{info.DownloadText}");
+
+                            continue;
+                        }
+
+                        sheetData.data = values.ToString();
+
+                        GSSL_DownloadedSheet.AddSheetData(sheetData);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogError($"시트 데이터 처리 중 에러 발생 - {info.SheetName}: {ex.Message}");
+                        throw;
+                    }
+                }
+            }
+            finally
+            {
+                // 리소스 정리
+                foreach (var info in listDownloadInfo)
+                {
+                    info.Dispose();
+                }
             }
         }
     }

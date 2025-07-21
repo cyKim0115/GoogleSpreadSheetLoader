@@ -114,35 +114,61 @@ namespace GoogleSpreadSheetLoader.Download
                 await Task.Delay(500);
             }
 
+            // 다운로드 완료 후 에러 체크
+            var errorPairs = listInfoOperPair.Where(x => x.oper.webRequest.result != UnityWebRequest.Result.Success).ToList();
+            if (errorPairs.Any())
+            {
+                var errorMessage = "스프레드시트 다운로드 중 에러가 발생했습니다:\n";
+                foreach (var (info, oper) in errorPairs)
+                {
+                    errorMessage += $"• {info.spreadSheetName} ({info.spreadSheetId}): {oper.webRequest.error}\n";
+                }
+                
+                Debug.LogError(errorMessage);
+                throw new System.Exception($"스프레드시트 다운로드 실패: {errorPairs.Count}개 스프레드시트에서 에러 발생");
+            }
+
             foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
             {
-                JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
-                if (jObj.TryGetValue("sheets", out var sheetsJToken))
+                try
                 {
-                    IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
-                    foreach (JToken title in enumTitle)
+                    JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
+                    if (jObj.TryGetValue("sheets", out var sheetsJToken))
                     {
-                        var titleString = title.ToString();
-
-                        var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
-
-                        switch (isContains)
+                        IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
+                        foreach (JToken title in enumTitle)
                         {
-                            case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
-                            case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
+                            var titleString = title.ToString();
+
+                            var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
+
+                            switch (isContains)
+                            {
+                                case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
+                                case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
+                                    continue;
+                            }
+
+                            if (listResult.Any(x => x.SheetName == titleString))
+                            {
+                                Debug.LogError(
+                                    $"중복 시트 이름 : {pair.info.spreadSheetName}에서 {titleString}의 중복 이름이 존재!");
+
                                 continue;
+                            }
+
+                            listResult.Add(new RequestInfo(pair.info.spreadSheetId, titleString));
                         }
-
-                        if (listResult.Any(x => x.SheetName == titleString))
-                        {
-                            Debug.LogError(
-                                $"중복 시트 이름 : {pair.info.spreadSheetName}에서 {titleString}의 중복 이름이 존재!");
-
-                            continue;
-                        }
-
-                        listResult.Add(new RequestInfo(pair.info.spreadSheetId, titleString));
                     }
+                    else
+                    {
+                        Debug.LogError($"스프레드시트 {pair.info.spreadSheetName}에서 'sheets' 필드를 찾을 수 없습니다.");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError($"스프레드시트 {pair.info.spreadSheetName} 처리 중 에러 발생: {ex.Message}");
+                    throw;
                 }
             }
 
