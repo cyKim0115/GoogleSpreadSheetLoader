@@ -194,7 +194,17 @@ namespace GoogleSpreadSheetLoader.Setting
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("다운로드 & 변환", GUILayout.Width(200)))
-                _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
+            {
+                try
+                {
+                    _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError($"다운로드 & 변환 중 에러가 발생했습니다: {ex.Message}");
+                    // 에러가 발생해도 UI는 계속 동작하도록 함
+                }
+            }
             EditorGUILayout.Space(30);
             EditorGUILayout.EndHorizontal();
         }
