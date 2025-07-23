@@ -87,89 +87,122 @@ namespace GoogleSpreadSheetLoader.Download
         {
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
             List<RequestInfo> listResult = new();
+            const int MaxRetryAttempts = 2; // 최대 재시도 횟수
 
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
-            var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
-
-            listInfoOperPair.AddRange(from info in listDownloadTarget
-                                      let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
-                                      let webRequest = UnityWebRequest.Get(url)
-                                      let asyncOperator = webRequest.SendWebRequest()
-                                      select (info, asyncOperator));
-
-            do
+            for (int attempt = 0; attempt <= MaxRetryAttempts; attempt++)
             {
-                string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
-                SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(100);
-            } while (listInfoOperPair.Any(x => !x.oper.isDone));
-            
-            {
-                string progressString = $"(Done)";
-                SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
-                EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(500);
-            }
-
-            // 다운로드 완료 후 에러 체크
-            var errorPairs = listInfoOperPair.Where(x => x.oper.webRequest.result != UnityWebRequest.Result.Success).ToList();
-            if (errorPairs.Any())
-            {
-                var errorMessage = "스프레드시트 다운로드 중 에러가 발생했습니다:\n";
-                foreach (var (info, oper) in errorPairs)
+                if (attempt > 0)
                 {
-                    errorMessage += $"• {info.spreadSheetName} ({info.spreadSheetId}): {oper.webRequest.error}\n";
+                    Debug.LogWarning($"스프레드시트 다운로드 재시도 중... ({attempt}/{MaxRetryAttempts})");
+                    await Task.Delay(2000); // 재시도 간격
                 }
-                
-                Debug.LogError(errorMessage);
-                throw new System.Exception($"스프레드시트 다운로드 실패: {errorPairs.Count}개 스프레드시트에서 에러 발생");
-            }
 
-            foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
-            {
-                try
+                var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
+
+                listInfoOperPair.AddRange(from info in listDownloadTarget
+                                          let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
+                                          let webRequest = UnityWebRequest.Get(url)
+                                          let asyncOperator = webRequest.SendWebRequest()
+                                          select (info, asyncOperator));
+
+                do
                 {
-                    JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
-                    if (jObj.TryGetValue("sheets", out var sheetsJToken))
+                    string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
+                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
+                    EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(100);
+                } while (listInfoOperPair.Any(x => !x.oper.isDone));
+                
+                {
+                    string progressString = $"(Done)";
+                    SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
+                    EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(500);
+                }
+
+                // 다운로드 완료 후 에러 체크
+                var errorPairs = listInfoOperPair.Where(x => x.oper.webRequest.result != UnityWebRequest.Result.Success).ToList();
+                if (errorPairs.Any())
+                {
+                    var errorMessage = $"스프레드시트 다운로드 중 에러가 발생했습니다 (시도 {attempt + 1}/{MaxRetryAttempts + 1}):\n";
+                    foreach (var (info, oper) in errorPairs)
                     {
-                        IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
-                        foreach (JToken title in enumTitle)
+                        errorMessage += $"• {info.spreadSheetName} ({info.spreadSheetId}): {oper.webRequest.error}\n";
+                    }
+                    
+                    Debug.LogError(errorMessage);
+                    
+                    if (attempt == MaxRetryAttempts)
+                    {
+                        // 마지막 시도까지 실패한 경우
+                        throw new System.Exception($"스프레드시트 다운로드 실패: {errorPairs.Count}개 스프레드시트에서 에러 발생 (최대 재시도 횟수 초과)");
+                    }
+                    
+                    // 재시도하기 위해 루프 계속
+                    continue;
+                }
+
+                // 성공한 경우 결과 처리
+                listResult.Clear();
+                foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
+                {
+                    try
+                    {
+                        JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
+                        if (jObj.TryGetValue("sheets", out var sheetsJToken))
                         {
-                            var titleString = title.ToString();
-
-                            var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
-
-                            switch (isContains)
+                            IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
+                            foreach (JToken title in enumTitle)
                             {
-                                case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
-                                case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
+                                var titleString = title.ToString();
+
+                                var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
+
+                                switch (isContains)
+                                {
+                                    case true when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.제외:
+                                    case false when GSSL_Setting.SettingData.sheetTarget == SettingData.eSheetTargetStandard.포함:
+                                        continue;
+                                }
+
+                                if (listResult.Any(x => x.SheetName == titleString))
+                                {
+                                    Debug.LogError(
+                                        $"중복 시트 이름 : {pair.info.spreadSheetName}에서 {titleString}의 중복 이름이 존재!");
+
                                     continue;
+                                }
+
+                                listResult.Add(new RequestInfo(pair.info.spreadSheetId, titleString));
                             }
-
-                            if (listResult.Any(x => x.SheetName == titleString))
-                            {
-                                Debug.LogError(
-                                    $"중복 시트 이름 : {pair.info.spreadSheetName}에서 {titleString}의 중복 이름이 존재!");
-
-                                continue;
-                            }
-
-                            listResult.Add(new RequestInfo(pair.info.spreadSheetId, titleString));
+                        }
+                        else
+                        {
+                            Debug.LogError($"스프레드시트 {pair.info.spreadSheetName}에서 'sheets' 필드를 찾을 수 없습니다.");
                         }
                     }
-                    else
+                    catch (System.Exception ex)
                     {
-                        Debug.LogError($"스프레드시트 {pair.info.spreadSheetName}에서 'sheets' 필드를 찾을 수 없습니다.");
+                        Debug.LogError($"스프레드시트 {pair.info.spreadSheetName} 처리 중 에러 발생: {ex.Message}");
+                        
+                        if (attempt == MaxRetryAttempts)
+                        {
+                            throw;
+                        }
+                        
+                        // 재시도하기 위해 루프 계속
+                        goto retry;
                     }
                 }
-                catch (System.Exception ex)
-                {
-                    Debug.LogError($"스프레드시트 {pair.info.spreadSheetName} 처리 중 에러 발생: {ex.Message}");
-                    throw;
-                }
+                
+                // 성공적으로 완료된 경우 루프 종료
+                break;
+                
+                retry:
+                continue;
             }
 
             return listResult;
