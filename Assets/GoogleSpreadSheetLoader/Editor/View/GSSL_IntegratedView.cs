@@ -20,14 +20,14 @@ namespace GoogleSpreadSheetLoader.Setting
 
             // 윈도우 상단 여백
             EditorGUILayout.Space(5);
-            
+
             DrawSettingsBox();
-            
+
             // 박스와 액션 사이 여백
             EditorGUILayout.Space(5);
-            
+
             DrawActionButtons();
-            
+
             // 윈도우 하단 여백
             EditorGUILayout.Space(5);
         }
@@ -37,10 +37,10 @@ namespace GoogleSpreadSheetLoader.Setting
             // 박스 좌우 여백
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.Space(5);
-            
+
             // 설정 박스 시작
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            
+
             // 설정 제목
             EditorGUILayout.LabelField("설정", EditorStyles.boldLabel);
             EditorGUILayout.Space(5);
@@ -48,14 +48,14 @@ namespace GoogleSpreadSheetLoader.Setting
             DrawApiKey();
             DrawSpreadSheetsInfos();
             DrawSheetSettings();
-            
+
             EditorGUILayout.Space(5);
             DrawEditControls();
             EditorGUILayout.Space(10);
-            
+
             // 설정 박스 끝
             EditorGUILayout.EndVertical();
-            
+
             EditorGUILayout.Space(5);
             EditorGUILayout.EndHorizontal();
         }
@@ -70,12 +70,12 @@ namespace GoogleSpreadSheetLoader.Setting
             }
             else
             {
-                var displayText = _tempSettingData.apiKey.Length > 10 
-                    ? _tempSettingData.apiKey.Substring(0, 10) + "..." 
+                var displayText = _tempSettingData.apiKey.Length > 10
+                    ? _tempSettingData.apiKey.Substring(0, 10) + "..."
                     : _tempSettingData.apiKey;
                 EditorGUILayout.LabelField(displayText);
             }
-            
+
             EditorGUILayout.Space(5);
         }
 
@@ -94,7 +94,7 @@ namespace GoogleSpreadSheetLoader.Setting
                 {
                     info.spreadSheetName = EditorGUILayout.TextField(info.spreadSheetName, GUILayout.Width(100));
                     info.spreadSheetId = EditorGUILayout.TextField(info.spreadSheetId);
-                    
+
                     if (GUILayout.Button("삭제", GUILayout.Width(60)))
                     {
                         _tempSettingData.listSpreadSheetInfo.RemoveAt(i);
@@ -104,12 +104,12 @@ namespace GoogleSpreadSheetLoader.Setting
                 else
                 {
                     EditorGUILayout.LabelField(info.spreadSheetName, GUILayout.Width(100));
-                    
-                    var displayId = info.spreadSheetId.Length > 10 
-                        ? info.spreadSheetId.Substring(0, 10) + "..." 
+
+                    var displayId = info.spreadSheetId.Length > 10
+                        ? info.spreadSheetId.Substring(0, 10) + "..."
                         : info.spreadSheetId;
                     EditorGUILayout.LabelField(displayId);
-                    
+
                     if (GUILayout.Button("열기", GUILayout.Width(60)))
                     {
                         Application.OpenURL(string.Format(GSSL_URL.SpreadSheetOpenUrl, info.spreadSheetId, "0"));
@@ -126,12 +126,12 @@ namespace GoogleSpreadSheetLoader.Setting
                 if (GUILayout.Button("스프레드시트 추가", GUILayout.Width(150)))
                 {
                     _tempSettingData.listSpreadSheetInfo.Add(new SpreadSheetInfo()
-                        { spreadSheetName = "Name Here", spreadSheetId = "Id Here" });
+                    { spreadSheetName = "Name Here", spreadSheetId = "Id Here" });
                 }
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
             }
-            
+
             EditorGUILayout.Space(5);
         }
 
@@ -164,7 +164,7 @@ namespace GoogleSpreadSheetLoader.Setting
                 EditorGUILayout.LabelField($" 다음의 문구가 있다면 enum타입을 정의하는 테이블로 분류합니다. \"{_tempSettingData.sheet_enumTypeStr}\"");
                 EditorGUILayout.LabelField($" 다음의 같은 문구가 있다면 Localization테이블로 분류합니다. \"{_tempSettingData.sheet_localizationTypeStr}\"");
             }
-            
+
             EditorGUILayout.Space(5);
         }
 
@@ -178,7 +178,7 @@ namespace GoogleSpreadSheetLoader.Setting
                 EditorGUILayout.Space(30);
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Space(30);
-             
+
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
                 if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
@@ -187,25 +187,22 @@ namespace GoogleSpreadSheetLoader.Setting
                 }
                 EditorGUILayout.Space(30);
                 EditorGUILayout.EndHorizontal();
-                
+
                 return;
             }
-            
+
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("다운로드 & 변환", GUILayout.Width(200)))
+            if (GUILayout.Button("최신화 Only", GUILayout.Width(200)))
             {
-                try
-                {
-                    _ = GSSL_OneButton.OneButtonProcessSpreadSheet();
-                }
-                catch (System.Exception ex)
-                {
-                    Debug.LogError($"다운로드 & 변환 중 에러가 발생했습니다: {ex.Message}");
-                    // 에러가 발생해도 UI는 계속 동작하도록 함
-                }
+                _ = GSSL_OneButton.OneButtonProcessSpreadSheet(false);
             }
             EditorGUILayout.Space(30);
+            if (GUILayout.Button("클린 & 최신화", GUILayout.Width(200)))
+            {
+                _ = GSSL_OneButton.OneButtonProcessSpreadSheet(true);
+            }
+            GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
         }
 
@@ -230,19 +227,19 @@ namespace GoogleSpreadSheetLoader.Setting
                 // 편집 모드일 때 - 적용/취소 버튼 표시
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                
+
                 if (GUILayout.Button("취소", GUILayout.Width(100)))
                 {
                     CancelEditMode();
                 }
-                
+
                 EditorGUILayout.Space(20);
-                
+
                 if (GUILayout.Button("적용", GUILayout.Width(100)))
                 {
                     ApplyChanges();
                 }
-                
+
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
             }
@@ -275,9 +272,9 @@ namespace GoogleSpreadSheetLoader.Setting
             // ScriptableObject에 저장
             EditorUtility.SetDirty(GSSL_Setting.SettingData);
             AssetDatabase.SaveAssets();
-            
+
             _isEditMode = false;
-            
+
             Debug.Log("설정이 성공적으로 저장되었습니다.");
         }
 
@@ -288,7 +285,7 @@ namespace GoogleSpreadSheetLoader.Setting
             target.sheetTargetStr = source.sheetTargetStr;
             target.sheet_enumTypeStr = source.sheet_enumTypeStr;
             target.sheet_localizationTypeStr = source.sheet_localizationTypeStr;
-            
+
             // 스프레드시트 정보도 깊은 복사
             target.listSpreadSheetInfo.Clear();
             foreach (var info in source.listSpreadSheetInfo)
@@ -301,4 +298,4 @@ namespace GoogleSpreadSheetLoader.Setting
             }
         }
     }
-} 
+}
