@@ -13,19 +13,21 @@ namespace GoogleSpreadSheetLoader.Download
     {
         private const int MaxRetryAttempts = 2; // 전체 재시도 횟수
         
-        public static async Awaitable DownloadSheet(List<RequestInfo> listDownloadInfo)
+        public static async Awaitable DownloadSheet(List<RequestInfo> listDownloadInfo, CancellationToken cancellationToken = default)
         {
             try
             {
                 for (int attempt = 0; attempt <= MaxRetryAttempts; attempt++)
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     if (attempt > 0)
                     {
                         Debug.LogWarning($"전체 다운로드 재시도 중... ({attempt}/{MaxRetryAttempts})");
-                        await Task.Delay(2000); // 재시도 간격
+                        await Task.Delay(2000, cancellationToken); // 재시도 간격
                     }
                     
-                    if (await TryDownloadSheet(listDownloadInfo))
+                    if (await TryDownloadSheet(listDownloadInfo, cancellationToken))
                     {
                         // 성공하면 루프 종료
                         break;
