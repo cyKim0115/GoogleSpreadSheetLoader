@@ -83,21 +83,25 @@ namespace GoogleSpreadSheetLoader.Download
             await DownloadSheet(GetRequestInfoList(dicSheetName));
         }
 
-        public static async Awaitable<List<RequestInfo>> DownloadSpreadSheetAll()
+        public static async Awaitable<List<RequestInfo>> DownloadSpreadSheetAll(CancellationToken cancellationToken = default)
         {
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
             List<RequestInfo> listResult = new();
             const int MaxRetryAttempts = 2; // 최대 재시도 횟수
+
+            cancellationToken.ThrowIfCancellationRequested();
 
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
             for (int attempt = 0; attempt <= MaxRetryAttempts; attempt++)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+                
                 if (attempt > 0)
                 {
                     Debug.LogWarning($"스프레드시트 다운로드 재시도 중... ({attempt}/{MaxRetryAttempts})");
-                    await Task.Delay(2000); // 재시도 간격
+                    await Task.Delay(2000, cancellationToken); // 재시도 간격
                 }
 
                 var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
@@ -110,17 +114,19 @@ namespace GoogleSpreadSheetLoader.Download
 
                 do
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
                     SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
+                    await Task.Delay(100, cancellationToken);
                 } while (listInfoOperPair.Any(x => !x.oper.isDone));
                 
                 {
                     string progressString = $"(Done)";
                     SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(500);
+                    await Task.Delay(500, cancellationToken);
                 }
 
                 // 다운로드 완료 후 에러 체크
@@ -149,6 +155,8 @@ namespace GoogleSpreadSheetLoader.Download
                 listResult.Clear();
                 foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     try
                     {
                         JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
@@ -157,6 +165,8 @@ namespace GoogleSpreadSheetLoader.Download
                             IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
                             foreach (JToken title in enumTitle)
                             {
+                                cancellationToken.ThrowIfCancellationRequested();
+                                
                                 var titleString = title.ToString();
 
                                 var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
