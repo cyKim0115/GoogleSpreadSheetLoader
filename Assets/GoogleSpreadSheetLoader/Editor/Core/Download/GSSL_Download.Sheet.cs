@@ -58,7 +58,7 @@ namespace GoogleSpreadSheetLoader.Download
             }
         }
         
-        private static async Awaitable<bool> TryDownloadSheet(List<RequestInfo> listDownloadInfo)
+        private static async Awaitable<bool> TryDownloadSheet(List<RequestInfo> listDownloadInfo, CancellationToken cancellationToken = default)
         {
             // 실패한 요청들만 재시도
             var failedRequests = listDownloadInfo.Where(x => x.HasError && x.CanRetry).ToList();
@@ -69,16 +69,19 @@ namespace GoogleSpreadSheetLoader.Download
                 
                 foreach (var request in failedRequests)
                 {
-                    await request.RetryAsync();
+                    cancellationToken.ThrowIfCancellationRequested();
+                    await request.RetryAsync(cancellationToken);
                 }
                 
                 // 재시도된 요청들이 완료될 때까지 대기
                 do
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{listDownloadInfo.Count})";
                     SetProgressState(eGSSL_State.DownloadingSheet, progressString + " (재시도 중)");
                     EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
+                    await Task.Delay(100, cancellationToken);
                 } while (listDownloadInfo.Any(x => !x.IsDone && !x.IsDisposed));
             }
             else
@@ -86,6 +89,8 @@ namespace GoogleSpreadSheetLoader.Download
                 // 모든 요청 시작
                 foreach (var info in listDownloadInfo)
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     if (!info.IsDisposed)
                     {
                         info.SendAndGetAsyncOperation();
@@ -95,10 +100,12 @@ namespace GoogleSpreadSheetLoader.Download
                 var totalCount = listDownloadInfo.Count;
                 do
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
                     string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
                     SetProgressState(eGSSL_State.DownloadingSheet, progressString);
                     EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100);
+                    await Task.Delay(100, cancellationToken);
                 } while (listDownloadInfo.Any(x => !x.IsDone && !x.IsDisposed));
             }
 
@@ -106,7 +113,7 @@ namespace GoogleSpreadSheetLoader.Download
                 string progressString = $"(Done)";
                 SetProgressState(eGSSL_State.DownloadingSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(500);
+                await Task.Delay(500, cancellationToken);
             }
 
             // 다운로드 완료 후 에러 체크
@@ -127,6 +134,8 @@ namespace GoogleSpreadSheetLoader.Download
 
             foreach (var info in listDownloadInfo)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+                
                 if (info.IsDisposed) continue;
                 
                 try
