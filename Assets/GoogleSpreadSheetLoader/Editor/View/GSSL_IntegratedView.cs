@@ -181,9 +181,9 @@ namespace GoogleSpreadSheetLoader.Setting
 
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                if (GUILayout.Button("강제 초기화 (에러 났을때)", GUILayout.Width(180)))
+                if (GUILayout.Button("취소", GUILayout.Width(180)))
                 {
-                    SetProgressState(eGSSL_State.None);
+                    GSSL_OneButton.CancelCurrentProcess();
                 }
                 EditorGUILayout.Space(30);
                 EditorGUILayout.EndHorizontal();
