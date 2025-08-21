@@ -48,6 +48,11 @@ namespace GoogleSpreadSheetLoader.Download
                     }
                 }
             }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("시트 다운로드가 취소되었습니다.");
+                throw; // 취소 예외는 다시 던져서 상위에서 처리하도록 함
+            }
             finally
             {
                 // 리소스 정리

@@ -73,7 +73,7 @@ namespace GoogleSpreadSheetLoader.Download
             _webRequest.SendWebRequest();
         }
         
-        public async System.Threading.Tasks.Task<bool> RetryAsync()
+        public async System.Threading.Tasks.Task<bool> RetryAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             if (!CanRetry) return false;
             
@@ -84,7 +84,7 @@ namespace GoogleSpreadSheetLoader.Download
             _webRequest?.Dispose();
             
             // 재시도 간격 대기
-            await System.Threading.Tasks.Task.Delay(RetryDelayMs);
+            await System.Threading.Tasks.Task.Delay(RetryDelayMs, cancellationToken);
             
             // 새로운 요청 생성
             CreateWebRequest();
@@ -93,11 +93,20 @@ namespace GoogleSpreadSheetLoader.Download
             return true;
         }
         
+        public void Cancel()
+        {
+            if (_webRequest != null && !_webRequest.isDone)
+            {
+                _webRequest.Abort();
+            }
+        }
+        
         public void Dispose()
         {
             if (_isDisposed) return;
             
             _isDisposed = true;
+            Cancel(); // 진행중인 요청 취소
             _webRequest?.Dispose();
         }
     }

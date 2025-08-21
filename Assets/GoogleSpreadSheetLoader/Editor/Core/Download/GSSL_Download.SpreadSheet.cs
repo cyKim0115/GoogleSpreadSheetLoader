@@ -14,11 +14,13 @@ namespace GoogleSpreadSheetLoader.Download
 {
     internal partial class GSSL_Download
     {
-        internal static async Awaitable DownloadSpreadSheetOnly()
+        internal static async Awaitable DownloadSpreadSheetOnly(CancellationToken cancellationToken = default)
         {
             var dicSheetName = new Dictionary<string, List<string>>();
 
             var listDownloadTarget = GSSL_Setting.SettingData.listSpreadSheetInfo;
+
+            cancellationToken.ThrowIfCancellationRequested();
 
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
@@ -94,23 +96,30 @@ namespace GoogleSpreadSheetLoader.Download
             SetProgressState(eGSSL_State.Prepare);
             EditorWindow.focusedWindow?.Repaint();
 
-            for (int attempt = 0; attempt <= MaxRetryAttempts; attempt++)
+            var allWebRequests = new List<UnityWebRequest>(); // 리소스 정리를 위한 리스트
+            
+            try
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                
-                if (attempt > 0)
+                for (int attempt = 0; attempt <= MaxRetryAttempts; attempt++)
                 {
-                    Debug.LogWarning($"스프레드시트 다운로드 재시도 중... ({attempt}/{MaxRetryAttempts})");
-                    await Task.Delay(2000, cancellationToken); // 재시도 간격
-                }
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
+                    if (attempt > 0)
+                    {
+                        Debug.LogWarning($"스프레드시트 다운로드 재시도 중... ({attempt}/{MaxRetryAttempts})");
+                        await Task.Delay(2000, cancellationToken); // 재시도 간격
+                    }
 
-                var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
+                    var listInfoOperPair = new List<(SpreadSheetInfo info, UnityWebRequestAsyncOperation oper)>();
 
-                listInfoOperPair.AddRange(from info in listDownloadTarget
-                                          let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
-                                          let webRequest = UnityWebRequest.Get(url)
-                                          let asyncOperator = webRequest.SendWebRequest()
-                                          select (info, asyncOperator));
+                    listInfoOperPair.AddRange(from info in listDownloadTarget
+                                              let url = string.Format(GSSL_URL.DownloadSpreadSheetUrl, info.spreadSheetId, GSSL_Setting.SettingData.apiKey)
+                                              let webRequest = UnityWebRequest.Get(url)
+                                              let asyncOperator = webRequest.SendWebRequest()
+                                              select (info, asyncOperator));
+                                              
+                    // 웹 요청들을 리스트에 추가 (리소스 정리용)
+                    allWebRequests.AddRange(listInfoOperPair.Select(x => x.oper.webRequest));
 
                 do
                 {
@@ -208,11 +217,36 @@ namespace GoogleSpreadSheetLoader.Download
                     }
                 }
                 
-                // 성공적으로 완료된 경우 루프 종료
-                break;
-                
-                retry:
-                continue;
+                    // 성공적으로 완료된 경우 루프 종료
+                    break;
+                    
+                    retry:
+                    continue;
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("스프레드시트 다운로드가 취소되었습니다.");
+                throw;
+            }
+            finally
+            {
+                // 모든 웹 요청 리소스 정리
+                foreach (var webRequest in allWebRequests)
+                {
+                    try
+                    {
+                        if (!webRequest.isDone)
+                        {
+                            webRequest.Abort();
+                        }
+                        webRequest.Dispose();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogWarning($"웹 요청 정리 중 에러: {ex.Message}");
+                    }
+                }
             }
 
             return listResult;
