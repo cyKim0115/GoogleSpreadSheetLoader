@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GoogleSpreadSheetLoader.Setting;
 using Newtonsoft.Json.Linq;
@@ -35,20 +37,24 @@ namespace GoogleSpreadSheetLoader.Download
 
             do
             {
+                cancellationToken.ThrowIfCancellationRequested();
+                
                 string progressString = $"({listInfoOperPair.Count(x => x.oper.isDone)}/{listInfoOperPair.Count})";
                 SetProgressState(eGSSL_State.DownloadingSpreadSheet, progressString);
                 EditorWindow.focusedWindow?.Repaint();
-                await Task.Delay(100);
+                await Task.Delay(100, cancellationToken);
             } while (listInfoOperPair.Any(x => !x.oper.isDone));
 
             SetProgressState(eGSSL_State.Done);
             EditorWindow.focusedWindow?.Repaint();
-            await Task.Delay(1000);
+            await Task.Delay(1000, cancellationToken);
             SetProgressState(eGSSL_State.None);
             EditorWindow.focusedWindow?.Repaint();
 
             foreach ((SpreadSheetInfo info, UnityWebRequestAsyncOperation oper) pair in listInfoOperPair)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+                
                 JObject jObj = JObject.Parse(pair.oper.webRequest.downloadHandler.text);
                 if (jObj.TryGetValue("sheets", out var sheetsJToken))
                 {
@@ -58,6 +64,8 @@ namespace GoogleSpreadSheetLoader.Download
                     IEnumerable<JToken> enumTitle = sheetsJToken.Select(x => x["properties"]["title"]);
                     foreach (JToken title in enumTitle)
                     {
+                        cancellationToken.ThrowIfCancellationRequested();
+                        
                         var titleString = title.ToString();
 
                         var isContains = titleString.Contains(GSSL_Setting.SettingData.sheetTargetStr);
@@ -82,7 +90,7 @@ namespace GoogleSpreadSheetLoader.Download
                 }
             }
 
-            await DownloadSheet(GetRequestInfoList(dicSheetName));
+            await DownloadSheet(GetRequestInfoList(dicSheetName), cancellationToken);
         }
 
         public static async Awaitable<List<RequestInfo>> DownloadSpreadSheetAll(CancellationToken cancellationToken = default)
