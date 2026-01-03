@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading;
 using GoogleSpreadSheetLoader.Download;
 using GoogleSpreadSheetLoader.Generate;
 using Newtonsoft.Json;
@@ -27,6 +28,10 @@ namespace GoogleSpreadSheetLoader.OneButton
                     EditorPrefs.SetString(GenerateDataPrefsKey, value);
             }
         }
+        
+        // 취소 관련 필드들
+        private static CancellationTokenSource _cancellationTokenSource;
+        public static bool IsProcessRunning => _cancellationTokenSource != null && !_cancellationTokenSource.Token.IsCancellationRequested;
 
         public static bool TableLinkerFlag
         {
@@ -44,22 +49,73 @@ namespace GoogleSpreadSheetLoader.OneButton
             }
         }
 
-        public static async Awaitable OneButtonProcessSpreadSheet()
+        /// <summary>
+        /// 현재 진행중인 프로세스를 취소합니다.
+        /// </summary>
+        public static void CancelCurrentProcess()
         {
-            GSSL_Path.ClearGeneratedFolder();
+            if (_cancellationTokenSource != null && !_cancellationTokenSource.Token.IsCancellationRequested)
+            {
+                _cancellationTokenSource.Cancel();
+                GSSL_Log.Log("프로세스 취소가 요청되었습니다.");
+            }
             
-            GSSL_Log.Log("Download SpreadSheet Start");
-            var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll();
-            GSSL_Log.Log("Download SpreadSheet Done");
-
-            GSSL_Log.Log("Download Sheet Start");
-            await OneButtonProcessSheet(listDownloadInfo);
-            GSSL_Log.Log("Download Sheet Done");
+            // 상태를 None으로 설정
+            SetProgressState(eGSSL_State.None);
         }
 
-        internal static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo)
+        public static async Awaitable OneButtonProcessSpreadSheet(bool isClearGeneratedFolder = true)
         {
-            await GSSL_Download.DownloadSheet(listRequestInfo);
+            // 이전 작업이 진행중이면 취소
+            if (_cancellationTokenSource != null)
+            {
+                _cancellationTokenSource.Cancel();
+                _cancellationTokenSource.Dispose();
+            }
+            
+            // 새로운 취소 토큰 생성
+            _cancellationTokenSource = new CancellationTokenSource();
+            
+            try
+            {
+                if (isClearGeneratedFolder)
+                {
+                    GSSL_Path.ClearGeneratedFolder();
+                }
+                
+                GSSL_Log.Log("Download SpreadSheet Start");
+                var listDownloadInfo = await GSSL_Download.DownloadSpreadSheetAll(_cancellationTokenSource.Token);
+                GSSL_Log.Log("Download SpreadSheet Done");
+
+                GSSL_Log.Log("Download Sheet Start");
+                await OneButtonProcessSheet(listDownloadInfo, _cancellationTokenSource.Token);
+                GSSL_Log.Log("Download Sheet Done");
+            }
+            catch (OperationCanceledException)
+            {
+                GSSL_Log.Log("프로세스가 취소되었습니다.");
+                SetProgressState(eGSSL_State.None);
+            }
+            catch (Exception ex)
+            {
+                GSSL_Log.LogError($"프로세스 중 에러가 발생했습니다: {ex.Message}");
+                SetProgressState(eGSSL_State.None);
+            }
+            finally
+            {
+                // 리소스 정리
+                _cancellationTokenSource?.Dispose();
+                _cancellationTokenSource = null;
+            }
+        }
+
+        internal static async Awaitable OneButtonProcessSheet(List<RequestInfo> listRequestInfo, CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            
+            await GSSL_Download.DownloadSheet(listRequestInfo, cancellationToken);
+
+            cancellationToken.ThrowIfCancellationRequested();
 
             var listSheetData = GSSL_DownloadedSheet.GetAllSheetData()
                 .Where(x => listRequestInfo.Any(downloadInfo => downloadInfo.SheetName == x.title));
@@ -75,9 +131,13 @@ namespace GoogleSpreadSheetLoader.OneButton
                 dicSheetData[sheetData.tableStyle].Add(sheetData);
             }
 
+            cancellationToken.ThrowIfCancellationRequested();
+
             SetProgressState(eGSSL_State.GenerateTableScript);
             foreach ((eTableStyle tableStyle, var list) in dicSheetData)
             {
+                cancellationToken.ThrowIfCancellationRequested();
+                
                 switch (tableStyle)
                 {
                     case eTableStyle.Common:
@@ -98,6 +158,8 @@ namespace GoogleSpreadSheetLoader.OneButton
             var str = JsonConvert.SerializeObject(dicSheetData);
             GenerateDataString = str;
             TableLinkerFlag = true;
+
+            cancellationToken.ThrowIfCancellationRequested();
 
             GSSL_Generate.GenerateTableLinkerScript();
 
