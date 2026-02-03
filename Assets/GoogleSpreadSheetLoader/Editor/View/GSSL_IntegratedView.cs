@@ -114,6 +114,14 @@ namespace GoogleSpreadSheetLoader.Setting
                     {
                         Application.OpenURL(string.Format(GSSL_URL.SpreadSheetOpenUrl, info.spreadSheetId, "0"));
                     }
+                    
+                    // 스프레드시트 단위 최신화 버튼 추가
+                    GUI.enabled = CurrState == eGSSL_State.None;
+                    if (GUILayout.Button("최신화", GUILayout.Width(60)))
+                    {
+                        _ = GSSL_OneButton.OneButtonProcessSingleSpreadSheet(info.spreadSheetId);
+                    }
+                    GUI.enabled = true;
                 }
 
                 EditorGUILayout.EndHorizontal();

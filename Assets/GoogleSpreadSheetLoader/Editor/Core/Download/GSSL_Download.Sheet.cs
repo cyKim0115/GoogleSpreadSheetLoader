@@ -74,22 +74,9 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 Debug.LogWarning($"실패한 시트 {failedRequests.Count}개 재시도 중...");
                 
-                foreach (var request in failedRequests)
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-                    await request.RetryAsync(cancellationToken);
-                }
-                
-                // 재시도된 요청들이 완료될 때까지 대기
-                do
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-                    
-                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{listDownloadInfo.Count})";
-                    SetProgressState(eGSSL_State.DownloadingSheet, progressString + " (재시도 중)");
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100, cancellationToken);
-                } while (listDownloadInfo.Any(x => !x.IsDone && !x.IsDisposed));
+                // 모든 실패한 요청을 병렬로 재시도
+                var retryTasks = failedRequests.Select(request => request.RetryAsync(cancellationToken)).ToArray();
+                await Task.WhenAll(retryTasks);
             }
             else
             {
@@ -103,18 +90,21 @@ namespace GoogleSpreadSheetLoader.Download
                         info.SendAndGetAsyncOperation();
                     }
                 }
-
-                var totalCount = listDownloadInfo.Count;
-                do
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-                    
-                    string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
-                    SetProgressState(eGSSL_State.DownloadingSheet, progressString);
-                    EditorWindow.focusedWindow?.Repaint();
-                    await Task.Delay(100, cancellationToken);
-                } while (listDownloadInfo.Any(x => !x.IsDone && !x.IsDisposed));
             }
+
+            // 모든 요청이 완료될 때까지 대기 (첫 번째 실행과 재시도 공통)
+            var totalCount = listDownloadInfo.Count;
+            var isRetry = failedRequests.Any();
+            do
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                
+                string progressString = $"({listDownloadInfo.Count(x => x.IsDone)}/{totalCount})";
+                string statusSuffix = isRetry ? " (재시도 중)" : "";
+                SetProgressState(eGSSL_State.DownloadingSheet, progressString + statusSuffix);
+                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(100, cancellationToken);
+            } while (listDownloadInfo.Any(x => !x.IsDone && !x.IsDisposed));
 
             {
                 string progressString = $"(Done)";
@@ -129,7 +119,7 @@ namespace GoogleSpreadSheetLoader.Download
             {
                 var errorMessage = "시트 다운로드 중 에러가 발생했습니다:\n";
                 foreach (var errorInfo in errorInfos)
-                {
+            {
                     errorMessage += $"• {errorInfo.SheetName}: {errorInfo.ErrorMessage} (재시도: {errorInfo.RetryCount}회)\n";
                 }
                 
@@ -172,6 +162,18 @@ namespace GoogleSpreadSheetLoader.Download
                     sheetData.data = values.ToString();
 
                     GSSL_DownloadedSheet.AddSheetData(sheetData);
+                    
+                    // 캐시에 저장
+                    var spreadSheetInfo = GSSL_Setting.SettingData.listSpreadSheetInfo
+                        .FirstOrDefault(x => x.spreadSheetId == info.SpreadSheetId);
+                    var spreadSheetName = spreadSheetInfo?.spreadSheetName ?? "Unknown";
+                    
+                    GSSL_CacheManager.SaveSheetToCache(
+                        info.SpreadSheetId, 
+                        spreadSheetName, 
+                        info.SheetName, 
+                        sheetData.data, 
+                        sheetData.tableStyle);
                 }
                 catch (System.Exception ex)
                 {
@@ -181,6 +183,97 @@ namespace GoogleSpreadSheetLoader.Download
             }
             
             return true; // 성공
+        }
+        
+        public static async Awaitable DownloadIndividualSheets(List<string> sheetNames, CancellationToken cancellationToken = default)
+        {
+            var cachedSheets = GSSL_CacheManager.GetAllCachedSheets();
+            var requestInfoList = new List<RequestInfo>();
+            
+            // 선택된 시트들의 RequestInfo 생성
+            foreach (var sheetName in sheetNames)
+            {
+                var cacheInfo = cachedSheets.FirstOrDefault(c => c.sheetName == sheetName);
+                if (cacheInfo != null)
+                {
+                    requestInfoList.Add(new RequestInfo(cacheInfo.spreadSheetId, cacheInfo.sheetName));
+                }
+            }
+            
+            if (requestInfoList.Count == 0)
+            {
+                Debug.LogWarning("다운로드할 시트가 없습니다.");
+                return;
+            }
+            
+            await DownloadSheet(requestInfoList, cancellationToken);
+        }
+        
+        public static async Awaitable RegenerateFromCache(List<string> sheetNames, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                SetProgressState(eGSSL_State.Prepare);
+                EditorWindow.focusedWindow?.Repaint();
+                
+                GSSL_DownloadedSheet.ClearAllSheetData();
+                
+                var cachedSheets = GSSL_CacheManager.GetAllCachedSheets();
+                var processedCount = 0;
+                
+                foreach (var sheetName in sheetNames)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
+                    var cacheInfo = cachedSheets.FirstOrDefault(c => c.sheetName == sheetName);
+                    if (cacheInfo == null)
+                    {
+                        Debug.LogWarning($"캐시에서 시트를 찾을 수 없습니다: {sheetName}");
+                        continue;
+                    }
+                    
+                    var cachedData = GSSL_CacheManager.LoadSheetFromCache(sheetName);
+                    if (string.IsNullOrEmpty(cachedData))
+                    {
+                        Debug.LogWarning($"캐시 데이터를 로드할 수 없습니다: {sheetName}");
+                        continue;
+                    }
+                    
+                    var sheetData = new SheetData
+                    {
+                        spreadSheetId = cacheInfo.spreadSheetId,
+                        title = cacheInfo.sheetName,
+                        tableStyle = cacheInfo.tableStyle,
+                        data = cachedData
+                    };
+                    
+                    GSSL_DownloadedSheet.AddSheetData(sheetData);
+                    processedCount++;
+                    
+                    string progressString = $"({processedCount}/{sheetNames.Count})";
+                    SetProgressState(eGSSL_State.GenerateTableData, progressString);
+                    EditorWindow.focusedWindow?.Repaint();
+                    await Task.Delay(50, cancellationToken);
+                }
+                
+                SetProgressState(eGSSL_State.Done);
+                EditorWindow.focusedWindow?.Repaint();
+                await Task.Delay(1000, cancellationToken);
+                SetProgressState(eGSSL_State.None);
+                EditorWindow.focusedWindow?.Repaint();
+                
+                Debug.Log($"캐시에서 {processedCount}개 시트를 성공적으로 로드했습니다.");
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("캐시 재생성이 취소되었습니다.");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"캐시 재생성 중 에러 발생: {ex.Message}");
+                throw;
+            }
         }
     }
 }

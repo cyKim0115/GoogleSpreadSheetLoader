@@ -64,6 +64,43 @@ namespace GoogleSpreadSheetLoader.Generate
             AssetDatabase.Refresh();
         }
         
+        /// <summary>
+        /// 기존 테이블링커에 테이블들을 다시 연결합니다.
+        /// </summary>
+        public static void ReconnectTableLinker()
+        {
+            var tableLinkerDataPath = GSSL_Path.GetPath(ePath.TableLinkerData);
+            var tableLinkerAssetPath = tableLinkerDataPath + "TableLinker.asset";
+            
+            // 기존 테이블링커가 있는지 확인
+            if (!AssetDatabase.AssetPathExists(tableLinkerAssetPath))
+            {
+                Debug.LogWarning("테이블링커 asset이 존재하지 않습니다. 먼저 전체 최신화를 실행하세요.");
+                return;
+            }
+            
+            var tableLinkerAsset = AssetDatabase.LoadAssetAtPath(tableLinkerAssetPath, typeof(UnityEngine.Object));
+            
+            if (tableLinkerAsset == null)
+            {
+                Debug.LogWarning("테이블링커 asset을 로드할 수 없습니다.");
+                return;
+            }
+            
+            // 테이블 연결 재처리
+            if (AssignFirstMatchingAssets(tableLinkerAsset))
+            {
+                Debug.Log("테이블링커 연결이 완료되었습니다.");
+            }
+            else
+            {
+                Debug.Log("연결할 새로운 테이블이 없습니다.");
+            }
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        
         private static bool AssignFirstMatchingAssets(UnityEngine.Object target)
         {
             if (target == null)

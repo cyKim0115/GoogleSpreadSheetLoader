@@ -47,15 +47,24 @@ namespace GoogleSpreadSheetLoader.Generate
 
                     if (varType == "string")
                     {
-                        setData += $"\t\t_{varName} = data[{i}].ToString();\n";
+                        // 문자열의 경우, 셀이 비어있거나 행의 길이가 짧아도 안전하게 빈 문자열로 처리
+                        setData += $"\t\t_{varName} = data.Count > {i} ? data[{i}] : string.Empty;\n";
                     }
                     else if (CheckEnumType(varType))
                     {
-                        setData += $"\t\t_{varName} = {varType}.Parse<{varType}>(data[{i}]);\n";
+                        // Enum 및 기타 타입은 인덱스 범위와 빈 문자열을 체크한 뒤에만 파싱
+                        setData += $"\t\tif (data.Count > {i} && !string.IsNullOrEmpty(data[{i}]))\n";
+                        setData += "\t\t{\n";
+                        setData += $"\t\t\t_{varName} = {varType}.Parse<{varType}>(data[{i}]);\n";
+                        setData += "\t\t}\n";
                     }
                     else
                     {
-                        setData += $"\t\t_{varName} = {varType}.Parse(data[{i}]);\n";
+                        // 숫자/기타 기본형도 인덱스와 빈 문자열을 체크해서 안전하게 처리
+                        setData += $"\t\tif (data.Count > {i} && !string.IsNullOrEmpty(data[{i}]))\n";
+                        setData += "\t\t{\n";
+                        setData += $"\t\t\t_{varName} = {varType}.Parse(data[{i}]);\n";
+                        setData += "\t\t}\n";
                     }
                 }
 

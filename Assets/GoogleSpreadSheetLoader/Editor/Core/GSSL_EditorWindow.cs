@@ -7,7 +7,7 @@ namespace GoogleSpreadSheetLoader
 {
     public class GSSL_EditorWindow : EditorWindow
     {
-        private readonly IntegratedView _integratedView = new();
+        private readonly TabbedView _tabbedView = new();
         
         [MenuItem("Tools/Google Spread Sheet Loader")]
         public static void ShowWindow()
@@ -49,7 +49,7 @@ namespace GoogleSpreadSheetLoader
                     return;
                 }
                 
-                _integratedView.DrawIntegratedView();
+                _tabbedView.DrawTabbedView();
             }
             catch (System.Exception e)
             {

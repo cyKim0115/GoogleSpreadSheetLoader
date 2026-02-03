@@ -53,8 +53,8 @@ namespace GoogleSpreadSheetLoader.Download
         public bool IsDone => _webRequest?.isDone ?? false;
         public string DownloadText => _webRequest?.downloadHandler?.text ?? "";
         
-        // 에러 체크 기능 추가
-        public bool HasError => _webRequest?.result != UnityWebRequest.Result.Success;
+        // 에러 체크 기능 추가 - 요청이 완료된 후에만 에러로 판단
+        public bool HasError => _webRequest != null && _webRequest.isDone && _webRequest.result != UnityWebRequest.Result.Success;
         public string ErrorMessage => _webRequest?.error ?? "";
         public UnityWebRequest.Result Result => _webRequest?.result ?? UnityWebRequest.Result.DataProcessingError;
         
