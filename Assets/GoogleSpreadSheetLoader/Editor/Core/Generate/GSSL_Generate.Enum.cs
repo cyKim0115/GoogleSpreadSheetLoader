@@ -78,7 +78,7 @@ namespace GoogleSpreadSheetLoader.Generate
                 var listName = info.listName;
                 var listIdx = info.listIdx;
                     
-                data += $"\npublic enum {info.enumTitle}\n{{\n";
+                data += $"\n\npublic enum {info.enumTitle}\n{{\n";
                 for (var i = 0; i < listName.Count; i++)
                 {
                     data += $"\t{listName[i]} = {listIdx[i]},\n";

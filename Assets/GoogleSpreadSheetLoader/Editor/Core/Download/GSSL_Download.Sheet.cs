@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GoogleSpreadSheetLoader.Auth;
 using GoogleSpreadSheetLoader.Setting;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
@@ -67,12 +68,17 @@ namespace GoogleSpreadSheetLoader.Download
         
         private static async Awaitable<bool> TryDownloadSheet(List<RequestInfo> listDownloadInfo, CancellationToken cancellationToken = default)
         {
+            var accessToken = await GSSL_ServiceAccountAuth.GetAccessTokenAsync(cancellationToken);
+
             // 실패한 요청들만 재시도
             var failedRequests = listDownloadInfo.Where(x => x.HasError && x.CanRetry).ToList();
             
             if (failedRequests.Any())
             {
                 Debug.LogWarning($"실패한 시트 {failedRequests.Count}개 재시도 중...");
+                
+                foreach (var request in failedRequests)
+                    request.Prepare(accessToken);
                 
                 // 모든 실패한 요청을 병렬로 재시도
                 var retryTasks = failedRequests.Select(request => request.RetryAsync(cancellationToken)).ToArray();
@@ -87,6 +93,7 @@ namespace GoogleSpreadSheetLoader.Download
                     
                     if (!info.IsDisposed)
                     {
+                        info.Prepare(accessToken);
                         info.SendAndGetAsyncOperation();
                     }
                 }
