@@ -6,7 +6,6 @@ using System.Threading;
 using GoogleSpreadSheetLoader.Setting;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace GoogleSpreadSheetLoader.Auth
 {
@@ -281,32 +280,29 @@ namespace GoogleSpreadSheetLoader.Auth
             string jwt,
             CancellationToken cancellationToken)
         {
-            var body = $"grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion={UnityWebRequest.EscapeURL(jwt)}";
-            using var request = new UnityWebRequest(TokenUrl, UnityWebRequest.kHttpVerbPOST);
-            request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            var body = $"grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion={Uri.EscapeDataString(jwt)}";
+            using var content = new System.Net.Http.StringContent(
+                body,
+                Encoding.UTF8,
+                "application/x-www-form-urlencoded");
+            using var httpClient = new System.Net.Http.HttpClient();
+            using var response = await httpClient.PostAsync(TokenUrl, content);
+            cancellationToken.ThrowIfCancellationRequested();
+            var responseText = await response.Content.ReadAsStringAsync();
 
-            var operation = request.SendWebRequest();
-            while (!operation.isDone)
+            if (!response.IsSuccessStatusCode)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Awaitable.NextFrameAsync(cancellationToken);
+                throw new Exception($"서비스 계정 토큰 발급 실패: {(int)response.StatusCode} {response.ReasonPhrase}\n{responseText}");
             }
 
-            if (request.result != UnityWebRequest.Result.Success)
-            {
-                throw new Exception($"서비스 계정 토큰 발급 실패: {request.error}\n{request.downloadHandler.text}");
-            }
-
-            var response = JObject.Parse(request.downloadHandler.text);
-            var accessToken = response["access_token"]?.ToString();
+            var tokenResponse = JObject.Parse(responseText);
+            var accessToken = tokenResponse["access_token"]?.ToString();
             if (string.IsNullOrWhiteSpace(accessToken))
             {
-                throw new Exception($"서비스 계정 토큰 응답에 access_token이 없습니다.\n{request.downloadHandler.text}");
+                throw new Exception($"서비스 계정 토큰 응답에 access_token이 없습니다.\n{responseText}");
             }
 
-            var expiresIn = response["expires_in"]?.Value<int>() ?? 3600;
+            var expiresIn = tokenResponse["expires_in"]?.Value<int>() ?? 3600;
             return (accessToken, expiresIn);
         }
 

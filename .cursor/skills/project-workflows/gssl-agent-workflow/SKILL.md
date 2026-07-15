@@ -40,9 +40,12 @@ The JSON file path is stored in `SettingData.asset` and is not committed to git 
 
 `Assets/GoogleSpreadSheetLoader/Generated/Cache/` files are **GSSL-owned generated artifacts**.
 
+`Assets/Resources/Localize_*.json` is also **GSSL-generated** from Localization sheets. Never hand-edit it.
+
 ### Never in real usage
 
 - Do **not** edit `Generated/Cache/*.txt` to apply table data changes
+- Do **not** hand-edit `Assets/Resources/Localize_*.json` (or other GSSL outputs) to add/change keys or values
 - Do **not** hand-edit cache as a shortcut when sync fails
 - Do **not** use `mode: "regenerate"` right after MCP sheet edits as a substitute for download
 
@@ -59,7 +62,7 @@ The JSON file path is stored in `SettingData.asset` and is not committed to git 
 3. Diagnose GSSL/Agent Bridge issues
 4. Tell the user what blocked sync
 
-Do **not** patch cache manually unless the user explicitly requests a temporary logic/debug investigation.
+Do **not** patch cache or `Localize_*.json` manually unless the user explicitly requests a temporary logic/debug investigation.
 
 ### Correct data path
 
@@ -67,7 +70,7 @@ Do **not** patch cache manually unless the user explicitly requests a temporary 
 Google Sheets (source of truth)
   -> mode: update (IndividualUpdateSelectedSheets)
   -> Generated/Cache/*.txt (written by GSSL)
-  -> Generated scripts / ScriptableObjects
+  -> Generated scripts / ScriptableObjects / Localize_*.json
 ```
 
 ## Pending file

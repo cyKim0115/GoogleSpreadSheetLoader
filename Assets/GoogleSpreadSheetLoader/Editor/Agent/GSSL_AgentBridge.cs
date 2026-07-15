@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GoogleSpreadSheetLoader.OneButton;
+using GoogleSpreadSheetLoader.Setting;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,22 +15,22 @@ namespace GoogleSpreadSheetLoader.Agent
     {
         private static bool _isRunning;
 
-        [MenuItem("Tools/GSSL/Sync Pending Sheets")]
+        [MenuItem("Tools/GSSL/Sync Pending Sheets", priority = 20)]
         public static void SyncPendingSheets()
         {
             ExecutePending(GSSL_AgentPending.ModeUpdate);
         }
 
-        [MenuItem("Tools/GSSL/Regenerate Pending Sheets")]
+        [MenuItem("Tools/GSSL/Regenerate Pending Sheets", priority = 21)]
         public static void RegeneratePendingSheets()
         {
             ExecutePending(GSSL_AgentPending.ModeRegenerate);
         }
 
-        [MenuItem("Tools/GSSL/Reconnect Table Linker")]
+        [MenuItem("Tools/GSSL/Reconnect Table Linker", priority = 22)]
         public static void ReconnectTableLinkerMenu()
         {
-            if (TryRejectWhenBusy())
+            if (!EnsureSettingReady() || TryRejectWhenBusy())
                 return;
 
             var sheets = new List<string>();
@@ -42,10 +43,10 @@ namespace GoogleSpreadSheetLoader.Agent
                 clearPending: false);
         }
 
-        [MenuItem("Tools/GSSL/Sync All Sheets")]
+        [MenuItem("Tools/GSSL/Sync All Sheets", priority = 23)]
         public static void SyncAllSheets()
         {
-            if (TryRejectWhenBusy())
+            if (!EnsureSettingReady() || TryRejectWhenBusy())
                 return;
 
             var sheets = new List<string>();
@@ -58,7 +59,7 @@ namespace GoogleSpreadSheetLoader.Agent
                 clearPending: false);
         }
 
-        [MenuItem("Tools/GSSL/Cancel Process")]
+        [MenuItem("Tools/GSSL/Cancel Process", priority = 40)]
         public static void CancelProcessMenu()
         {
             GSSL_OneButton.CancelCurrentProcess();
@@ -74,6 +75,9 @@ namespace GoogleSpreadSheetLoader.Agent
 
         private static void ExecutePending(string expectedMode)
         {
+            if (!EnsureSettingReady())
+                return;
+
             if (TryRejectWhenBusy())
                 return;
 
@@ -107,6 +111,18 @@ namespace GoogleSpreadSheetLoader.Agent
                 : "Selected sheet regeneration completed.";
 
             BeginAwaitable(operation, pending.mode, pending.sheets, successMessage, clearPending: true);
+        }
+
+        private static bool EnsureSettingReady()
+        {
+            if (GSSL_Setting.CheckAndCreate())
+                return true;
+
+            WriteError(
+                string.Empty,
+                new List<string>(),
+                "GSSL SettingData를 로드하지 못했습니다. Assets/GoogleSpreadSheetLoader/SettingData.asset을 확인하세요.");
+            return false;
         }
 
         private static void BeginAwaitable(
