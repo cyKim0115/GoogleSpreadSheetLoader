@@ -29,7 +29,8 @@ Templates: `.cursor/system-crew/templates/`
 7. When unclear, start as Producer.
 8. Persist reference work under `docs/references/` (INDEX + asset folder). Capture **user callouts** separately. See `.cursor/system-crew/workflows/reference-assets.md`.
 9. When the user proposes a system/implementation **idea** and asks to judge/apply it, run `.cursor/system-crew/workflows/idea-evaluation.md` first (Feasibility / Direction fit / Efficiency). Do not apply on taste alone. Log under `docs/decisions/ideas/`. Verdicts: `ADOPT` | `ADOPT_WITH_CHANGES` | `DEFER` | `REJECT`. `REJECT` is product-adoption rejection; time-boxed experiment retries need a fresh verdict. Competing visual trials use per-approach `exp/*` branches; product merge waits for a separate `ADOPT*`.
-10. Implementer closes verification at runtime before declaring done (project-specific play/MCP skills when available). Document how to reach the slice past title/intro gates. Discard ephemeral verification cheats/skips after the test.
+10. If a **rag** knowledge repo is detectable (`RAG_ROOT`, sibling `../rag`, or `capture-to-rag` skill default path), after research / idea evaluation / meaningful asset close-out the Producer **offers** a capture-to-rag review. Do not force-save; do not replace host `docs/` logs.
+10. Implementer closes verification at runtime before declaring done (project-specific play/MCP/Agent Playtest skills when available: realtime timeouts, short success evidence). Document how to reach the slice past title/intro gates. Discard ephemeral verification cheats/skips after the test. Agent Playtest/Webhook/Recorder porting alone is out_of_scope — host project workflows.
 
 ## Project-local overrides
 

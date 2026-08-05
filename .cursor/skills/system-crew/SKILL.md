@@ -73,12 +73,17 @@ description: >-
 - 4역할 루프·`docs/references/` 자산을 **만들지 않음**
 - 왜 맞지 않는지 짧게 설명하고 프로젝트 스킬/일반 구현으로 재라우팅
 
-예: “이 채팅의 MCP 검증 습관을 스킬로 남겨줘” → create-skill / project-workflows 경로.
+예: “이 채팅의 MCP 검증 습관을 스킬로 남겨줘” → create-skill / project-workflows 경로.  
+예: “Webhook/Recorder를 이식해줘” → 호스트 agent-playtest / unity-recorder 스킬 (system-crew 루프 아님).
 
 ## 문서 경로
 
 - 참고 자산: `docs/references/`
 - 아이디어 판정: `docs/decisions/ideas/`
+
+## RAG 캡처 (선택)
+
+호스트에 **rag**가 있으면(형제 `../rag` / `RAG_ROOT` / `capture-to-rag`), 리서치·아이디어 평가·의미 있는 자산화 **마무리 시** Producer가 `capture-to-rag` **검토**를 제안한다. 강제 저장 아님. 호스트 `docs/`를 대체하지 않는다.
 
 ## 비활성 기본값
 

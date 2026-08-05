@@ -7,4 +7,4 @@ alwaysApply: false
 
 Follow `.cursor/system-crew/roles/04-fidelity-qa.md`.
 
-Fill `.cursor/system-crew/templates/fidelity-report.md`. Distinguish bugs vs spec gaps vs intentional inspired differences.
+Fill `.cursor/system-crew/templates/fidelity-report.md`. Distinguish bugs vs spec gaps vs intentional inspired differences. Prefer short capture/report evidence from Implementer; do not require full-play long-video LLM analysis as a default gate.

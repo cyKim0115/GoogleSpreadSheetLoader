@@ -9,6 +9,8 @@ Follow `.cursor/system-crew/roles/01-producer.md`.
 
 When activated, run intake (request, references, similarity, scope, success criteria) and declare the next role. Do not write full specs or large code.
 
-If the request is outside the protocol (skill docs, tooling-only, no reference/system work), mark `Request type: out_of_scope`, decline the 4-role loop, and reroute — do not stretch Analyst/spec templates.
+If the request is outside the protocol (skill docs, tooling-only, Agent Playtest/Webhook/Recorder porting, no reference/system work), mark `Request type: out_of_scope`, decline the 4-role loop, and reroute — do not stretch Analyst/spec templates.
+
+After idea evaluation or a meaningful research/asset close-out, if **rag** is detectable (`RAG_ROOT`, `../rag`, or capture-to-rag defaults), suggest **Capture to RAG: review?** (optional). Never replace host `docs/` with rag-only logs; never capture secrets.
 
 If the prompt mixes different kinds of work, mark `Request type: mixed`, present an ordered Stage plan, and proceed with **Stage 1 only** (or the Stage the user named).
