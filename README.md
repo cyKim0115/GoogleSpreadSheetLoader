@@ -16,9 +16,22 @@ Unity 에디터 확장 도구로, Google SpreadSheet에서 데이터를 다운�
 
 ## 설치 방법
 
-1. 이 저장소를 클론하거나 Unity 패키지 파일(`GoogleSpreadSheetLoader.unitypackage`)을 다운로드합니다.
+1. 이 저장소를 클론하거나 루트의 `GoogleSpreadSheetLoader.unitypackage`를 받아 임포트합니다.
 2. Unity 프로젝트에 패키지를 임포트합니다.
 3. Unity 에디터에서 `Tools > GSSL > Open Window` 메뉴를 열어 설정을 시작합니다.
+
+### 배포자: `.unitypackage` 갱신 (batchmode)
+
+에디터를 **종료한 뒤** (Library 경합 방지):
+
+```powershell
+.\scripts\export-unitypackage.ps1              # 생성만
+.\scripts\export-unitypackage.ps1 -Commit -Push  # 생성 + 커밋 + 푸시
+```
+
+- 메뉴: `Tools > GSSL > Export Unity Package`
+- CI: `.github/workflows/export-unitypackage.yml` (game-ci 라이선스 Secrets 필요)
+- 상세: 문서 [How-to · .unitypackage 배포 Export](docs/site/how-to/export-package.md)
 
 ## 사용 방법
 

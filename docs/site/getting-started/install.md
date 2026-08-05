@@ -9,7 +9,7 @@ Unity 프로젝트에 Google SpreadSheet Loader(GSSL)를 넣는 방법입니다.
 다음 중 하나를 선택합니다.
 
 - GitHub에서 [저장소](https://github.com/cyKim0115/GoogleSpreadSheetLoader)를 클론
-- 배포된 `GoogleSpreadSheetLoader.unitypackage`를 다운로드
+- 배포된 루트 `GoogleSpreadSheetLoader.unitypackage`를 다운로드 (GitHub 레포/Release)
 {% endstep %}
 
 {% step %}
@@ -17,6 +17,8 @@ Unity 프로젝트에 Google SpreadSheet Loader(GSSL)를 넣는 방법입니다.
 
 클론한 경우 `Assets/GoogleSpreadSheetLoader/`가 프로젝트에 포함되도록 복사하거나 서브모듈/UPM 방식으로 붙입니다.  
 유니티패키지인 경우 **Assets > Import Package > Custom Package**로 임포트합니다.
+
+패키지 파일을 **만드는** 쪽(배포)은 [`.unitypackage 배포 Export`](../how-to/export-package.md)를 참고하세요.
 {% endstep %}
 
 {% step %}
