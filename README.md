@@ -2,6 +2,8 @@
 
 Unity 에디터 확장 도구로, Google SpreadSheet에서 데이터를 다운로드하고 Unity에서 사용할 수 있는 형태로 자동 변환하는 도구입니다.
 
+📚 **문서:** [cykim.gitbook.io/googlespreadsheetloader](https://cykim.gitbook.io/googlespreadsheetloader/)
+
 ## 주요 기능
 
 - 🔐 **서비스 계정 인증**: Google 서비스 계정(JSON 키)으로 OAuth2 토큰을 발급받아 인증하므로, 문서를 "링크가 있는 모든 사용자"로 공개할 필요 없이 **비공개 스프레드시트**도 다운로드
