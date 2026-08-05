@@ -10,6 +10,7 @@ Unity 에디터 확장 도구로, Google SpreadSheet에서 데이터를 다운�
 - 📊 **테이블 데이터 관리**: 스프레드시트를 Unity의 ScriptableObject로 변환하여 게임 데이터로 활용
 - 🌐 **다국어 지원**: Localization 시트를 JSON 형식으로 변환하여 다국어 시스템 구축
 - 🔢 **Enum 자동 생성**: 스프레드시트 데이터를 기반으로 Enum 타입 자동 생성
+- 🤖 **Agent 동기화**: `.cursor/gssl-pending.json`과 `Tools/GSSL/Sync Pending Sheets`로 시트 단위 선택 동기화
 
 ## 설치 방법
 
@@ -58,11 +59,43 @@ Unity 에디터 확장 도구로, Google SpreadSheet에서 데이터를 다운�
    - **TableData**: 테이블 데이터 클래스 및 ScriptableObject 생성
    - **Localization**: `Localization` 타입으로 지정된 시트에서 다국어 JSON 파일 생성
 
+### 5. Agent 동기화 (선택)
+
+에디터를 연 채로 AI/에이전트가 시트만 골라 갱신할 때 사용합니다.
+
+**전제**
+
+- Unity Editor가 해당 프로젝트를 연 상태
+- Unity Skills 서버 실행 (`Window > UnitySkills > Start Server`)
+- MCP Google Sheets 도구로 스프레드시트 읽기/쓰기 가능
+- `SettingData`에 서비스 계정 JSON 절대 경로 설정, 대상 시트는 서비스 계정과 공유됨
+
+**흐름**
+
+1. `Assets/GoogleSpreadSheetLoader/Generated/Cache/cache_index.json` 및 `Generated/Cache/<Sheet>.txt`로 스키마만 **읽기**
+2. Google Sheets에서 값·서식 수정
+3. `.cursor/gssl-pending.json` 작성 예:
+
+```json
+{
+  "mode": "update",
+  "sheets": ["MyTableSheet"]
+}
+```
+
+4. Unity 메뉴 `Tools/GSSL/Sync Pending Sheets` 실행
+5. `.cursor/gssl-result.json`의 `status`가 `success`인지 확인
+6. 생성물 diff만 커밋 대상으로 삼음
+
+**금지:** `Generated/**`, `Assets/Resources/Localize_*.json`을 손으로 고쳐 데이터 반영하기. 시트 수정 직후 `mode: "regenerate"`만으로 최신화를 대체하지 않기.
+
+상세 절차: `.cursor/skills/project-workflows/gssl-agent-workflow/SKILL.md`
+
 ## 스프레드시트 형식
 
-### 테이블 데이터 형식
+### 테이블 데이터 형식 (Common)
 
-첫 번째 행은 헤더로 사용되며, 다음 형식을 따릅니다:
+첫 번째 행은 헤더(스키마)로 사용되며, 다음 형식을 따릅니다:
 
 ```
 변수명-타입
@@ -80,6 +113,19 @@ Type-ItemType
 - `int`, `float`, `bool`, `long`, `double`, `string`
 - 사용자 정의 Enum 타입
 
+헤더에 `-`가 없으면 GSSL 코드젠 필드로 쓰이지 않습니다. 코멘트/메모 열(`#` 또는 빈 헤더)에 적합합니다.
+
+### 권장 시트 서식
+
+| 역할 | 색 | 비고 |
+|------|----|------|
+| Common / Localization **스키마 행**(row 1) | 하늘색 `#C9DAF8` | 데이터 컬럼만 |
+| 코멘트/메모 열 | 회색 `#D9D9D9` (변형 `#999999`) | 런타임 필드 아님 |
+| Localization **테스트 행**(row 2) | 글자색 `#999999` | 삭제하지 말 것 |
+| EnumType | 시트별 기존 패턴 | Common 하늘색 규칙을 강제하지 않음 |
+
+서식·MCP 색상 값·체크리스트: `.cursor/skills/project-workflows/gssl-sheet-writing/SKILL.md`
+
 ### Enum 생성 형식
 
 Enum을 생성하려면 시트 이름에 `EnumDef` 문자열이 포함되어야 합니다.
@@ -90,24 +136,47 @@ Enum을 생성하려면 시트 이름에 `EnumDef` 문자열이 포함되어야 
 
 ### Localization 형식
 
-다국어 데이터를 생성하려면 시트 이름에 `Localization` 문자열이 포함되어야 합니다.
+다국어 데이터를 생성하려면 시트 **이름**에 Setting의 localization 타입 문자열(기본값 `Localization`)이 포함되어야 합니다. 시트명은 프로젝트마다 다를 수 있습니다 (예: `UIString_Localization`).
 
-- 헤더는 테이블과 동일하게 `변수명-타입` 형식을 사용합니다.
-- `id` 헤더를 가진 열이 키로 사용됩니다.
-- 나머지 각 열(언어)마다 `Assets/Resources/Localize_{변수명}.json` 파일이 생성됩니다 (예: `id-string`, `Korean-string`, `English-string` → `Localize_Korean.json`, `Localize_English.json`).
-- 저장 형식은 `{ "Key": ..., "Value": ... }` 항목의 배열이며, 런타임 `LocalizeTable`이 그대로 읽어 들입니다.
+**권장 열**
+
+- `id-string` (또는 `ID-string`): JSON `Key`
+- `{Language}-string`: 언어별 값. 열 이름마다 `Assets/Resources/Localize_{열이름}.json` 생성  
+  (예: `Korean-string`, `English-string` → `Localize_Korean.json`, `Localize_English.json`)
+- `#` 또는 빈 헤더: 메모/카테고리 (선택)
+
+**권장 행 구조**
+
+| 행 | 역할 |
+|----|------|
+| Row 1 | 스키마 (`변수명-타입`), 하늘색 `#C9DAF8` |
+| Row 2 | 테스트 행 (자동번역·파이프라인용, 권장). 글자색 `#999999`. **삭제·덮어쓰기 금지** |
+| Row 3+ | 실제 로컬라이즈 키. 새 키는 테스트 행 **아래**에 추가 |
+
+- 가변 문구는 시트에 `{0}` 같은 플레이스홀더를 둡니다.
+- 저장 형식은 `{ "Key": ..., "Value": ... }` 항목의 **배열**입니다.
+- GSSL은 row 1 이후 모든 행(테스트 행 포함)을 JSON에 넣습니다.
+
+**생성물·런타임**
+
+- JSON은 GSSL이 생성합니다. **직접 편집하지 마세요.** 키·문구 변경은 시트 → Sync 경로만 사용합니다.
+- 패키지에 포함된 `LocalizeTable` / `GetLocalizeText`는 **샘플 API**입니다. 프로젝트 전용 로거·언어 유틸과의 연동은 소비 프로젝트에서 처리합니다.
 
 ## 생성되는 파일 구조
 
 ```
 Assets/
-├── Generated/
-│   ├── Enum/              # 생성된 Enum 클래스
-│   ├── TableScript/       # 생성된 테이블 클래스
-│   ├── DataScript/        # 생성된 데이터 클래스
-│   └── TableData/         # 생성된 ScriptableObject 에셋
+├── GoogleSpreadSheetLoader/
+│   └── Generated/
+│       ├── Cache/                 # 다운로드 캐시 (읽기 전용으로 취급)
+│       ├── Script/
+│       │   ├── Enum/              # 생성된 Enum 클래스
+│       │   ├── TableScript/       # 생성된 테이블 클래스
+│       │   └── DataScript/        # 생성된 데이터 클래스
+│       └── SerializeObject/
+│           └── TableData/         # 생성된 ScriptableObject 에셋
 └── Resources/
-    └── Localize_*.json    # 다국어 JSON 파일
+    └── Localize_*.json            # 다국어 JSON 파일
 ```
 
 ## 사용 예시
@@ -131,7 +200,7 @@ public class ItemManager : MonoBehaviour
 }
 ```
 
-### 다국어 시스템 사용
+### 다국어 시스템 사용 (샘플)
 
 ```csharp
 using UnityEngine;
@@ -147,9 +216,18 @@ public class LocalizationExample : MonoBehaviour
 }
 ```
 
+언어 전환·UI 바인딩·프로젝트 유틸 연동은 각 게임/앱 프로젝트의 가이드를 따르세요.
+
+## 메뉴 요약
+
+| 메뉴 | 용도 |
+|------|------|
+| `Tools/GSSL/Open Window` | 설정·다운로드 UI |
+| `Tools/GSSL/Sync Pending Sheets` | Agent pending (`mode: update`) 동기화 |
+| `Tools/GSSL/Regenerate Pending Sheets` | 캐시 기반 재생성 (`mode: regenerate`) |
+
 ## 요구사항
 
 - Unity 6000.2 이상 (`Awaitable` API 사용)
 - Google Cloud 서비스 계정 JSON 키 (Google Sheets API 활성화 필요)
 - Newtonsoft.Json (`com.unity.nuget.newtonsoft-json`, Unity Package Manager를 통해 설치)
-

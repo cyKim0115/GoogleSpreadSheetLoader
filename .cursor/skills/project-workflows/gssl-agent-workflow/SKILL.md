@@ -190,3 +190,9 @@ Then execute `Tools/GSSL/Regenerate Pending Sheets`.
 - target cache file under `Generated/Cache/` is updated for `mode: "update"`
 - generated C# / ScriptableObject outputs reflect the requested change
 - no compile errors after sync
+
+## Related
+
+- Sheet layout / colors / Localization row conventions: `gssl-sheet-writing`
+- Generated-data rule: `.cursor/rules/gssl-generated-data.mdc`
+- Package overview: `README.md` (Agent sync, Localization)
