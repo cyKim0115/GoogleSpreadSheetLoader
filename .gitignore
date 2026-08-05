@@ -19,7 +19,16 @@ Assets/GoogleSpreadSheetLoader/SettingData.asset
 .vscode
 
 # Cursor: ignore local/runtime files (gssl-pending.json, gssl-result.json, etc.)
-# but keep shared agent skills and rules tracked
+# but keep shared agent skills, rules, and pack submodules tracked
 .cursor/*
 !.cursor/skills/
+!.cursor/skills/**
 !.cursor/rules/
+!.cursor/rules/**
+!.cursor/git-workflow/
+!.cursor/git-workflow/**
+!.cursor/system-crew/
+!.cursor/system-crew/**
+!.cursor/SYSTEM-CREW.md
+.cursor/gssl-pending.json
+.cursor/gssl-result.json
